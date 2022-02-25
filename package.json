@@ -20,6 +20,9 @@
     "@emotion/styled": "^11.8.1",
     "gatsby": "^4.8.0",
     "gatsby-plugin-emotion": "^7.8.0",
+    "gatsby-plugin-image": "^2.8.1",
+    "gatsby-plugin-sharp": "^4.8.1",
+    "gatsby-source-filesystem": "^4.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
