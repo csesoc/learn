@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 
 interface propTypes {
   pageTitle?: string
@@ -7,13 +7,24 @@ interface propTypes {
 }
 
 const Layout = (props: propTypes) => {
+
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
   return (
     <div>
-      <title>{props.pageTitle ? `${props.pageTitle} | ` : '' + 'CSESoc Learning Platform'}</title>
+      <title>{props.pageTitle ? `${props.pageTitle} | ` : '' + data.site.siteMetadata.title}</title>
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/catalogue">Catalogue</Link></li>
+          <li><Link to="/publication">Publication</Link></li>
           <li><Link to="/creators">Creators</Link></li>
           <li><Link to="/about">About</Link></li>
         </ul>
