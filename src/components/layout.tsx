@@ -8,6 +8,9 @@ interface propTypes {
 
 const Layout = (props: propTypes) => {
 
+  /*
+   * Components make graphql queries using `useStaticQuery` hook within component
+   */
   const data = useStaticQuery(graphql`
     query MyQuery {
       site {
@@ -24,7 +27,7 @@ const Layout = (props: propTypes) => {
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/publication">Publication</Link></li>
+          <li><Link to="/publications">Publications</Link></li>
           <li><Link to="/creators">Creators</Link></li>
           <li><Link to="/about">About</Link></li>
         </ul>
