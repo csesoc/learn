@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
-import Layout from "../components/layout";
+import Layout from "../../components/layout";
 
 type Node = {
     frontmatter: {
@@ -28,7 +28,7 @@ const Publications = ({ data }: PropTypes) => {
                 data.allMdx.nodes.map((node: Node) => (
                     <article key={node.id}>
                         <h2>
-                            <Link to={`/blog/${node.slug}`}>
+                            <Link to={`/publications/${node.slug}`}>
                                 {node.frontmatter.title}
                             </Link>
                         </h2>

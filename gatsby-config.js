@@ -12,7 +12,7 @@ module.exports = {
             resolve: "gatsby-source-filesystem",
             options: {
                 name: `publications_data`,
-                path: `${__dirname}/pubs_data`,
+                path: `${__dirname}/src/pages/publications/pubs_data`,
             },
         },
         "gatsby-plugin-mdx",
