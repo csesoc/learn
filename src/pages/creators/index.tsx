@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CreatorCard from "../../components/CreatorCard";
 import Layout from "../../components/layout";
-import creators from "./creators_data";
+import creators from "../../assets/creators_data";
 
 const Creators = () => {
     return (
