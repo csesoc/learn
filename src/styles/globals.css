@@ -4,3 +4,8 @@ body {
     font-family: "Raleway", "Trebuchet MS", "Lucida Sans Unicode",
         "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
+
+code {
+    background-color: blue;
+    width: 100%;
+}

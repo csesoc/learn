@@ -3,20 +3,22 @@ import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout";
+import * as styles from "../../styles/publicationPage.module.css";
 
 const BlogPost = ({ data }: any) => {
     const image = getImage(data.mdx.frontmatter.hero_image);
 
     return (
         <Layout pageTitle={data.mdx.frontmatter.title}>
-            <p>{data.mdx.frontmatter.date}</p>
             {image && (
                 <GatsbyImage
                     image={image}
                     alt={data.mdx.frontmatter.hero_image_alt}
                 />
             )}
-            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+            <div className={styles.container}>
+                <MDXRenderer>{data.mdx.body}</MDXRenderer>
+            </div>
         </Layout>
     );
 };

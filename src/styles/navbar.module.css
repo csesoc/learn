@@ -52,16 +52,21 @@
     background-color: #fff;
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 0px 0px 1px #bbb;
 }
 
 .dropdownItem {
     padding: 15px;
     transition: 0.1s;
     font-size: larger;
+    text-decoration: none;
 }
 
 .dropdownItem:hover {
     background-color: #bbb;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .dropdownTrigger {

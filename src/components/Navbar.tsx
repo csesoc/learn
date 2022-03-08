@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { useEffect, useState } from "react";
 import { debounce, throttle } from "../utils/delays";
@@ -67,7 +67,12 @@ const Navbar = () => {
                                     return (
                                         <DropdownMenu.Item
                                             className={styles.dropdownItem}
-                                            key={index}>
+                                            key={index}
+                                            onSelect={() =>
+                                                navigate(
+                                                    `/${item.toLowerCase()}`
+                                                )
+                                            }>
                                             {item}
                                         </DropdownMenu.Item>
                                     );

@@ -38,7 +38,7 @@ const Layout = (props: propTypes) => {
         </ul>
       </nav> */}
             <Navbar />
-            <main style={{ paddingTop: 50 }}>{props.children}</main>
+            <main style={{ paddingTop: 95 }}>{props.children}</main>
         </div>
     );
 };

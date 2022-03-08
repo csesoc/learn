@@ -20,6 +20,8 @@ type PropTypes = {
 };
 
 const Publications = ({ data }: PropTypes) => {
+    // It seems
+
     return (
         <Layout pageTitle="My Blog Posts">
             {data &&
