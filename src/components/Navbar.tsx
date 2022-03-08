@@ -1,65 +1,80 @@
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { debounce, throttle } from "../utils/delays";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import * as styles from "../styles/navbar.module.css";
+import MenuStack from "./MenuStack";
 
 const Navbar = () => {
     const otherLinks: string[] = ["Publications", "Creators", "About"];
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const throttled = () =>
+            throttle(() => {
+                setWidth(window.innerWidth);
+            }, 200);
+
+        window.addEventListener("resize", throttled);
+        return () => {
+            window.removeEventListener("resize", throttled);
+        };
+    });
 
     return (
-        <nav
-            style={{
-                width: "100%",
-                position: "fixed",
-                backgroundColor: "rgb(61,61,61)",
-                zIndex: 1,
-            }}>
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignContent: "center",
-                    maxWidth: 1000,
-                    margin: "auto",
-                    padding: 30,
-                }}>
-                <div
-                    style={{
-                        flexGrow: 2,
-                    }}>
-                    <Link to="/">
-                        <StaticImage
-                            src="../assets/csesocwhiteblue.png"
-                            alt={"csesoc"}
-                            width={150}
-                        />
-                    </Link>
+        <nav className={styles.nav}>
+            <div className={styles.navContainer}>
+                <div className={styles.leftContainer}>
+                    <div className={styles.imageAndHeader}>
+                        <Link to="/">
+                            <StaticImage
+                                src="../assets/csesocwhiteblue.png"
+                                alt={"csesoc"}
+                                width={150}
+                            />
+                        </Link>
+                        {width > 500 && (
+                            <h1 className={styles.pageHeader}>
+                                Learning Platform
+                            </h1>
+                        )}
+                    </div>
                 </div>
 
-                <div
-                    style={{
-                        display: "flex",
-                        alignContent: "center",
-                        justifyContent: "space-evenly",
-                        flexGrow: 1,
-                    }}>
-                    {otherLinks &&
+                <div className={styles.rightContainer}>
+                    {width > 800 ? (
                         otherLinks.map((item, index) => {
                             return (
                                 <Link
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        flexDirection: "column",
-                                        textAlign: "right",
-                                        textDecoration: "none",
-                                        color: "white",
-                                        fontWeight: 100,
-                                    }}
+                                    className={styles.pageLink}
+                                    key={index}
                                     to={`/${item.toLowerCase()}`}>
                                     {item}
                                 </Link>
                             );
-                        })}
+                        })
+                    ) : (
+                        <DropdownMenu.Root>
+                            <DropdownMenu.Trigger
+                                className={styles.dropdownTrigger}>
+                                <MenuStack />
+                            </DropdownMenu.Trigger>
+                            <DropdownMenu.Content
+                                align="end"
+                                className={styles.dropdownContent}>
+                                {otherLinks.map((item, index) => {
+                                    return (
+                                        <DropdownMenu.Item
+                                            className={styles.dropdownItem}
+                                            key={index}>
+                                            {item}
+                                        </DropdownMenu.Item>
+                                    );
+                                })}
+                            </DropdownMenu.Content>
+                        </DropdownMenu.Root>
+                    )}
                 </div>
             </div>
         </nav>

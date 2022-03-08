@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.child {
+    width: 30px;
+    height: 4px;
+    background-color: #eee;
+    border-radius: 2px;
+}
