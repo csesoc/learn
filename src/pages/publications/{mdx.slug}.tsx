@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -10,6 +11,13 @@ const BlogPost = ({ data }: any) => {
 
     return (
         <Layout pageTitle={data.mdx.frontmatter.title}>
+            <Helmet>
+                <meta
+                    name="description"
+                    content={data.mdx.frontmatter.metaDescription}
+                />
+                <meta name="title" content={data.mdx.frontmatter.title} />
+            </Helmet>
             {image && (
                 <GatsbyImage
                     image={image}
@@ -28,7 +36,9 @@ export const query = graphql`
         mdx(id: { eq: $id }) {
             frontmatter {
                 title
+                author
                 date(formatString: "MMMM DD, YYYY")
+                metaDescription
             }
             body
             slug

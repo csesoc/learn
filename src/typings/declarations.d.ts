@@ -4,3 +4,6 @@ declare module "*.css" {
     const content: { [className: string]: string };
     export = content;
 }
+
+// For some reason vscode does not recognise react-helmet package
+declare module "react-helmet";

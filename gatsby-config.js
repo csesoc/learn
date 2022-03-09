@@ -22,5 +22,6 @@ module.exports = {
                 fonts: ["Raleway"],
             },
         },
+        "gatsby-plugin-react-helmet",
     ],
 };
