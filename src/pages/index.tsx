@@ -1,6 +1,7 @@
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import Layout from "../components/layout";
+import PostsFeed from "../components/PostsFeed"
 import "../styles/globals.css";
 
 const IndexPage = () => {
@@ -11,6 +12,7 @@ const IndexPage = () => {
                 Here you will find an abundance of educational resources on a
                 wide range of programming-related topics. Have a look around!
             </p>
+            <PostsFeed/>
             <div
                 style={{
                     width: "100%",
