@@ -5,13 +5,12 @@
 .nav {
     width: 100%;
     position: fixed;
-    background-color: rgb(61, 61, 61);
+    background: linear-gradient(90deg, #2e1900, #001124);
     z-index: 1;
 }
 
 .navContainer {
     display: flex;
-    justify-content: space-between;
     align-content: center;
     max-width: 1000px;
     margin: auto;
@@ -19,7 +18,8 @@
 }
 
 .leftContainer {
-    flex-grow: 2;
+    padding: 1px 6px;
+    visibility: hidden;
 }
 
 .pageHeader {
@@ -28,15 +28,25 @@
     color: #eee;
 }
 
-.imageAndHeader {
+.middleContainer {
+    flex-grow: 1;
+    justify-content: center;
     display: flex;
+}
+
+.middleStack {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .rightContainer {
     display: flex;
     align-content: center;
+    justify-self: right;
     justify-content: space-evenly;
-    flex-grow: 1;
+    position: sticky;
 }
 
 .pageLink {
@@ -72,4 +82,13 @@
 .dropdownTrigger {
     background-color: transparent;
     border: none;
+    display: flex;
+    align-items: center;
+}
+
+.learningPlatform {
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    font-size: larger;
 }

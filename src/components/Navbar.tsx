@@ -25,61 +25,49 @@ const Navbar = () => {
     return (
         <nav className={styles.nav}>
             <div className={styles.navContainer}>
-                <div className={styles.leftContainer}>
-                    <div className={styles.imageAndHeader}>
-                        <Link to="/">
+                {width > 400 && (
+                    <div className={styles.leftContainer}>
+                        <MenuStack />
+                    </div>
+                )}
+                <div className={styles.middleContainer}>
+                    <Link to="/" style={{ textDecoration: "none" }}>
+                        <div className={styles.middleStack}>
                             <StaticImage
                                 src="../assets/csesocwhiteblue.png"
                                 alt={"csesoc"}
                                 width={150}
                             />
-                        </Link>
-                        {width > 500 && (
-                            <h1 className={styles.pageHeader}>
+                            <div className={styles.learningPlatform}>
                                 Learning Platform
-                            </h1>
-                        )}
-                    </div>
+                            </div>
+                        </div>
+                    </Link>
                 </div>
 
                 <div className={styles.rightContainer}>
-                    {width > 800 ? (
-                        otherLinks.map((item, index) => {
-                            return (
-                                <Link
-                                    className={styles.pageLink}
-                                    key={index}
-                                    to={`/${item.toLowerCase()}`}>
-                                    {item}
-                                </Link>
-                            );
-                        })
-                    ) : (
-                        <DropdownMenu.Root>
-                            <DropdownMenu.Trigger
-                                className={styles.dropdownTrigger}>
-                                <MenuStack />
-                            </DropdownMenu.Trigger>
-                            <DropdownMenu.Content
-                                align="end"
-                                className={styles.dropdownContent}>
-                                {otherLinks.map((item, index) => {
-                                    return (
-                                        <DropdownMenu.Item
-                                            className={styles.dropdownItem}
-                                            key={index}
-                                            onSelect={() =>
-                                                navigate(
-                                                    `/${item.toLowerCase()}`
-                                                )
-                                            }>
-                                            {item}
-                                        </DropdownMenu.Item>
-                                    );
-                                })}
-                            </DropdownMenu.Content>
-                        </DropdownMenu.Root>
-                    )}
+                    <DropdownMenu.Root>
+                        <DropdownMenu.Trigger
+                            className={styles.dropdownTrigger}>
+                            <MenuStack />
+                        </DropdownMenu.Trigger>
+                        <DropdownMenu.Content
+                            align="end"
+                            className={styles.dropdownContent}>
+                            {otherLinks.map((item, index) => {
+                                return (
+                                    <DropdownMenu.Item
+                                        className={styles.dropdownItem}
+                                        key={index}
+                                        onSelect={() =>
+                                            navigate(`/${item.toLowerCase()}`)
+                                        }>
+                                        {item}
+                                    </DropdownMenu.Item>
+                                );
+                            })}
+                        </DropdownMenu.Content>
+                    </DropdownMenu.Root>
                 </div>
             </div>
         </nav>

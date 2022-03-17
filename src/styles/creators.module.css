@@ -1,0 +1,23 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.headerContainer {
+    text-align: center;
+}
+
+.sectionHeader {
+    color: rgb(45, 101, 224);
+}
+
+.inlineHeader {
+    color: rgb(45, 101, 224);
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

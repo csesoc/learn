@@ -20,6 +20,12 @@ module.exports = {
             resolve: "gatsby-plugin-google-fonts",
             options: {
                 fonts: ["Raleway"],
+                plugins: [
+                    {
+                        resolve: `gatsby-remark-prismjs`,
+                        options: {},
+                    },
+                ],
             },
         },
         "gatsby-plugin-react-helmet",
