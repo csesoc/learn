@@ -9,6 +9,8 @@ import MenuStack from "./MenuStack";
 const Navbar = () => {
     const otherLinks: string[] = ["Creators", "About"];
     const [width, setWidth] = useState(window.innerWidth);
+    const [showExtras, setShowExtras] = useState(true);
+    let prevScroll = window.scrollY;
 
     useEffect(() => {
         const throttled = () =>
@@ -22,9 +24,24 @@ const Navbar = () => {
         };
     });
 
+    useEffect(() => {
+        const throttled = () =>
+            throttle(() => {
+                setShowExtras(window.scrollY > prevScroll ? false : true);
+                prevScroll = window.scrollY;
+                console.log(prevScroll);
+            }, 200);
+        window.addEventListener("scroll", throttled);
+        return () => {
+            window.removeEventListener("scroll", throttled);
+        };
+    });
+
     return (
         <nav className={styles.nav}>
-            <div className={styles.navContainer}>
+            <div
+                className={styles.navContainer}
+                style={{ padding: showExtras ? 30 : 10 }}>
                 {width > 400 && (
                     <div className={styles.leftContainer}>
                         <MenuStack />
@@ -38,14 +55,20 @@ const Navbar = () => {
                                 alt={"csesoc"}
                                 width={150}
                             />
-                            <div className={styles.learningPlatform}>
+                            <div
+                                className={styles.learningPlatform}
+                                style={{
+                                    display: showExtras ? "block" : "none",
+                                }}>
                                 Learning Platform
                             </div>
                         </div>
                     </Link>
                 </div>
 
-                <div className={styles.rightContainer}>
+                <div
+                    className={styles.rightContainer}
+                    style={{ visibility: showExtras ? "visible" : "hidden" }}>
                     <DropdownMenu.Root>
                         <DropdownMenu.Trigger
                             className={styles.dropdownTrigger}>

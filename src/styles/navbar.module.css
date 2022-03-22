@@ -14,7 +14,7 @@
     align-content: center;
     max-width: 1000px;
     margin: auto;
-    padding: 30px;
+    transition-duration: 0.3s;
 }
 
 .leftContainer {
@@ -91,4 +91,5 @@
     color: white;
     padding-top: 5px;
     font-size: larger;
+    transition-duration: 0.3s;
 }
