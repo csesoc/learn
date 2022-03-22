@@ -33,22 +33,12 @@
 
     Edit `src/pages/index.tsx` to see your site update in real-time!
 
-4.  **Learn more**
+## CSESoc Dev
+Right now we are using Gatsby to render mdx articles. You can find all the articles in `/src/assets/pubs_data`. All of the frontmatter (things in between `---`) must be included for the page to render. All components are in `/src/components`, and we are using modular styles which are put in `/src/styles`. Take a look in any component or page to see how styles are loaded in. Note that every page/component has their own styles. Please follow naming conventino `<Page/Component name>.module.css`
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+### MDX pages
+Things to note
+- THe frontmatter field `description` is what goes both in the prview card on the home page and in a `<meta>` taag to help with SEOE
+- Tags in the frontmatter field need to be comma separated values, avoid putting spaces before or aftereach tag i.e follow `tags: "Something,Something2"` not `tags: "Something , Something2"`
+- Image is the cover photo of the card/article, ensure that the path to the image is relative to the `{mdx.slug}.tsx` file
+- Any images should be put in the `/src/assets/pubs_images` folder. If they are a cover photo, please name them the same as the slug for the mdx article but with [jpg|png] extension
