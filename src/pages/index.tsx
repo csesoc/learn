@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import PostCard from "../components/PostCard";
+import "../styles/globals.css";
+import { Item } from "@radix-ui/react-dropdown-menu";
 
 type Node = {
     frontmatter: {
@@ -13,7 +15,6 @@ type Node = {
         tags: string;
     };
     slug: string;
-    id: string;
 };
 
 type ArticlePreview = {
@@ -28,7 +29,9 @@ type ArticlePreview = {
 type PropTypes = {
     data: {
         allMdx: {
-            nodes: Node[];
+            edges: {
+                node: Node;
+            }[];
         };
     };
 };
@@ -38,40 +41,27 @@ const Publications = ({ data }: PropTypes) => {
     const [filteredArticles, setFilteredArticles] =
         useState<ArticlePreview[]>();
 
-    useEffect(() => {
-        setArticles(
-            data &&
-                data.allMdx &&
-                data.allMdx.nodes &&
-                data.allMdx.nodes.map((item, index): ArticlePreview => {
-                    return {
-                        date: item.frontmatter.date,
-                        title: item.frontmatter.title,
-                        author: item.frontmatter.author,
-                        description: item.frontmatter.description,
-                        image: item.frontmatter.image,
-                        tags: item.frontmatter.tags.split(","),
-                    };
-                })
-        );
-    }, [data.allMdx.nodes]);
-
     return (
         <Layout pageTitle="Home page">
-            {articles &&
-                articles.map((item: ArticlePreview) => {
-                    console.log(articles);
-                    return (
-                        <PostCard
-                            title={item.title}
-                            description={item.description}
-                            tags={item.tags}
-                            image={item.image}
-                            headingCard={false}
-                            date={item.date}
-                        />
-                    );
-                })}
+            {data &&
+                data.allMdx &&
+                data.allMdx.edges &&
+                data.allMdx.edges.map(
+                    ({ node }: { node: Node }, index: number) => {
+                        console.log(data, node);
+                        return (
+                            <PostCard
+                                title={node.frontmatter.title}
+                                description={node.frontmatter.description}
+                                tags={node.frontmatter.tags.split("")}
+                                image={node.frontmatter.image}
+                                headingCard={false}
+                                date={node.frontmatter.date}
+                                slug={node.slug}
+                            />
+                        );
+                    }
+                )}
         </Layout>
     );
 };
@@ -93,6 +83,7 @@ export const query = graphql`
                         tags
                         title
                     }
+                    slug
                 }
             }
         }

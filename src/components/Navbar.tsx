@@ -7,7 +7,7 @@ import * as styles from "../styles/navbar.module.css";
 import MenuStack from "./MenuStack";
 
 const Navbar = () => {
-    const otherLinks: string[] = ["Publications", "Creators", "About"];
+    const otherLinks: string[] = ["Creators", "About"];
     const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {

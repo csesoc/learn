@@ -1,44 +1,32 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal TypeScript starter
-</h1>
+# CSESoc Learning Platform
+Written in Gatsby, using GraphQL to collect mdx articles from local filesystem and render them as individual pages.
+## Quick start
 
-## 🚀 Quick start
-
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
-
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
-
-2.  **Start developing.**
+1.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd my-gatsby-site/
-    npm run develop
+    cd learning-platform/
+    npm install
+    npm start
     ```
 
-3.  **Open the code and start customizing!**
+2.  **Open the code and start customizing**
 
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+    Your site is now running at http://localhost:8000
+    See a GraphQL playground at http://localhost:8000/__graphql
 
 ## CSESoc Dev
 Right now we are using Gatsby to render mdx articles. You can find all the articles in `/src/assets/pubs_data`. All of the frontmatter (things in between `---`) must be included for the page to render. All components are in `/src/components`, and we are using modular styles which are put in `/src/styles`. Take a look in any component or page to see how styles are loaded in. Note that every page/component has their own styles. Please follow naming conventino `<Page/Component name>.module.css`.
 
 Note that we are using typescript to ensure type safety, if you leave something as `any` type ur getting kicked.
 
-### MDX pages
+By default, Gatsby uses GraphQL to collect api data. You will notice down the bottom of pages such as `index.tsx` and `{mdx.slug}` there is a GraphQL query. What this is collecting should be pretty self explanatory, but pretty much Gatsby executes that query and then injects it's data into the parameters for the corresponding page. After starting the dev server, go to `http://localhost:8000/__graphql` to test out building some queries yourself.
+
+### `{mdx.slug}.tsx`
+This page is what renders each article. The page slug (url) will be whatever you name the mdx file, i.e. `mango-smoothie.mdx` can be found at 
+
 Things to note
 - THe frontmatter field `description` is what goes both in the prview card on the home page and in a `<meta>` taag to help with SEOE
 - Tags in the frontmatter field need to be comma separated values, avoid putting spaces before or aftereach tag i.e follow `tags: "Something,Something2"` not `tags: "Something , Something2"`

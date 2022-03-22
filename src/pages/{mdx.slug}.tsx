@@ -14,7 +14,7 @@ const BlogPost = ({ data }: any) => {
             <Helmet>
                 <meta
                     name="description"
-                    content={data.mdx.frontmatter.metaDescription}
+                    content={data.mdx.frontmatter.description}
                 />
                 <meta name="title" content={data.mdx.frontmatter.title} />
             </Helmet>
@@ -34,11 +34,14 @@ const BlogPost = ({ data }: any) => {
 export const query = graphql`
     query ($id: String) {
         mdx(id: { eq: $id }) {
+            id
             frontmatter {
+                date
                 title
+                description
+                image
+                tags
                 author
-                date(formatString: "MMMM DD, YYYY")
-                metaDescription
             }
             body
             slug

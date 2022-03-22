@@ -1,6 +1,5 @@
 import { Link } from "gatsby";
 import React, { useEffect, useState } from "react";
-import CreatorCard from "../components/CreatorCard";
 import Layout from "../components/layout";
 import * as styles from "../styles/creators.module.css";
 
