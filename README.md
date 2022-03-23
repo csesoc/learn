@@ -14,7 +14,7 @@
 
     - progress bar
 
-    - table of contents / outline sidebar like docusearch, digitalocean, gatsby, pyodide
+    - table of contents / outline sidebar like docusaurus, digitalocean, gatsby, pyodide
 
 - Content Management System (Headless) (Third party service)
 
