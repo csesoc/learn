@@ -4,8 +4,60 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby minimal TypeScript starter
+  CSESoc Learning Platform
 </h1>
+
+## Feature list
+
+
+- *Article content
+
+    - progress bar
+
+    - table of contents / outline sidebar like docusearch, digitalocean, gatsby, pyodide
+
+- Content Management System (Headless) (Third party service)
+
+    - Strapi, Ghost (recommended), ContentFul (generous free tier), Netlify CMS (generous free tier), ...
+
+- Nav: Logo (Publication), Publication, Creators, About
+
+- *Pages
+
+    - Home page / Posts page (”Latest”, “Publication”, “Learn”, “Discover”)
+
+        - Order options: latest, earliest, top rated
+
+        - Filter options: by tags, by author
+
+        - Pagination / “load more”
+
+    - Post page
+
+    - About page
+
+    - Outreach page
+
+- User interactions
+
+    - Likes (third party e.g. disqus, or database and server)
+
+    - Comments (third party e.g. disqus, or database and server)
+
+- Social media sharing
+
+    - Icons on post page, sticky icons
+
+- Search
+
+- *SEO best practices (title tag, meta tags, canonical URLs, static assets etc)
+
+- Google Analytics
+
+- RSS feed generation
+
+*prioritise in initial MVP
+
 
 ## 🚀 Quick start
 
