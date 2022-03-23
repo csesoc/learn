@@ -25,10 +25,10 @@ Note that we are using typescript to ensure type safety, if you leave something 
 By default, Gatsby uses GraphQL to collect api data. You will notice down the bottom of pages such as `index.tsx` and `{mdx.slug}` there is a GraphQL query. What this is collecting should be pretty self explanatory, but pretty much Gatsby executes that query and then injects it's data into the parameters for the corresponding page. After starting the dev server, go to `http://localhost:8000/__graphql` to test out building some queries yourself.
 
 ### `{mdx.slug}.tsx`
-This page is what renders each article. The page slug (url) will be whatever you name the mdx file, i.e. `mango-smoothie.mdx` can be found at 
+This page is what renders each article. The page slug (url) will be whatever you name the mdx file, i.e. `mango-smoothie.mdx` can be found at `http://localhost:8000/mango-smoothie`. You'll notice there's a Graphql query at the bottom of the `{mdx.slug}.tsx` page and this takes a parameter
 
 Things to note
 - THe frontmatter field `description` is what goes both in the prview card on the home page and in a `<meta>` taag to help with SEOE
 - Tags in the frontmatter field need to be comma separated values, avoid putting spaces before or aftereach tag i.e follow `tags: "Something,Something2"` not `tags: "Something , Something2"`
-- Image is the cover photo of the card/article, ensure that the path to the image is relative to the `{mdx.slug}.tsx` file
+- Image is the cover photo of the card/article, ensure that the path to the image only contains the NAME of the image
 - Any images should be put in the `/src/assets/pubs_images` folder. If they are a cover photo, please name them the same as the slug for the mdx article but with [jpg|png] extension

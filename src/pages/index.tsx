@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import PostCard from "../components/PostCard";
 import "../styles/globals.css";
-import { Item } from "@radix-ui/react-dropdown-menu";
+import * as styles from "../styles/index.module.css";
 
 type Node = {
     frontmatter: {
@@ -43,25 +43,38 @@ const Publications = ({ data }: PropTypes) => {
 
     return (
         <Layout pageTitle="Home page">
-            {data &&
-                data.allMdx &&
-                data.allMdx.edges &&
-                data.allMdx.edges.map(
-                    ({ node }: { node: Node }, index: number) => {
-                        console.log(data, node);
-                        return (
-                            <PostCard
-                                title={node.frontmatter.title}
-                                description={node.frontmatter.description}
-                                tags={node.frontmatter.tags.split("")}
-                                image={node.frontmatter.image}
-                                headingCard={false}
-                                date={node.frontmatter.date}
-                                slug={node.slug}
-                            />
-                        );
-                    }
-                )}
+            <header className={styles.mainArticle}>
+                This is the intro section to our{" "}
+            </header>
+            <main className={styles.mainContainer}>
+                <section className={styles.secondaryArticles}>
+                    {data &&
+                        data.allMdx &&
+                        data.allMdx.edges &&
+                        data.allMdx.edges.map(
+                            ({ node }: { node: Node }, index: number) => {
+                                console.log(data, node);
+                                return (
+                                    <PostCard
+                                        title={node.frontmatter.title}
+                                        description={
+                                            node.frontmatter.description
+                                        }
+                                        tags={node.frontmatter.tags.split(",")}
+                                        image={node.frontmatter.image}
+                                        headingCard={false}
+                                        date={new Date(node.frontmatter.date)}
+                                        slug={node.slug}
+                                        key={index}
+                                    />
+                                );
+                            }
+                        )}
+                </section>
+                <aside className={styles.filtersContainer}>
+                    This is where our filters go
+                </aside>
+            </main>
         </Layout>
     );
 };
@@ -79,7 +92,6 @@ export const query = graphql`
                         author
                         date
                         description
-                        image
                         tags
                         title
                     }

@@ -1,0 +1,25 @@
+.mainArticle {
+    background-color: blue;
+}
+
+.mainContainer {
+    max-width: 800px;
+    background-color: orange;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.secondaryArticles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 2;
+    background-color: aliceblue;
+}
+
+.filtersContainer {
+    flex-grow: 1;
+    background-color: red;
+}

@@ -1,6 +1,8 @@
 import { Link } from "gatsby";
 import React from "react";
 import Tag from "./Tag";
+import * as styles from "../styles/PostCard.module.css";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 
 type Params = {
     title: string;
@@ -18,20 +20,32 @@ const PostCard = ({
     tags,
     headingCard,
     date,
+    image,
     slug,
 }: Params) => {
+    console.log(date.toString());
     return (
         <article>
-            <Link to={`/${slug}`}>
-                <h1>{title}</h1>
-                <p>{description}</p>
-                <div>
-                    <div>{date}</div>
-                    {tags &&
-                        tags.map((tag, index) => {
-                            <Tag title={tag} key={index} />;
-                        })}
-                </div>
+            <Link to={`/${slug}`} className={styles.linkContainer}>
+                <section className={styles.leftContainer}>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                    <footer className={styles.footerContainer}>
+                        <div>
+                            {date.getDate()}{" "}
+                            {date.toLocaleDateString("default", {
+                                month: "short",
+                            })}{" "}
+                            {date.getFullYear()}
+                        </div>
+                        |
+                        {tags &&
+                            tags.map((tag, index) => {
+                                return <Tag title={tag} key={index} />;
+                            })}
+                    </footer>
+                </section>
+                <aside className={styles.imageContainer}></aside>
             </Link>
         </article>
     );

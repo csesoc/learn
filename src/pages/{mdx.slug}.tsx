@@ -39,7 +39,7 @@ export const query = graphql`
                 date
                 title
                 description
-                image
+                coverImage
                 tags
                 author
             }
