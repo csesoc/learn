@@ -1,8 +1,76 @@
-# CSESoc Learning Platform
-Written in Gatsby, using GraphQL to collect mdx articles from local filesystem and render them as individual pages.
-## Quick start
+<p align="center">
+  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  CSESoc Learning Platform
+</h1>
 
-1.  **Start developing.**
+## Feature list
+
+
+- *Article content
+
+    - progress bar
+
+    - table of contents / outline sidebar like docusaurus, digitalocean, gatsby, pyodide
+
+- Content Management System (Headless) (Third party service)
+
+    - Strapi, Ghost (recommended), ContentFul (generous free tier), Netlify CMS (generous free tier), ...
+
+- Nav: Logo (Publication), Publication, Creators, About
+
+- *Pages
+
+    - Home page / Posts page (”Latest”, “Publication”, “Learn”, “Discover”)
+
+        - Order options: latest, earliest, top rated
+
+        - Filter options: by tags, by author
+
+        - Pagination / “load more”
+
+    - Post page
+
+    - About page
+
+    - Outreach page
+
+- User interactions
+
+    - Likes (third party e.g. disqus, or database and server)
+
+    - Comments (third party e.g. disqus, or database and server)
+
+- Social media sharing
+
+    - Icons on post page, sticky icons
+
+- Search
+
+- *SEO best practices (title tag, meta tags, canonical URLs, static assets etc)
+
+- Google Analytics
+
+- RSS feed generation
+
+*prioritise in initial MVP
+
+
+## 🚀 Quick start
+
+1.  **Create a Gatsby site.**
+
+    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+
+    ```shell
+    # create a new Gatsby site using the minimal TypeScript starter
+    npm init gatsby
+    ```
+
+2.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
