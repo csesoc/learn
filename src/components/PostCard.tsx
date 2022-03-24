@@ -28,8 +28,8 @@ const PostCard = ({
         <article>
             <Link to={`/${slug}`} className={styles.linkContainer}>
                 <section className={styles.leftContainer}>
-                    <h1>{title}</h1>
-                    <p>{description}</p>
+                    <header className={styles.cardTitle}>{title}</header>
+                    <p className={styles.description}>{description}</p>
                     <footer className={styles.footerContainer}>
                         <div>
                             {date.getDate()}{" "}
@@ -45,7 +45,13 @@ const PostCard = ({
                             })}
                     </footer>
                 </section>
-                <aside className={styles.imageContainer}></aside>
+                <div
+                    style={{
+                        backgroundImage: `url("${image}")`,
+                        backgroundSize: "cover",
+                        backgroundColor: "#ccc",
+                    }}
+                    className={styles.imageContainer}></div>
             </Link>
         </article>
     );

@@ -2,8 +2,7 @@
     text-decoration: none;
     color: black;
     display: flex;
-    background-color: aquamarine;
-    flex-grow: 4;
+    flex-direction: row;
 }
 
 .footerContainer {
@@ -15,14 +14,20 @@
 }
 
 .imageContainer {
-    height: 100px;
-    width: 150px;
     flex-grow: 1;
-    background-color: blue;
+    background-color: transparent;
 }
 
 .leftContainer {
-    flex-grow: 1;
-    background-color: yellow;
     overflow: hidden;
+    max-width: 75%;
+}
+
+.description {
+    text-overflow: ellipsis;
+    flex-wrap: wrap;
+}
+
+.cardTitle {
+    font-size: 1.2em;
 }

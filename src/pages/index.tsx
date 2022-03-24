@@ -11,7 +11,7 @@ type Node = {
         title: string;
         author: string;
         description: string;
-        image: string;
+        coverImage: string;
         tags: string;
     };
     slug: string;
@@ -44,7 +44,7 @@ const Publications = ({ data }: PropTypes) => {
     return (
         <Layout pageTitle="Home page">
             <header className={styles.mainArticle}>
-                This is the intro section to our{" "}
+                This should contain the first article
             </header>
             <main className={styles.mainContainer}>
                 <section className={styles.secondaryArticles}>
@@ -61,7 +61,7 @@ const Publications = ({ data }: PropTypes) => {
                                             node.frontmatter.description
                                         }
                                         tags={node.frontmatter.tags.split(",")}
-                                        image={node.frontmatter.image}
+                                        image={node.frontmatter.coverImage}
                                         headingCard={false}
                                         date={new Date(node.frontmatter.date)}
                                         slug={node.slug}
@@ -90,6 +90,7 @@ export const query = graphql`
                 node {
                     frontmatter {
                         author
+                        coverImage
                         date
                         description
                         tags
