@@ -16,3 +16,9 @@
 .filtersContainer {
     flex-grow: 1;
 }
+
+@media only screen and (max-width: 600px) {
+    .mainContainer {
+        flex-direction: column-reverse;
+    }
+}
