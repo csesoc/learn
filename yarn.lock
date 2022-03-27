@@ -206,6 +206,11 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
+"@types/tailwindcss@^3.0.9":
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/@types/tailwindcss/-/tailwindcss-3.0.9.tgz#82dffdc096818c1989e1b75da8ea6b4f4cdf9cc4"
+  integrity sha512-uZjNKNjlA6cr6py/GWsDjevJb/Bl0fmaMNUdIpNMW3TJGJzxN9O6uFWx97LiSK7ithWNrrDSytq1FdvHpgSvWg==
+
 "@typescript-eslint/parser@5.10.1":
   version "5.10.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.10.1.tgz#4ce9633cc33fc70bc13786cb793c1a76fe5ad6bd"
