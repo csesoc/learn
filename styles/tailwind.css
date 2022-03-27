@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind variants;
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+/* TailwindCSS Components */
+@layer components {
+}

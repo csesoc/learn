@@ -1,103 +1,34 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  CSESoc Learning Platform
-</h1>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Feature list
+## Getting Started
 
+First, run the development server:
 
-- *Article content
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-    - progress bar
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-    - table of contents / outline sidebar like docusaurus, digitalocean, gatsby, pyodide
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-- Content Management System (Headless) (Third party service)
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-    - Strapi, Ghost (recommended), ContentFul (generous free tier), Netlify CMS (generous free tier), ...
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-- Nav: Logo (Publication), Publication, Creators, About
+## Learn More
 
-- *Pages
+To learn more about Next.js, take a look at the following resources:
 
-    - Home page / Posts page (”Latest”, “Publication”, “Learn”, “Discover”)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-        - Order options: latest, earliest, top rated
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-        - Filter options: by tags, by author
+## Deploy on Vercel
 
-        - Pagination / “load more”
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-    - Post page
-
-    - About page
-
-    - Outreach page
-
-- User interactions
-
-    - Likes (third party e.g. disqus, or database and server)
-
-    - Comments (third party e.g. disqus, or database and server)
-
-- Social media sharing
-
-    - Icons on post page, sticky icons
-
-- Search
-
-- *SEO best practices (title tag, meta tags, canonical URLs, static assets etc)
-
-- Google Analytics
-
-- RSS feed generation
-
-*prioritise in initial MVP
-
-
-## 🚀 Quick start
-
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
-
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
-
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd learning-platform/
-    npm install
-    npm start
-    ```
-
-2.  **Open the code and start customizing**
-
-    Your site is now running at http://localhost:8000
-    See a GraphQL playground at http://localhost:8000/__graphql
-
-## CSESoc Dev
-Right now we are using Gatsby to render mdx articles. You can find all the articles in `/src/assets/pubs_data`. All of the frontmatter (things in between `---`) must be included for the page to render. All components are in `/src/components`, and we are using modular styles which are put in `/src/styles`. Take a look in any component or page to see how styles are loaded in. Note that every page/component has their own styles. Please follow naming conventino `<Page/Component name>.module.css`.
-
-Note that we are using typescript to ensure type safety, if you leave something as `any` type ur getting kicked.
-
-By default, Gatsby uses GraphQL to collect api data. You will notice down the bottom of pages such as `index.tsx` and `{mdx.slug}` there is a GraphQL query. What this is collecting should be pretty self explanatory, but pretty much Gatsby executes that query and then injects it's data into the parameters for the corresponding page. After starting the dev server, go to `http://localhost:8000/__graphql` to test out building some queries yourself.
-
-### `{mdx.slug}.tsx`
-This page is what renders each article. The page slug (url) will be whatever you name the mdx file, i.e. `mango-smoothie.mdx` can be found at `http://localhost:8000/mango-smoothie`. You'll notice there's a Graphql query at the bottom of the `{mdx.slug}.tsx` page and this uses the `slug` param to find relevant article.
-
-Things to note
-- THe frontmatter field `description` is what goes both in the prview card on the home page and in a `<meta>` taag to help with SEO
-- Tags in the frontmatter field need to be comma separated values, avoid putting spaces before or aftereach tag i.e follow `tags: "Something,Something2"` not `tags: "Something , Something2"`
-- Images should be hosted on imgur and when needed, embed them using ![]() syntax for markdown
-- Cover photos should also be hosted on imgur and their links should be put in the `coverImage` field of the mdx
-  - Ensure that you don't use the `https://imgur.com/a/NAx7QmS` link, use the `https://i.imgur.com/xSjOIQ3.jpeg` link which you find by right clicking and selecting copy image address
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
