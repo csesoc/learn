@@ -1,4 +1,5 @@
 /** @type {import('@types/tailwindcss/tailwind-config').TailwindConfig} */
+
 module.exports = {
   darkMode: "class",
   content: [
@@ -6,8 +7,8 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: { sans: ["Recursive", "sans-serif"] },
     extend: {},
   },
   plugins: [],
-  presets: [require("windy-radix-palette")],
 };
