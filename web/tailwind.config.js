@@ -1,5 +1,6 @@
 /** @type {import('@types/tailwindcss/tailwind-config').TailwindConfig} */
 module.exports = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -8,4 +9,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  presets: [require("windy-radix-palette")],
 };
