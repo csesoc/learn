@@ -9,7 +9,11 @@ module.exports = {
     fontFamily: {
       sans: ["Recursive", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      borderWidth: {
+        1: "1px",
+      },
+    },
   },
   plugins: [],
   presets: [require("windy-radix-palette")],

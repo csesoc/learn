@@ -17,7 +17,7 @@ const NavItem = ({ children, href }: PropsWithChildren<{ href: string }>) => (
  */
 const Navigation = () => (
   <NavigationMenu.Root>
-    <NavigationMenu.List className="bg-blackA-12 text-whiteA-12 flex h-10 w-full items-center justify-start space-x-10 px-1">
+    <NavigationMenu.List className="bg-blackA-12 text-whiteA-12 border-b-1 border-l-whiteA-12 flex h-10 w-full items-center justify-start space-x-10 px-1">
       <NavItem href="/">
         <Logo />
       </NavItem>
