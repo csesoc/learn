@@ -9,10 +9,10 @@ const Home: NextPage = () => {
     <div className="bg-blackA-12 h-screen w-full">
       <main className="text-whiteA-12 flex h-full flex-col items-start py-40 px-20">
         <h1 className="text-6xl">Level up your dev skills.</h1>
-        <Canvas className="">
+        <Canvas>
           <OrbitControls />
           <Suspense fallback={<p>Loading...</p>}>
-            <Model scale={1} />
+            <Model />
           </Suspense>
         </Canvas>
         <a
