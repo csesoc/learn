@@ -4,7 +4,9 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev": "yarn workspace web run dev"
+  },
   "dependencies": {},
   "devDependencies": {
     "prettier": "^2.6.2",
