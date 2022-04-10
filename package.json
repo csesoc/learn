@@ -4,5 +4,11 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^2.6.2",
+    "prettier-plugin-tailwindcss": "^0.1.8",
+    "typescript": "^4.6.3"
+  }
 }
