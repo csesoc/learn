@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "noEmit": true
+  }
+}
