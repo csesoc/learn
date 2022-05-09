@@ -5,12 +5,11 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently \"yarn workspace web run dev\" \"yarn workspace cms run develop\"",
-    "clean": "rm -rf node_modules && rm -rf packages/web/node_modules && rm -rf packages/cms/node_modules"
+    "dev": "yarn workspace web run dev",
+    "clean": "rm -rf node_modules && rm -rf packages/web/node_modules"
   },
   "dependencies": {},
   "devDependencies": {
-    "concurrently": "^7.1.0",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.8",
     "typescript": "^4.6.3"
