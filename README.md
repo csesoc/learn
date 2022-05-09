@@ -31,3 +31,12 @@ _Coming soon_
 1. Clone this repo
 2. `yarn install` to install all dependencies
 3. `yarn dev` to start the local server
+
+## Our team
+
+We're CSESoc Education! Development is currently led by:
+
+- [Maxwell Phillips](https://github.com/maxphillipsdev)
+- [Jeffrey Yao](https://github.com/jeffreydyao)
+- [Gordon Huang](https://github.com/dqna64)
+- [Jasper Di Francesco](https://github.com/jasperdifran)
