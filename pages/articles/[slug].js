@@ -1,10 +1,11 @@
+import { allArticles } from 'contentlayer/generated'
+import { format, parseISO } from 'date-fns'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import Head from 'next/head'
 import Link from 'next/link'
-import { format, parseISO } from 'date-fns'
-import { allArticles } from 'contentlayer/generated'
 
 export async function getStaticPaths () {
-  const paths = allArticles.map((post) => post.url)
+  const paths = allArticles.map((a) => ({ params: { slug: a.slug } }))
   return {
     paths,
     fallback: false
@@ -12,9 +13,7 @@ export async function getStaticPaths () {
 }
 
 export async function getStaticProps ({ params }) {
-  const post = allArticles.find(
-    (post) => post._raw.flattenedPath === params.slug
-  )
+  const post = allArticles.find((post) => post.slug === params.slug)
   return {
     props: {
       post
@@ -23,6 +22,8 @@ export async function getStaticProps ({ params }) {
 }
 
 const PostLayout = ({ post }) => {
+  const Component = useMDXComponent(post.body.code)
+
   return (
     <>
       <Head>
@@ -42,10 +43,7 @@ const PostLayout = ({ post }) => {
             {format(parseISO(post.date), 'LLLL d, yyyy')}
           </time>
         </div>
-        <div
-          className="cl-post-body"
-          dangerouslySetInnerHTML={{ __html: post.body.html }}
-        />
+        <Component />
       </article>
     </>
   )
