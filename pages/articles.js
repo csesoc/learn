@@ -21,6 +21,12 @@ function PostCard (post) {
           <a className="text-blue-700 hover:text-blue-900">{post.title}</a>
         </Link>
       </h2>
+      <p className="block text-sm text-slate-600">{post.desc}</p>
+      <div className="flex flex-row gap-2 justify-center block text-sm text-slate-700 items-center pt-2">
+        <p>{post.author}</p>
+        <p>{post.readingTime.text}</p>
+        <p>{post.wordCount} words</p>
+      </div>
     </div>
   )
 }

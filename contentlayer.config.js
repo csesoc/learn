@@ -23,10 +23,26 @@ export const Article = defineDocumentType(() => ({
       description: 'The title of the article',
       required: true
     },
+    desc: {
+      type: 'string',
+      description: 'One sentence that summarises the article objective.',
+      required: true
+    },
+    author: {
+      type: 'string',
+      description: 'The author of the article',
+      required: true
+    },
     date: {
       type: 'date',
       description: 'The date of the article',
       required: true
+    },
+    coverPhoto: {
+      type: 'string',
+      description:
+        'A cover photo that appears at the top of the article and in meta images',
+      required: false
     }
   },
   computedFields

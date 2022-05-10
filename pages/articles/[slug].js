@@ -46,9 +46,13 @@ const PostLayout = ({ post }) => {
         </div>
         <div className="mb-6 text-center">
           <h1 className="mb-1 text-3xl font-bold">{post.title}</h1>
-          <time dateTime={post.date} className="text-sm text-slate-600">
-            {format(parseISO(post.date), 'LLLL d, yyyy')}
-          </time>
+          <div className="flex flex-row gap-2 justify-center">
+            <time dateTime={post.date} className="text-sm text-slate-600">
+              {format(parseISO(post.date), 'LLLL d, yyyy')}
+            </time>
+            <p className="text-sm text-slate-600">|</p>
+            <p className="text-sm text-slate-600">{post.readingTime.text}</p>
+          </div>
         </div>
         <MDXContent components={components} />
       </article>
