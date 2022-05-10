@@ -5,15 +5,13 @@ export default function Navbar () {
 
   // Inject Stork into the document body.
   useEffect(() => {
-    const stork = document.createElement('Script')
-    stork.src = 'https://files.stork-search.net/releases/v1.4.2/stork.js'
-    stork.strategy = 'beforeInteractive'
-    stork.addEventListener('load', () => setLoaded(true))
-    document.body.appendChild(stork)
-  }, [])
-
-  useEffect(() => {
-    if (loaded) {
+    if (!loaded) {
+      const stork = document.createElement('Script')
+      stork.src = 'https://files.stork-search.net/releases/v1.4.2/stork.js'
+      stork.strategy = 'beforeInteractive'
+      stork.addEventListener('load', () => setLoaded(true))
+      document.body.appendChild(stork)
+    } else {
       stork.register('search', '/stork-index.st')
     }
   }, [loaded])
