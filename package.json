@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "yarn index",
+    "index": "node scripts/storkConfigBuilder.mjs && stork build --input stork-config.toml --output public/stork-index.st",
     "start": "next start",
     "lint": "next lint"
   },
@@ -12,12 +14,14 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.10",
     "date-fns": "^2.28.0",
+    "gray-matter": "^4.0.3",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "reading-time": "^1.5.0"
   },
   "devDependencies": {
+    "@iarna/toml": "^2.2.5",
     "@types/node": "17.0.31",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.3",
@@ -33,6 +37,7 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.29.4",
+    "globby": "^13.1.1",
     "next-contentlayer": "^0.2.4",
     "postcss": "^8.4.13",
     "prettier": "^2.6.2",
