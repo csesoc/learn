@@ -11,6 +11,7 @@
   "prettier": "prettier-config-standard",
   "dependencies": {
     "@fontsource/inter": "^4.5.10",
+    "date-fns": "^2.28.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0"
@@ -22,6 +23,7 @@
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
     "autoprefixer": "^10.4.7",
+    "contentlayer": "^0.2.4",
     "eslint": "^8.0.1",
     "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "^8.5.0",
@@ -30,6 +32,7 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.29.4",
+    "next-contentlayer": "^0.2.4",
     "postcss": "^8.4.13",
     "prettier": "^2.6.2",
     "prettier-config-standard": "^5.0.0",
