@@ -3,6 +3,13 @@ import { format, parseISO } from 'date-fns'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
+
+const defaultComponents = { Image }
+// Add any components used in MDX files here.
+// Components here load dynamically if they're used.
+// See https://github.com/tsriram/with-mdx-bundler for details.
+const components = { ...defaultComponents }
 
 export async function getStaticPaths () {
   const paths = allArticles.map((a) => ({ params: { slug: a.slug } }))
@@ -22,7 +29,7 @@ export async function getStaticProps ({ params }) {
 }
 
 const PostLayout = ({ post }) => {
-  const Component = useMDXComponent(post.body.code)
+  const MDXContent = useMDXComponent(post.body.code)
 
   return (
     <>
@@ -43,7 +50,7 @@ const PostLayout = ({ post }) => {
             {format(parseISO(post.date), 'LLLL d, yyyy')}
           </time>
         </div>
-        <Component />
+        <MDXContent components={components} />
       </article>
     </>
   )
