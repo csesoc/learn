@@ -2,7 +2,7 @@
 
 A place for the CSESoc community to learn and share their knowledge and expertise.
 
-> 🌈 **Status update:**<br> Currently adding MDX support via @next-mdx-remote! Rationale [here](https://compclub.atlassian.net/wiki/spaces/CW/pages/2217771174/Decision+Matrix%3A+MDX+Integration).
+> 🌈 **Status update:**<br> Working on front-end. MDX support implemented with Contentlayer!
 
 ## Motivation
 
