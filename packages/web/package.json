@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fontsource/recursive": "4.5.4",
+    "@fontsource/recursive": "4.5.7",
     "@radix-ui/react-navigation-menu": "0.1.2",
     "@react-three/drei": "8.20.2",
     "@react-three/fiber": "7.0.27",

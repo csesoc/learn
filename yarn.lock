@@ -80,10 +80,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/recursive@4.5.4":
-  version "4.5.4"
-  resolved "https://registry.yarnpkg.com/@fontsource/recursive/-/recursive-4.5.4.tgz#e8421deac7861ccb856fb9cfebeafef76b11ca85"
-  integrity sha512-mttusk5xE/yqwMmoAIOZkLtn9OtTkEeuobvfX9XnaS0aHnJ/r1SaloJHv2pl2REDamFO9MxgY/Zy6IRTpStalQ==
+"@fontsource/recursive@4.5.7":
+  version "4.5.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/recursive/-/recursive-4.5.7.tgz#48ff8d540e3ff13ba697250822f681208b22c665"
+  integrity sha512-1PfOduOq9l8zZOQccQth/+qmkHPo7D0wvfWayPb4hNxrh1sHTKPFwPo45cUHJL4i8dMj8cskhafzkRHIk994gw==
 
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.5"
