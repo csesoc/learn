@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allArticles } from 'contentlayer/generated'
+import { Button } from '../components/Button'
+import Logo from '../components/Logo'
+import { VersionBadge } from '../components/VersionBadge'
 
 export async function getStaticProps () {
   const posts = allArticles.sort((a, b) => {
@@ -22,18 +25,21 @@ function PostCard (post) {
         </Link>
       </h2>
       <p className="block text-sm text-slate-600">{post.desc}</p>
-      <div className="flex flex-row gap-2 justify-center block text-sm text-slate-700 items-center pt-2">
+      <div className="flex flex-row items-center justify-center gap-2 pt-2 text-sm text-slate-700">
         <p>{post.author}</p>
         <p>{post.readingTime.text}</p>
         <p>{post.wordCount} words</p>
       </div>
+      <Button size="default">Test</Button>
+      <Button size="large">Big Discord Energy</Button>
+      <Logo />
     </div>
   )
 }
 
 export default function Home ({ posts }) {
   return (
-    <div className="mx-auto max-w-2xl py-16 text-center">
+    <div className="max-w-2xl py-16 mx-auto text-center">
       <Head>
         <title>Contentlayer Blog Example</title>
       </Head>

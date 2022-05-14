@@ -30,7 +30,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".contentlayer/generated"
+    ".contentlayer/generated",
+    "pages/articles/[slug].js",
+    "components/Button.js"
   ],
   "exclude": ["node_modules"]
 }
