@@ -4,7 +4,9 @@ import { compareDesc, format, parseISO } from 'date-fns'
 import { allArticles } from 'contentlayer/generated'
 import { Button } from '../components/Button'
 import Logo from '../components/Logo'
-import { VersionBadge } from '../components/VersionBadge'
+import { Tag } from '../components/Tag'
+import IconButton from '../components/IconButton'
+import { Moon } from 'phosphor-react'
 
 export async function getStaticProps () {
   const posts = allArticles.sort((a, b) => {
@@ -33,6 +35,7 @@ function PostCard (post) {
       <Button size="default">Test</Button>
       <Button size="large">Big Discord Energy</Button>
       <Logo />
+      <Tag>Content type</Tag>
     </div>
   )
 }

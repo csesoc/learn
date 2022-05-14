@@ -1,28 +1,49 @@
-import { useState, useEffect } from 'react'
+import * as NavigationMenu from '@radix-ui/react-navigation-menu'
+import Link from 'next/link'
+import { GithubLogo, MagnifyingGlass, Moon } from 'phosphor-react'
+import { IconButton } from './IconButton'
+import Logo from './Logo'
+import { ThemeToggle } from './ThemeToggle'
+const GITHUB_URL = 'https://github.com/csesoc/learning-platform'
 
-export default function Navbar () {
-  const [loaded, setLoaded] = useState(false)
-
-  // Inject Stork into the document body.
-  useEffect(() => {
-    if (!loaded) {
-      const stork = document.createElement('Script')
-      stork.src = 'https://files.stork-search.net/releases/v1.4.2/stork.js'
-      stork.strategy = 'beforeInteractive'
-      stork.addEventListener('load', () => setLoaded(true))
-      document.body.appendChild(stork)
-    } else {
-      stork.register('search', '/stork-index.st')
-    }
-  }, [loaded])
-
+export default function Navbar() {
   return (
-    <div className="flex flex-row items-center justify-between w-screen px-6 bg-black h-14">
-      <p className="text-white">CSESoc Learning Platform</p>
-      <div className="stork-wrapper">
-        <input data-stork="search" className="stork-input" />
-        <div data-stork="search-output" className="stork-output"></div>
-      </div>
-    </div>
+    <NavigationMenu.Root>
+      <NavigationMenu.List className="flex flex-row items-center justify-between w-screen gap-4 px-24">
+        <Link href="/">
+          <a>
+            <Logo />
+          </a>
+        </Link>
+        <div className="flex flex-row gap-6">
+          <NavigationMenu.Item>
+            <Link href="/articles">Articles</Link>
+          </NavigationMenu.Item>
+          <NavigationMenu.Item>
+            <Link href="/creators">Creators</Link>
+          </NavigationMenu.Item>
+          <NavigationMenu.Item>
+            <Link href="/about">About</Link>
+          </NavigationMenu.Item>
+        </div>
+        <div className="flex flex-row gap-4">
+          <NavigationMenu.Item>
+            <IconButton>
+              <MagnifyingGlass weight="bold" />
+            </IconButton>
+          </NavigationMenu.Item>
+          <NavigationMenu.Item>
+            <ThemeToggle />
+          </NavigationMenu.Item>
+          <NavigationMenu.Item>
+            <a href={GITHUB_URL} target="_blank" rel="noreferrer">
+              <IconButton>
+                <GithubLogo weight="fill" />
+              </IconButton>
+            </a>
+          </NavigationMenu.Item>
+        </div>
+      </NavigationMenu.List>
+    </NavigationMenu.Root>
   )
 }

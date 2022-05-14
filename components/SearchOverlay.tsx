@@ -1,0 +1,30 @@
+// TODO: Refactor into command menu style thing
+
+import { useState, useEffect } from 'react'
+
+export default function Navbar() {
+  const [loaded, setLoaded] = useState(false)
+
+  // Inject Stork into the document body.
+  useEffect(() => {
+    if (!loaded) {
+      const stork = document.createElement('Script')
+      stork.src = 'https://files.stork-search.net/releases/v1.4.2/stork.js'
+      stork.strategy = 'beforeInteractive'
+      stork.addEventListener('load', () => setLoaded(true))
+      document.body.appendChild(stork)
+    } else {
+      stork.register('search', '/stork-index.st')
+    }
+  }, [loaded])
+
+  return (
+    <div className="flex flex-row items-center justify-between w-screen px-6 bg-black h-14">
+      <p className="text-white">CSESoc Learning Platform</p>
+      <div className="stork-wrapper">
+        <input data-stork="search" className="stork-input" />
+        <div data-stork="search-output" className="stork-output"></div>
+      </div>
+    </div>
+  )
+}
