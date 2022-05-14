@@ -1,8 +1,10 @@
+// TODO: Fix so that first load adds class names correctly
+
 import React from 'react'
 import { darkTheme } from 'stitches.config'
 import { IconButton } from './IconButton'
 import { useTheme } from 'next-themes'
-import { SunHorizon } from 'phosphor-react'
+import { Moon, Sun } from 'phosphor-react'
 
 export const ThemeToggle = (props) => {
   const { theme, setTheme } = useTheme()
@@ -40,7 +42,7 @@ export const ThemeToggle = (props) => {
       }}
       {...props}
       aria-label="Toggle between light and dark mode">
-      <SunHorizon weight="fill" />
+      {theme == 'light' ? <Moon weight="fill" /> : <Sun weight="fill" />}
     </IconButton>
   )
 }
