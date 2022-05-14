@@ -6,7 +6,7 @@ export const Button = styled('button', {
   fontWeight: '500',
   fontFamily: '$sans',
   color: '$blue12',
-  transition: 'background-color 150ms ease',
+  transition: '$button',
   '&:hover': {
     backgroundColor: '$blue5'
   },

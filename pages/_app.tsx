@@ -1,14 +1,16 @@
-import '../styles/globals.css'
 import '@fontsource/inter'
 import '@fontsource/jetbrains-mono'
+import Navbar from 'components/Navbar'
+import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
-import Layout from '../components/Layout'
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
+    <ThemeProvider>
+      <Navbar />
       <Component {...pageProps} />
-    </Layout>
+    </ThemeProvider>
   )
 }
 

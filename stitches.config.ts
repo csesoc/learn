@@ -257,6 +257,9 @@ export const {
       3: '300',
       4: '400',
       max: '999'
+    },
+    transitions: {
+      button: 'background-color 150ms ease'
     }
   },
   media: {
