@@ -32,9 +32,7 @@ export default function Navbar() {
               <MagnifyingGlass weight="bold" />
             </IconButton>
           </NavigationMenu.Item>
-          <NavigationMenu.Item>
-            <ThemeToggle />
-          </NavigationMenu.Item>
+
           <NavigationMenu.Item>
             <a href={GITHUB_URL} target="_blank" rel="noreferrer">
               <IconButton>

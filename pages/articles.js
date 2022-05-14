@@ -1,12 +1,11 @@
+import { allArticles } from 'contentlayer/generated'
+import { compareDesc, format, parseISO } from 'date-fns'
 import Head from 'next/head'
 import Link from 'next/link'
-import { compareDesc, format, parseISO } from 'date-fns'
-import { allArticles } from 'contentlayer/generated'
 import { Button } from '../components/Button'
 import Logo from '../components/Logo'
 import { Tag } from '../components/Tag'
-import IconButton from '../components/IconButton'
-import { Moon } from 'phosphor-react'
+import SearchOverlay from '../components/SearchOverlay'
 
 export async function getStaticProps () {
   const posts = allArticles.sort((a, b) => {
@@ -47,10 +46,10 @@ export default function Home ({ posts }) {
         <title>Contentlayer Blog Example</title>
       </Head>
       <h1 className="mb-8 text-3xl font-bold">Contentlayer Blog Example</h1>
-
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
       ))}
+      <SearchOverlay />
     </div>
   )
 }
