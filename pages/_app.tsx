@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import '@fontsource/inter'
+import '@fontsource/jetbrains-mono'
 import type { AppProps } from 'next/app'
 import Layout from '../components/Layout'
 

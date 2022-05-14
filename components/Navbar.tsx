@@ -17,7 +17,7 @@ export default function Navbar () {
   }, [loaded])
 
   return (
-    <div className="w-screen h-14 bg-black flex flex-row items-center justify-between px-6">
+    <div className="flex flex-row items-center justify-between w-screen px-6 bg-black h-14">
       <p className="text-white">CSESoc Learning Platform</p>
       <div className="stork-wrapper">
         <input data-stork="search" className="stork-input" />
