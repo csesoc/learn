@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import { GithubLogo, MagnifyingGlass } from 'phosphor-react'
-import { IconButton } from './IconButton'
-import SearchButton from './SearchButton'
-import Logo from './Logo'
+import { GithubLogo } from 'phosphor-react'
 import { Flex } from './Flex'
+import { IconButton } from './IconButton'
+import Logo from './Logo'
+import SearchButton from './SearchButton'
+import { Text } from './Text'
 
 const GITHUB_URL = 'https://github.com/csesoc/learning-platform'
 
@@ -13,19 +14,58 @@ export default function Navbar() {
       as="header"
       css={{
         py: '$4',
-        px: '$4',
-        justifyContent: 'space-between',
+        px: '$6',
         alignItems: 'center',
-        position: 'relative',
         zIndex: '1'
       }}>
-      <Link href="/">
-        <button aria-label="Return to home page">
-          <Logo />
-        </button>
-      </Link>
-      <Link href="/articles">Articles</Link>
-      <Flex>
+      <Flex css={{ flex: 1, justifyContent: 'flex-start' }}>
+        <Link href="/">
+          <button aria-label="Return to home page">
+            <Logo />
+          </button>
+        </Link>
+      </Flex>
+      <Flex
+        css={{
+          flex: 1,
+          gap: '2.25rem',
+          justifyContent: 'center'
+        }}>
+        <Link href="/articles">
+          <Text
+            as="a"
+            size="label-lg"
+            css={{ color: '$slate12', cursor: 'pointer' }}>
+            Articles
+          </Text>
+        </Link>
+        <Text
+          as="a"
+          size="label-lg"
+          css={{
+            color: '$slate11',
+            userSelect: 'none',
+            cursor: 'not-allowed'
+          }}>
+          Creators
+        </Text>
+        <Text
+          as="a"
+          size="label-lg"
+          css={{
+            color: '$slate11',
+            userSelect: 'none',
+            cursor: 'not-allowed'
+          }}>
+          About
+        </Text>
+      </Flex>
+      <Flex
+        css={{
+          flex: 1,
+          gap: '$3',
+          justifyContent: 'flex-end'
+        }}>
         <SearchButton />
         <IconButton aria-label="GitHub repository for CSESoc Learn">
           <a href={GITHUB_URL} target="_blank" rel="noreferrer">
@@ -36,18 +76,3 @@ export default function Navbar() {
     </Flex>
   )
 }
-
-//   <Link href="/">
-//   <a>
-//     <Logo />
-//   </a>
-// </Link>
-//             <Link href="">Articles</Link>
-
-//                     <a href={GITHUB_URL} target="_blank" rel="noreferrer">
-//                                   <SearchButton />
-//                                   </a>
-//       <IconButton>
-//         <GithubLogo weight="fill" />
-//       </IconButton>
-//     </a>

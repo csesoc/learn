@@ -5,12 +5,16 @@ export const Button = styled('button', {
   fontSize: '$label-lg',
   fontWeight: '500',
   fontFamily: '$sans',
+  letterSpacing: '-0.011rem',
+  lineHeight: '22px',
   color: '$blue12',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '$2',
   transition: '$button',
   '&:hover': {
     backgroundColor: '$blue5'
   },
-
   variants: {
     size: {
       default: {
