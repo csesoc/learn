@@ -73,7 +73,7 @@ export default function SearchOverlay({
             Search for content (Beta). Press Esc to close. Use Cmd + K to bring
             up search anytime.
           </Flex>
-          <button aria-label="Close search">
+          <button aria-label="Close search" style={{border: 0, backgroundColor: 'transparent', cursor: 'pointer'}}>
             <XCircle
               size={24}
               color="#889096"

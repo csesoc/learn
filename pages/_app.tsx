@@ -1,6 +1,7 @@
 import '@fontsource/inter'
 import '@fontsource/jetbrains-mono'
 import Navbar from 'components/Navbar'
+import 'styles/styles.css'
 // import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 import { Box } from 'components/Box'
