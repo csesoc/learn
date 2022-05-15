@@ -2,10 +2,6 @@ import { allArticles } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 import Head from 'next/head'
 import Link from 'next/link'
-import { Button } from '../components/Button'
-import Logo from '../components/Logo'
-import { Tag } from '../components/Tag'
-import SearchOverlay from '../components/SearchOverlay'
 
 export async function getStaticProps () {
   const posts = allArticles.sort((a, b) => {
@@ -31,10 +27,6 @@ function PostCard (post) {
         <p>{post.readingTime.text}</p>
         <p>{post.wordCount} words</p>
       </div>
-      <Button size="default">Test</Button>
-      <Button size="large">Big Discord Energy</Button>
-      <Logo />
-      <Tag>Content type</Tag>
     </div>
   )
 }
@@ -49,7 +41,6 @@ export default function Home ({ posts }) {
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
       ))}
-      <SearchOverlay />
     </div>
   )
 }

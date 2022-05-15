@@ -6,6 +6,7 @@ import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  // TODO: Use return statement when dark theme is added
   // return (
   //   <ThemeProvider>
   //     <Navbar />

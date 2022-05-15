@@ -1,7 +1,5 @@
-import React from 'react'
 import { styled } from 'stitches.config'
 
-// Do similar to Chakra UI
 export const IconButton = styled('button', {
   display: 'flex',
   flexDirection: 'row',
