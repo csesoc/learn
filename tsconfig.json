@@ -1,16 +1,40 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "sourceMap": true,
-    "removeComments": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noUnusedLocals": true,
-    "noImplicitReturns": true,
-    "noUnusedParameters": true,
+    "allowJs": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "baseUrl": ".",
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
-    "strictNullChecks": true,
-    "noEmit": true
-  }
+    "noImplicitReturns": true,
+    "paths": {
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    },
+    "pretty": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2018",
+    "incremental": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".contentlayer/generated",
+    "pages/articles/[slug].tsx",
+    "components/Button.ts",
+    "components/Logo.tsx",
+    "pages/articles.js"
+  ],
+  "exclude": ["node_modules"]
 }
