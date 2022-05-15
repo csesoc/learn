@@ -2,7 +2,7 @@
 
 A place for the CSESoc community to learn and share their knowledge and expertise.
 
-> 🌈 **Status update:**<br> Working on front-end. MDX support implemented with Contentlayer!
+> 🌈 **Status update:**<br> Finessing the front-end!
 
 ## Motivation
 
@@ -12,7 +12,7 @@ By opening up new formats of contributing such as **articles**, **videos** and *
 
 ## Code style
 
-Prettier is used for code formatting. Standard is used for linting.
+Prettier is used for code formatting. Standard + ESLint is used for linting.
 
 ## Screenshots
 
@@ -20,9 +20,18 @@ Check the [Figma canvas](https://www.figma.com/file/BikvnEQenQQnuDw8YVH07b/Learn
 
 ## Tech stack
 
-Built with Next.js, React and TypeScript..
+Built with:
+
+- Next.js
+- Contentlayer
+- Radix Primitives
+- TypeScript
 
 ## Features
+
+_Coming soon_
+
+## Documentation
 
 _Coming soon_
 
@@ -31,6 +40,7 @@ _Coming soon_
 1. Clone this repo
 2. `yarn install` to install all dependencies
 3. `yarn dev` to start the local server
+4. `yarn index` to rebuild the search index after modifying / adding MDX files
 
 ## Our team
 
