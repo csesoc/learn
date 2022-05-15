@@ -2,39 +2,70 @@
 
 import * as Portal from '@radix-ui/react-portal'
 import { useEffect, useState } from 'react'
+import { useHotkeys } from 'react-hotkeys-hook'
+import { Flex } from './Flex'
+import { Box } from './Box'
 import { styled } from 'stitches.config'
 
-const StorkWrapper = styled('div', {
-  fontFamily: '$sans',
-  boxSizing: 'border-box',
-  fontSize: '$body',
-  '&.stork-input': {
-    width: '100%',
-    height: '2.4rem',
-    padding: '0.4rem 0.8rem',
-    border: '1px'
-  }
+const StyledPortal = styled(Portal.Root, {
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+  height: '100%',
+  backdropFilter: 'blur(16px)'
 })
 
-export default function SearchOverlay() {
+export default function SearchOverlay({
+  changeActive = (state: boolean) => {}
+}) {
   const [loaded, setLoaded] = useState(false)
 
-  // Inject Stork into the document body.
+  // Close overlay when 'Esc' pressed.
+  useHotkeys('esc', () => changeActive(false), {
+    enableOnTags: ['TEXTAREA', 'INPUT']
+  })
+
+  // TODO: Add click outside detection.
+  // Requires refactoring SearchOverlay to only be its own component, and blur contents
+  // of elements below (overlay div with backdrop blur applied?)
+
+  // Inject Stork into document body
   useEffect(() => {
     if (!loaded) {
-      const stork = document.createElement('Script')
+      const stork: HTMLScriptElement = document.createElement('script')
       stork.src = 'https://files.stork-search.net/releases/v1.4.2/stork.js'
-      stork.strategy = 'beforeInteractive'
       stork.addEventListener('load', () => setLoaded(true))
       document.body.appendChild(stork)
     } else {
-      stork.register('search', '/stork-index.st')
+      // TODO: Extend HTMLScriptElement with .register method on stork
+      // params: data-stork: string, filename: string
+      // @ts-ignore
+      stork.register('search', '/stork-index.st') // eslint-disable-line no-undef
     }
   }, [loaded])
 
   return (
-    <Portal.Root className="flex justify-center w-screen h-screen backdrop-blur-md">
-      <div className="w-3/4 pt-24 stork-wrapper md:w-1/2">
+    <StyledPortal>
+      <Box
+        className="stork-wrapper"
+        css={{
+          width: '75%',
+          paddingTop: '$9'
+        }}>
+        <Flex
+          css={{
+            backgroundColor: '$blue3',
+            fontSize: '$label-sm',
+            color: '$blue12',
+            px: '$3',
+            py: '$1',
+            mb: '$1',
+            width: 'fit-content',
+            borderRadius: '$sm'
+          }}>
+          Search for content (Beta). Press Esc to close. Use Cmd + K to bring up
+          search anytime.
+        </Flex>
         <input
           data-stork="search"
           className="stork-input"
@@ -42,7 +73,7 @@ export default function SearchOverlay() {
           autoFocus
         />
         <div data-stork="search-output" className="stork-output"></div>
-      </div>
-    </Portal.Root>
+      </Box>
+    </StyledPortal>
   )
 }
