@@ -7,11 +7,12 @@ import SearchOverlay from './SearchOverlay'
 export default function SearchButton() {
   const [active, toggleActive] = useState(false)
 
+  // Open overlay when 'Cmd + K' pressed globally
   useHotkeys('cmd+k', () => toggleActive(true), {
     enableOnTags: ['TEXTAREA', 'INPUT']
   })
 
-  const updateActive = (state) => {
+  const updateActive = (state: boolean) => {
     toggleActive(state)
   }
 
