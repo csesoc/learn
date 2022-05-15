@@ -6,6 +6,7 @@ import { useHotkeys } from 'react-hotkeys-hook'
 import { Flex } from './Flex'
 import { Box } from './Box'
 import { styled } from 'stitches.config'
+import { XCircle } from 'phosphor-react'
 
 const StyledPortal = styled(Portal.Root, {
   display: 'flex',
@@ -54,18 +55,33 @@ export default function SearchOverlay({
         }}>
         <Flex
           css={{
-            backgroundColor: '$blue3',
-            fontSize: '$label-sm',
-            color: '$blue12',
-            px: '$3',
-            py: '$1',
-            mb: '$1',
-            width: 'fit-content',
-            borderRadius: '$sm'
+            width: 'max',
+            justifyContent: 'space-between',
+            alignItems: 'center'
           }}>
-          Search for content (Beta). Press Esc to close. Use Cmd + K to bring up
-          search anytime.
+          <Flex
+            css={{
+              backgroundColor: '$blue3',
+              fontSize: '$label-sm',
+              color: '$blue12',
+              px: '$3',
+              py: '$1',
+              mb: '$2',
+              width: 'fit-content',
+              borderRadius: '$sm'
+            }}>
+            Search for content (Beta). Press Esc to close. Use Cmd + K to bring
+            up search anytime.
+          </Flex>
+          <button aria-label="Close search">
+            <XCircle
+              size={24}
+              color="#889096"
+              onClick={() => changeActive(false)}
+            />
+          </button>
         </Flex>
+
         <input
           data-stork="search"
           className="stork-input"

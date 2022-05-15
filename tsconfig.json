@@ -31,9 +31,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".contentlayer/generated",
-    "pages/articles/[slug].js",
+    "pages/articles/[slug].tsx",
     "components/Button.ts",
-    "components/Logo.js"
+    "components/Logo.tsx",
+    "pages/articles.js"
   ],
   "exclude": ["node_modules"]
 }

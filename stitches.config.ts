@@ -204,8 +204,7 @@ export const {
       card: '$slate1',
       // panel: 'white',
       // transparentPanel: 'hsl(0 0% 0% / 97%)',
-      shadowLight: 'hsl(206 22% 7% / 35%)',
-      shadowDark: 'hsl(206 22% 7% / 20%)'
+      shadow: 'rgba(0, 0, 0, 0.08)'
     },
     fonts: {
       sans: 'Inter var, -apple-system, system-ui, sans-serif',
@@ -250,6 +249,9 @@ export const {
       md: '32px',
       lg: '48px',
       full: '9999px'
+    },
+    shadows: {
+      default: '0px 4px 20px rgba(0, 0, 0, 0.08)'
     },
     zIndices: {
       1: '100',
