@@ -20,7 +20,7 @@ export default function Navbar() {
       }}>
       <Flex css={{ flex: 1, justifyContent: 'flex-start' }}>
         <Link href="/">
-          <button aria-label="Return to home page">
+          <button aria-label="Return to home page" style={{border: 0, backgroundColor: 'transparent', cursor: 'pointer'}} >
             <Logo />
           </button>
         </Link>

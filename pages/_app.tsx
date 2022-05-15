@@ -3,7 +3,6 @@ import '@fontsource/jetbrains-mono'
 import Navbar from 'components/Navbar'
 // import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
-import '../styles/globals.css'
 import { Box } from 'components/Box'
 
 function MyApp({ Component, pageProps }: AppProps) {

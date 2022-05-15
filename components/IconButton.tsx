@@ -11,6 +11,7 @@ export const IconButton = styled('button', {
   borderRadius: '$full',
   cursor: 'pointer',
   transition: '$button',
+  border: 'none',
   '& svg': {
     fill: '$slate12',
     width: '20px'

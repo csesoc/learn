@@ -12,6 +12,7 @@ export const Button = styled('button', {
   alignItems: 'center',
   gap: '$2',
   transition: '$button',
+  border: 'none',
   '&:hover': {
     backgroundColor: '$blue5'
   },
