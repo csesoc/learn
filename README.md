@@ -1,5 +1,9 @@
 # Learning Platform
 
+![GitHub header](https://user-images.githubusercontent.com/33971845/168602873-3746dc75-1271-4f26-8c55-54e68916a90e.png)
+
+
+
 A place for the CSESoc community to learn and share their knowledge and expertise.
 
 > 🌈 **Status update:**<br> Finessing the front-end!  
