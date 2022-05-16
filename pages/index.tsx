@@ -39,7 +39,7 @@ const Home: NextPage = () => {
           outside the classroom starts here.
         </Text>
         <Link href="/articles">
-          <Button size="default" css={{ marginTop: '$6' }}>
+          <Button size="default" css={{ marginTop: '$6', cursor: 'pointer' }}>
             Learn something new
             <ArrowRight weight="bold" />
           </Button>
