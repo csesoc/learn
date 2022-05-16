@@ -1,46 +1,55 @@
 # Learning Platform
 
+![GitHub header](https://user-images.githubusercontent.com/33971845/168602873-3746dc75-1271-4f26-8c55-54e68916a90e.png)
+
+
+
 A place for the CSESoc community to learn and share their knowledge and expertise.
 
-> 🌈 **Status update:**<br> Finessing the front-end!
+> 🌈 **Status update:**<br> Finessing the front-end!  
 
-## Motivation
-
-At CSESoc, CSE students gather to socialise and extend their technical knowledge outside the classroom. Educational content has previously been delivered via workshops. However, this limits people who're uncomfortable with holding workshops, or want to contribute on a smaller scale, from contributing. Having a platform where students of various backgrounds can contribute to the collective knowledge of their community is critical to its success. Hence, the CSESoc Learning Platform!
-
-By opening up new formats of contributing such as **articles**, **videos** and **sample projects**, we hope that this empowers more people to share what they've learned with the wider CSE community.
-
-## Code style
-
-Prettier is used for code formatting. Standard + ESLint is used for linting.
-
-## Screenshots
-
-Check the [Figma canvas](https://www.figma.com/file/BikvnEQenQQnuDw8YVH07b/Learning-Platform---Mockups?node-id=120%3A2) out! The design may change.
-
-## Tech stack
-
-Built with:
-
-- Next.js
-- Contentlayer
-- Radix Primitives
-- TypeScript
+> 🎨 **Design system**:<br> CSESoc Learn has its own design system with components + tokens. The Figma file is [here](https://www.figma.com/file/l5z96D2EHE5VNz3nayZ9Ht/Design-System?node-id=11%3A4381).
 
 ## Features
+> For more details, see the relevant [wiki page](https://github.com/csesoc/learning-platform/wiki/Architecture).
+- Support for a wide variety of content types via Contentlayer
+- Beautiful UI/UX inspired by Medium and technical sites
+- Spotlight-style search via Stork
+- Ergonomic content creation workflow
 
-_Coming soon_
+## Getting Started
+> For detailed instructions, see [here](https://github.com/csesoc/learning-platform/wiki/Getting-started).  
 
-## Documentation
-
-_Coming soon_
-
-## Installation
+In a nutshell:
 
 1. Clone this repo
 2. `yarn install` to install all dependencies
 3. `yarn dev` to start the local server
-4. `yarn index` to rebuild the search index after modifying / adding MDX files
+
+## Vision ⚡️
+
+CSESoc is where students gather to socialise and extend their technical knowledge outside the classroom. Educational content has previously been delivered via workshops. However, this limits people who're uncomfortable with holding workshops, or want to contribute in other formats, from contributing.
+
+CSESoc Learn empowers students from various backgrounds to contribute to the wider CSE community by:
+- opening up new formats of contributing such as articles, tutorials and videos
+- providing an ergonomic content creation experience, allowing creators to focus on what they do best
+
+CSESoc Learn also focuses strongly on delightful UI/UX, driving engagement and raising the bar for learning experiences at CSESoc.
+
+## Code style
+
+[Prettier](https://prettier.io/) and [StandardJS](https://standardjs.com/) are used together for formatting and linting. They're configured in the repo.
+
+## Tech stack
+> For more details, see the relevant [wiki page](https://github.com/csesoc/learning-platform/wiki/Architecture).
+- Framework: [Next.js](https://nextjs.org/) 
+- Content: [MDX](https://mdxjs.com/) + [Contentlayer](https://www.contentlayer.dev/) 
+- Language: [TypeScript](https://stackoverflow.com/questions/12694530/what-is-typescript-and-why-would-i-use-it-in-place-of-javascript/35048303#35048303)
+- Styling: [Stitches](https://stitches.dev/)
+
+## Documentation
+
+See the [wiki](https://github.com/csesoc/learning-platform/wiki). Documentation is currently being written.
 
 ## Our team
 
