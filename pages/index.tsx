@@ -10,8 +10,17 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'phosphor-react'
+import { ArrowRight, CaretCircleLeft, CaretCircleRight } from 'phosphor-react'
 import { DiscordLogo, FacebookLogo, InstagramLogo } from 'phosphor-react'
+
+import {
+  Carousel,
+  CarouselSlideList,
+  CarouselSlide,
+  CarouselNext,
+  CarouselPrevious,
+  CarouselArrowButton,
+} from 'components/Carousel';
 
 export async function getStaticProps() {
   const articles = allArticles.sort((a, b) => {
@@ -20,9 +29,20 @@ export async function getStaticProps() {
   return { props: { articles } }
 }
 
-function ArticleCard(article: Article) {
+function ArticleSlide(article: Article) {
   return (
-    <Card>
+<CarouselSlide>
+  <Link href={`/articles/${article.slug}`}>
+    <Card css={{
+      overflow: 'hidden' ,
+      cursor: 'pointer',
+      '&:hover': {
+        backgroundColor: '$slate3'
+      }
+    }}>
+      <Box css={{ margin: '-$6 -$5 $5 -$5' }}>
+        <Image src="/csesoccard2.png" width="700" height="300" />
+      </Box>
       <Text size="label-md" css={{ color: '$slate11' }}>
         {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
         {article.readingTime.text}
@@ -30,7 +50,7 @@ function ArticleCard(article: Article) {
       <Text
         size="title-md"
         css={{ color: '$slate12', fontWeight: '600', paddingTop: '$2' }}>
-        <Link href={`/articles/${article.slug}`}>{article.title}</Link>
+        {article.title}
       </Text>
       <Text size="label-lg" css={{ color: '$slate12', paddingTop: '$1' }}>
         {article.desc}
@@ -53,6 +73,8 @@ function ArticleCard(article: Article) {
         </Text>
       </Flex>
     </Card>
+  </Link>
+</CarouselSlide>
   )
 }
 
@@ -93,19 +115,72 @@ const Home: NextPage = ({ articles }: any) => {
             <ArrowRight weight="bold" />
           </Button>
         </Link>
-        <Text size="headline" css={{ fontWeight: 600, paddingTop: '$8' }}>
+        <Text size="headline" css={{ fontWeight: 600, py: '$8' }}>
           See what&apos;s new
         </Text>
-        <Flex
-          css={{
-            px: '$6',
-            paddingTop: '$8',
-            gap: '$7'
-          }}>
-          {articles.map((article: Article, index: number) => (
-            <ArticleCard key={index} {...article} />
-          ))}
-        </Flex>
+        
+        <Box css={{ position: 'relative' }}>
+          <Carousel>
+            <CarouselSlideList
+              css={{
+                display: 'grid',
+                gridAutoFlow: 'column',
+                gridAutoColumns: 'min-content',
+                ox: 'auto',
+                oy: 'hidden',
+                py: '$1',
+                WebkitOverflowScrolling: 'touch',
+
+                // Gap between slides
+                $$gap: '$space$5',
+
+                // calculate the left padding to apply to the scrolling list
+                // so that the carousel starts aligned with the container component
+                // the "1145" and "$5" values comes from the <Container /> component
+                '$$scroll-padding': 'max($$gap, calc((100% - 1145px) / 2 + $$gap))',
+                pl: '$$scroll-padding',
+
+                // hide scrollbar
+                MsOverflowStyle: 'none',
+                scrollbarWidth: 'none',
+                '&::-webkit-scrollbar': {
+                  display: 'none',
+                },
+
+                // Can't have nice grid gap because Safari butchers scroll padding with it
+                '& > *': {
+                  pr: '$$gap',
+                },
+              }}
+            >
+              {articles.map((article: Article, index: number) => (
+                <ArticleSlide key={index} {...article} />
+              ))}
+            </CarouselSlideList>
+            <Box
+              css={{
+                position: 'absolute',
+                top: 'calc(50% - $7)',
+                left: '15px',
+              }}
+            >
+              <CarouselPrevious aria-label="Show previous demo" tabIndex={-1} as={CarouselArrowButton}>
+                <CaretCircleLeft />
+              </CarouselPrevious>
+            </Box>
+            <Box
+              css={{
+                position: 'absolute',
+                top: 'calc(50% - $7)',
+                right: '15px',
+              }}
+            >
+              <CarouselNext aria-label="Show next demo" tabIndex={-1} as={CarouselArrowButton}>
+                <CaretCircleRight />
+              </CarouselNext>
+            </Box>
+          </Carousel>
+        </Box>
 
         <Text size="headline" css={{ fontWeight: 600, paddingTop: '$8' }}>
           Join the CSESoc community
@@ -114,7 +189,8 @@ const Home: NextPage = ({ articles }: any) => {
           as="span"
           size="title-sm"
           css={{ color: '$slate12', paddingTop: '$1' }}>
-          Make friends with like-minded students and stay up-to-date with events.
+          Make friends with like-minded students and stay up-to-date with
+          events.
         </Text>
         <Flex
           css={{
@@ -122,20 +198,32 @@ const Home: NextPage = ({ articles }: any) => {
             paddingTop: '$8',
             gap: '$7'
           }}>
-          <Card css={{ backgroundColor: '$slate3' }}> {/* slateDark3 doesn't work */}
+          <Card css={{ backgroundColor: '$slate3', overflow: 'hidden' }}>
+            {/* slateDark3 doesn't work */}
+            <Box css={{ margin: '-$6 -$5 $5 -$5' }}>
+              <Image
+                src="/csesoccard.png"
+                width="702"
+                height="226"
+                objectFit="cover"
+              />
+            </Box>
             <Text size="title-md" css={{ fontWeight: '600', padding: '$2' }}>
               Psst ... you might be our next creator.
             </Text>
-            <Text css={{ padding: '$2' }} >
-              Passionate about a technical topic and want to create content? Any skill levels welcome - learn more below!
+            <Text css={{ padding: '$2' }}>
+              Passionate about a technical topic and want to create content? Any
+              skill levels welcome - learn more below!
             </Text>
             <Link href="/contribute">
-              <Button size="default" css={{
-                marginTop: '$6',
-                cursor: 'pointer',
-                backgroundColor: '$green6',
-                '&:hover': { backgroundColor: '$green7'},
-              }}>
+              <Button
+                size="default"
+                css={{
+                  marginTop: '$6',
+                  cursor: 'pointer',
+                  backgroundColor: '$green6',
+                  '&:hover': { backgroundColor: '$green7' },
+                }}>
                 Contribute
                 <ArrowRight weight="bold" />
               </Button>
@@ -143,54 +231,64 @@ const Home: NextPage = ({ articles }: any) => {
           </Card>
           <Card>
             <Link href="https://cseso.cc/discord/">
-              <Button size="default" css={{
-                cursor: 'pointer',
-                backgroundColor: '$indigo4',
-                '&:hover': { backgroundColor: '$indigo5'}
-              }}>
-                <Flex css={{ py: '$3', pl: '$2', pr: '$1', color: '$indigo10' }}>
+              <Button
+                size="default"
+                css={{
+                  cursor: 'pointer',
+                  backgroundColor: '$indigo4',
+                  '&:hover': { backgroundColor: '$indigo5' }
+                }}>
+                <Flex
+                  css={{ py: '$3', pl: '$2', pr: '$1', color: '$indigo10' }}>
                   <DiscordLogo weight="fill" size={36} />
                 </Flex>
                 <Text size="title-md" css={{ fontWeight: '600' }}>
                   Discord
                 </Text>
-                <Flex css={{ flex: 1, padding: '$3', justifyContent: 'flex-end' }}>
+                <Flex
+                  css={{ flex: 1, padding: '$3', justifyContent: 'flex-end' }}>
                   <ArrowRight weight="bold" size={32} />
                 </Flex>
               </Button>
             </Link>
             <Link href="https://www.facebook.com/csesoc/">
-              <Button size="default" css={{
-                marginTop: '$6',
-                cursor: 'pointer',
-                backgroundColor: '$blue4',
-                '&:hover': { backgroundColor: '$blue5'}
-              }}>
+              <Button
+                size="default"
+                css={{
+                  marginTop: '$6',
+                  cursor: 'pointer',
+                  backgroundColor: '$blue4',
+                  '&:hover': { backgroundColor: '$blue5' }
+                }}>
                 <Flex css={{ py: '$3', pl: '$2', pr: '$1', color: '$blue10' }}>
                   <FacebookLogo weight="fill" size={36} />
                 </Flex>
                 <Text size="title-md" css={{ fontWeight: '600' }}>
                   Facebook
                 </Text>
-                <Flex css={{ flex: 1, padding: '$3', justifyContent: 'flex-end' }}>
+                <Flex
+                  css={{ flex: 1, padding: '$3', justifyContent: 'flex-end' }}>
                   <ArrowRight weight="bold" size={32} />
                 </Flex>
               </Button>
             </Link>
             <Link href="https://www.instagram.com/csesoc_unsw/">
-              <Button size="default" css={{
-                marginTop: '$6',
-                cursor: 'pointer',
-                backgroundColor: '$pink4',
-                '&:hover': { backgroundColor: '$pink5'}
-              }}>
+              <Button
+                size="default"
+                css={{
+                  marginTop: '$6',
+                  cursor: 'pointer',
+                  backgroundColor: '$pink4',
+                  '&:hover': { backgroundColor: '$pink5' }
+                }}>
                 <Flex css={{ py: '$3', pl: '$2', pr: '$1', color: '$pink10' }}>
                   <InstagramLogo weight="fill" size={36} />
                 </Flex>
                 <Text size="title-md" css={{ fontWeight: '600' }}>
                   Instagram
                 </Text>
-                <Flex css={{ flex: 1, padding: '$3', justifyContent: 'flex-end' }}>
+                <Flex
+                  css={{ flex: 1, padding: '$3', justifyContent: 'flex-end' }}>
                   <ArrowRight weight="bold" size={32} />
                 </Flex>
               </Button>
