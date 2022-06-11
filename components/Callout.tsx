@@ -1,6 +1,6 @@
-import { getStaticProps } from 'pages/articles'
-import { ReactPropTypes } from 'react'
 import { styled } from '../stitches.config'
+import { Lightbulb, Warning } from 'phosphor-react'
+import { Flex } from './Flex'
 
 const CalloutBase = styled('div', {
   display: 'flex',
@@ -23,22 +23,31 @@ const CalloutBase = styled('div', {
 
 interface Props {
   type: 'note' | 'warning'
-  children: JSX.Element
+  children?: React.ReactNode
 }
 
-export default function Callout(props: Props) {
-  return <CalloutBase type={props.type}>{props.children}</CalloutBase>
+export default function Callout({ type, children }: Props) {
+  return (
+    <CalloutBase type={type}>
+      <Flex
+        css={{
+          flexDirection: 'row',
+          gap: '$2'
+        }}>
+        <p>{renderIcon(type)}</p>
+        {children}
+      </Flex>
+    </CalloutBase>
+  )
 }
 
-// TODO: Make a React component wrapper for the Stitches component (i.e. return a React component
-// with the Stitches component inside) that takes the type and an emoji as the
-// prop, and returns the Stitches component with the emoji in the top left
-// corner of the callout as per the mockup and the component children passed
-// into th Stitches component
-
-// Make sure the implementation is to the mockup spec
-
-// Boilerplate to get started :)
-// export default function Callout(type, emoji) {
-//   return <CalloutBase type={type}></CalloutBase>
-// }
+function renderIcon(type: Props['type']) {
+  switch (type) {
+    case 'note':
+      return <Lightbulb />
+    case 'warning':
+      return <Warning />
+    default:
+      return null
+  }
+}
