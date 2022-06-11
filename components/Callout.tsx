@@ -21,8 +21,10 @@ const CalloutBase = styled('div', {
   }
 })
 
+type CalloutType = 'note' | 'warning'
+
 interface Props {
-  type: 'note' | 'warning'
+  type: CalloutType
   children?: React.ReactNode
 }
 
@@ -41,14 +43,14 @@ export default function Callout({ type, children }: Props) {
   )
 }
 
-function renderIcon(type: Props['type']) {
-  const props: IconProps = { size: '20px', weight: 'fill' }
+function renderIcon(type: CalloutType) {
+  const iconProps: IconProps = { size: '20px', weight: 'fill' }
 
   switch (type) {
     case 'note':
-      return <Lightbulb color="green" {...props} />
+      return <Lightbulb color="green" {...iconProps} />
     case 'warning':
-      return <Warning color="orange" {...props} />
+      return <Warning color="orange" {...iconProps} />
     default:
       return null
   }
