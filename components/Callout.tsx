@@ -1,5 +1,5 @@
 import { styled } from '../stitches.config'
-import { Lightbulb, Warning } from 'phosphor-react'
+import { IconProps, Lightbulb, Warning } from 'phosphor-react'
 import { Flex } from './Flex'
 
 const CalloutBase = styled('div', {
@@ -42,11 +42,13 @@ export default function Callout({ type, children }: Props) {
 }
 
 function renderIcon(type: Props['type']) {
+  const props: IconProps = { size: '20px', weight: 'fill' }
+
   switch (type) {
     case 'note':
-      return <Lightbulb />
+      return <Lightbulb color="green" {...props} />
     case 'warning':
-      return <Warning />
+      return <Warning color="orange" {...props} />
     default:
       return null
   }
