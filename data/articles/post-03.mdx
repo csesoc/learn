@@ -5,6 +5,8 @@ desc: In the jungle, the mighty jungle...
 author: idk
 ---
 
+# Hello!
+
 Ullamco et nostrud magna commodo nostrud occaecat quis pariatur id ipsum. Ipsum
 consequat enim id excepteur consequat nostrud esse esse fugiat dolore.
 Reprehenderit occaecat exercitation non cupidatat in eiusmod laborum ex eu
@@ -17,6 +19,8 @@ dolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod
 excepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non
 labore exercitation irure laborum.
 
+## Hello 2!
+
 <Callout type="note">
   **Tip:** Ullamco et nostrud magna commodo nostrud occaecat quis pariatur id
   ipsum. Ipsum consequat enim id excepteur consequat nostrud esse esse fugiat
@@ -25,7 +29,7 @@ labore exercitation irure laborum.
   ipsum ex pariatur.
 </Callout>
 
-Hello!
+### Hello!
 
 <Callout type="warning">
   **Careful:** Ullamco et nostrud magna commodo nostrud occaecat quis pariatur
@@ -34,3 +38,20 @@ Hello!
   ex eu fugiat aute culpa pariatur. Irure elit proident consequat veniam minim
   ipsum ex pariatur.
 </Callout>
+
+#### Hello 4!
+
+```typescript:lib/mdx.ts
+// code here
+const computedFields = {
+  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  wordCount: {
+    type: 'number',
+    resolve: (doc) => doc.body.raw.split(/\s+/gu).length
+  },
+  slug: {
+    type: 'string',
+    resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, '')
+  }
+}
+```
