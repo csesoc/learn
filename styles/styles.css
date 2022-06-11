@@ -1,3 +1,11 @@
 body {
   font-family: 'Inter var', sans-serif;
 }
+
+.rehype-code-title {
+  background-color: aquamarine;
+}
+
+pre {
+  background-color: aqua;
+}
