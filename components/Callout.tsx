@@ -14,7 +14,8 @@ const CalloutBase = styled('div', {
         color: '$grass12'
       },
       warning: {
-        backgroundColor: '$amber4'
+        backgroundColor: '$amber4',
+        color: '$amber12'
       }
     }
   }
