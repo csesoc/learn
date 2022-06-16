@@ -43,6 +43,14 @@ export const Article = defineDocumentType(() => ({
       description:
         'A cover photo that appears at the top of the article and in meta images',
       required: false
+    },
+    tags: {
+      type: 'list',
+      of: {
+        type: 'string'
+      },
+      description: 'List of tags applied to the article',
+      required: false
     }
   },
   computedFields
