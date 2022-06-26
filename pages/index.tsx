@@ -10,6 +10,8 @@ import { ArrowRight } from 'phosphor-react'
 import { allArticles, Article } from 'contentlayer/generated'
 import { Card } from 'components/Card'
 import Image from 'next/image'
+import ArticleCard from 'components/ArticleCard'
+import { styled } from '@stitches/react'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -64,75 +66,19 @@ const Home: NextPage<Props> = ({ articles }) => {
             overflowX: 'scroll'
           }}>
           {articles?.map((article) => (
-            <Link href={`/articles/${article.slug}`} key={article.slug}>
-              <Card
-                css={{
-                  overflow: 'hidden',
-                  marginRight: '$8'
-                }}>
-                {article.coverPhoto ? (
-                  <Box
-                    css={{
-                      position: 'relative',
-                      width: '100%',
-                      height: '50%',
-                      marginBottom: '$3'
-                    }}>
-                    <Image
-                      src={article.coverPhoto}
-                      alt={article.title}
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </Box>
-                ) : (
-                  <Flex
-                    justify="center"
-                    align="center"
-                    css={{
-                      position: 'relative',
-                      width: '100%',
-                      height: '50%',
-                      marginBottom: '$3',
-                      backgroundColor: '$blue10'
-                    }}>
-                    <Text
-                      size="title-sm"
-                      css={{
-                        color: '$slate1'
-                      }}>
-                      :D
-                    </Text>
-                  </Flex>
-                )}
-                <Box
-                  css={{
-                    padding: '$2'
-                  }}>
-                  <Text
-                    as="h3"
-                    size="label-md"
-                    css={{
-                      marginBottom: '$1',
-                      color: '$slate10'
-                    }}>
-                    {new Date(article.date).toDateString()} •{' '}
-                    {article.readingTime.text}
-                  </Text>
-                  <Text
-                    as="h2"
-                    size="title-lg"
-                    css={{
-                      fontWeight: 500
-                    }}>
-                    {article.title}
-                  </Text>
-                </Box>
-              </Card>
+            <Link
+              passHref
+              href={`/articles/${article.slug}`}
+              key={article.slug}>
+              <ArticleCard article={article} />
             </Link>
           ))}
         </Flex>
-        <Flex as="section" direction="column" align="center">
+        <Flex
+          as="section"
+          direction="column"
+          align="center"
+          css={{ width: '100%' }}>
           <Text
             size="headline"
             css={{ fontWeight: 600, paddingTop: '$8', paddingBottom: '$6' }}>
@@ -146,16 +92,146 @@ const Home: NextPage<Props> = ({ articles }) => {
             events.
           </Text>
           <Flex
+            justify="between"
+            align="center"
             css={{
+              width: '75%',
               marginTop: '$4'
             }}>
-            <Card></Card>
+            <Card
+              css={{
+                overflow: 'hidden',
+                backgroundColor: '$slate12'
+              }}>
+              <Box
+                css={{
+                  position: 'relative',
+                  width: '100%',
+                  height: '40%',
+                  marginBottom: '$3'
+                }}>
+                <Image
+                  src="/images/lofi.jpg"
+                  alt="lofi image"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </Box>
+              <Box
+                css={{
+                  paddingInline: '$4'
+                }}>
+                <Text
+                  size="title-lg"
+                  css={{
+                    fontWeight: 600,
+                    color: '$slate1'
+                  }}>
+                  Psst ... you might be our next creator.
+                </Text>
+                <Text
+                  css={{
+                    fontWeight: 400,
+                    color: '$slate1'
+                  }}>
+                  Passionate about a technical topic and want to create content?
+                  Any skill levels welcome - learn more below!
+                </Text>
+                <Link href="/contact">
+                  <Button
+                    size="default"
+                    css={{
+                      marginTop: '$6',
+                      backgroundColor: '$grass6',
+                      '&:hover': {
+                        backgroundColor: '$grass5'
+                      }
+                    }}>
+                    Contact us
+                    <ArrowRight weight="bold" />
+                  </Button>
+                </Link>
+              </Box>
+            </Card>
+            <Flex
+              direction="column"
+              justify="between"
+              align="center"
+              css={{ height: '15rem' }}>
+              <SocialButton type="discord">
+                <Image
+                  src="/icons/discord.svg"
+                  width={30}
+                  height={30}
+                  alt="discord logo"
+                />
+                <Text>Discord</Text>
+              </SocialButton>
+              <SocialButton type="facebook">
+                <Image
+                  src="/icons/facebook.svg"
+                  width={30}
+                  height={30}
+                  alt="facebook logo"
+                />
+                <Text>Facebook</Text>
+              </SocialButton>
+              <SocialButton type="instagram">
+                <Image
+                  src="/icons/instagram.svg"
+                  width={30}
+                  height={30}
+                  alt="instagram logo"
+                />
+                <Text>Instagram</Text>
+              </SocialButton>
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
     </Box>
   )
 }
+
+const SocialButton = styled('button', {
+  fontSize: '$label-lg',
+  fontWeight: '500',
+  fontFamily: '$sans',
+  letterSpacing: '-0.011rem',
+  lineHeight: '22px',
+  color: '$blue12',
+  display: 'flex',
+  justifyContent: 'start',
+  alignItems: 'center',
+  gap: '$2',
+  transition: '$button',
+  border: 'none',
+  padding: '$4',
+  borderRadius: '5rem',
+  minWidth: '20rem',
+  variants: {
+    type: {
+      discord: {
+        backgroundColor: '$violet6',
+        '&:hover': {
+          backgroundColor: '$violet5'
+        }
+      },
+      facebook: {
+        backgroundColor: '$indigo6',
+        '&:hover': {
+          backgroundColor: '$indigo5'
+        }
+      },
+      instagram: {
+        backgroundColor: '$pink6',
+        '&:hover': {
+          backgroundColor: '$pink5'
+        }
+      }
+    }
+  }
+})
 
 export async function getStaticProps() {
   const articles: Article[] = allArticles.slice(0, 10)
