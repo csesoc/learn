@@ -4,56 +4,15 @@ import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
 import { Card } from 'components/Card'
 import { Tag } from 'components/Tag'
+import { Button } from 'components/Button'
 import { allArticles, Article } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
-import { styled } from 'stitches.config'
 import { useState } from 'react'
-
-const StyledRadio = styled(RadioGroupPrimitive.Item, {
-  // all: 'unset',
-  // backgroundColor: 'black',
-  width: 25,
-  height: 25,
-  borderRadius: '100%',
-  boxShadow: `0 2px 10px black`,
-  '&:hover': { backgroundColor: `black` },
-  '&:focus': { boxShadow: `0 0 0 2px black` }
-})
-
-const StyledIndicator = styled(RadioGroupPrimitive.Indicator, {
-  // display: 'flex',
-  // alignItems: 'center',
-  // justifyContent: 'center',
-  // width: '100%',
-  // height: '100%',
-  // position: 'relative',
-  '&::after': {
-    content: '""',
-    display: 'block',
-    width: 11,
-    height: 11,
-    borderRadius: '50%',
-    backgroundColor: `black`
-  }
-})
-
-// Exports
-export const RadioGroup = RadioGroupPrimitive.Root
-export const RadioGroupRadio = StyledRadio
-export const RadioGroupIndicator = StyledIndicator
-
-const Label = styled('label', {
-  color: 'black',
-  fontSize: 15,
-  lineHeight: 1,
-  userSelect: 'none',
-  paddingLeft: 15
-})
+import { Divide } from 'phosphor-react'
 
 export async function getStaticProps() {
   const articles = allArticles.sort((a, b) => {
@@ -63,7 +22,7 @@ export async function getStaticProps() {
     article.tags == undefined ? [] : article.tags
   )
   var flattenedTags = tagLists.flat(1)
-  const allTags = [...new Set(flattenedTags)]
+  const allTags = [...['All topics'], ...new Set(flattenedTags)]
   return { props: { articles, allTags } }
 }
 
@@ -159,13 +118,18 @@ function ArticleCard(article: Article) {
 
 // I'm tired, I didn't type this properly ok
 const Articles: NextPage = ({ articles, allTags }: any) => {
+  const [currentTag, setCurrentTag] = useState('All topics')
   const [filteredArticles, setFilteredArticles] = useState(articles)
-  const filterArticles = (value: string) => {
+
+  const updateTag = (value: string) => {
+    setCurrentTag(value)
     if (value == 'All topics') {
       setFilteredArticles(articles)
     } else {
       setFilteredArticles(
-        articles.filter((article) => article.tags.includes(value))
+        articles.filter(
+          (article: Article) => article.tags && article.tags.includes(value)
+        )
       )
     }
   }
@@ -217,47 +181,47 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
             flexWrap: 'wrap',
             justifyContent: 'center'
           }}>
-          {/* TODO: display featured content here, not everything */}
+          {/* TODO: only display featured content here, not all content */}
           {articles.map((article: Article, index: number) => (
             <ArticleCard key={index} {...article} />
           ))}
         </Flex>
 
-        <Flex>
-          <RadioGroup
-            defaultValue="All topics"
-            aria-label="Select topic"
-            onValueChange={filterArticles}>
-            <Flex css={{ margin: '10px 0', alignItems: 'center' }}>
-              <RadioGroupRadio value="All topics" id="All topics">
-                <RadioGroupIndicator />
-              </RadioGroupRadio>
-              <Label htmlFor="All topics">All topics</Label>
-            </Flex>
-            {allTags.map((tag: string, index: number) => (
-              <Flex
-                key={index}
-                css={{ margin: '10px 0', alignItems: 'center' }}>
-                <RadioGroupRadio value={tag} id={tag}>
-                  <RadioGroupIndicator />
-                </RadioGroupRadio>
-                <Label htmlFor={tag}>{tag}</Label>
-              </Flex>
-            ))}
-          </RadioGroup>
-        </Flex>
-
         <Flex
           css={{
-            flexDirection: 'column',
-            width: '100%',
-            px: '$6',
-            paddingTop: '$8',
-            gap: '$7'
+            display: 'grid',
+            gridTemplateColumns: '200px auto',
+            width: '75%'
           }}>
-          {filteredArticles.map((article: Article, index: number) => (
-            <ArticleRow key={index} {...article} />
-          ))}
+          <Flex css={{ paddingTop: '$8', flexDirection: 'column', gap: '$2' }}>
+            {allTags.map((tag: string, index: number) => (
+              <Button
+                key={index}
+                size="default"
+                css={
+                  tag == currentTag
+                    ? { cursor: 'pointer', backgroundColor: '$blue4' }
+                    : { cursor: 'pointer', backgroundColor: '$whiteA1' }
+                }
+                value={tag}
+                name={tag}
+                onClick={(e) => updateTag(tag)}>
+                {tag}
+              </Button>
+            ))}
+          </Flex>
+          <Flex
+            css={{
+              flexDirection: 'column',
+              width: '100%',
+              px: '$9',
+              paddingTop: '$8',
+              gap: '$7'
+            }}>
+            {filteredArticles.map((article: Article, index: number) => (
+              <ArticleRow key={index} {...article} />
+            ))}
+          </Flex>
         </Flex>
       </Flex>
     </Box>
