@@ -10,6 +10,7 @@ import { compareDesc, format, parseISO } from 'date-fns'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { styled } from '../stitches.config'
 import { MagnifyingGlass } from 'phosphor-react'
@@ -28,37 +29,57 @@ export async function getStaticProps() {
 
 function ArticleRow(article: Article) {
   return (
-    <Flex css={{ flexDirection: 'column' }}>
-      <Text size="label-md" css={{ color: '$slate11' }}>
-        {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
-        {article.readingTime.text}
-      </Text>
-      <Text
-        size="title-md"
-        css={{ color: '$slate12', fontWeight: '600', paddingTop: '$2' }}>
-        <Link href={`/articles/${article.slug}`}>{article.title}</Link>
-      </Text>
-      <Text size="label-lg" css={{ color: '$slate12', paddingTop: '$1' }}>
-        {article.desc}
-      </Text>
+    <Flex direction="row" css={{ py: '$4' }}>
+      <Flex direction="column" justify="between" css={{ flex: 3 }}>
+        <Text size="label-md" css={{ color: '$slate11' }}>
+          {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
+          {article.readingTime.text}
+        </Text>
+        <Text
+          size="title-md"
+          css={{ color: '$slate12', fontWeight: '600', paddingTop: '$2' }}>
+          <Link href={`/articles/${article.slug}`}>{article.title}</Link>
+        </Text>
+        <Text size="label-lg" css={{ color: '$slate12', paddingTop: '$1' }}>
+          {article.desc}
+        </Text>
+        <Flex
+          css={{
+            flexDirection: 'row',
+            gap: '0.75rem',
+            alignItems: 'center',
+            paddingTop: '$5'
+          }}>
+          <Avatar
+            size={28}
+            name={article.author}
+            variant="beam"
+            colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
+          />
+          <Text size="label-md" css={{ color: '$slate12' }}>
+            {article.author}
+          </Text>
+          {article.tags != undefined &&
+            article.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+        </Flex>
+      </Flex>
       <Flex
         css={{
-          flexDirection: 'row',
-          gap: '0.75rem',
-          alignItems: 'center',
-          paddingTop: '$5'
+          flex: 1,
+          justifyContent: 'flex-end',
+          overflow: 'hidden'
         }}>
-        <Avatar
-          size={28}
-          name={article.author}
-          variant="beam"
-          colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
+        <Image
+          src={
+            article.coverPhoto
+              ? article.coverPhoto
+              : '/images/defaultCoverPhoto.png'
+          }
+          style={{ borderRadius: '20px' }}
+          width="300px"
+          height="150px"
+          objectFit="cover"
         />
-        <Text size="label-md" css={{ color: '$slate12' }}>
-          {article.author}
-        </Text>
-        {article.tags != undefined &&
-          article.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
       </Flex>
     </Flex>
   )
@@ -68,7 +89,7 @@ const SearchBar = styled('input', {
   all: 'unset',
   alignItems: 'center',
   justifyContent: 'center',
-  width: 300,
+  width: '100%',
   fontSize: 16,
   lineHeight: 1
 })
@@ -181,7 +202,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
         <Flex
           css={{
             display: 'grid',
-            gridTemplateColumns: '300px auto',
+            gridTemplateColumns: '1fr 4fr',
             width: '75%'
           }}>
           <Flex css={{ paddingTop: '$4', flexDirection: 'column', gap: '$2' }}>
@@ -205,7 +226,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
             css={{
               flexDirection: 'column',
               width: '100%',
-              mx: '$8',
+              paddingLeft: '$8',
               paddingTop: '$4',
               gap: '$4'
             }}>
@@ -217,7 +238,8 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
                 borderRadius: 100,
                 padding: '0 15px',
                 height: 40,
-                width: 300,
+                width: '100%',
+                maxWidth: '300px',
                 gap: '$2',
                 backgroundColor: '$slate4'
               }}>
