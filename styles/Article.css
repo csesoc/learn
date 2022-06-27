@@ -19,7 +19,7 @@ pre {
     margin: 0 0 13px;
 }
 
-pre code.hljs {
+pre > code.hljs {
     /* background-color: rgb(240, 240, 240); */
     background-color: rgb(47, 52, 72);
     padding: 0.8rem 1.2rem;
