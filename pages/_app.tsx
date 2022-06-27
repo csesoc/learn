@@ -1,6 +1,7 @@
 import '@fontsource/inter'
 import '@fontsource/jetbrains-mono'
 import Navbar from 'components/Navbar'
+import Footer from 'components/Footer'
 import 'styles/styles.css'
 // import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Navbar />
       <Component {...pageProps} />
+      <Footer />
     </>
   )
 }
