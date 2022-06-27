@@ -9,6 +9,7 @@ export const Button = styled('button', {
   lineHeight: '22px',
   color: '$blue12',
   display: 'flex',
+  cursor: 'pointer',
   alignItems: 'center',
   gap: '$2',
   transition: '$button',

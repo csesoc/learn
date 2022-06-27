@@ -45,16 +45,17 @@ export default function Navbar() {
             Collection
           </Text>
         </Link>
-        <Text
-          as="a"
-          size="label-lg"
-          css={{
-            color: '$slate11',
-            userSelect: 'none',
-            cursor: 'not-allowed'
-          }}>
-          Creators
-        </Text>
+        <Link href="/creators">
+          <Text
+            as="a"
+            size="label-lg"
+            css={{
+              color: '$slate12',
+              cursor: 'pointer'
+            }}>
+            Creators
+          </Text>
+        </Link>
         <Text
           as="a"
           size="label-lg"
