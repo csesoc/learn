@@ -5,7 +5,7 @@ const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
   images: {
-    domains: ['i.imgur.com']
+    domains: ['imgur.com']
   }
 }
 

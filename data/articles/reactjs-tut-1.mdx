@@ -1,0 +1,88 @@
+---
+title: "ReactJS Project Tutorial: Part 1"
+date: 2022-06-27
+desc: Set up your development environment for building a React application.
+author: Gordon Huang
+---
+# Part 1: Setup
+
+To set ourselves up for building a React application in this tutorial, we first need to install a few tools.
+
+## NodeJS
+
+NodeJS is a version of the popular JavaScript programming language that can run on your computer. We need it to power the development server which we will be running on our computer to develop our application.
+
+To install NodeJS, go to to [nodejs.org](https://nodejs.org/en/) and install the version for your operating system.
+
+## Code Editor
+
+To write code, we need a code editor. Visual Studio Code is a popular code editor created and maintained by MicroSoft, and is recommended for this tutorial.
+
+Go to [code.visualstudio.com](https://code.visualstudio.com/) to install a version of VSCode for your computer.
+
+## Shell
+
+To start a development server for building our application, we need to use a **shell** or command line.
+
+On Mac you can use your built-in Terminal app.
+
+On Windows you can use the Command Prompt app.
+
+The shell allows us to use some of the tools we have installed. Open your command line and type:
+
+```bash:shell
+node -v
+```
+
+and press enter. This tests whether you have installed NodeJS correctly. If you have, it should print the version of NodeJS which you have installed, such as `16.15.0`.
+
+Installing NodeJS also automatically installs NPM (Node Package Manager) which manages JavaScript packages for your projects. To check that it has installed properly, type into your command line:
+
+```bash:shell
+npm -v
+```
+
+If installed properly it will show its version, such as `8.5.5`.
+
+## Create React App
+
+The final thing we need is a package from npm called **Create React App** which sets up a React application for you to start building quickly.
+
+To install the Create React App package, run the following on your command line:
+
+MacOS:
+
+```bash:shell
+sudo npm install --global create-react-app
+```
+
+Windows:
+```bash:shell
+npm install --global create-react-app
+```
+
+In MacOS you may need the `sudo` command in order to run the line with elevated privileges. It may prompt you to enter your Mac user password.
+
+Now let's use create-react-app to create a React app for us. We'll use npx, a package runner that also comes with NodeJS to run the create-react-app program, which will create the app in a new folder we call **my-react-app** (or any name you like).
+
+```bash:shell
+npx create-react-app my-react-app
+```
+
+This will take a minute or two to download required packages and set up the project. Once it's done, go into the folder of the project.
+
+```bash:shell
+cd my-react-app
+```
+
+Also open up the project in VSCode by opening up the VSCode open and opening the folder **my-react-app**.
+
+![Open VSCode and open a folder](https://imgur.com/T6kP1ov)
+
+![Select the my-react-app folder](https://imgur.com/8Zm3dEk)
+
+You should now be able to see the source code of your new React app in your code editor!
+
+![Your React source code app in VSCode](https://imgur.com/XzOhc6u)
+
+In the next tutorial we'll explore all the different parts of the code that create-react-app has given to us.

@@ -1,3 +1,15 @@
+h1 {
+    font-size: xx-large;
+}
+
+h2 {
+    font-size: x-large;
+}
+
+h3 {
+    font-size: large;
+}
+
 .rehype-code-title {
   background-color: rgb(206, 236, 242);
   margin: 13px 0 0;

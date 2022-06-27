@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   // )
   return (
     <>
-      <Box css={{ backgroundColor: '$slate2', height: '100vh' }}>
+      <Box css={{ height: '100vh' }}>
         <Navbar />
         <Component {...pageProps} />
         <Footer />
