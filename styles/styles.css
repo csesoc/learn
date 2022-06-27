@@ -1,0 +1,25 @@
+:root {
+  --max-screen-width: 768px;
+  --side-padding: 1.2rem;
+  --header-height: 4.2rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter var', sans-serif;
+  background-color: #f4f4f4;
+}
+
+a {
+  color: #3f89f1;
+  text-decoration-thickness: 0.5px;
+}
+
+a:hover {
+  color: #69a2f3;
+  
+}
