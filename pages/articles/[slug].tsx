@@ -8,8 +8,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Box } from 'components/Box'
 import Callout from 'components/Callout'
+import FileName from 'components/Filename'
+import 'highlight.js/styles/github.css';
 
-const defaultComponents = { Image, Callout }
+const defaultComponents = { Image, Callout, FileName}
 // Add any components used in MDX files here.
 // Components here load dynamically if they're used.
 // See https://github.com/tsriram/with-mdx-bundler for details.
