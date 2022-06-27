@@ -13,6 +13,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { styled } from '../stitches.config'
+import { MagnifyingGlass } from 'phosphor-react'
 
 export async function getStaticProps() {
   const articles = allArticles.sort((a, b) => {
@@ -22,7 +23,7 @@ export async function getStaticProps() {
     article.tags == undefined ? [] : article.tags
   )
   var flattenedTags = tagLists.flat(1)
-  const allTags = [...['All topics'], ...new Set(flattenedTags)]
+  const allTags = [...['All Topics'], ...new Set(flattenedTags)]
   return { props: { articles, allTags } }
 }
 
@@ -120,17 +121,14 @@ const SearchBar = styled('input', {
   all: 'unset',
   alignItems: 'center',
   justifyContent: 'center',
-  borderRadius: 100,
-  padding: '0 10px',
-  height: 40,
+  width: 300,
   fontSize: 16,
-  lineHeight: 1,
-  backgroundColor: '$gray4'
+  lineHeight: 1
 })
 
 // I'm tired, I didn't type this properly ok
 const Articles: NextPage = ({ articles, allTags }: any) => {
-  const [currentTag, setCurrentTag] = useState('All topics')
+  const [currentTag, setCurrentTag] = useState('All Topics')
   const [currentSearch, setCurrentSearch] = useState('')
   const [filteredArticles, setFilteredArticles] = useState(articles)
 
@@ -145,7 +143,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
   }
 
   const updateArticles = (tag: string, search: string) => {
-    if (tag == 'All topics') {
+    if (tag == 'All Topics') {
       setFilteredArticles(
         articles.filter((article: Article) =>
           article.title.toLowerCase().includes(search)
@@ -190,38 +188,56 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
           Learn something new with our collection of articles and videos!
         </Text>
 
-        <Text
-          size="title-lg"
-          css={{
-            backgroundColor: '$blue4',
-            fontWeight: '600',
-            borderRadius: '$full',
-            padding: '$3',
-            my: '$4',
-            width: '75%'
-          }}>
-          Featured Content
-        </Text>
+        <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
+          <Text
+            size="title-lg"
+            css={{
+              backgroundColor: '$blue4',
+              fontWeight: '600',
+              borderRadius: '$full',
+              padding: '$4',
+              my: '$4',
+              width: '100%'
+            }}>
+            Featured Content
+          </Text>
+        </Flex>
 
         <Flex
           css={{
             flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
-            width: '75%'
+            justifyContent: 'space-between',
+            width: '75%',
+            gap: '$3'
           }}>
-          {/* TODO: only display featured content here, not all content */}
-          {articles.map((article: Article, index: number) => (
+          {/* TODO: display featured content here, not first 3 articles */}
+          {articles.slice(0, 3).map((article: Article, index: number) => (
             <ArticleCard key={index} {...article} />
           ))}
+        </Flex>
+
+        <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
+          <Text
+            size="title-lg"
+            css={{
+              backgroundColor: '$blue4',
+              fontWeight: '600',
+              borderRadius: '$full',
+              padding: '$4',
+              marginTop: '$7',
+              width: '100%'
+            }}>
+            All Content
+          </Text>
         </Flex>
 
         <Flex
           css={{
             display: 'grid',
-            gridTemplateColumns: '200px auto',
+            gridTemplateColumns: '300px auto',
             width: '75%'
           }}>
-          <Flex css={{ paddingTop: '$8', flexDirection: 'column', gap: '$2' }}>
+          <Flex css={{ paddingTop: '$4', flexDirection: 'column', gap: '$2' }}>
             {allTags.map((tag: string, index: number) => (
               <Button
                 key={index}
@@ -242,15 +258,31 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
             css={{
               flexDirection: 'column',
               width: '100%',
-              px: '$9',
-              paddingTop: '$8',
-              gap: '$7'
+              mx: '$8',
+              paddingTop: '$4',
+              gap: '$4'
             }}>
-            <SearchBar
-              type="text"
-              onChange={(e) => updateSearch(e.target.value)}
-              placeholder="Search..."
-            />
+            <Flex
+              css={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 100,
+                padding: '0 15px',
+                height: 40,
+                width: 300,
+                gap: '$2',
+                backgroundColor: '$slate4'
+              }}>
+              <Flex css={{ color: 'grey' }}>
+                <MagnifyingGlass size={20} />
+              </Flex>
+              <SearchBar
+                type="text"
+                onChange={(e) => updateSearch(e.target.value)}
+                placeholder="Search by title..."
+              />
+            </Flex>
             {filteredArticles.map((article: Article, index: number) => (
               <ArticleRow key={index} {...article} />
             ))}
