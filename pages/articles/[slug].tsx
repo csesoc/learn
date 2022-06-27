@@ -8,8 +8,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Box } from 'components/Box'
 import Callout from 'components/Callout'
+import FileName from 'components/Filename'
 
-const defaultComponents = { Image, Callout }
+const defaultComponents = { Image, Callout, FileName}
 // Add any components used in MDX files here.
 // Components here load dynamically if they're used.
 // See https://github.com/tsriram/with-mdx-bundler for details.
@@ -71,7 +72,6 @@ function ArticleHeader({ article }: { article: Article }) {
   )
 }
 
-// TODO: Add full GitHub Flavoured MD support
 const ArticleLayout = ({ article }: { article: Article }) => {
   const MDXContent = useMDXComponent(article.body.code)
 
