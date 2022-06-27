@@ -1,0 +1,110 @@
+---
+title: "ReactJS Project Tutorial: Part 3"
+date: 2022-06-27
+desc: Learn the fundamentals of ReactJS by building a simple project.
+author: Gordon Huang
+---
+
+Your web browser renders HTML pages which usually contain something like this:
+
+```html:
+<div>
+    <h1>Hello HTML</h1>
+    <p>Some text wrapped in HTML p tags</p>
+    <div>
+        <div>Some text inside a div inside a div</div>
+        <img src="path/to/image.png" alt="An image" />
+    </div>
+</div>
+```
+
+Your HTML page is composed of HTML elements like `<h1>Title</h1>`.
+
+ReactJS has a similar syntax for rendering HTML elements. In fact, the above HTML code looks the same when translated into React. This is because React elements are created using a language which was developed specifically for React called JSX. JSX is a JavaScript syntax extension which looks very similar to HTML.
+
+```js:
+const reactElement = <h1>Hello React</h1>
+```
+
+The above example shows a JavaScript constant variable being assigned to the return value of some JSX `<h1>Hello React</h1>`. The return value is a ReactDOM element, which the React DOM will eventually transform into the actual HTML element `<h1>Hello React</h1>` to be rendered in the browser.
+
+Let's open up <FileName>src/App.jsx</FileName>. The file has the .jsx extension which means the file contains jsx code.
+
+```jsx:src/App.jsx
+import './styles/App.css'
+
+const App = () => {
+  return (
+    <h1>Hello React</h1>
+  )
+}
+
+export default App
+```
+
+The first line imports styles from the css file <FileName>./styles/App.css</FileName> where "." refers to the current directory (<FileName>src</FileName> folder). We'll use these styles later on.
+
+The file also has a JavaScript arrow function called `App` which returns the React element `<h1>Hello React</h1>`. JavaScript arrows functions look a bit strange, but it's works pretty much the same as functions in any other language as far as we are concerned. Here are some examples of how JS arrow functions are very similar to what you might be familiar with in other languages.
+
+An arrow function in JavaScript:
+```js:
+const add = (a, b) => {
+    return a + b
+}
+```
+
+works the same as a regular function in JavaScript:
+```js:
+function add(a, b) {
+    return a + b
+}
+```
+
+works the same as a function in Python:
+```python:
+def add(a, b):
+    return a + b
+```
+
+works the same as a function in C:
+```c:
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+The last line of <FileName>src/App.jsx</FileName>:
+
+```jsx:src/App.jsx
+export default App
+```
+
+simply makes the `App` function available to be imported into other files. In the case of this project it is imported in <FileName>src/index.js</FileName> as we saw in the last tutorial.
+
+---
+
+A React project is mainly made up of "components" which you can think of a separate blocks of HTML elements which are each responsible for their own state and functionality. A component is made using a function such as the `App` function we have in <FileName>src/App.jsx</FileName>.
+
+With the starting code we have at the moment, <FileName>src/index.js</FileName> imports the `App` component and renders it using the root React element. This is enough to work as a basic React app, so let's try to run it!
+
+If you open <FileName>package.json</FileName> you will see some "dependencies" including "react", "react-dom" and "react-scripts". We need to install these dependencies for our project to work. Open your shell and go into this project's directory. Then run this command:
+
+```bash:
+npm install
+```
+
+This will download and install all the packages that this project depends on, listed in <FileName>package.json</FileName>.
+
+In <FileName>package.json</FileName> you will also see some "scripts" which maps some keywords like `"start"` to commands like `"react-scripts start"`. To start a development server for working on our project, run this command:
+
+```bash:
+npm start
+```
+
+Your React app will then open in the browser at a url like [http://localhost:3000](http://localhost:3000).
+
+<Centerer>
+<img src="https://imgur.com/QlQHBQ3.png" width="80%" />
+</Centerer>
+
+In the next tutorial we will start coding in the `App` component to get some more elements showing on the app.
