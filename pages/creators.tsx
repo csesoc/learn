@@ -12,7 +12,7 @@ const Creators: NextPage = () => {
   return (
     <Flex css={{ justifyContent: 'center', paddingTop: '$6' }}>
       <Head>
-        <title>Creators - CSESoc Learn</title>
+        <title>Creators - CSESoc</title>
       </Head>
       <Box as="article" css={{ alignItems: 'center', width: '75%' }}>
         <Box
@@ -143,8 +143,8 @@ const Creators: NextPage = () => {
             Express yourself using a format that feels most natural to you and
             your content. Here is a list of common content formats:
           </Text>
-          <ul>
-            <Box css={{ paddingLeft: '$2', borderLeft: '6px solid $blue5' }}>
+          <ul style={{ gap: '$2' }}>
+            <li style={{ listStyleType: 'disc' }}>
               <Text
                 css={{
                   borderWidth: '100px',
@@ -158,10 +158,8 @@ const Creators: NextPage = () => {
                 tables, graphs, code snippets and even mathematical typesetting.
                 We'll help you format your article to publication quality.
               </Text>
-            </Box>
-          </ul>
-          <ul>
-            <Box css={{ paddingLeft: '$2', borderLeft: '6px solid $blue5' }}>
+            </li>
+            <li style={{ listStyleType: 'disc' }}>
               <Text css={{ fontWeight: '600' }}>Video or series of videos</Text>
               <Text css={{ marginTop: '$1' }}>
                 Hit record and talk through a presentation or a live coding
@@ -169,10 +167,8 @@ const Creators: NextPage = () => {
                 right. We'll help you edit your recordings to make the final
                 cut.
               </Text>
-            </Box>
-          </ul>
-          <ul>
-            <Box css={{ paddingLeft: '$2', borderLeft: '6px solid $blue5' }}>
+            </li>
+            <li style={{ listStyleType: 'disc' }}>
               <Text css={{ fontWeight: '600' }}>
                 Live workshop or presentation
               </Text>
@@ -182,10 +178,8 @@ const Creators: NextPage = () => {
                 logistics and stream setup to make a smooth-running event for
                 you and your audience.
               </Text>
-            </Box>
-          </ul>
-          <ul>
-            <Box css={{ paddingLeft: '$2', borderLeft: '6px solid $blue5' }}>
+            </li>
+            <li style={{ listStyleType: 'disc' }}>
               <Text css={{ fontWeight: '600' }}>
                 Infographic or reference sheet
               </Text>
@@ -194,7 +188,7 @@ const Creators: NextPage = () => {
                 We'll help with formatting and visual aesthetics to make it
                 readable and appealing.
               </Text>
-            </Box>
+            </li>
           </ul>
           <Text>
             If you have other ideas for how you want to present your content, we
@@ -211,26 +205,20 @@ const Creators: NextPage = () => {
             work of polishing, publishing and promoting your work, so you can
             focus on bringing out your best ideas. Here’s what we will provide:
           </Text>
-          <Flex
-            css={{
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-              marginBottom: '$6'
-            }}>
-            <CardSmall>
+          <ul>
+            <li style={{ listStyleType: 'disc' }}>
               Graphical illustrations and animations to effectively convey your
               ideas
-            </CardSmall>
-            <CardSmall>
+            </li>
+            <li style={{ listStyleType: 'disc' }}>
               Professional aesthetics and visual themes for the presentation of
               your content
-            </CardSmall>
-            <CardSmall>
+            </li>
+            <li style={{ listStyleType: 'disc' }}>
               Promotion on CSESoc's high-traffic social media platforms and
               newsletter
-            </CardSmall>
-          </Flex>
+            </li>
+          </ul>
           <Text>
             Ready to step up to the stage? Submit your content ideas{' '}
             <Link href="https://cseso.cc/ContentCreatorForm">here</Link>.
