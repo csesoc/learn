@@ -1,17 +1,56 @@
 {
-  "private": true,
   "name": "learning-platform",
-  "workspaces": [
-    "packages/*"
-  ],
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "yarn workspace web run dev",
-    "clean": "rm -rf node_modules && rm -rf packages/web/node_modules"
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "yarn index",
+    "index": "node scripts/storkConfigBuilder.mjs && stork build --input stork-config.toml --output public/stork-index.st",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "dependencies": {},
+  "prettier": "prettier-config-standard",
+  "dependencies": {
+    "@fontsource/inter": "^4.5.10",
+    "@fontsource/jetbrains-mono": "^4.5.8",
+    "@radix-ui/colors": "^0.1.8",
+    "@radix-ui/react-avatar": "^0.1.4",
+    "@radix-ui/react-portal": "^0.1.4",
+    "@stitches/react": "^1.2.8",
+    "boring-avatars": "1.7.0",
+    "date-fns": "^2.28.0",
+    "gray-matter": "^4.0.3",
+    "next": "12.1.6",
+    "phosphor-react": "^1.4.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hotkeys-hook": "^3.4.6",
+    "reading-time": "^1.5.0",
+    "use-onclickoutside": "0.4.1"
+  },
   "devDependencies": {
-    "prettier": "^2.6.2",
-    "prettier-plugin-tailwindcss": "^0.1.8",
-    "typescript": "^4.6.3"
+    "@iarna/toml": "^2.2.5",
+    "@types/node": "17.0.31",
+    "@types/react": "18.0.14",
+    "@types/react-dom": "18.0.5",
+    "@typescript-eslint/eslint-plugin": "5.29.0",
+    "@typescript-eslint/parser": "5.29.0",
+    "contentlayer": "^0.2.4",
+    "eslint": "8.18.0",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "15.2.3",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "7.30.1",
+    "globby": "^13.1.1",
+    "next-contentlayer": "^0.2.4",
+    "prettier": "2.7.1",
+    "prettier-config-standard": "^5.0.0",
+    "prettier-plugin-tailwindcss": "^0.1.10",
+    "tsc": "^2.0.4",
+    "typescript": "4.7.4"
   }
 }
