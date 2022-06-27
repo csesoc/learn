@@ -11,6 +11,10 @@
 body {
   margin: 0;
   font-family: 'Inter var', sans-serif;
+}
+
+html {
+  overflow-x: hidden;
   background-color: #f4f4f4;
 }
 
@@ -21,5 +25,4 @@ a {
 
 a:hover {
   color: #69a2f3;
-  
 }
