@@ -1,6 +1,7 @@
 import '@fontsource/inter'
 import '@fontsource/jetbrains-mono'
 import Navbar from 'components/Navbar'
+import Footer from 'components/Footer'
 import 'styles/styles.css'
 // import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
@@ -17,10 +18,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   //   </ThemeProvider>
   // )
   return (
-    <Box css={{ backgroundColor: '$slate2', height: '100vh' }}>
-      <Navbar />
-      <Component {...pageProps} />
-    </Box>
+    <>
+      <Box css={{ backgroundColor: '$slate2', height: '100vh' }}>
+        <Navbar />
+        <Component {...pageProps} />
+      </Box>
+      <Footer />
+    </>
   )
 }
 
