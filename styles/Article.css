@@ -9,7 +9,7 @@
 }
 
 code {
-    background-color: rgb(237, 237, 237);
+    background-color: rgb(236, 236, 236);
     padding: 1.6px 6px;
     border-radius: 4px;
     color: rgb(48, 79, 206);
@@ -24,4 +24,55 @@ pre code.hljs {
     background-color: rgb(47, 52, 72);
     padding: 0.8rem 1.2rem;
     border-radius: 0 0 0.9rem 0.9rem;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+/**
+ * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .code-highlight.
+ */
+.code-highlight {
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
+
+.code-line {
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-left-width: 4px;
+  border-left-color: rgba(31, 41, 55, 0); /* Set code block color */
+}
+
+.code-line.inserted {
+  background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
+}
+
+.code-line.deleted {
+  background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
+}
+
+.highlight-line {
+  margin-left: -23px;
+  margin-right: -16px;
+  background-color: rgba(85, 97, 115, 0.5); /* Set highlight bg color */
+  border-left-style: solid;
+  border-left-width: 7px;
+  border-left-color: rgb(45, 123, 248); /* Set highlight accent border color */
+}
+
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  color: rgb(156, 163, 175); /* Line number color */
+  content: attr(line);
 }
