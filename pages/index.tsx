@@ -13,7 +13,6 @@ import Image from 'next/image'
 import { ArrowRight, CaretLeft, CaretRight } from 'phosphor-react'
 import { DiscordLogo, FacebookLogo, InstagramLogo } from 'phosphor-react'
 import ArticleCard from 'components/ArticleCard'
-import { SocialButton } from 'components/SocialButton'
 
 import {
   Carousel,
@@ -231,7 +230,7 @@ const Home: NextPage = ({ articles }: any) => {
           <Card css={{ backgroundColor: '$slate12', overflow: 'hidden' }}>
             <Box css={{ margin: '-$6 -$5 $5 -$5' }}>
               <Image
-                src="/csesoccard.png"
+                src="/images/contribute.png"
                 width="702"
                 height="226"
                 objectFit="cover"
@@ -246,7 +245,7 @@ const Home: NextPage = ({ articles }: any) => {
               Passionate about a technical topic and want to create content? Any
               skill levels welcome - learn more below!
             </Text>
-            <Link href="/contribute">
+            <Link href="/creators">
               <Button
                 size="default"
                 css={{
