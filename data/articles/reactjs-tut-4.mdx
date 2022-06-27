@@ -10,7 +10,7 @@ coverPhoto: '/images/generic/danial-igdery-FCHlYvR5gJI-unsplash.jpg'
 
 Let's add some basic JSX to our `App` component. Underneath `<h1>Hello React</h1>` add a "paragraph" element with some text describing this app:
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx {4-7} showLineNumbers
 const App = () => {
   return (
       <h1>Hello React</h1>
@@ -24,11 +24,15 @@ const App = () => {
 
 You'll see some squiggling red lines in your VSCode editor with the error `JSX expressions must have one parent element.` React components must return a single element, although this element can then contain as many sub-elements as we want. To fix this error, wrap our two elements in `main` tags.
 
-```jsx:
+```jsx:src/App.jsx {3, 9} showLineNumbers
 const App = () => {
   return (
     <main>
       <h1>Hello React</h1>
+      <p>
+        Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
+        to keep a record of either because I like them, dislike them, or would like to find out.
+      </p>
     </main>
   )
 }
