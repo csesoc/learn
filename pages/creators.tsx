@@ -12,7 +12,7 @@ const Creators: NextPage = () => {
   return (
     <Flex css={{ justifyContent: 'center', paddingTop: '$6' }}>
       <Head>
-        <title>Content Creators' Page</title>
+        <title>Creators - CSESoc Learn</title>
       </Head>
       <Box as="article" css={{ alignItems: 'center', width: '75%' }}>
         <Box
