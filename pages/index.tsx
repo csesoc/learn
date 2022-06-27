@@ -266,7 +266,7 @@ const Home: NextPage = ({ articles }: any) => {
             align="center"
             css={{ height: '25rem' }}>
             {/* TODO: avoid copypaste for social media buttons */}
-            <Link href="https://cseso.cc/discord/">
+            <a href="https://cseso.cc/discord/" target="blank">
               <Button
                 size="default"
                 css={{
@@ -287,8 +287,8 @@ const Home: NextPage = ({ articles }: any) => {
                   <ArrowRight weight="bold" size={32} />
                 </Flex>
               </Button>
-            </Link>
-            <Link href="https://www.facebook.com/csesoc/">
+            </a>
+            <a href="https://www.facebook.com/csesoc/" target="blank">
               <Button
                 size="default"
                 css={{
@@ -309,8 +309,8 @@ const Home: NextPage = ({ articles }: any) => {
                   <ArrowRight weight="bold" size={32} />
                 </Flex>
               </Button>
-            </Link>
-            <Link href="https://www.instagram.com/csesoc_unsw/">
+            </a>
+            <a href="https://www.instagram.com/csesoc_unsw/" target="blank">
               <Button
                 size="default"
                 css={{
@@ -331,7 +331,7 @@ const Home: NextPage = ({ articles }: any) => {
                   <ArrowRight weight="bold" size={32} />
                 </Flex>
               </Button>
-            </Link>
+            </a>
           </Flex>
         </Flex>
       </Flex>
