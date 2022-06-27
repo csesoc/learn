@@ -5,8 +5,6 @@ desc: The final part to the PPC backend series, covering deployment of the API.
 author: Jasper Di Francesco
 ---
 
-# PPC Backend 5 - Deployment
-
 Now we are going to talk about the all important final step of deployment. This is the when you get to send a link to your mum of what you made and she's proud of you.
 
 We will be going with the service called Heroku for our deployment. Head over to [signup.heroku.com/login](https://signup.heroku.com/login) to create an account. Once you have logged in you will be greeted by a friendly dashboard showing you that you have no current projects.
@@ -21,7 +19,13 @@ From your dashboard, click the "new" button. Then click "create new app" and giv
 
 After that exhausting step, we will want to send our code to Heroku. As though it was made to be simple, if you navigate to the `Deploy` tab of your project you will see deployment instructions. Your code will need to be in a Github repository for this deployment to work.
 
-> If you are not sure what that means, that's fine, just go to [this](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github) link and follow the instructions.
+<Callout type="note">
+  If you are not sure what that means, that's fine, just go to
+  [this](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github)
+  link and follow the instructions. Git is a very useful skill to learn that you
+  will use all throughout your development career! Atalassian has [very good
+  tutorials](https://www.atlassian.com/git/tutorials) covering git in depth.
+</Callout>
 
 I would recommend using the Heroku CLI, but using the "Connect to Github" option is just as easy.
 

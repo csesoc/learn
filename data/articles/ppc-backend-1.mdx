@@ -134,6 +134,11 @@ There are many testing platforms for sending requests to routes, the one that I 
 
 Assuming you are using ARC, once you open it your window should look something like this:
 
+<Centerer>
+
+<img src="https://i.imgur.com/T4JArjX.png" width="75%" />
+</Centerer>
+
 Set the request type to `GET`, set the `Request URL` to `http://localhost:5000/venues?name=johnscafe` and hit enter. You should see a review "Rated 10/10!" come up as the response.
 
 Try changing the name of the venue we are requesting and see what the server responds with.
@@ -155,10 +160,3 @@ We can write all of these reviews to our databse using `Object.assign`. In our P
 Now let's try testing our POST request. Open up ARC again, set the request type to `POST` and set the request URL to `http://localhost:5000/venues`. You will have noticed an extra tab show up called `BODY` below where you input the post request payload. Set the type to JSON and in the body section input something like `{"crumbs": "Rated 9/10"}`. Send the request and make sure your success message is returned.
 
 Now, try making a GET request to `http://localhost:5000/venues?name=crumbs` and we should see our newly added venue review!.
-
-<Image
-  src="https://i.imgur.com/T4JArjX.png"
-  width={500}
-  height={500}
-  alt="Home screen of Advanced Rest Client"
-/>
