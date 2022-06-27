@@ -12,7 +12,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import { Divide } from 'phosphor-react'
+import { styled } from '../stitches.config'
 
 export async function getStaticProps() {
   const articles = allArticles.sort((a, b) => {
@@ -116,19 +116,48 @@ function ArticleCard(article: Article) {
   )
 }
 
+const SearchBar = styled('input', {
+  all: 'unset',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: 100,
+  padding: '0 10px',
+  height: 40,
+  fontSize: 16,
+  lineHeight: 1,
+  backgroundColor: '$gray4'
+})
+
 // I'm tired, I didn't type this properly ok
 const Articles: NextPage = ({ articles, allTags }: any) => {
   const [currentTag, setCurrentTag] = useState('All topics')
+  const [currentSearch, setCurrentSearch] = useState('')
   const [filteredArticles, setFilteredArticles] = useState(articles)
 
-  const updateTag = (value: string) => {
-    setCurrentTag(value)
-    if (value == 'All topics') {
-      setFilteredArticles(articles)
+  const updateTag = (tag: string) => {
+    setCurrentTag(tag)
+    updateArticles(tag, currentSearch)
+  }
+
+  const updateSearch = (search: string) => {
+    setCurrentSearch(search)
+    updateArticles(currentTag, search)
+  }
+
+  const updateArticles = (tag: string, search: string) => {
+    if (tag == 'All topics') {
+      setFilteredArticles(
+        articles.filter((article: Article) =>
+          article.title.toLowerCase().includes(search)
+        )
+      )
     } else {
       setFilteredArticles(
         articles.filter(
-          (article: Article) => article.tags && article.tags.includes(value)
+          (article: Article) =>
+            article.title.toLowerCase().includes(search) &&
+            article.tags &&
+            article.tags.includes(tag)
         )
       )
     }
@@ -168,7 +197,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
             fontWeight: '600',
             borderRadius: '$full',
             padding: '$3',
-            margin: '$4',
+            my: '$4',
             width: '75%'
           }}>
           Featured Content
@@ -176,10 +205,9 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
 
         <Flex
           css={{
-            px: '$6',
-            gap: '$7',
             flexWrap: 'wrap',
-            justifyContent: 'center'
+            justifyContent: 'space-evenly',
+            width: '75%'
           }}>
           {/* TODO: only display featured content here, not all content */}
           {articles.map((article: Article, index: number) => (
@@ -218,6 +246,11 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
               paddingTop: '$8',
               gap: '$7'
             }}>
+            <SearchBar
+              type="text"
+              onChange={(e) => updateSearch(e.target.value)}
+              placeholder="Search..."
+            />
             {filteredArticles.map((article: Article, index: number) => (
               <ArticleRow key={index} {...article} />
             ))}
