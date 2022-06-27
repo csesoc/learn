@@ -17,10 +17,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   //   </ThemeProvider>
   // )
   return (
-    <>
+    <Box css={{ backgroundColor: '$slate2', height: '100vh' }}>
       <Navbar />
       <Component {...pageProps} />
-    </>
+    </Box>
   )
 }
 
