@@ -1,25 +1,24 @@
+:root {
+  --max-screen-width: 768px;
+  --side-padding: 1.2rem;
+  --header-height: 4.2rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
   font-family: 'Inter var', sans-serif;
 }
 
-.rehype-code-title {
-  background-color: aquamarine;
+a {
+  color: #3f89f1;
+  text-decoration-thickness: 0.5px;
 }
 
-pre {
-  background-color: aqua;
-  padding: 0.6rem 0.8rem;
-}
-
-code {
-  background-color: rgb(237, 237, 237);
-  padding: 1.6px 6px;
-  border-radius: 4px;
-  color: rgb(73, 128, 231);
-}
-
-.filename {
-  color:rgb(229, 140, 101);
-  font-family: monospace;
-  font-style: italic;
+a:hover {
+  color: #69a2f3;
+  
 }

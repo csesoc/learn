@@ -1,10 +1,12 @@
+import styles from 'styles/FileName.module.css'
+
 type propTypes = {
     children?: React.ReactNode
 }
 
 const FileName = (props: propTypes) => {
     return (
-        <span className="filename">
+        <span className={styles.filename}>
             {props.children}
         </span>
     )
