@@ -8,4 +8,18 @@ body {
 
 pre {
   background-color: aqua;
+  padding: 0.6rem 0.8rem;
+}
+
+code {
+  background-color: rgb(237, 237, 237);
+  padding: 1.6px 6px;
+  border-radius: 4px;
+  color: rgb(73, 128, 231);
+}
+
+.filename {
+  color:rgb(229, 140, 101);
+  font-family: monospace;
+  font-style: italic;
 }
