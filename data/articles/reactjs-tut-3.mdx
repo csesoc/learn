@@ -1,8 +1,11 @@
 ---
-title: "ReactJS Project Tutorial: Part 3"
+title: 'ReactJS Project Tutorial: Part 3'
 date: 2022-06-27
 desc: Learn the fundamentals of ReactJS by building a simple project.
 author: Gordon Huang
+tags:
+  - 'ReactJS'
+coverPhoto: '/images/generic/christin-hume-mfB1B1s4sMc-unsplash.jpg'
 ---
 
 Your web browser renders HTML pages which usually contain something like this:
@@ -47,6 +50,7 @@ The first line imports styles from the css file <FileName>./styles/App.css</File
 The file also has a JavaScript arrow function called `App` which returns the React element `<h1>Hello React</h1>`. JavaScript arrows functions look a bit strange, but it's works pretty much the same as functions in any other language as far as we are concerned. Here are some examples of how JS arrow functions are very similar to what you might be familiar with in other languages.
 
 An arrow function in JavaScript:
+
 ```js:
 const add = (a, b) => {
     return a + b
@@ -54,6 +58,7 @@ const add = (a, b) => {
 ```
 
 works the same as a regular function in JavaScript:
+
 ```js:
 function add(a, b) {
     return a + b
@@ -61,12 +66,14 @@ function add(a, b) {
 ```
 
 works the same as a function in Python:
+
 ```python:
 def add(a, b):
     return a + b
 ```
 
 works the same as a function in C:
+
 ```c:
 int add(int a, int b) {
     return a + b;
@@ -104,7 +111,7 @@ npm start
 Your React app will then open in the browser at a url like [http://localhost:3000](http://localhost:3000).
 
 <Centerer>
-<img src="https://imgur.com/QlQHBQ3.png" width="80%" />
+  <img src="https://imgur.com/QlQHBQ3.png" width="80%" />
 </Centerer>
 
 In the next tutorial we will start coding in the `App` component to get some more elements showing on the app.

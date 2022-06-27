@@ -1,30 +1,40 @@
 ---
-title: "ReactJS Project Tutorial: Part 2"
+title: 'ReactJS Project Tutorial: Part 2'
 date: 2022-06-27
-desc: Get familiar with all the files and features that come with a basic React app template.
+desc: Get familiar with all the features that come with a basic React app template.
 author: Gordon Huang
+tags:
+  - 'ReactJS'
+coverPhoto: '/images/generic/anas-alshanti-feXpdV001o4-unsplash.jpg'
 ---
+
 # Part 2: The React App
 
 In the last tutorial you installed all the tools we'll need to create a React app, and opened the source code in your code editor. create-react-app has given us a lot of files in the starter project so in this tutorial we'll walk through each file and see what they do.
 
 <Centerer>
-<img src="https://imgur.com/tv27w5k.png" width="60%"/>
+  <img src="https://imgur.com/tv27w5k.png" width="60%" />
 </Centerer>
 
-<Callout type="note">The pretty icons you see next to the files in this screenshot come from an extension from the VSCode extensions marketplace. To get the same icons, go to Extensions tab on the VSCode sidebar and search for "Material Icon Theme" and install it.</Callout>
+<Callout type="note">
+  The pretty icons you see next to the files in this screenshot come from an
+  extension from the VSCode extensions marketplace. To get the same icons, go to
+  Extensions tab on the VSCode sidebar and search for "Material Icon Theme" and
+  install it.
+</Callout>
 
 For the purposes of this tutorial, a lot of the files created for us are unnecessary. Before we continue, let's declutter our workspace by deleting these files which we won't need:
 
 ---
 
-The <FileName>README.md</FileName> file at the bottom has some instructions for how to use this project and some links to React resources. The <FileName>.md</FileName> extension stands for *markdown*, a common text editing syntax to format text. It is not code; markdown is to make text readable for humans.
+The <FileName>README.md</FileName> file at the bottom has some instructions for how to use this project and some links to React resources. The <FileName>.md</FileName> extension stands for _markdown_, a common text editing syntax to format text. It is not code; markdown is to make text readable for humans.
 
 In general you should use a <FileName>README.md</FileName> in a project to give an overview of what your project does, how to use it, and any other information you think would be useful for people interested in your code.
 
-The <FileName>package.json</FileName> file records all the packages that this project depends on i.e. *dependencies*. It is what npm uses to manage versions of these dependencies which your project depends on and download them when other people try to run your app on their computers.
+The <FileName>package.json</FileName> file records all the packages that this project depends on i.e. _dependencies_. It is what npm uses to manage versions of these dependencies which your project depends on and download them when other people try to run your app on their computers.
 
-<FileName>package-lock.json</FileName> also tracks dependencies but in greater depth (dependencies of dependencies etc).
+<FileName>package-lock.json</FileName> also tracks dependencies but in greater depth
+(dependencies of dependencies etc).
 
 <img src="https://imgur.com/qxGaZQZ.png" width="100%" />
 
@@ -46,7 +56,8 @@ The <FileName>src/assets/</FileName> folder contains some images, svg icons and 
 
 The <FileName>src/styles/</FileName> folder contains some stylesheets (.css files) made for this project which we'll use to enhance the appearance of the components we'll be making. You won't need to understand the css to work through this tutorial series.
 
-<FileName>src/index.js</FileName> creates a root ReactDOM node linked to the root DOM node we saw in <FileName>public/index.html</FileName>.
+<FileName>src/index.js</FileName> creates a root ReactDOM node linked to the root
+DOM node we saw in <FileName>public/index.html</FileName>.
 
 ```jsx:src/index.js
 const root = ReactDOM.createRoot(document.getElementById('root'))

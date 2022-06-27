@@ -156,7 +156,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
           Learn something new with our collection of articles and videos!
         </Text>
 
-        <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
+        {/* <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
           <Text
             size="title-lg"
             css={{
@@ -169,7 +169,26 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
             }}>
             Featured Content
           </Text>
-        </Flex>
+        </Flex> */}
+
+        {/* <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
+          <Text
+            size="title-lg"
+            css={{
+              fontWeight: '600',
+              padding: '$1',
+              my: '$4',
+              width: '100%'
+            }}>
+            Featured Content
+          </Text>
+        </Flex> */}
+
+        <Text
+          size="headline"
+          css={{ fontWeight: 600, paddingTop: '$8', paddingBottom: '$3' }}>
+          Featured Content
+        </Text>
 
         <Flex
           css={{
@@ -184,7 +203,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
           ))}
         </Flex>
 
-        <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
+        {/* <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
           <Text
             size="title-lg"
             css={{
@@ -197,7 +216,13 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
             }}>
             All Content
           </Text>
-        </Flex>
+        </Flex> */}
+
+        <Text
+          size="headline"
+          css={{ fontWeight: 600, paddingTop: '$8', paddingBottom: '$3' }}>
+          All Content
+        </Text>
 
         <Flex
           css={{

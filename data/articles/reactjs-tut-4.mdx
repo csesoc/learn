@@ -1,8 +1,11 @@
 ---
-title: "ReactJS Project Tutorial: Part 4"
+title: 'ReactJS Project Tutorial: Part 4'
 date: 2022-06-27
 desc: Learn the fundamentals of ReactJS by building a simple project.
 author: Gordon Huang
+tags:
+  - 'ReactJS'
+coverPhoto: '/images/generic/danial-igdery-FCHlYvR5gJI-unsplash.jpg'
 ---
 
 Let's add some basic JSX to our `App` component. Underneath `<h1>Hello React</h1>` add a "paragraph" element with some text describing this app:
@@ -31,14 +34,15 @@ const App = () => {
 }
 ```
 
-The `<main></main>` React element turns into a main `<main></main>` in HTML. React supports many of the different standard HTML tags such as `<h1>` and `<main>`. These are called *semantic* tags because they describe the content that they are holding. It is important to use semantic tags wherever possible for various reasons such as allowing screen readers to interpret your webpage for visually impaired users, for search engines like Google to evaluate you web page and also to make your code more readable.
+The `<main></main>` React element turns into a main `<main></main>` in HTML. React supports many of the different standard HTML tags such as `<h1>` and `<main>`. These are called _semantic_ tags because they describe the content that they are holding. It is important to use semantic tags wherever possible for various reasons such as allowing screen readers to interpret your webpage for visually impaired users, for search engines like Google to evaluate you web page and also to make your code more readable.
 
 <Centerer>
-<img src="https://imgur.com/zhliLIG.png" width="90%"/>
+  <img src="https://imgur.com/zhliLIG.png" width="90%" />
 </Centerer>
 
 <Callout type="note">
-You can see the final HTML markup of your app by opening the inspector in your browser with `Ctrl + Shift + c` (Windows) or `Cmd + Shift + c` (MacOS).
+  You can see the final HTML markup of your app by opening the inspector in your
+  browser with `Ctrl + Shift + c` (Windows) or `Cmd + Shift + c` (MacOS).
 </Callout>
 
 Semantic tags are also used in this project by the pre-made stylesheets. If you look into the <FileName>src/styles/App.css </FileName> stylesheet you'll see there are css styles applied to `main`, `header`, `nav` and many other tags. You don't need to touch these styles in these tutorials but if you want your project to appear as it does in the examples shown in this tutorial then make sure to use the same tags as shown in these tutorials' example code.
@@ -76,7 +80,7 @@ Notice that we wrap our `header` and `main` elements with `<>` and `</>`. These 
 The new `header` element is intended to be a container for introductory content and navigational links. Our <FileName>src/App.css </FileName> stylesheet gives it a bisque background colour. It contains a `nav` element which centers the title text "Food Places" and a logo in the middle. Be sure to import the `logo` from <FileName>./assets/logo512.png</FileName> so we can render the logo in the `img` element.
 
 <Centerer>
-<img src="https://imgur.com/WOuRwsP.png" width="90%"/>
+  <img src="https://imgur.com/WOuRwsP.png" width="90%" />
 </Centerer>
 
 This app is going to display a list of restaurants, cafes and other food places that you want to record. Next we will make a card that shows a food place. Directly underneath your `</p>` element add a `<div>` with some semantic tags and info about a restaurant in the following format:
@@ -105,7 +109,7 @@ This app is going to display a list of restaurants, cafes and other food places 
 We have added some `<h3>`, `<h4>`, `<p>` and `a` elements. The `<a>` tag defines a hyperlink, and you can use its `href` attribute to specific a website to redirect to when you click the tag. `target="blank"` makes the link open in a new tab, and the copy of the link shown between the opening `<a>` and closing `</a>` tags is just the text which you click to go to the link.
 
 <Centerer>
-<img src="https://imgur.com/DDG7Ibz.png" width="90%"/>
+  <img src="https://imgur.com/DDG7Ibz.png" width="90%" />
 </Centerer>
 
 To make this restaurant information look more like a card, import the <FileName>src/styles/Card.css </FileName> stylesheet.
@@ -131,7 +135,7 @@ This stylesheet contains styles for a `card` class. Let's give this class to the
 In React, elements set css class names using the `className` attribute. Setting `<div className="card">` gives the div all the styles specified in the stylesheet for the "card" class.
 
 <Centerer>
-<img src="https://imgur.com/KTgQAVX.png" width="90%"/>
+  <img src="https://imgur.com/KTgQAVX.png" width="90%" />
 </Centerer>
 
 The <FileName>src/styles/Card.css </FileName> stylesheet also contains the classes `metricsContainer`, `ratingContainer` and `visitsContainer`. We can use these to display our rating and number of visits for the restaurant.
@@ -187,7 +191,7 @@ This allows us to place the svg icon in our code like a component. `<Star />`. W
 ```
 
 <Centerer>
-<img src="https://imgur.com/uMQWB2K.png" width="90%" />
+  <img src="https://imgur.com/uMQWB2K.png" width="90%" />
 </Centerer>
 
 Currently we have effectively "hard-coded" the restaurant information into our app. We want to be able to dynamically store and change this information. We will learn how to do this in the next tutorial.

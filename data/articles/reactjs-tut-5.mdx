@@ -1,8 +1,11 @@
 ---
-title: "ReactJS Project Tutorial: Part 5"
+title: 'ReactJS Project Tutorial: Part 5'
 date: 2022-06-27
 desc: Learn the fundamentals of ReactJS by building a simple project.
 author: Gordon Huang
+tags:
+  - 'ReactJS'
+coverPhoto: '/images/generic/joan-gamell-nFqwVZhimpM-unsplash.jpg'
 ---
 
 Variables are a fundamental concept in programming because it allows us to store and modify data depending on where or how our program is used. In a React app, variables are made using something called the `useState` hook. React hooks are functions that can be called from within our functional components like `App` to use various core React features.
@@ -159,7 +162,7 @@ const App = () => {
     for (let i = 0; i < numStars; i++) {
       // Add a new Star component to the stars array.
       stars.push(
-        <Star className='starIcon' /> 
+        <Star className='starIcon' />
       )
     }
     return stars
@@ -193,7 +196,7 @@ Call the `renderStars` function in place of where we hard-coded our stars, passi
 We should now see four stars rendered as before, but if we open the browser console (Ctrl/Cmd + Shift + i) we'll see a warning `"Each child in a list should have a unique "key" prop."`.
 
 <Centerer>
-<img src="https://imgur.com/nrpjM4s.png" width="90%" />
+  <img src="https://imgur.com/nrpjM4s.png" width="90%" />
 </Centerer>
 
 In React, all components have a special `key` attribute, and whenever we render a list of components, they each need a unique value for the special `key` property. To fix this issue, add a `key={i}` to our `Star />` components in the `for` loop:
