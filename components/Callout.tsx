@@ -4,7 +4,7 @@ import { Flex } from './Flex'
 
 const CalloutBase = styled('div', {
   display: 'flex',
-  padding: '$5',
+  padding: '$2 $5',
   justifyItems: 'start',
   borderRadius: '$sm',
   variants: {
