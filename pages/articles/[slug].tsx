@@ -7,8 +7,9 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Box } from 'components/Box'
+import Callout from 'components/Callout'
 
-const defaultComponents = { Image }
+const defaultComponents = { Image, Callout }
 // Add any components used in MDX files here.
 // Components here load dynamically if they're used.
 // See https://github.com/tsriram/with-mdx-bundler for details.
