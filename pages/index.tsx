@@ -7,15 +7,15 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { ArrowRight } from 'phosphor-react'
 
-import { allArticles, Article } from 'contentlayer/generated'
+// import { allArticles, Article } from 'contentlayer/generated'
 import { Card } from 'components/Card'
 import Image from 'next/image'
 import ArticleCard from 'components/ArticleCard'
 import { SocialButton } from 'components/SocialButton'
 
-type Props = InferGetStaticPropsType<typeof getStaticProps>
+// type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Home: NextPage<Props> = ({ articles }) => {
+const Home: NextPage = ({ articles }: any) => {
   return (
     <Box>
       <Head>
@@ -65,7 +65,7 @@ const Home: NextPage<Props> = ({ articles }) => {
             width: '100%',
             overflowX: 'scroll'
           }}>
-          {articles?.map((article) => (
+          {articles?.map((article: any) => (
             <Link
               passHref
               href={`/articles/${article.slug}`}
@@ -213,13 +213,13 @@ const Home: NextPage<Props> = ({ articles }) => {
   )
 }
 
-export async function getStaticProps() {
-  const articles: Article[] = allArticles.slice(0, 10)
-  return {
-    props: {
-      articles
-    }
-  }
-}
+// export async function getStaticProps() {
+//   const articles: Article[] = allArticles.slice(0, 10)
+//   return {
+//     props: {
+//       articles
+//     }
+//   }
+// }
 
 export default Home

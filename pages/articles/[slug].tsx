@@ -1,13 +1,18 @@
 import Avatar from 'boring-avatars'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
-import { allArticles, Article } from 'contentlayer/generated'
+// import { allArticles, Article } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+// import { useMDXComponent } from 'next-contentlayer/hooks'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Box } from 'components/Box'
 import Callout from 'components/Callout'
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemote } from 'next-mdx-remote'
+import { getPostBySlug, getAllPosts } from 'lib/api'
+import markdownToHtml from 'lib/markdownToHtml'
+import rehypeHighlight from 'rehype-highlight'
 
 const defaultComponents = { Image, Callout }
 // Add any components used in MDX files here.
@@ -16,27 +21,60 @@ const defaultComponents = { Image, Callout }
 const components = { ...defaultComponents }
 
 export async function getStaticPaths() {
-  const paths = allArticles.map((a) => ({ params: { slug: a.slug } }))
+  const paths = getAllPosts(['slug'])
+
   return {
-    paths,
-    fallback: false
+    paths: paths.map((post) => {
+      return {
+        params: {
+          slug: post.slug,
+        },
+      }
+    }),
+    fallback: false,
   }
 }
 
-export async function getStaticProps({ params }: { params: Article }) {
-  const article = allArticles.find((article) => article.slug === params.slug)
+type Params = {
+  params: {
+    slug: string
+  }
+}
+
+export async function getStaticProps({ params }: Params) {
+
+  const article = getPostBySlug(params.slug, [
+    'slug',
+    'title',
+    'desc',
+    'author',
+    'content',
+    'contentString'
+  ])
+  const content = await markdownToHtml(article.content || '')
+  const contentString = await serialize(article.contentString, {
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [rehypeHighlight],
+      format: 'mdx'
+    }
+  })
   return {
     props: {
-      article
-    }
+      article: {
+        ...article,
+        content,
+        contentString
+      },
+    },
   }
 }
 
-function ArticleHeader({ article }: { article: Article }) {
+function ArticleHeader({ article }: any) {
   return (
     <Flex css={{ flexDirection: 'column' }}>
       <Text size="label-md" css={{ color: '$slate11' }}>
-        {format(parseISO(article.date), 'LLL d, yyy')}
+        {article.date}
       </Text>
       <Text
         size="headline"
@@ -64,16 +102,31 @@ function ArticleHeader({ article }: { article: Article }) {
           css={{ color: '$slate12', display: 'flex', gap: '$2' }}>
           {article.author}
           <Text css={{ color: '$slate11' }}> ⸱ </Text>
-          <Text css={{ color: '$slate11' }}>{article.readingTime.text}</Text>
         </Text>
       </Flex>
     </Flex>
   )
 }
 
-// TODO: Add full GitHub Flavoured MD support
-const ArticleLayout = ({ article }: { article: Article }) => {
-  const MDXContent = useMDXComponent(article.body.code)
+type Author = {
+  name: string
+  picture: string
+}
+
+type PostType = {
+  slug: string
+  title: string
+  date: string
+  desc: string
+  author: Author
+  content: string
+  contentString: any
+}
+type Props = {
+  article: PostType
+}
+
+const ArticleLayout = ({ article }: Props) => {
 
   return (
     <Flex css={{ justifyContent: 'center', paddingTop: '$6' }}>
@@ -88,7 +141,9 @@ const ArticleLayout = ({ article }: { article: Article }) => {
         <ArticleHeader article={article} />
         <Box css={{ paddingTop: '$5' }}>
           <Text>
-            <MDXContent components={components} />
+            {/* <MDXRemote {...article} components={components} /> */}
+            <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
+            <MDXRemote {...article.contentString} components={components} />
           </Text>
         </Box>
       </Box>

@@ -62,7 +62,7 @@ const ArticleCard = ({ article }: Props) => {
             marginBottom: '$1',
             color: '$slate10'
           }}>
-          {new Date(article.date).toDateString()} • {article.readingTime.text}
+          {article.date} • {article.readingTime.text}
         </Text>
         <Text
           as="h2"

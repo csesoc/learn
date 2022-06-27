@@ -2,24 +2,33 @@ import Avatar from 'boring-avatars'
 import { Box } from 'components/Box'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
-import { allArticles, Article } from 'contentlayer/generated'
+// import { allArticles, Article } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 
 export async function getStaticProps() {
-  const articles = allArticles.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date))
-  })
+  // const articles = allArticles.sort((a, b) => {
+  //   return compareDesc(new Date(a.date), new Date(b.date))
+  // })
+  const articles = [{
+    readingTime: {
+      text: "fjdks"
+    },
+    title: 'fjdks',
+    desc: 'jiods',
+    slug: 'fjiovs',
+    author: 'mvos',
+    date: 'nvios'
+  }]
   return { props: { articles } }
 }
 
-function ArticleRow(article: Article) {
+function ArticleRow(article: any) {
   return (
     <Flex css={{ flexDirection: 'column' }}>
       <Text size="label-md" css={{ color: '$slate11' }}>
-        {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
         {article.readingTime.text}
       </Text>
       <Text
@@ -88,7 +97,7 @@ const Articles: NextPage = ({ articles }: any) => {
             paddingTop: '$8',
             gap: '$7'
           }}>
-          {articles.map((article: Article, index: number) => (
+          {articles.map((article: any, index: number) => (
             <ArticleRow key={index} {...article} />
           ))}
         </Flex>
