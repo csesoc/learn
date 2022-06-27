@@ -1,0 +1,372 @@
+---
+title: PPC Backend 4 - Users and authentication
+date: 2021-06-28
+desc: The fourth part of the PPC backend series covering authentication.
+author: Jasper Di Francesco
+---
+
+Users can be a big part of any web application. In this tutorial we are going to take a quick look at how you might manage user accounts and data in your web app.
+
+## Refactoring
+
+We will need to start by moving around and refactoring some of our code to make it easier to understand. Right now we have it all sitting in one file "index.js".
+
+We want our new directory structure to look like so:
+
+```:
+venuesWatcher/
+    routes/
+        users.js
+        venues.js
+    strategies/
+        JwtStrategy.js
+        LocalStrategy.js
+    index.js
+    db.js
+    authenticate.js
+    package.json
+```
+
+Try and replicate this in your project directory, all files but for `index.js` and `package.json` should be empty.
+
+### Database
+
+Let's first fill in the database file. Our `db.js` should look like the following:
+
+```javascript:venuesWatcher/db.js
+const { MongoClient } = require('mongodb')
+
+const url = YOUR_MONGODB_CONNECTION_URL
+let client = new MongoClient(url)
+
+let db = undefined
+let userscol = undefined
+let venuescol = undefined
+
+const initDb = async () => {
+  if (!db) await client.connect()
+  db = client.db('venueWatcher')
+  return db
+}
+
+const getUsers = async () => {
+  if (!db) await initDb()
+  if (!userscol) userscol = db.collection('users')
+  return userscol
+}
+
+const getVenues = async () => {
+  if (!db) await initDb()
+  if (!venuescol) venuescol = db.collection('venues')
+  return venuescol
+}
+
+module.exports.initDb = getDb
+module.exports.getVenues = getVenues
+module.exports.getUsers = getUsers
+```
+
+Breaking this down a bit, we are initialising a new MongoClient with our database cluster URL. Then we have defined some functions which will connect to our database. initDB just checks if we have already connected and have a database object in the `db` variable, if not then it connects and sets it. `getUsers` and `getVenues` do very similar things, just check if there is already a venues or users collection and if not creates them.
+
+Down the bottom of the file we have 3 lines to export these functions.
+
+### Venues routes
+
+Our `venues.js` file in our `routes` directory contains all routes to do with venues, shocker. The file should look like the following:
+
+```javascript:venuesWatcher/routes/venues.js
+const venuesRouter = require('express').Router()
+const { getUsers, getVenues } = require('./db')
+
+venuesRouter.get('/', async (req, res) => {
+  let item = undefined
+  let venues = await getVenues()
+  if (req.query.id) {
+    item = await venues.find(ObjectId(req.query.id)).toArray()
+  } else {
+    item = await venues.find().toArray()
+  }
+  console.log(item)
+  res.send(item || { error: 'Not found!' })
+})
+
+venuesRouter.put('/', async (req, res) => {
+  let venues = await getVenues()
+  await venues.updateOne({ _id: ObjectId(req.query.id) }, { $set: req.body })
+  res.send({ message: 'success!' })
+})
+
+venuesRouter.delete('/', async (req, res) => {
+  let venues = await getVenues()
+  await venues.deleteOne({ _id: ObjectId(req.query.id) })
+  res.send({ message: 'success!' })
+})
+
+venuesRouter.post('/', async (req, res) => {
+  let venues = await getVenues()
+  await venues.insertOne(req.body)
+  res.send('Success')
+})
+
+module.exports.venuesRouter = venuesRouter
+```
+
+This has been mostly copy-pasted from `index.js` with a couple of adjustements to accomodate the changes made to database interaction.
+
+Notice we have changed the name of `router` to `venuesRouter`. This makes it a bit more clear which routes belong where when we add in another router to handle user routes.
+
+### Index
+
+Our `index.js` file is now greatly simplified from before. It should look like the following:
+
+```javascript:venuesWatcher/index.js
+const express = require('express')
+const { initDb } = require('./db')
+const { venuesRouter } = require('./routes/venues')
+
+var app = express()
+
+app.use(express.json())
+
+app.use('/venues', venuesRouter)
+
+app.listen(5000, async () => {
+  await initDb()
+  console.log('Server started')
+  console.log('Listening on port 5000')
+})
+```
+
+Notice we now have the line `app.use("/venues", venuesRouter)`. This means that all routes defined in `venuesRouter` will be prefixed with `/venues`. This helps us to ensure there are no collisions with routes and clearly define the purpose of each route.
+
+Good, all our code should now be in the correct spot and we can start building up our authentication process. Try adding some venues to our database using a POST request to the route `http://localhost:5000/venues`, then try collecting all of our venues using a GET request to the same url.
+
+## Authentication
+
+Authentication can be one of the most challenging parts of an application. If you want it to be properly secure there are many many different measures you need to take, so there are often pre written packages such as `PassportJS` already written to help simplify the process. `PassportJS` can be good, but it is a very flexible framework and can be challenging to get it up and running, especially with no prior experience in authentication.
+
+For us though, we are going to make our own authentication process and do it in a simple way. This wil be a very easy way for you to add user specific functionality to your web app.
+
+The general idea behind our authentication will be we get sent a request to `/users/signup` containing a username and password. Then we salt and hash the password and store that along with the username in our database. We then also send back a JSON Web Token (JWT), which on further requests a user can send to verify their identity.
+
+Keep in mind, this process for authentication is not safe! UNSW offers some security courses which can help you better understand how to build a robust system. What we are making will help you add user functionality to your app but that is about it.
+
+### Sign up
+
+Tackling sign ups is a good place to start. For this we will need a couple more packages. Run `npm install dotenv jsonwebstoken` to install them. `dotenv` will allow us to create some environment variables and access them inside our application, `jsonwebtoken` gives us a few handy functions for dealing with authentication tokens.
+
+Once you have run this, create a file in the root directory called `.env`. Put this line (or something similar in it):
+
+```:venuesWatcher/.env
+SUPER_SECRET_KEY=Banana
+```
+
+You should probably switch `Banana` out for a more complex string. If we put the line `require('dotenv').configure()` at the top of our file, we can access these variables from `process.env.SUPER_SECRET_KEY`.
+
+Our `routes/users.js` should looks something like this:
+
+```js:venuesWatcher/routes/users.js
+const usersRouter = require('express').Router()
+const crypto = require('crypto')
+const jwt = require('jsonwebtoken')
+const { getUsers } = require('../db');
+
+require('dotenv').configure()
+
+usersRouter.post('/signup', (req, res) => {
+    // Check for missing parameters
+    if (!req.body.username || !req.body.password) {
+        res.status(400).send({ "message": "Failed! Missing username or password" })
+        return;
+    }
+
+    // Collect our users collection
+    let users = await getUsers()
+
+    // Check if this user already exists
+    let exists = await users.findOne({ username: req.body.username })
+    if (exists) {
+        res.status(409).send({ "message": "Username taken!" })
+        return;
+    }
+
+    // Get salt
+    let salt = crypto.randomBytes(16).toString('hex')
+
+    // Initialise hash object
+    let hash = crypto.createHmac('sha512', salt)
+
+    // Combine password into hash
+    hash.update(req.body.password)
+
+    // Convert hash object to string
+    let hashed = hash.digest('hex')
+
+    let user = {
+        username: req.body.username,
+        salt: salt,
+        pass: hashed,
+        watchedVenues: []
+    }
+
+    await users.insertOne(user)
+
+    // Create token
+    let token = jwt.sign({ username: req.body.username }, process.env.SUPER_SECRET_KEY, { expiresIn: '1h' });
+
+    res.status(200).send({ token: token })
+})
+
+module.exports.usersRouter = usersRouter
+```
+
+This is a bit overwhelming, let's break it down a bit. We have initialised a new router, imported a couple of libraries and functions and then configured our `.env` file.
+
+Next we have created a post route at `/signup`. Within this, we check if the client has sent both username and password, checked if a user with that password already exists and if so exited with appropiate status codes and error messages. Next we have generated a 16 byte salt, used that to magically initialise a hashing object and then combined our new password with that hash. Then we can convert that hashing object to a hexadecimal string.
+
+> Remember to always store passwords in hashed form, never plaintext. Read [here](https://www.passcamp.com/blog/dangers-of-storing-and-sharing-passwords-in-plaintext/) for a bit of an explanation as to why.
+
+Then we set up a user object, making sure to store the hashed password and the salt, initialised an empty array to hold our favourite venues and our username. We add this to the database and then create an access token using the user's username, our super secret key, and an expiry date 1 hour in the future. Usually we might set this expiry date to 15 minutes. Leaving the expiry date too long can mean more vulnerability to hackers.
+
+Hopefully that makes sense. It can be a lot to digest but try and make sure you understand the code and the process here.
+
+Make sure you import your new `usersRouter` in `index.js` and add it to your express app!
+
+### Log in
+
+Logging in is a little bit easier. We can almost exactly copy the first two checks in the signup route, i.e making sure username and password are in the body and the user exists.
+
+Next, extract the salt we used from the database, use it to again create a hash object and combine it with the password sent in. Check that it matches what is in the database and if so generate a new jwt for the user.
+
+How I approached this is below:
+
+```js:venuesWatcher/routes/users.js
+usersRouter.post('/login', async (req, res) => {
+  // Check for missing parameters
+  if (!req.body.username || !req.body.password) {
+    res.status(400).send({ message: 'Failed! Missing username or password' })
+    return
+  }
+
+  // Collect our users collection
+  let users = await getUsers()
+
+  // Check if this user already exists
+  let user = await users.findOne({ username: req.body.username })
+  if (!user) {
+    res.status(409).send({ message: 'User not found!' })
+    return
+  }
+
+  // Get salt
+  let salt = user.salt
+
+  // Initialise hash object
+  let hash = crypto.createHmac('sha512', salt)
+
+  // Combine password into hash
+  hash.update(req.body.password)
+
+  // Convert hash object to string
+  let hashed = hash.digest('hex')
+
+  if (hashed != user.pass) {
+    res.status(403).send({ message: 'Incorrect password!' })
+    return
+  }
+
+  // Create token
+  let token = jwt.sign(
+    { username: user.username },
+    process.env.SUPER_SECRET_KEY,
+    { expiresIn: '1h' }
+  )
+
+  res.status(200).send({ token: token })
+})
+```
+
+I encourage you to explore different authentication options and research it as much as you can. Authentication is a super useful skill to have.
+
+### User specific routes
+
+We want to give users the ability to "watch" a venue. To do this, we will want to add a venue's object id to that `watchedVenues` array in each user object.
+
+#### Adding Venue
+
+To add a venue, we want to use the mongodb `$push` functionality. Set up a POST route in our users function and give it the url `/myvenues`. We are going to keep it simple and asssume that any `venueid` we are given by the client will correspond to a valid venue.
+
+Also, because we created the token we are being passed and we know that a valid username is contained in that token, if we can decode it with our secret key we can be sure it came from a valid user.
+
+So, we want to fetch the venue from the venues collection, and then push it to our `watchedVenues` array. MongoDB is a noSQL database, not a relational database. This means it is best practice for us to store ALL data required for any possible calls within the one object. So if we wanted any and all data on a user, we only have to access the user collection. Hence, we will store the full venue object in the `watchedVenues` array.
+
+This is what our route might look like:
+
+```js:venuesWatcher/routes/users.js
+usersRouter.post('/myvenues', async (req, res) => {
+  let venues = await getVenues()
+  let users = await getUsers()
+  let decoded = {}
+
+  try {
+    decoded = jwt.verify(req.query.token, process.env.SUPER_SECRET_KEY)
+  } catch (error) {
+    res.status(401).send({ error: 'Token invalid or expired' })
+    return
+  }
+
+  let venue = await venues.findOne({ _id: ObjectId(req.body.venueid) })
+  await users.updateOne(
+    { username: decoded.username },
+    { $push: { watchedVenues: venue } }
+  )
+  res.status(200).send({ message: 'Success! Venue added' })
+})
+```
+
+We try to decode the token passed to us, if it fails then an error is thrown and it is caught by the `catch` and an error message returned to the client. Otherwise, we find the venue correponding to the `venueid`, then `$push` it to our `watchedVenues` array. We know that the username contained in the jwt will be valid, so we know this operation will succeed.
+
+You might think, but what if I update a venue using a PUT request to `/venues`? No, that will not update the venue stored within the user. The noSQL does not (is not meant to) support relational operations, so if you want to store user specific data which is meant to rely on generally accessible data, MongoDB might not be the best choice for your project. Make sure you do your own research before settling on a database!
+
+#### Collecting venues
+
+This one is quite simple. We can do the same kind of token extraction as in the post request above, then we just pull the user from the users collection and return the `watchedVenues` field inside, like so:
+
+```js:venuesWatcher/routes/users.js
+usersRouter.get('/myvenues', async (req, res) => {
+  let users = await getUsers()
+
+  let decoded = {}
+  try {
+    decoded = jwt.verify(req.query.token, process.env.SUPER_SECRET_KEY)
+  } catch (error) {
+    res.status(401).send({ error: 'Token invalid or expired' })
+    return
+  }
+
+  let user = await users.findOne({ username: decoded.username })
+  res.status(200).send({ venues: user.watchedVenues })
+})
+```
+
+#### Deleting venues
+
+Deleting is quite similar to inserting, but instead of `$push`, we use `$pull`. The second half of your DELETE request might look a bit like this:
+
+```js:venuesWatcher/routes/users.js
+await users.updateOne(
+  { username: decoded.username },
+  {
+    $pull: {
+      watchedVenues: {
+        _id: ObjectId(req.body.venueid)
+      }
+    }
+  }
+)
+res.status(200).send({ message: 'Success!' })
+```
+
+And we made it! That is the end of this tutorial, it is quite a long one but hopefully you have an idea of how to implement user functionality now. This should also have given you a bit more of a grasp of how to use MongoDB, make sure you read the docs and do your own research before deciding if it is the best option for your project.
+
+To build upon this you can make a `/refreshtoken` route, which will give you a new JWT with another hour expiry timer.

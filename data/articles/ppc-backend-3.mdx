@@ -1,0 +1,85 @@
+---
+title: PPC Backend 3 - CRUD Operations
+date: 2021-06-28
+desc: The third part to the PPC backend series, talking about CRUD API operations.
+author: Jasper Di Francesco
+---
+
+So far we have only looked at two types of requests, GET and POST. In this exercise, we will want to flesh these out a little bit more and also take a look at the other two types of request, UPDATE and REMOVE. CRUD stands for Create, Read, Update and Delete, each of these corresponding to a type of request. Usually a backend would implement all of these.
+
+## GET
+
+Let us begin by giving us the option to collect ALL venues. Right now we can only find one by name. An easy way to do this would check if a query paramter is passed to our `/venues` GET route, and if not then return all venues. Hmm, there are a few ways we could do this, I'm thinking like this:
+
+```javascript:venuesWatcher/index.js
+let item = undefined
+if (req.query.name) {
+  let query = { name: req.query.name }
+  item = await col.findOne(query)
+} else {
+  item = await col.find()
+}
+if (item) {
+  res.status(200).send(item)
+} else {
+  res.status(404).send({ error: 'Not found!' })
+}
+```
+
+Now let's try running our server and making a request to `http://localhost:5000/venues?name=crumbs` ... success! How about without the query parameter?
+
+We get a weird response, definitely not what we were after.
+
+This is because the `find` method returns a cursor, not the documents in the database. Essentially a pointer to the database. This is not very helpful, because we want the actual documents. All we need to do is add `.toArray()` to the end of our find method. Now see if we are returned a list of venues.
+
+Excellent, so now we can collect a list of all venues, or a venue that matches the `name` query parameter.
+
+But a venue's name doesn't have to be unique, for example if one of our favourite venues is McDonald's, which one are we talking about?
+
+Instead, let's change this query parameter to be `id` and we will use the document id to search. Add `ObjectID` to our MongoDB import at the top of your file, this let's us match the MongoDB ID object. Our if statement will also look slightly different:
+
+```javascript:venuesWatcher/index.js
+if (req.query.id) {
+  item = await col.find(ObjectID(req.query.id)).toArray()
+} else {
+  item = await col.find().toArray()
+}
+```
+
+Now test it out! You can get object ids from first collecting all documents (not passing any query params) then making another request with an `id` query parameter.
+
+## PUT
+
+The PUT request corresponds to the UPDATE operation. Create a new route, this time make it a `put` route to the `/venues` route and with an async callback function.
+
+Inside this route body, the main function we want to invoke is `col.updateOne`. The following line accomplishes this:
+
+```javascript:venuesWatcher/index.js
+await col.updateOne({ _id: ObjectID(req.query.id) }, { $set: req.body })
+```
+
+The first argument is our search query, so matching those with the query parameter `id`. The second argument indicates our update operation, here we are doing a `$set`, so anything we pass in the body of the put function will be updated. For example if we passed the `id` of our "crumbs" venue from before and in our request body we passed:
+
+```json:
+{
+  "name": "New Crumbs",
+  "rating": 4.7
+}
+```
+
+Then we would update both the name and rating of "crumbs" to these new values. Make sure you do a `res.send` with an appropriate message to indicate to the client it has been successful!
+
+## DELETE
+
+Finally, let's try out the DELETE route. Same as PUT, make a new route with an async callback and path to `/venues` again.
+
+We can simply copy and paste the function body from the PUT route, but remove the second argument to `updateOne` and change `updateOne` to `deleteOne`. It should look something like this now:
+
+```javascript:venuesWatcher/index.js
+app.delete('/venues', async (req, res) => {
+  await col.deleteOne({ _id: ObjectID(req.query.id) })
+  res.status(200).send({ message: 'success!' })
+})
+```
+
+Now try starting your server and sending a delete request with an `id` query parameter. If you then try and get the full list of venues you should find one of them missing.

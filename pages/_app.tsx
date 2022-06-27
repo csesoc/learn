@@ -6,7 +6,7 @@ import 'styles/styles.css'
 // import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 import { Box } from 'components/Box'
-import 'highlight.js/styles/github-dark.css';
+import 'highlight.js/styles/github-dark.css'
 import 'styles/Article.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -22,8 +22,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Box css={{ backgroundColor: '$slate2', height: '100vh' }}>
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </Box>
-      <Footer />
     </>
   )
 }
