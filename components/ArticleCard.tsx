@@ -3,7 +3,11 @@ import { Box } from './Box'
 import { Card } from './Card'
 import { Text } from './Text'
 import { Flex } from './Flex'
+import Link from 'next/link'
 import Image from 'next/image'
+import Avatar from 'boring-avatars'
+import { format, parseISO } from 'date-fns'
+import { Tag } from 'components/Tag'
 
 interface Props {
   article: Article
@@ -11,69 +15,62 @@ interface Props {
 
 const ArticleCard = ({ article }: Props) => {
   return (
-    <Card
-      css={{
-        overflow: 'hidden',
-        marginRight: '$8'
-      }}>
-      {article.coverPhoto ? (
-        <Box
-          css={{
-            position: 'relative',
-            width: '100%',
-            height: '50%',
-            marginBottom: '$3'
-          }}>
+    <Link href={`/articles/${article.slug}`}>
+      <Card
+        css={{
+          overflow: 'hidden',
+          cursor: 'pointer',
+          '&:hover': {
+            backgroundColor: '$slate3'
+          }
+        }}>
+        <Box css={{ margin: '-$6 -$5 $5 -$5' }}>
           <Image
-            src={article.coverPhoto}
-            alt={article.title}
-            layout="fill"
+            src={
+              article.coverPhoto
+                ? article.coverPhoto
+                : '/images/defaultCoverPhoto.png'
+            }
+            width="700"
+            height="300"
             objectFit="cover"
           />
         </Box>
-      ) : (
-        <Flex
-          justify="center"
-          align="center"
-          css={{
-            position: 'relative',
-            width: '100%',
-            height: '50%',
-            marginBottom: '$3',
-            backgroundColor: '$blue10'
-          }}>
-          <Text
-            size="title-sm"
-            css={{
-              color: '$slate1'
-            }}>
-            :D
-          </Text>
-        </Flex>
-      )}
-      <Box
-        css={{
-          padding: '$2'
-        }}>
-        <Text
-          as="h3"
-          size="label-md"
-          css={{
-            marginBottom: '$1',
-            color: '$slate10'
-          }}>
-          {new Date(article.date).toDateString()} • {article.readingTime.text}
+        <Text size="label-md" css={{ color: '$slate11' }}>
+          {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
+          {article.readingTime.text}
         </Text>
         <Text
-          as="h2"
-          size="title-lg"
-          css={{
-            fontWeight: 500
-          }}>
+          size="title-md"
+          css={{ color: '$slate12', fontWeight: '600', paddingTop: '$2' }}>
           {article.title}
         </Text>
-      </Box>
-    </Card>
+        <Text size="label-lg" css={{ color: '$slate12', paddingTop: '$1' }}>
+          {article.desc}
+        </Text>
+        <Flex
+          css={{
+            flexDirection: 'row',
+            gap: '0.75rem',
+            alignItems: 'center',
+            paddingTop: '$5'
+          }}>
+          <Avatar
+            size={28}
+            name={article.author}
+            variant="beam"
+            colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
+          />
+          <Text size="label-md" css={{ color: '$slate12' }}>
+            {article.author}
+          </Text>
+        </Flex>
+        <Flex css={{ paddingTop: '$3', gap: '0.75rem' }}>
+          {article.tags != undefined &&
+            article.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+        </Flex>
+      </Card>
+    </Link>
   )
 }
 

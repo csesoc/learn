@@ -1,8 +1,11 @@
 ---
-title: "ReactJS Project Tutorial: Part 6"
+title: 'ReactJS Project Tutorial: Part 6'
 date: 2022-06-27
 desc: Learn the fundamentals of ReactJS by building a simple project.
 author: Gordon Huang
+tags:
+  - 'ReactJS'
+coverPhoto: '/images/generic/joshua-reddekopp-SyYmXSDnJ54-unsplash.jpg'
 ---
 
 At the moment our app is showing a single restaurant card. What if we want to show multiple cards with the same design but for different restaurants? One approach is to simply copy and paste our jsx and state for as many times as the number of cards we want to show. But this is poor code design because we are unnecessarily repeating code, and also not developer-friendly because our App.jsx file will literally grow in proportional to the number of cards that users want to show.
@@ -36,7 +39,7 @@ const Card = () => {
         }
         return stars
     }
-    
+
     return (
         <div className="card">
           <h3>{name}</h3>
@@ -96,7 +99,7 @@ const App = () => {
 }
 ```
 
-These changes won't work just yet because the state in <FileName>Card.jsx </FileName> is undefined. But instead of moving all state from <FileName>App.jsx </FileName> to <FileName>Card.jsx </FileName>, we're going to do something slightly differently. In <FileName>App.jsx </FileName> we'll replace all of our state variables with a single state called `place` which will store all the info for our restaurant in a single JavaScript *Object*. A JavaScript Object is a type of data structure which stores key-value pairs.
+These changes won't work just yet because the state in <FileName>Card.jsx </FileName> is undefined. But instead of moving all state from <FileName>App.jsx </FileName> to <FileName>Card.jsx </FileName>, we're going to do something slightly differently. In <FileName>App.jsx </FileName> we'll replace all of our state variables with a single state called `place` which will store all the info for our restaurant in a single JavaScript _Object_. A JavaScript Object is a type of data structure which stores key-value pairs.
 
 ```jsx:src/App.jsx
 const App = () => {
@@ -185,10 +188,11 @@ const Card = (props) => {
 ```
 
 <Centerer>
-<img src="https://imgur.com/Ad61UQl.png" width="80%" />
+  <img src="https://imgur.com/Ad61UQl.png" width="80%" />
 </Centerer>
 
 The refactor is now complete and our app should work as it did before. This work of extracting some JSX into its own component might seem tiresome and pointless, but it is good for a couple reasons:
+
 - it makes both our `App` and `Card` componen code smaller and less cluttered,
 - it allows the `Card` component to be reused for different input data.
 
@@ -245,7 +249,7 @@ The `Array.map` method takes an argument: a function taking in an array item and
 Our app now renders a list of cards of all restaurants specfied in the `places` array.
 
 <Centerer>
-<img src="https://imgur.com/fPGAyaP.png" width="80%" />
+  <img src="https://imgur.com/fPGAyaP.png" width="80%" />
 </Centerer>
 
 In the next tutorial we'll learn how to add restaurants by modifying the `places` state.

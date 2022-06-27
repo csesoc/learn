@@ -42,7 +42,7 @@ export default function Navbar() {
             as="a"
             size="label-lg"
             css={{ color: '$slate12', cursor: 'pointer' }}>
-            Articles
+            Collection
           </Text>
         </Link>
         <Link href="/creators">

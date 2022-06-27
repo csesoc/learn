@@ -3,7 +3,6 @@ import { styled } from 'stitches.config'
 export const Card = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  cursor: 'pointer',
   height: '25em',
   padding: '$6 $5',
   width: '22rem',
@@ -22,9 +21,10 @@ export const CardSmall = styled('div', {
   maxWidth: '12rem',
   marginTop: '2em',
   marginInline: '0.5em',
-  padding: '$1',
+  padding: '$4',
   height: '10em',
   color: '$slate12',
   background: '$blue4',
-  borderRadius: '$lg'
+  borderRadius: '$sm',
+  lineHeight: '1.3rem'
 })
