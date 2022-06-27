@@ -1,7 +1,9 @@
 import '@fontsource/inter'
 import '@fontsource/jetbrains-mono'
 import Navbar from 'components/Navbar'
+import 'highlight.js/styles/github-dark.css';
 import 'styles/styles.css'
+import 'styles/Article.css'
 // import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 

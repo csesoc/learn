@@ -13,8 +13,10 @@ import { MDXRemote } from 'next-mdx-remote'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import markdownToHtml from 'lib/markdownToHtml'
 import rehypeHighlight from 'rehype-highlight'
+import rehypeCodeTitles from 'rehype-code-titles'
+import FileName from 'components/FileName'
 
-const defaultComponents = { Image, Callout }
+const defaultComponents = { Image, Callout, FileName }
 // Add any components used in MDX files here.
 // Components here load dynamically if they're used.
 // See https://github.com/tsriram/with-mdx-bundler for details.
@@ -53,11 +55,13 @@ export async function getStaticProps({ params }: Params) {
   ])
   const content = await markdownToHtml(article.content || '')
   const contentString = await serialize(article.contentString, {
+    scope: {},
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [rehypeHighlight],
+      rehypePlugins: [rehypeCodeTitles, rehypeHighlight],
       format: 'mdx'
-    }
+    },
+    parseFrontmatter: false,
   })
   return {
     props: {
