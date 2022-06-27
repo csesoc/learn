@@ -1,18 +1,214 @@
 ---
-title: Jungle Curry
-date: 2021-12-24
-desc: In the jungle, the mighty jungle...
-author: idk
+title: 'ReactJS Project Tutorial: Part 5'
+date: 2022-06-27
+desc: Introducing state in React.
+author: Gordon Huang
 ---
 
-Ullamco et nostrud magna commodo nostrud occaecat quis pariatur id ipsum. Ipsum
-consequat enim id excepteur consequat nostrud esse esse fugiat dolore.
-Reprehenderit occaecat exercitation non cupidatat in eiusmod laborum ex eu
-fugiat aute culpa pariatur. Irure elit proident consequat veniam minim ipsum ex
-pariatur.
+# Part 5
 
-Mollit nisi cillum exercitation minim officia velit laborum non Lorem
-adipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure
-dolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod
-excepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non
-labore exercitation irure laborum.
+Variables are a fundamental concept in programming because it allows us to store and modify data depending on where or how our program is used. In a React app, variables are made using something called the `useState` hook. React hooks are functions that can be called from within our functional components like `App` to use various core React features.
+
+To use the `useState` hook, first import it into our <FileName>App.jsx</FileName> file. Then inside the `App` functional component and above the return statement, write the following:
+
+```jsx:src/App.jsx {5-6, 8} showLineNumbers
+import './styles/App.css'
+import './styles/Card.css'
+import logo from './assets/logo512.png'
+import { ReactComponent as Star } from './assets/star.svg'
+import { useState } from 'react'
+
+const App = () => {
+
+  const [name, setName] = useState("Machiavelli Ristorante Italiano")
+
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
+```
+
+Calling the `useState` function returns two things: a state value and a function that can be used to change this state value while our app is running. We use the `const [name, setname]` JavaScript "destructuring" syntax to assign the variable `name` to the first return value and the variable `setName` to the second return value.
+
+`useState` takes in an argument -- the initial value of the state. We give it the string `"Machiavelli Ristorante Italiano"` because we want the state `name` to store the name of our restaurant.
+
+We can now use this `name` state in our app. Replace our hard-coded restaurant name with the `name` state:
+
+```jsx:src/App.jsx
+const App = () => {
+
+  const [name, setName] = useState("Machiavelli Ristorante Italiano")
+
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
+      <main>
+        <h1>My List</h1>
+        <p>
+          Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
+          to keep a record of either because I like them, dislike them, or would like to find out.
+        </p>
+        <div className="card">
+          <h3>{name}</h3>
+          <h4>Pizza · Pasta</h4>
+          <h4>123 Clarence St, Sydney NSW 2000</h4>
+          <h4>
+            <a href="https://www.machiavelli.com.au" target="blank">
+              www.machiavelli.com.au
+            </a>
+          </h4>
+```
+
+Our app should still be working as it was before. Let's turn all the other restaurant information into state.
+
+```jsx:src/App.jsx
+const App = () => {
+
+  const [name, setName] = useState("Machiavelli Ristorante Italiano")
+  const [tags, setTags] = useState(["Pizza", "Pasta"])
+  const [address, setAddress] = useState("123 Clarence St, Sydney NSW 2000")
+  const [website, setWebsite] = useState("https://www.machiavelli.com.au")
+  const [notes, setNotes] = useState("Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.")
+  const [rating, setRating] = useState(4)
+  const [visits, setVisits] = useState(3)
+
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
+      <main>
+        <h1>My List</h1>
+        <p>
+          Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
+          to keep a record of either because I like them, dislike them, or would like to find out.
+        </p>
+        <div className="card">
+          <h3>{name}</h3>
+          <h4>{tags}</h4>
+          <h4>{address}</h4>
+          <h4>
+            <a href={website} target="blank">
+              {website}
+            </a>
+          </h4>
+          <p>{notes}</p>
+          <div className="metricsContainer">
+            <div className="ratingContainer">
+              Rating {rating}/5
+              <Star className='starIcon' />
+              <Star className='starIcon' />
+              <Star className='starIcon' />
+              <Star className='starIcon' />
+            </div>
+            <div className="visitsContainer">Visited {visits} times</div>
+          </div>
+        </div>
+      </main>
+    </>
+  )
+}
+```
+
+We are using a few different data types to store different types of state. Our restaurant's `name`, `address`, `website` and `notes` are just JavaScript `String`s. `tags` is a JS `Array`, which is an ordered collection of items, in this case `String`s. `rating`and `visits` are `Number`s.
+
+Let's account for these different data types in our rendering.
+
+Firstly the `tags` array can be printed as a string of tags separated by bullets (•) with `{tags.join(" • ")}`.
+
+```jsx:src/App.jsx
+        <div className="card">
+          <h3>{name}</h3>
+          <h4>{tags.join(" • ")}</h4>
+          <h4>{address}</h4>
+          <h4>
+            <a href={website} target="blank">
+              {website}
+            </a>
+          </h4>
+```
+
+Our `rating` is currently just being rendered as a number but the four stars are still hard-coded. To render a number of stars based on our rating we'll make a function that returns a list of `<Star />` components:
+
+```jsx:src/App.jsx
+const App = () => {
+
+  const [name, setName] = useState("Machiavelli Ristorante Italiano")
+  const [tags, setTags] = useState(["Pizza", "Pasta"])
+  const [address, setAddress] = useState("123 Clarence St, Sydney NSW 2000")
+  const [website, setWebsite] = useState("https://www.machiavelli.com.au")
+  const [notes, setNotes] = useState("Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.")
+  const [rating, setRating] = useState(4)
+  const [visits, setVisits] = useState(3)
+
+  const renderStars = (numStars) => {
+    let stars = [] // Declare an empty array
+    for (let i = 0; i < numStars; i++) {
+      // Add a new Star component to the stars array.
+      stars.push(
+        <Star className='starIcon' />
+      )
+    }
+    return stars
+  }
+
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
+```
+
+This is an arrow function that takes in an integer `numStars`, then loops for `numStars` times, each time adding a new `<Star />` component to the `stars` array. Finally it returns the `stars` array.
+
+Call the `renderStars` function in place of where we hard-coded our stars, passing in the `rating` state as an argument:
+
+```jsx:src/App.jsx
+          <div className="metricsContainer">
+            <div className="ratingContainer">
+              Rating {rating}/5
+              {renderStars(rating)}
+            </div>
+            <div className="visitsContainer">Visited {visits} times</div>
+          </div>
+```
+
+We should now see four stars rendered as before, but if we open the browser console (Cmd/Ctrl + Shift + I) we'll see a warning `"Each child in a list should have a unique "key" prop."`.
+
+![](https://imgur.com/nrpjM4s)
+
+In React, all components have a special `key` attribute, and whenever we render a list of components, they each need a unique value for the special `key` property. To fix this issue, add a `key={i}` to our `Star />` components in the `for` loop.:
+
+```jsx:src/App.jsx
+  const renderStars = (numStars) => {
+    let stars = [] // Declare an empty array
+    for (let i = 0; i < numStars; i++) {
+      // Add a new Star component to the stars array.
+      stars.push(
+        <Star key={i} className='starIcon' />
+      )
+    }
+    return stars
+  }
+```
+
+In this tutorial we learned how to store state and render it. In later tutorials we'll also learn how to modify state based on user input.

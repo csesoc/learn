@@ -20,7 +20,13 @@ export default function Navbar() {
       }}>
       <Flex css={{ flex: 1, justifyContent: 'flex-start' }}>
         <Link href="/">
-          <button aria-label="Return to home page" style={{border: 0, backgroundColor: 'transparent', cursor: 'pointer'}} >
+          <button
+            aria-label="Return to home page"
+            style={{
+              border: 0,
+              backgroundColor: 'transparent',
+              cursor: 'pointer'
+            }}>
             <Logo />
           </button>
         </Link>
@@ -36,19 +42,20 @@ export default function Navbar() {
             as="a"
             size="label-lg"
             css={{ color: '$slate12', cursor: 'pointer' }}>
-            Articles
+            Collection
           </Text>
         </Link>
-        <Text
-          as="a"
-          size="label-lg"
-          css={{
-            color: '$slate11',
-            userSelect: 'none',
-            cursor: 'not-allowed'
-          }}>
-          Creators
-        </Text>
+        <Link href="/creators">
+          <Text
+            as="a"
+            size="label-lg"
+            css={{
+              color: '$slate12',
+              cursor: 'pointer'
+            }}>
+            Creators
+          </Text>
+        </Link>
         <Text
           as="a"
           size="label-lg"

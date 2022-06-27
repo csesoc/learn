@@ -1,5 +1,5 @@
-import React, { ReactType } from 'react'
-import { Box } from '@modulz/design-system'
+import React from 'react'
+import { Box } from './Box'
 import { useComposedRefs } from '@radix-ui/react-compose-refs'
 import { createContext } from '@radix-ui/react-context'
 import { useCallbackRef } from '@radix-ui/react-use-callback-ref'

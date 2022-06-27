@@ -1,9 +1,9 @@
-import Avatar from 'boring-avatars'
-import { Box, styled } from '@modulz/design-system'
+import { Box } from 'components/Box'
 import { Button } from 'components/Button'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
 import { Card } from 'components/Card'
+import { styled } from '../stitches.config'
 import { allArticles, Article } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 import type { NextPage } from 'next'
@@ -12,6 +12,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, CaretLeft, CaretRight } from 'phosphor-react'
 import { DiscordLogo, FacebookLogo, InstagramLogo } from 'phosphor-react'
+import ArticleCard from 'components/ArticleCard'
+import { SocialButton } from 'components/SocialButton'
 
 import {
   Carousel,
@@ -94,49 +96,7 @@ export async function getStaticProps() {
 function ArticleSlide(article: Article) {
   return (
     <CarouselSlide>
-      <Link href={`/articles/${article.slug}`}>
-        <Card
-          css={{
-            overflow: 'hidden',
-            cursor: 'pointer',
-            '&:hover': {
-              backgroundColor: '$slate3'
-            }
-          }}>
-          <Box css={{ margin: '-$6 -$5 $5 -$5' }}>
-            <Image src="/csesoccard2.png" width="700" height="300" />
-          </Box>
-          <Text size="label-md" css={{ color: '$slate11' }}>
-            {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
-            {article.readingTime.text}
-          </Text>
-          <Text
-            size="title-md"
-            css={{ color: '$slate12', fontWeight: '600', paddingTop: '$2' }}>
-            {article.title}
-          </Text>
-          <Text size="label-lg" css={{ color: '$slate12', paddingTop: '$1' }}>
-            {article.desc}
-          </Text>
-          <Flex
-            css={{
-              flexDirection: 'row',
-              gap: '0.75rem',
-              alignItems: 'center',
-              paddingTop: '$5'
-            }}>
-            <Avatar
-              size={28}
-              name={article.author}
-              variant="beam"
-              colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
-            />
-            <Text size="label-md" css={{ color: '$slate12' }}>
-              {article.author}
-            </Text>
-          </Flex>
-        </Card>
-      </Link>
+      <ArticleCard article={article} />
     </CarouselSlide>
   )
 }
@@ -268,8 +228,7 @@ const Home: NextPage = ({ articles }: any) => {
             flexWrap: 'wrap',
             justifyContent: 'center'
           }}>
-          <Card css={{ backgroundColor: '$slate3', overflow: 'hidden' }}>
-            {/* slateDark3 doesn't work */}
+          <Card css={{ backgroundColor: '$slate12', overflow: 'hidden' }}>
             <Box css={{ margin: '-$6 -$5 $5 -$5' }}>
               <Image
                 src="/csesoccard.png"
@@ -278,10 +237,12 @@ const Home: NextPage = ({ articles }: any) => {
                 objectFit="cover"
               />
             </Box>
-            <Text size="title-md" css={{ fontWeight: '600', padding: '$2' }}>
-              Psst ... you might be our next creator.
+            <Text
+              size="title-lg"
+              css={{ fontWeight: '600', padding: '$2', color: '$slate1' }}>
+              Psst... you might be our next creator.
             </Text>
-            <Text css={{ padding: '$2' }}>
+            <Text css={{ padding: '$2', color: '$slate1' }}>
               Passionate about a technical topic and want to create content? Any
               skill levels welcome - learn more below!
             </Text>
@@ -289,7 +250,8 @@ const Home: NextPage = ({ articles }: any) => {
               <Button
                 size="default"
                 css={{
-                  marginTop: '$6',
+                  width: 'fit-content',
+                  marginTop: '$4',
                   cursor: 'pointer',
                   backgroundColor: '$green6',
                   '&:hover': { backgroundColor: '$green7' }
@@ -299,11 +261,17 @@ const Home: NextPage = ({ articles }: any) => {
               </Button>
             </Link>
           </Card>
-          <Card>
+          <Flex
+            direction="column"
+            justify="between"
+            align="center"
+            css={{ height: '25rem' }}>
+            {/* TODO: avoid copypaste for social media buttons */}
             <Link href="https://cseso.cc/discord/">
               <Button
                 size="default"
                 css={{
+                  width: '22rem',
                   cursor: 'pointer',
                   backgroundColor: '$indigo4',
                   '&:hover': { backgroundColor: '$indigo5' }
@@ -325,6 +293,7 @@ const Home: NextPage = ({ articles }: any) => {
               <Button
                 size="default"
                 css={{
+                  width: '22rem',
                   marginTop: '$6',
                   cursor: 'pointer',
                   backgroundColor: '$blue4',
@@ -346,6 +315,7 @@ const Home: NextPage = ({ articles }: any) => {
               <Button
                 size="default"
                 css={{
+                  width: '22rem',
                   marginTop: '$6',
                   cursor: 'pointer',
                   backgroundColor: '$pink4',
@@ -363,7 +333,7 @@ const Home: NextPage = ({ articles }: any) => {
                 </Flex>
               </Button>
             </Link>
-          </Card>
+          </Flex>
         </Flex>
       </Flex>
     </Box>
