@@ -1,0 +1,168 @@
+---
+title: PPC Backend 1 - Creating a simple Express.js backend
+date: 2021-06-28
+desc: The opening article for the PPC backend series. We discuss setting up your project with Express.js.
+tags:
+  - 'Express.js'
+  - 'Backend'
+author: Jasper Di Francesco
+coverPhoto: '/images/generic/markus-spiske-iar-afB0QQw-unsplash.jpg'
+---
+
+This tutorial will walk you through creating a very simple Express.js backend, how to run it and how to add some routes.
+
+It assumes that you already have [nodejs](https://nodejs.org/en/) installed. If not, follow that link and download the latest version.
+
+The goal of this tutorial series is to create a backend for a venue app, where we can store venue locations and menus and customise a 'favourite venues' list for each user.
+
+## Setting up
+
+Once we have installed Node, we should have a command line instruction called `npm`. Open up a new Terminal window and navigate to a desired project directory. Run `npm init`. A field `package name` should pop up, feel free to name your project anything, but we will use 'venuewatcher'. Keep hitting enter to leave the rest of the fields as their default value. Note: If running `npm init` did nothing, you have not correctly installed Node.
+
+Now we have a file called `package.json` which contains metadata about our project. This file can contain things like author, description, name, version and scripts.
+
+You might have noticed the `"main"` field was set to `index.js`. This is our entry point for the application, meaning execution of our program will start from here. Kind of like a `main` function in C.
+
+Go ahead and create a new file called `index.js`. Leave it blank for now.
+
+Scripts are a useful shortcut to have in your `package.json` and we are going to add one now. Open up `package.json` and in the `"scripts"` section, under `"test"`, add the line:
+
+```json:venuesWatcher/package.json
+"start": "node index.js"
+```
+
+This will allow us to start our server using the command `npm run start`. This comes in handy if our startup commands become more complex.
+
+We are now ready to start on our server.
+
+## Starting our server
+
+Firstly we want to install the `express.js` package. Do this by navigating to our project directory and typing `npm install express`.
+
+Then in our `index.js`, we want to import that express package to be something we can use by adding the line:
+
+```javascript:venuesWatcher/index.js
+const express = require('express')
+```
+
+This `require` statement has imported the `express` function from the `express` package.
+
+Now we can initialise an express app by calling this `express` function by adding the line:
+
+```javascript:venuesWatcher/index.js
+const app = express()
+```
+
+Finally, we can start our express app by using the `listen` method. The following lines achieve this:
+
+```javascript:venuesWatcher/index.js
+app.listen(5000, () => {
+  console.log('Server started!')
+  console.log('Listening on port 5000')
+})
+```
+
+Let's break this down a little bit. First we are referencing our `app` and calling the `listen` method on it. This just means that we will _listen_ out for any events that occur on the specified port. In this case, we are using port 5000, hence we have passed 5000 as the first argument to `listen`.
+
+The second argument to `listen` is a function that we execute as soon as the app is started. It is good to get some feedback from your server that things are working properly, so indicating that the server has been started and which port it is listening on is helpful.
+
+Now go back to our command line, execute `npm run start`, and we should see our nice helpful messages telling us that the server has been started and it's running on port 5000.
+
+## Adding routes
+
+### Routing
+
+Routes are extensions to our base url which let us categorise different sections of our backend server.
+
+Express makes it extremely easy for us to add routes to our application.
+
+After our line where we create the `app` express object, we want to add the line:
+
+```javascript:venuesWatcher/index.js
+var router = express.Router()
+```
+
+This will initialise a new `Router` object which we can add our routes to. We also need to connect this new `router` to our express app, and we do that using **middleware**.
+
+<Callout type="note">
+  Middleware refers to many different things, in this case it is how we can add
+  different services to our Express app
+</Callout>
+
+After we have created our `router`, we can connect it to our app and specify that all data transfered to and from our backend will be in JSON format using the following lines:
+
+```javascript:venuesWatcher/index.js
+app.use('/', router)
+app.use(express.json())
+```
+
+Easy! Now we just need to add routes to our router!
+
+### GET
+
+There are four request types `GET`, `POST`, `UPDATE`, `DELETE`. We will firstly look at the most simple two, `GET` and `POST`.
+
+The `GET` request is pretty self explanatory and refers to collecting data from a backend. We can add a get route to our router by adding the following line, ensure you add this after you initialise the router object and before the `app.listen`.
+
+```javascript:venuesWatcher/index.js
+router.get('/venues', (req, res) => {})
+```
+
+To this `get` function, we have passed the route (`"/venues"`) as the first parameter, and a callback function as the second. Right now, our callback just takes in the arguments `req` and `res` and does nothing. `req` refers to the request payload, and `res` the response payload.
+
+So now if we were to run our application and send a request to `localhost:5000/venues?name=johnscafe` we would trigger this route with the query parameter `name` set to `"johnscafe"` and the callback would be called.
+
+Before we try running it, we want to get some kind of response from our server if we send it a request. Let's add a kind of "database" into our application. Under the `router` object you created earlier, add the line:
+
+```javascript:venuesWatcher/index.js
+let database = { johnscafe: 'Rated 10/10!' }
+```
+
+Now in our `GET` callback function body add the following line:
+
+```javascript:venuesWatcher/index.js
+res.send(database[req.query.name] || 'Venue not found!')
+```
+
+This checks if `name` is in our database, if so return the corresponding value. Otherwise return "Venue not found!". `req.query` stores any query parameters we pass in after the `?`. If we wanted to send multiple, they get separated by an `&`.
+
+`res.send` simply sends our reply from this route.
+
+Good, now we have set up our server and created a `GET` route and let it send a response. Now we need to test it.
+
+### Sending requests
+
+Start by spinning up your server using `npm start` and make sure there are no errors.
+
+There are many testing platforms for sending requests to routes, the one that I use is Advanced Rest Client (ARC) by MuleSoft.
+
+Assuming you are using ARC, once you open it your window should look something like this:
+
+<Centerer>
+
+<img src="https://i.imgur.com/T4JArjX.png" width="75%" />
+</Centerer>
+
+Set the request type to `GET`, set the `Request URL` to `http://localhost:5000/venues?name=johnscafe` and hit enter. You should see a review "Rated 10/10!" come up as the response.
+
+Try changing the name of the venue we are requesting and see what the server responds with.
+
+### POST
+
+The second route type we want to tackle is the `POST` route. This is concerned mainly with sending data to the backend.
+
+Our `POST` request should manipulate the database in some way. Add a new post request using:
+
+```javascript:venuesWatcher/index.js
+app.post('/venues', (req, res) => {})
+```
+
+The data sent to a POST request is accessed using `req.body.[field]`. Our users will pass in a review for a restaurant in JSON format, where the key will be the name of the restaurant and the value the rating.
+
+We can write all of these reviews to our databse using `Object.assign`. In our POST callback body, add the line `Object.assign(database, req.body)`. This copies everything from our `req.body` to our `database`. After this, send a string in response confirming that the operation was successful.
+
+Now let's try testing our POST request. Open up ARC again, set the request type to `POST` and set the request URL to `http://localhost:5000/venues`. You will have noticed an extra tab show up called `BODY` below where you input the post request payload. Set the type to JSON and in the body section input something like `{"crumbs": "Rated 9/10"}`. Send the request and make sure your success message is returned.
+
+Now, try making a GET request to `http://localhost:5000/venues?name=crumbs` and we should see our newly added venue review!.
+
+In our <Link href="/articles/ppc-backend-2">next article</Link> we will look at integrating MongoDB.

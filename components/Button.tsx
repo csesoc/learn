@@ -24,8 +24,8 @@ export const Button = styled('button', {
         borderRadius: '$full'
       },
       large: {
-        padding: '32px',
-        borderRadius: '$md'
+        padding: '28px',
+        borderRadius: '$full'
       }
     }
   }

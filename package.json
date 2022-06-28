@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "partytown copylib public/~partytown && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,6 +13,8 @@
     "@builder.io/partytown": "^0.6.2",
     "@fontsource/inter": "^4.5.10",
     "@fontsource/jetbrains-mono": "^4.5.8",
+    "@modulz/design-system": "^0.6.2",
+    "@modulz/radix-icons": "^4.0.0",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/primitive": "^0.1.0",
     "@radix-ui/react-avatar": "^0.1.4",
@@ -35,6 +37,7 @@
     "rehype-prism-plus": "^1.4.1",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
+    "seamless-scroll-polyfill": "^2.2.0",
     "smoothscroll-polyfill": "^0.4.4",
     "use-onclickoutside": "^0.4.0"
   },

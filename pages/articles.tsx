@@ -17,10 +17,10 @@ import { MagnifyingGlass } from 'phosphor-react'
 
 export async function getStaticProps() {
   const articles = allArticles.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date))
+    return compareDesc(new Date(b.date), new Date(a.date))
   })
   const tagLists = allArticles.map((article) =>
-    article.tags ? [] : article.tags
+    article.tags ? article.tags : []
   )
   const flattenedTags = tagLists.flat(1)
   const allTags = [...['All Topics'], ...new Set(flattenedTags)]
@@ -31,10 +31,20 @@ function ArticleRow(article: Article) {
   return (
     <Flex direction="row" css={{ py: '$4' }}>
       <Flex direction="column" justify="between" css={{ flex: 3 }}>
-        <Text size="label-md" css={{ color: '$slate11' }}>
-          {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
-          {article.readingTime.text}
-        </Text>
+        <Flex
+          css={{
+            flexDirection: 'row',
+            paddingTop: '$2',
+            gap: '$2'
+          }}>
+          <Text size="label-md" css={{ color: '$slate11' }}>
+            {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
+            {article.readingTime.text}
+          </Text>
+          {article.tags &&
+            article.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+        </Flex>
+
         <Text
           size="title-md"
           css={{ color: '$slate12', fontWeight: '600', paddingTop: '$2' }}>
@@ -59,8 +69,6 @@ function ArticleRow(article: Article) {
           <Text size="label-md" css={{ color: '$slate12' }}>
             {article.author}
           </Text>
-          {article.tags &&
-            article.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
         </Flex>
       </Flex>
       <Flex
@@ -166,15 +174,20 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
         </Text>
 
         <Flex
+          as="section"
           css={{
-            flexWrap: 'wrap',
+            flexDirection: 'row',
             justifyContent: 'space-between',
             width: '75%',
-            gap: '$3'
+            overflowX: 'scroll',
+            flexWrap: 'nowrap',
+            gap: '$4'
           }}>
           {/* TODO: display featured content here, not first 3 articles */}
           {articles.slice(0, 3).map((article: Article, index: number) => (
-            <ArticleCard key={index} article={article} />
+            <Box>
+              <ArticleCard key={index} article={article} />
+            </Box>
           ))}
         </Flex>
 
