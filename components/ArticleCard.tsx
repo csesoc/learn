@@ -24,7 +24,7 @@ const ArticleCard = ({ article }: Props) => {
             backgroundColor: '$slate3'
           }
         }}>
-        <Box css={{ margin: '-$6 -$5 $5 -$5' }}>
+        <Box css={{ margin: '-$6 -$5 $5 -$6' }}>
           <Image
             src={
               article.coverPhoto
@@ -32,14 +32,22 @@ const ArticleCard = ({ article }: Props) => {
                 : '/images/defaultCoverPhoto.png'
             }
             width="700"
-            height="300"
+            height="250"
             objectFit="cover"
           />
         </Box>
-        <Text size="label-md" css={{ color: '$slate11' }}>
-          {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
-          {article.readingTime.text}
-        </Text>
+
+        <Flex
+          css={{
+            flexDirection: 'row',
+            paddingTop: '$2',
+            gap: '$2'
+          }}>
+          <Text size="label-md" css={{ color: '$slate11' }}>
+            {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
+            {article.readingTime.text}
+          </Text>
+        </Flex>
         <Text
           size="title-md"
           css={{ color: '$slate12', fontWeight: '600', paddingTop: '$2' }}>
@@ -53,7 +61,8 @@ const ArticleCard = ({ article }: Props) => {
             flexDirection: 'row',
             gap: '0.75rem',
             alignItems: 'center',
-            paddingTop: '$5'
+            paddingTop: '$5',
+            flexWrap: 'wrap'
           }}>
           <Avatar
             size={28}
@@ -64,9 +73,7 @@ const ArticleCard = ({ article }: Props) => {
           <Text size="label-md" css={{ color: '$slate12' }}>
             {article.author}
           </Text>
-        </Flex>
-        <Flex css={{ paddingTop: '$3', gap: '0.75rem' }}>
-          {article.tags !== undefined &&
+          {article.tags &&
             article.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
         </Flex>
       </Card>

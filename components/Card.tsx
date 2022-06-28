@@ -3,9 +3,9 @@ import { styled } from 'stitches.config'
 export const Card = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  height: '25em',
+  height: '28em',
   padding: '$6 $5',
-  width: '22rem',
+  width: '24rem',
   boxShadow: '$default',
   background: '$slate1',
   borderRadius: '$lg'
