@@ -5,6 +5,7 @@ import rehypeCodeTitles from 'rehype-code-titles'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import rehypePrismPlus from 'rehype-prism-plus'
 
 const computedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -69,8 +70,9 @@ export default makeSource({
     rehypePlugins: [
       rehypeCodeTitles,
       rehypeHighlight,
+      rehypePrismPlus,
       rehypeAutolinkHeadings,
-      rehypeSlug
+      rehypeSlug,
     ]
   }
 })

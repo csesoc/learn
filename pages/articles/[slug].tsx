@@ -10,8 +10,9 @@ import { Box } from 'components/Box'
 import Callout from 'components/Callout'
 import FileName from 'components/Filename'
 import Centerer from 'components/Centerer'
+import Link from 'next/link'
 
-const defaultComponents = { Image, Callout, FileName, Centerer}
+const defaultComponents = { Image, Callout, FileName, Centerer, Link}
 // Add any components used in MDX files here.
 // Components here load dynamically if they're used.
 // See https://github.com/tsriram/with-mdx-bundler for details.
