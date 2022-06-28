@@ -14,17 +14,13 @@ Just like how functions in programming can separate responsibilities and elimina
 
 Make a new <FileName>components </FileName> folder in <FileName>src </FileName>. This new folder will store any reusable components that we create. Inside <FileName>src/components </FileName> create a file <FileName>Card.jsx </FileName> and add in this template for a basic React component:
 
-```jsx:src/App.jsx
-const Card = () => {
-    return
-}
-
-export default Card
-```
+<Centerer>
+<img src="https://imgur.com/3qnvh1a.png" alt="new Card.jsx component" width="90%" />
+</Centerer>
 
 We want this `Card` component to render the restaurant card we made in <FileName>App.jsx </FileName>. Cut and paste that JSX into the return of this `Card` component. Remember to wrap it in parentheses. Also be sure to move the star.svg and <FileName>Card.css </FileName> imports from <FileName>App.jsx </FileName> to <FileName>Card.jsx </FileName> (hint: the path from <FileName>Card.jsx </FileName> to <FileName>Card.css </FileName> is <FileName>"../styles/Card.css" </FileName> where ".." means "the parent folder of the folder that contains this file").
 
-```jsx:src/App.jsx
+```jsx:src/components/Card.jsx showLineNumbers {1-2, 6-14, 16-35}
 import '../styles/Card.css'
 import { ReactComponent as Star } from '../assets/star.svg'
 
@@ -67,7 +63,7 @@ export default Card
 
 Now back in <FileName>src/App.jsx </FileName> import the `Card` component and render it.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {6, 25}
 import './styles/App.css'
 import './styles/Card.css'
 import logo from './assets/logo512.png'
@@ -101,7 +97,7 @@ const App = () => {
 
 These changes won't work just yet because the state in <FileName>Card.jsx </FileName> is undefined. But instead of moving all state from <FileName>App.jsx </FileName> to <FileName>Card.jsx </FileName>, we're going to do something slightly differently. In <FileName>App.jsx </FileName> we'll replace all of our state variables with a single state called `place` which will store all the info for our restaurant in a single JavaScript _Object_. A JavaScript Object is a type of data structure which stores key-value pairs.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {3-11}
 const App = () => {
 
   const [place, setState] = useState({
@@ -122,19 +118,9 @@ const App = () => {
 
 To let our `Card` component access this state, we pass it as a "property" or "prop" of the `Card` component. We can name the property anything we like, such as `info`.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {18}
 const App = () => {
-
-  const [place, setState] = useState({
-    "name": "Machiavelli Ristorante Italiano",
-    "tags": ["Pizza", "Pasta"],
-    "address": "123 Clarence St, Sydney NSW 2000",
-    "website": "https://www.machiavelli.com.au",
-    "notes": "Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.",
-    "rating": 4,
-    "visits": 3
-  })
-
+  ...
   return (
     <>
       <header>
@@ -159,7 +145,7 @@ const App = () => {
 
 Finally, to access this state in our `Card` component, declare a `props` argument for our `Card` function and add `props.info` to the beginning of all state variables. As an example, for `props.info.name` it means to access the value associated with the `name` key in the `place` object that was passed into the `info` prop of the `Card` component.
 
-```jsx:src/App.jsx
+```jsx:src/components/Card.jsx showLineNumbers {7-9,12,15,18-19,21}
 const Card = (props) => {
 
     ...
@@ -198,13 +184,22 @@ The refactor is now complete and our app should work as it did before. This work
 
 Let's render multiple food places with our new `Card` component. In <FileName>src/App.jsx </FileName> import the dummy restaurant data from <FileName>src/assets/data.json </FileName>.
 
-```jsx:src/App.jsx
-import placesInfo from './assets/data.json''
+```jsx:src/App.jsx showLineNumbers {6}
+import './styles/App.css'
+import './styles/Card.css'
+import logo from './assets/logo512.png'
+import { useState } from 'react'
+import Card from './components/Card'
+import placesInfo from './assets/data.json'
+
+const App = () => {
+  ...
+}
 ```
 
 Replace the `place` state with a `places` state assigned initially to the array of objects `placesInfo` imported from <FileName>data.json </FileName>. This array contains objects of restaurant info in the same format as our previous `place` object.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {3}
 const App = () => {
 
   const [places, setStates] = useState(placesInfo)
@@ -217,7 +212,7 @@ const App = () => {
 
 To display a card for each restaurant in the list, we'll use the JavaScript `Array.map` method which transforms each object in the array into a `<Card />` component.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {20}
 const App = () => {
 
   const [places, setStates] = useState(placesInfo)
@@ -249,7 +244,9 @@ The `Array.map` method takes an argument: a function taking in an array item and
 Our app now renders a list of cards of all restaurants specfied in the `places` array.
 
 <Centerer>
-  <img src="https://imgur.com/fPGAyaP.png" width="80%" />
+  <img src="https://imgur.com/wc2JBvd.png" width="80%" />
 </Centerer>
 
-In the next tutorial we'll learn how to add restaurants by modifying the `places` state.
+That's all for this tutorial series. The fundamental concepts that you have learned here including components, props and state will be useful in all future ReactJS projects that you work on.
+
+There are also many more things to learn which we haven't covered in this series. What if you want to provide a form to add more restaurants, or increase `visits` count for a restaurant? These features can be achieved using things called *event handlers*, which ReactJS does very similarly to HTML. There are plenty of resources online including other articles, videos and documentation to teach you those things. The best way to learn how to use them is to continue building projects and searching the internet for learning resources like these whenever you get stuck. Good luck on your ReactJS journey and have fun!
