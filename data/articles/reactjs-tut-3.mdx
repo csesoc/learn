@@ -33,7 +33,7 @@ The above example shows a JavaScript constant variable being assigned to the ret
 
 Let's open up <FileName>src/App.jsx</FileName>. The file has the .jsx extension which means the file contains jsx code.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers
 import './styles/App.css'
 
 const App = () => {
@@ -82,7 +82,7 @@ int add(int a, int b) {
 
 The last line of <FileName>src/App.jsx</FileName>:
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers=9
 export default App
 ```
 
@@ -97,15 +97,15 @@ With the starting code we have at the moment, <FileName>src/index.js</FileName> 
 If you open <FileName>package.json</FileName> you will see some "dependencies" including "react", "react-dom" and "react-scripts". We need to install these dependencies for our project to work. Open your shell and go into this project's directory. Then run this command:
 
 ```bash:
-npm install
+$ npm install
 ```
 
-This will download and install all the packages that this project depends on, listed in <FileName>package.json</FileName>.
+This will download and install all the packages that this project depends on, listed in <FileName>package.json</FileName>. You'll notice there is now a <FileName>node_modules</FileName> folder, a very big folder containing the actual code of the packages that your project uses i.e. dependencies. You usually won't need to look into it, but when you import packages into your project's code, here is where the packages come from.
 
 In <FileName>package.json</FileName> you will also see some "scripts" which maps some keywords like `"start"` to commands like `"react-scripts start"`. To start a development server for working on our project, run this command:
 
 ```bash:
-npm start
+$ npm start
 ```
 
 Your React app will then open in the browser at a url like [http://localhost:3000](http://localhost:3000).
@@ -114,4 +114,4 @@ Your React app will then open in the browser at a url like [http://localhost:300
   <img src="https://imgur.com/QlQHBQ3.png" width="80%" />
 </Centerer>
 
-In the next tutorial we will start coding in the `App` component to get some more elements showing on the app.
+In the <Link href="/articles/reactjs-tut-4">next tutorial</Link> we will start coding in the `App` component to get some more elements showing on the app.

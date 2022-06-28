@@ -53,7 +53,7 @@ Semantic tags are also used in this project by the pre-made stylesheets. If you 
 
 We now have a `main` element in our app. Let's also add a `header` element to show our app's title and logo.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx {2, 6-13, 21} showLineNumbers
 import './styles/App.css'
 import logo from './assets/logo512.png'
 
@@ -89,7 +89,23 @@ The new `header` element is intended to be a container for introductory content 
 
 This app is going to display a list of restaurants, cafes and other food places that you want to record. Next we will make a card that shows a food place. Directly underneath your `</p>` element add a `<div>` with some semantic tags and info about a restaurant in the following format:
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {27-37}
+import './styles/App.css'
+import logo from './assets/logo512.png'
+
+const App = () => {
+
+  const [places, setStates] = useState(placesInfo)
+
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
       <main>
         <h1>My List</h1>
         <p>
@@ -108,6 +124,11 @@ This app is going to display a list of restaurants, cafes and other food places 
           <p>Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.</p>
         </div>
       </main>
+    </>
+  )
+}
+
+export default App
 ```
 
 We have added some `<h3>`, `<h4>`, `<p>` and `a` elements. The `<a>` tag defines a hyperlink, and you can use its `href` attribute to specific a website to redirect to when you click the tag. `target="blank"` makes the link open in a new tab, and the copy of the link shown between the opening `<a>` and closing `</a>` tags is just the text which you click to go to the link.
@@ -118,13 +139,29 @@ We have added some `<h3>`, `<h4>`, `<p>` and `a` elements. The `<a>` tag defines
 
 To make this restaurant information look more like a card, import the <FileName>src/styles/Card.css </FileName> stylesheet.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {3}
+import './styles/App.css'
+import logo from './assets/logo512.png'
 import './styles/Card.css'
 ```
 
 This stylesheet contains styles for a `card` class. Let's give this class to the `<div>` that holds our restaurant information
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {20}
+const App = () => {
+
+  const [places, setStates] = useState(placesInfo)
+
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
+      <main>
         <h1>My List</h1>
         <p>
           Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
@@ -134,6 +171,17 @@ This stylesheet contains styles for a `card` class. Let's give this class to the
           <h3>Machiavelli Ristorante Italiano</h3>
           <h4>Pizza · Pasta</h4>
           <h4>123 Clarence St, Sydney NSW 2000</h4>
+          <h4>
+            <a href="https://www.machiavelli.com.au" target="blank">
+              machiavelli.com.au
+            </a>
+          </h4>
+          <p>Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.</p>
+        </div>
+      </main>
+    </>
+  )
+}
 ```
 
 In React, elements set css class names using the `className` attribute. Setting `<div className="card">` gives the div all the styles specified in the stylesheet for the "card" class.
@@ -144,7 +192,26 @@ In React, elements set css class names using the `className` attribute. Setting 
 
 The <FileName>src/styles/Card.css </FileName> stylesheet also contains the classes `metricsContainer`, `ratingContainer` and `visitsContainer`. We can use these to display our rating and number of visits for the restaurant.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {30-33}
+const App = () => {
+
+  const [places, setStates] = useState(placesInfo)
+
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
+      <main>
+        <h1>My List</h1>
+        <p>
+          Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
+          to keep a record of either because I like them, dislike them, or would like to find out.
+        </p>
         <div className="card">
           <h3>Machiavelli Ristorante Italiano</h3>
           <h4>Pizza · Pasta</h4>
@@ -160,17 +227,43 @@ The <FileName>src/styles/Card.css </FileName> stylesheet also contains the class
             <div className="visitsContainer">Visited 3 times</div>
           </div>
         </div>
+      </main>
+    </>
+  )
+}
 ```
 
 Instead of writing "Rated 4/5 stars" lets actually display 4 stars. Import the <FileName>src/assets/star.svg</FileName> icon like this:
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {4}
+import './styles/App.css'
+import logo from './assets/logo512.png'
+import './styles/Card.css'
 import { ReactComponent as Star } from './assets/star.svg'
 ```
 
 This allows us to place the svg icon in our code like a component. `<Star />`. We can even add a class to the component: `<Star className="starIcon" />`. We'll add the "starIcon" class which is included in <FileName>src/styles/Card.css </FileName> to make our stars the correct colour and size.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {32-36}
+const App = () => {
+
+  const [places, setStates] = useState(placesInfo)
+
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
+      <main>
+        <h1>My List</h1>
+        <p>
+          Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
+          to keep a record of either because I like them, dislike them, or would like to find out.
+        </p>
         <div className="card">
           <h3>Machiavelli Ristorante Italiano</h3>
           <h4>Pizza · Pasta</h4>
@@ -192,10 +285,14 @@ This allows us to place the svg icon in our code like a component. `<Star />`. W
             <div className="visitsContainer">Visited 3 times</div>
           </div>
         </div>
+      </main>
+    </>
+  )
+}
 ```
 
 <Centerer>
   <img src="https://imgur.com/uMQWB2K.png" width="90%" />
 </Centerer>
 
-Currently we have effectively "hard-coded" the restaurant information into our app. We want to be able to dynamically store and change this information. We will learn how to do this in the next tutorial.
+Currently we have effectively "hard-coded" the restaurant information into our app. We want to be able to dynamically store and change this information. We will learn how to do this in the <Link href="/articles/reactjs-tut-5">next tutorial</Link>.

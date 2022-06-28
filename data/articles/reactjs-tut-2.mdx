@@ -8,12 +8,10 @@ tags:
 coverPhoto: '/images/generic/anas-alshanti-feXpdV001o4-unsplash.jpg'
 ---
 
-# Part 2: The React App
-
-In the last tutorial you installed all the tools we'll need to create a React app, and opened the source code in your code editor. create-react-app has given us a lot of files in the starter project so in this tutorial we'll walk through each file and see what they do.
+In the last tutorial you installed all the tools we'll need to create a React app, and opened the source code of the template project in your code editor. Let's walk through each of the given files in the template project and see what they do.
 
 <Centerer>
-  <img src="https://imgur.com/tv27w5k.png" width="60%" />
+  <img src="https://imgur.com/iIvy0Ry.png" width="60%" />
 </Centerer>
 
 <Callout type="note">
@@ -23,11 +21,8 @@ In the last tutorial you installed all the tools we'll need to create a React ap
   install it.
 </Callout>
 
-For the purposes of this tutorial, a lot of the files created for us are unnecessary. Before we continue, let's declutter our workspace by deleting these files which we won't need:
 
----
-
-The <FileName>README.md</FileName> file at the bottom has some instructions for how to use this project and some links to React resources. The <FileName>.md</FileName> extension stands for _markdown_, a common text editing syntax to format text. It is not code; markdown is to make text readable for humans.
+The <FileName>README.md</FileName> file at the bottom has a brief description of this repository and how to use it. The <FileName>.md</FileName> extension stands for _markdown_, a common text editing syntax to format text. It is not code; markdown is to make text readable for humans.
 
 In general you should use a <FileName>README.md</FileName> in a project to give an overview of what your project does, how to use it, and any other information you think would be useful for people interested in your code.
 
@@ -36,13 +31,17 @@ The <FileName>package.json</FileName> file records all the packages that this pr
 <FileName>package-lock.json</FileName> also tracks dependencies but in greater depth
 (dependencies of dependencies etc).
 
-<img src="https://imgur.com/qxGaZQZ.png" width="100%" />
+<img src="https://imgur.com/h80hpS2.png" width="100%" />
 
 The <FileName>.gitignore</FileName> file specifies files and directories (folders) that should be ignored by the git version control system. We'll talk more about it later.
 
-The <FileName>node_modules</FileName> folder is a very big folder containing the actual code of the packages that your project uses i.e. dependencies. You usually won't need to look into it, but when you import packages into your project's code, here is where the packages are stored.
+The <FileName>public</FileName> folder contains static <FileName>assets</FileName> like images, icons and html for your web app. The most important one is <FileName>index.html</FileName>.
 
-The <FileName>public</FileName> folder contains static <FileName>assets</FileName> like images, icons and html for your web app. The most important one is <FileName>index.html</FileName>. This is the html file that will begin rendering your web app in a browser. Open this file and find the following tag:
+<Centerer>
+  <img src="https://imgur.com/5HdGJze.png" width="90%" />
+</Centerer>
+
+This is the html file that will begin rendering your web app in a browser. Open this file and find the following tag:
 
 ```jsx:public/index.html
 <div id="root"></div>
@@ -52,6 +51,10 @@ This is called the "root" DOM node of your app which is where your React app wil
 
 Most of your time building a React app will be spent on files in the <FileName>src</FileName> folder (source code). Let's open this folder and go through the contents.
 
+<Centerer>
+  <img src="https://imgur.com/ptsxGiR.png" width="90%" />
+</Centerer>
+
 The <FileName>src/assets/</FileName> folder contains some images, svg icons and dummy data that we'll use for this tutorial's project.
 
 The <FileName>src/styles/</FileName> folder contains some stylesheets (.css files) made for this project which we'll use to enhance the appearance of the components we'll be making. You won't need to understand the css to work through this tutorial series.
@@ -59,7 +62,7 @@ The <FileName>src/styles/</FileName> folder contains some stylesheets (.css file
 <FileName>src/index.js</FileName> creates a root ReactDOM node linked to the root
 DOM node we saw in <FileName>public/index.html</FileName>.
 
-```jsx:src/index.js
+```jsx:src/index.js showLineNumbers=6
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
@@ -72,4 +75,4 @@ You won't need to understand the details behind ReactDOM and how it interacts wi
 
 Notice how the `App` component is imported from the `./App`. `./App` is a pathname where `.` means "same directory as this file" and `App` refers to the file called <FileName>App.jsx</FileName>.
 
-In the next tutorial we will start working in <FileName>src/App.jsx</FileName> on real React code!
+In the <Link href="/articles/reactjs-tut-3">next tutorial</Link> we will start working in <FileName>src/App.jsx</FileName> on real React code!

@@ -8,8 +8,6 @@ tags:
 coverPhoto: '/images/generic/alexandru-acea-XEB8y0nRRP4-unsplash.jpg'
 ---
 
-# Part 1: Setup
-
 To set ourselves up for building a React application in this tutorial, we first need to install a few tools.
 
 ## NodeJS
@@ -32,62 +30,68 @@ On Mac you can use your built-in Terminal app.
 
 On Windows you can use the Command Prompt app.
 
-The shell allows us to use some of the tools we have installed. Open your command line and type:
+The shell allows us to use some of the tools we have installed. Open your command line and type (without the `$` at the start):
 
-```bash:shell
-node -v
+```bash:
+$ node -v
 ```
 
 and press enter. This tests whether you have installed NodeJS correctly. If you have, it should print the version of NodeJS which you have installed, such as `16.15.0`.
 
+## NPM - Node Package Manager
 Installing NodeJS also automatically installs NPM (Node Package Manager) which manages JavaScript packages for your projects. To check that it has installed properly, type into your command line:
 
-```bash:shell
-npm -v
+```bash:
+$ npm -v
 ```
 
 If installed properly it will show its version, such as `8.5.5`.
 
-## Create React App
+## Git
 
-The final thing we need is a package from npm called **Create React App** which sets up a React application for you to start building quickly.
+Git is a version control system for code. It manages versions of a software project and allows multiple people working on the same project at the same time. This tutorial series won't require you to work with someone else on the project, but you'll use git to download the initial template project.
 
-To install the Create React App package, run the following on your command line:
+First, open a shell and check whether your system already has git installed by running the command:
 
-MacOS:
-
-```bash:shell
-sudo npm install --global create-react-app
+```bash
+$ git --version
 ```
 
-Windows:
+If it is already installed it will show you the version you have installed such as `2.32.0`. If you don't already have git installed, go to [git-scm.com/downloads](https://git-scm.com/downloads) and download the latest release for your OS.
 
-```bash:shell
-npm install --global create-react-app
+Then check that git is now installed with the above command. Next, configure git with your name and email so git knows who your work belongs to (yourself).
+
+```bash
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
 ```
 
-In MacOS you may need the `sudo` command in order to run the line with elevated privileges. It may prompt you to enter your Mac user password.
+Now, use git to download the template project for this tutorial.
 
-Now let's use create-react-app to create a React app for us. We'll use npx, a package runner that also comes with NodeJS to run the create-react-app program, which will create the app in a new folder we call **my-react-app** (or any name you like).
-
-```bash:shell
-npx create-react-app my-react-app
+```bash
+$ git clone https://github.com/dqna64/reactjs-project-tutorial.git
 ```
 
-This will take a minute or two to download required packages and set up the project. Once it's done, go into the folder of the project.
+Once it has downloaded, go into the folder of the project.
 
-```bash:shell
-cd my-react-app
+```bash:
+$ cd reactjs-project-tutorial
 ```
 
-Also open up the project in VSCode by opening up the VSCode open and opening the folder **my-react-app**.
+Also open up the project in VSCode by opening up VSCode and opening the folder <FileName>reactjs-project-tutorial</FileName>.
 
-![Open VSCode and open a folder](https://imgur.com/T6kP1ov)
+<Centerer>
+<img alt="Open VSCode and open a folder" src="https://imgur.com/T6kP1ov.png" width="80%" />
+</Centerer>
 
-![Select the my-react-app folder](https://imgur.com/8Zm3dEk)
+<Centerer>
+<img alt="Select the my-react-app folder" src="https://imgur.com/vts088y.png" width="80%" />
+</Centerer>
 
 You should now be able to see the source code of your new React app in your code editor!
 
-![Your React source code app in VSCode](https://imgur.com/XzOhc6u)
+<Centerer>
+<img alt="Your React source code app in VSCode" src="https://i.imgur.com/0uACQX4.png" width="80%" />
+</Centerer>
 
-In the next tutorial we'll explore all the different parts of the code that create-react-app has given to us.
+In the <Link href="/articles/reactjs-tut-2">next tutorial</Link> we'll explore all the different parts of the code that create-react-app has given to us.
