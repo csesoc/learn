@@ -1,11 +1,10 @@
-import React from 'react'
 import { Box } from './Box'
 import { useComposedRefs } from '@radix-ui/react-compose-refs'
 import { createContext } from '@radix-ui/react-context'
 import { useCallbackRef } from '@radix-ui/react-use-callback-ref'
 import { composeEventHandlers } from '@radix-ui/primitive'
 import debounce from 'lodash.debounce'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { ElementRef, useCallback, useEffect, useRef, useState } from 'react'
 import smoothscroll from 'smoothscroll-polyfill'
 
 const [CarouselProvider, useCarouselContext] = createContext<{
@@ -18,7 +17,7 @@ const [CarouselProvider, useCarouselContext] = createContext<{
 }>('Carousel')
 
 export const Carousel = (props) => {
-  const ref = useRef<React.ElementRef<typeof Box>>(null)
+  const ref = useRef<ElementRef<typeof Box>>(null)
   const { children, ...carouselProps } = props
   const slideListRef = useRef<HTMLElement>(null)
   const [_, force] = useState({})
@@ -42,6 +41,8 @@ export const Carousel = (props) => {
       return slidesArray.find(
         (slide) => slide.dataset.slideIntersectionRatio !== '0'
       )
+    } else {
+      return null
     }
   })
 
@@ -117,6 +118,8 @@ export const Carousel = (props) => {
         slidesList.removeEventListener('scroll', handleScrollStartAndEnd)
         window.removeEventListener('resize', handleScrollStartAndEnd)
       }
+    } else {
+      return () => {}
     }
   }, [slideListRef])
 
@@ -137,9 +140,9 @@ export const Carousel = (props) => {
 
 export const CarouselSlideList = (props) => {
   const context = useCarouselContext('CarouselSlideList')
-  const ref = React.useRef<React.ElementRef<typeof Box>>(null)
+  const ref = useRef<ElementRef<typeof Box>>(null)
   const composedRefs = useComposedRefs(ref, context.slideListRef)
-  const [dragStart, setDragStart] = React.useState(null)
+  const [dragStart, setDragStart] = useState(null)
 
   const handleMouseMove = useCallbackRef((event) => {
     if (ref.current) {

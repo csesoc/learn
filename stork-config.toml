@@ -4,19 +4,37 @@ url_prefix = "/"
 frontmatter_handling = "Omit"
 
   [[input.files]]
-  path = "articles/post-01.mdx"
-  url = "articles/post-01"
-  title = "Soft Shell Crab Salad + Fish"
+  path = "articles/reactjs-tut-1.mdx"
+  url = "articles/reactjs-tut-1"
+  title = "ReactJS Project Tutorial: Part 1"
   filetype = "Markdown"
 
   [[input.files]]
-  path = "articles/post-02.mdx"
-  url = "articles/post-02"
-  title = "Thai Beef Salad"
+  path = "articles/reactjs-tut-2.mdx"
+  url = "articles/reactjs-tut-2"
+  title = "ReactJS Project Tutorial: Part 2"
   filetype = "Markdown"
 
   [[input.files]]
-  path = "articles/post-03.mdx"
-  url = "articles/post-03"
-  title = "Jungle Curry"
+  path = "articles/reactjs-tut-3.mdx"
+  url = "articles/reactjs-tut-3"
+  title = "ReactJS Project Tutorial: Part 3"
+  filetype = "Markdown"
+
+  [[input.files]]
+  path = "articles/reactjs-tut-4.mdx"
+  url = "articles/reactjs-tut-4"
+  title = "ReactJS Project Tutorial: Part 4"
+  filetype = "Markdown"
+
+  [[input.files]]
+  path = "articles/reactjs-tut-5.mdx"
+  url = "articles/reactjs-tut-5"
+  title = "ReactJS Project Tutorial: Part 5"
+  filetype = "Markdown"
+
+  [[input.files]]
+  path = "articles/reactjs-tut-6.mdx"
+  url = "articles/reactjs-tut-6"
+  title = "ReactJS Project Tutorial: Part 6"
   filetype = "Markdown"
