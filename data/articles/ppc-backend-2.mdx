@@ -15,7 +15,7 @@ To start, follow the first 4 steps [in this guide](https://www.mongodb.com/docs/
 
 Once you have created an account and launched an Atlas cluster, navigate to the database deployment dashboard. You should see your cluster there. It might still be launching but once it's done, click the `Connect` button and select `Connect your application`.
 
-You should see a connection string there, mine looks like this `mongodb+srv://jasperdif:<password>@cluster0.3jv0w.mongodb.net/?retryWrites=true&w=majority`. If you have something like that, congrats! We will come back to it later.
+You should see a connection string there, mine looks like this: `mongodb+srv://jasperdif:<password>@cluster0.3jv0w.mongodb.net/?retryWrites=true&w=majority`. If you have something like that, congrats! We will come back to it later.
 
 We will also be requiring the `mongodb` package for this, so navigate to the directory with your `package.json` and run the command `npm install mongodb`.
 
@@ -120,3 +120,5 @@ Try running your server again and searching for a venue with the name "crumbs". 
 Good job! To sum up, now we have connected to our cluster, created a database, created a collection within that database and added some venues to it. We can also find a venue which matches a name parameter!
 
 How might we write a route which would get all venues with a rating of 3? With a rating _greater_ than 3? I'll leave these as an exercise to you, the [MongoDB documentation](https://www.mongodb.com/docs/drivers/node/current/usage-examples/findOne/) might help.
+
+In our <Link href="/articles/ppc-backend-3">next article</Link> we will explore CRUD operations for our database.
