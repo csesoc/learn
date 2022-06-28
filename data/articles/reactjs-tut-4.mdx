@@ -89,14 +89,11 @@ The new `header` element is intended to be a container for introductory content 
 
 This app is going to display a list of restaurants, cafes and other food places that you want to record. Next we will make a card that shows a food place. Directly underneath your `</p>` element add a `<div>` with some semantic tags and info about a restaurant in the following format:
 
-```jsx:src/App.jsx showLineNumbers {27-37}
+```jsx:src/App.jsx showLineNumbers {20-30}
 import './styles/App.css'
 import logo from './assets/logo512.png'
 
 const App = () => {
-
-  const [places, setStates] = useState(placesInfo)
-
   return (
     <>
       <header>
@@ -147,11 +144,8 @@ import './styles/Card.css'
 
 This stylesheet contains styles for a `card` class. Let's give this class to the `<div>` that holds our restaurant information
 
-```jsx:src/App.jsx showLineNumbers {20}
+```jsx:src/App.jsx showLineNumbers {17}
 const App = () => {
-
-  const [places, setStates] = useState(placesInfo)
-
   return (
     <>
       <header>
@@ -192,11 +186,8 @@ In React, elements set css class names using the `className` attribute. Setting 
 
 The <FileName>src/styles/Card.css </FileName> stylesheet also contains the classes `metricsContainer`, `ratingContainer` and `visitsContainer`. We can use these to display our rating and number of visits for the restaurant.
 
-```jsx:src/App.jsx showLineNumbers {30-33}
+```jsx:src/App.jsx showLineNumbers {27-30}
 const App = () => {
-
-  const [places, setStates] = useState(placesInfo)
-
   return (
     <>
       <header>
@@ -244,11 +235,8 @@ import { ReactComponent as Star } from './assets/star.svg'
 
 This allows us to place the svg icon in our code like a component. `<Star />`. We can even add a class to the component: `<Star className="starIcon" />`. We'll add the "starIcon" class which is included in <FileName>src/styles/Card.css </FileName> to make our stars the correct colour and size.
 
-```jsx:src/App.jsx showLineNumbers {32-36}
+```jsx:src/App.jsx showLineNumbers {29-33}
 const App = () => {
-
-  const [places, setStates] = useState(placesInfo)
-
   return (
     <>
       <header>

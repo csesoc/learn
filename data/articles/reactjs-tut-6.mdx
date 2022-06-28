@@ -95,7 +95,7 @@ const App = () => {
 }
 ```
 
-These changes won't work just yet because the state in <FileName>Card.jsx </FileName> is undefined. But instead of moving all state from <FileName>App.jsx </FileName> to <FileName>Card.jsx </FileName>, we're going to do something slightly differently. In <FileName>App.jsx </FileName> we'll replace all of our state variables with a single state called `place` which will store all the info for our restaurant in a single JavaScript _Object_. A JavaScript Object is a type of data structure which stores key-value pairs.
+These changes won't work just yet because the state in <FileName>Card.jsx </FileName> is undefined. But instead of moving all state from <FileName>App.jsx </FileName> to <FileName>Card.jsx </FileName>, we're going to do something slightly different. In <FileName>App.jsx </FileName> we'll replace all of our state variables with a single state called `place` which will store all the info for our restaurant in a single JavaScript _Object_. A JavaScript Object is a type of data structure which stores key-value pairs.
 
 ```jsx:src/App.jsx showLineNumbers {3-11}
 const App = () => {
@@ -145,11 +145,9 @@ const App = () => {
 
 Finally, to access this state in our `Card` component, declare a `props` argument for our `Card` function and add `props.info` to the beginning of all state variables. As an example, for `props.info.name` it means to access the value associated with the `name` key in the `place` object that was passed into the `info` prop of the `Card` component.
 
-```jsx:src/components/Card.jsx showLineNumbers {7-9,12,15,18-19,21}
+```jsx:src/components/Card.jsx showLineNumbers {5-7,10,13,16-17,19}
 const Card = (props) => {
-
     ...
-
     return (
         <div className="card">
           <h3>{props.info.name}</h3>
@@ -179,7 +177,7 @@ const Card = (props) => {
 
 The refactor is now complete and our app should work as it did before. This work of extracting some JSX into its own component might seem tiresome and pointless, but it is good for a couple reasons:
 
-- it makes both our `App` and `Card` componen code smaller and less cluttered,
+- it makes both our `App` and `Card` components smaller, less cluttered and responsible for fewer things,
 - it allows the `Card` component to be reused for different input data.
 
 Let's render multiple food places with our new `Card` component. In <FileName>src/App.jsx </FileName> import the dummy restaurant data from <FileName>src/assets/data.json </FileName>.
@@ -202,7 +200,7 @@ Replace the `place` state with a `places` state assigned initially to the array 
 ```jsx:src/App.jsx showLineNumbers {3}
 const App = () => {
 
-  const [places, setStates] = useState(placesInfo)
+  const [places, setPlaces] = useState(placesInfo)
 
   return (
     ...
@@ -239,7 +237,7 @@ const App = () => {
 }
 ```
 
-The `Array.map` method takes an argument: a function taking in an array item and returning something else to replace it. We pass in an arrow function which takes in two arguments: a `place` which is an ierm from the `places` array, and `i` which is simply the index of the current item (starting from 0). The arrow function the returns a `<Card key={i} info={place} />`. Remember each component in a list must have a unique `key` prop, which we use `i` for.
+The `Array.map` method takes an argument: a function taking in an array item and returning something else to replace it. We pass in an arrow function which takes in two arguments: a `place` which is an item from the `places` array, and `i` which is simply the index of the current item (starting from 0). The arrow function the returns a `<Card key={i} info={place} />`. Remember each component in a list must have a unique `key` prop, which we use `i` for.
 
 Our app now renders a list of cards of all restaurants specfied in the `places` array.
 
@@ -247,6 +245,6 @@ Our app now renders a list of cards of all restaurants specfied in the `places` 
   <img src="https://imgur.com/wc2JBvd.png" width="80%" />
 </Centerer>
 
-That's all for this tutorial series. The fundamental concepts that you have learned here including components, props and state will be useful in all future ReactJS projects that you work on.
+That's all for this series of tutorials, well done on making it to the end! The fundamental concepts that you have learned here including components, props and state will be useful in all future ReactJS projects that you work on.
 
 There are also many more things to learn which we haven't covered in this series. What if you want to provide a form to add more restaurants, or increase `visits` count for a restaurant? These features can be achieved using things called *event handlers*, which ReactJS does very similarly to HTML. There are plenty of resources online including other articles, videos and documentation to teach you those things. The best way to learn how to use them is to continue building projects and searching the internet for learning resources like these whenever you get stuck. Good luck on your ReactJS journey and have fun!
