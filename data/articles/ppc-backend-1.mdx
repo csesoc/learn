@@ -6,6 +6,7 @@ tags:
   - 'Express.js'
   - 'Backend'
 author: Jasper Di Francesco
+coverPhoto: '/images/generic/markus-spiske-iar-afB0QQw-unsplash.jpg'
 ---
 
 This tutorial will walk you through creating a very simple Express.js backend, how to run it and how to add some routes.
@@ -104,12 +105,12 @@ There are four request types `GET`, `POST`, `UPDATE`, `DELETE`. We will firstly 
 The `GET` request is pretty self explanatory and refers to collecting data from a backend. We can add a get route to our router by adding the following line, ensure you add this after you initialise the router object and before the `app.listen`.
 
 ```javascript:venuesWatcher/index.js
-router.get('/venue', (req, res) => {})
+router.get('/venues', (req, res) => {})
 ```
 
-To this `get` function, we have passed the route (`"/venue"`) as the first parameter, and a callback function as the second. Right now, our callback just takes in the arguments `req` and `res` and does nothing. `req` refers to the request payload, and `res` the response payload.
+To this `get` function, we have passed the route (`"/venues"`) as the first parameter, and a callback function as the second. Right now, our callback just takes in the arguments `req` and `res` and does nothing. `req` refers to the request payload, and `res` the response payload.
 
-So now if we were to run our application and send a request to `localhost:5000/venue?name=johnscafe` we would trigger this route with the query parameter `name` set to `"johnscafe"` and the callback would be called.
+So now if we were to run our application and send a request to `localhost:5000/venues?name=johnscafe` we would trigger this route with the query parameter `name` set to `"johnscafe"` and the callback would be called.
 
 Before we try running it, we want to get some kind of response from our server if we send it a request. Let's add a kind of "database" into our application. Under the `router` object you created earlier, add the line:
 

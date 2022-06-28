@@ -113,7 +113,7 @@ const Creators: NextPage = () => {
             css={{
               flexDirection: 'row',
               flexWrap: 'wrap',
-              justifyContent: 'space-between'
+              justifyContent: 'space-around'
             }}>
             <CardSmall>
               Connect with CSESoc's global network of students, alumni and
