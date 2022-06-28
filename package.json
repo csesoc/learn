@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "yarn index",
-    "index": "node scripts/storkConfigBuilder.mjs && stork build --input stork-config.toml --output public/stork-index.st",
+    "index": "node scripts/storkConfigBuilder.mjs && wget https://files.stork-search.net/releases/v1.5.0/stork-amazon-linux && chmod +x stork-amazon-linux && ./stork build --input stork-config.toml --output public/stork-index.st",
     "start": "next start",
     "lint": "next lint"
   },
