@@ -19,10 +19,10 @@ export async function getStaticProps() {
   const articles = allArticles.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date))
   })
-  var tagLists = allArticles.map((article) =>
-    article.tags == undefined ? [] : article.tags
+  const tagLists = allArticles.map((article) =>
+    article.tags ? [] : article.tags
   )
-  var flattenedTags = tagLists.flat(1)
+  const flattenedTags = tagLists.flat(1)
   const allTags = [...['All Topics'], ...new Set(flattenedTags)]
   return { props: { articles, allTags } }
 }
@@ -59,7 +59,7 @@ function ArticleRow(article: Article) {
           <Text size="label-md" css={{ color: '$slate12' }}>
             {article.author}
           </Text>
-          {article.tags != undefined &&
+          {article.tags &&
             article.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
         </Flex>
       </Flex>
@@ -79,6 +79,7 @@ function ArticleRow(article: Article) {
           width="300px"
           height="150px"
           objectFit="cover"
+          alt={article.title}
         />
       </Flex>
     </Flex>
@@ -111,7 +112,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
   }
 
   const updateArticles = (tag: string, search: string) => {
-    if (tag == 'All Topics') {
+    if (tag === 'All Topics') {
       setFilteredArticles(
         articles.filter((article: Article) =>
           article.title.toLowerCase().includes(search)
@@ -139,9 +140,11 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
 
       <Flex
         as="main"
+        justify="center"
+        align="center"
         css={{
           flexDirection: 'column',
-          alignItems: 'center'
+          width: '100%'
         }}>
         <Text
           as="h1"
@@ -155,34 +158,6 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
           css={{ color: '$slate12', paddingTop: '$1' }}>
           Learn something new with our collection of articles and videos!
         </Text>
-
-        {/* <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
-          <Text
-            size="title-lg"
-            css={{
-              backgroundColor: '$blue4',
-              fontWeight: '600',
-              borderRadius: '$full',
-              padding: '$4',
-              my: '$4',
-              width: '100%'
-            }}>
-            Featured Content
-          </Text>
-        </Flex> */}
-
-        {/* <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
-          <Text
-            size="title-lg"
-            css={{
-              fontWeight: '600',
-              padding: '$1',
-              my: '$4',
-              width: '100%'
-            }}>
-            Featured Content
-          </Text>
-        </Flex> */}
 
         <Text
           size="headline"
@@ -236,7 +211,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
                 key={index}
                 size="default"
                 css={
-                  tag == currentTag
+                  tag === currentTag
                     ? { cursor: 'pointer', backgroundColor: '$blue4' }
                     : { cursor: 'pointer', backgroundColor: '$whiteA1' }
                 }

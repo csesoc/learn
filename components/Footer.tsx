@@ -8,7 +8,7 @@ export default function Footer() {
       direction="column"
       justify="center"
       align="center"
-      css={{ width: '100%', marginTop: '$8', marginBottom: '$6' }}>
+      css={{ width: '100%', padding: '$8' }}>
       <Text
         css={{
           color: '$slate10',
