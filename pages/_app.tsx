@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Box css={{ height: '100vh' }}>
         <Navbar />
         <Component {...pageProps} />
-      <Footer />
+        <Footer />
       </Box>
     </>
   )
