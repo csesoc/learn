@@ -1,17 +1,18 @@
 ---
-title: "ReactJS Project Tutorial: Part 5"
+title: 'ReactJS Project Tutorial: Part 5'
 date: 2022-06-27
 desc: Learn the fundamentals of ReactJS by building a simple project.
 author: Gordon Huang
+tags:
+  - 'ReactJS'
+coverPhoto: '/images/generic/joan-gamell-nFqwVZhimpM-unsplash.jpg'
 ---
-
-# Part 5
 
 Variables are a fundamental concept in programming because it allows us to store and modify data depending on where or how our program is used. In a React app, variables are made using something called the `useState` hook. React hooks are functions that can be called from within our functional components like `App` to use various core React features.
 
 To use the `useState` hook, first import it into our App.jsx file. Then inside the `App` functional component and above the return statement, write the following:
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {5, 9}
 import './styles/App.css'
 import './styles/Card.css'
 import logo from './assets/logo512.png'
@@ -31,6 +32,7 @@ const App = () => {
           Places
         </nav>
       </header>
+      ...
 ```
 
 Calling the `useState` function returns two things: a state value and a function that can be used to change this state value while our app is running. We use the `const [name, setname]` JavaScript "destructuring" syntax to assign the variable `name` to the first return value and the variable `setName` to the second return value.
@@ -39,7 +41,7 @@ Calling the `useState` function returns two things: a state value and a function
 
 We can now use this `name` state in our app. Replace our hard-coded restaurant name with the `name` state:
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {21}
 const App = () => {
 
   const [name, setName] = useState("Machiavelli Ristorante Italiano")
@@ -72,7 +74,7 @@ const App = () => {
 
 Our app should still be working as it was before. Let's turn all the other restaurant information into state.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {4-9, 28-29, 32,35,38,44}
 const App = () => {
 
   const [name, setName] = useState("Machiavelli Ristorante Italiano")
@@ -131,7 +133,7 @@ Let's account for these different data types in our rendering.
 
 Firstly the `tags` array can be printed as a string of tags separated by bullets (•) with `{tags.join(" • ")}`.
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {3}
         <div className="card">
           <h3>{name}</h3>
           <h4>{tags.join(" • ")}</h4>
@@ -145,7 +147,7 @@ Firstly the `tags` array can be printed as a string of tags separated by bullets
 
 Our `rating` is currently just being rendered as a number but the four stars are still hard-coded. To render a number of stars based on our rating we'll make a function that returns a list of `<Star />` components:
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {11-20}
 const App = () => {
 
   const [name, setName] = useState("Machiavelli Ristorante Italiano")
@@ -161,7 +163,7 @@ const App = () => {
     for (let i = 0; i < numStars; i++) {
       // Add a new Star component to the stars array.
       stars.push(
-        <Star className='starIcon' /> 
+        <Star className='starIcon' />
       )
     }
     return stars
@@ -182,7 +184,7 @@ This is an arrow function that takes in an integer `numStars`, then loops for `n
 
 Call the `renderStars` function in place of where we hard-coded our stars, passing in the `rating` state as an argument:
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {4}
           <div className="metricsContainer">
             <div className="ratingContainer">
               Rating {rating}/5
@@ -195,12 +197,12 @@ Call the `renderStars` function in place of where we hard-coded our stars, passi
 We should now see four stars rendered as before, but if we open the browser console (Ctrl/Cmd + Shift + i) we'll see a warning `"Each child in a list should have a unique "key" prop."`.
 
 <Centerer>
-<img src="https://imgur.com/nrpjM4s.png" width="90%" />
+  <img src="https://imgur.com/nrpjM4s.png" width="90%" />
 </Centerer>
 
 In React, all components have a special `key` attribute, and whenever we render a list of components, they each need a unique value for the special `key` property. To fix this issue, add a `key={i}` to our `Star />` components in the `for` loop:
 
-```jsx:src/App.jsx
+```jsx:src/App.jsx showLineNumbers {6}
   const renderStars = (numStars) => {
     let stars = [] // Declare an empty array
     for (let i = 0; i < numStars; i++) {
@@ -213,4 +215,4 @@ In React, all components have a special `key` attribute, and whenever we render 
   }
 ```
 
-In this tutorial we learned how to store state and render it. In later tutorials we'll also learn how to modify state based on user input.
+In this tutorial we learned how to store state and render it. In the <Link href="/articles/reactjs-tut-6">next tutorial</Link> we'll also learn how to modify state based on user input.
