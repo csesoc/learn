@@ -66,7 +66,7 @@ const ArticleCard = ({ article }: Props) => {
           </Text>
         </Flex>
         <Flex css={{ paddingTop: '$3', gap: '0.75rem' }}>
-          {article.tags != undefined &&
+          {article.tags !== undefined &&
             article.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
         </Flex>
       </Card>

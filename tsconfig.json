@@ -3,6 +3,7 @@
     "allowJs": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
+    "noImplicitAny": false,
     "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
@@ -22,7 +23,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true,
+    "strict": false,
     "target": "es2018",
     "incremental": true
   },

@@ -5,13 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "yarn index",
-    "index": "node scripts/storkConfigBuilder.mjs && stork build --input stork-config.toml --output public/stork-index.st",
     "start": "next start",
     "lint": "next lint"
   },
   "prettier": "prettier-config-standard",
   "dependencies": {
+    "@builder.io/partytown": "^0.6.2",
     "@fontsource/inter": "^4.5.10",
     "@fontsource/jetbrains-mono": "^4.5.8",
     "@radix-ui/colors": "^0.1.8",

@@ -10,8 +10,14 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, CaretLeft, CaretRight } from 'phosphor-react'
-import { DiscordLogo, FacebookLogo, InstagramLogo } from 'phosphor-react'
+import {
+  ArrowRight,
+  CaretLeft,
+  CaretRight,
+  DiscordLogo,
+  FacebookLogo,
+  InstagramLogo
+} from 'phosphor-react'
 import ArticleCard from 'components/ArticleCard'
 
 import {

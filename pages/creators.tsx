@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Box } from 'components/Box'
 import { Button } from 'components/Button'
 import { Card, CardSmall } from 'components/Card'
@@ -41,11 +42,15 @@ const Creators: NextPage = () => {
             technical educational content made by students, for the students.
           </Text>
           <Flex css={{ flexDirection: 'column', alignItems: 'center' }}>
-            <a target="blank" href="https://cseso.cc/ContentCreatorForm" style={{textDecoration: "none"}}>
+            <a
+              target="blank"
+              href="https://cseso.cc/ContentCreatorForm"
+              style={{ textDecoration: 'none' }}>
               <Button
                 size="default"
                 css={{
-                  marginTop: '$6', marginBottom: '$3',
+                  marginTop: '$6',
+                  marginBottom: '$3',
                   cursor: 'pointer'
                 }}>
                 Submit an idea
@@ -55,7 +60,12 @@ const Creators: NextPage = () => {
           </Flex>
           <Text
             size="headline"
-            css={{ color: '$slate12', fontWeight: '600', marginTop: '$6', marginBottom: '$3' }}>
+            css={{
+              color: '$slate12',
+              fontWeight: '600',
+              marginTop: '$6',
+              marginBottom: '$3'
+            }}>
             What is this CSESoc Learning Platform?
           </Text>
           <Text>
@@ -71,7 +81,12 @@ const Creators: NextPage = () => {
           </Text>
           <Text
             size="headline"
-            css={{ color: '$slate12', fontWeight: '600', marginTop: '$6', marginBottom: '$3' }}>
+            css={{
+              color: '$slate12',
+              fontWeight: '600',
+              marginTop: '$6',
+              marginBottom: '$3'
+            }}>
             Who can create content for the CSESoc Learning Platform?
           </Text>
           <Text>
@@ -86,7 +101,12 @@ const Creators: NextPage = () => {
           </Text>
           <Text
             size="headline"
-            css={{ color: '$slate12', fontWeight: '600', marginTop: '$6', marginBottom: '$3' }}>
+            css={{
+              color: '$slate12',
+              fontWeight: '600',
+              marginTop: '$6',
+              marginBottom: '$3'
+            }}>
             Why should I present my content on the CSESoc Learning Platform?
           </Text>
           <Flex
@@ -107,13 +127,18 @@ const Creators: NextPage = () => {
               potential employers
             </CardSmall>
             <CardSmall>
-              Reach the extensive CSESoc audience and draw attention
-              to your own content platforms
+              Reach the extensive CSESoc audience and draw attention to your own
+              content platforms
             </CardSmall>
           </Flex>
           <Text
             size="headline"
-            css={{ color: '$slate12', fontWeight: '600', marginTop: '$6', marginBottom: '$3' }}>
+            css={{
+              color: '$slate12',
+              fontWeight: '600',
+              marginTop: '$6',
+              marginBottom: '$3'
+            }}>
             What kind of content can I present on the CSESoc Learning Platform?
           </Text>
           <Text>
@@ -130,12 +155,19 @@ const Creators: NextPage = () => {
           <Text css={{ marginTop: '$3' }}>
             Note: If you are interested in sharing non-technical topics, CSESoc
             also has a home for that! Reach out to{' '}
-            <a target="blank" href="mailto:media@csesoc.org.au">media@csesoc.org.au</a>{' '}
+            <a target="blank" href="mailto:media@csesoc.org.au">
+              media@csesoc.org.au
+            </a>{' '}
             to discuss your idea with the media team :D
           </Text>
           <Text
             size="headline"
-            css={{ color: '$slate12', fontWeight: '600', marginTop: '$6', marginBottom: '$3' }}>
+            css={{
+              color: '$slate12',
+              fontWeight: '600',
+              marginTop: '$6',
+              marginBottom: '$3'
+            }}>
             What format can I present my content in?
           </Text>
           <Text>
@@ -195,7 +227,12 @@ const Creators: NextPage = () => {
           </Text>
           <Text
             size="headline"
-            css={{ color: '$slate12', fontWeight: '600', marginTop: '$6', marginBottom: '$3' }}>
+            css={{
+              color: '$slate12',
+              fontWeight: '600',
+              marginTop: '$6',
+              marginBottom: '$3'
+            }}>
             What support will CSESoc provide to me for creating content?
           </Text>
           <Text>
@@ -220,7 +257,10 @@ const Creators: NextPage = () => {
           </ul>
           <Text>
             Ready to step up to the stage? Submit your content ideas{' '}
-            <a target="blank" href="https://cseso.cc/ContentCreatorForm">here</a>.
+            <a target="blank" href="https://cseso.cc/ContentCreatorForm">
+              here
+            </a>
+            .
           </Text>
           <Text css={{ marginTop: '$3' }}>
             If you have any questions, thoughts or suggestions, please don't

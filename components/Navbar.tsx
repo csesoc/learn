@@ -73,7 +73,7 @@ export default function Navbar() {
           gap: '$3',
           justifyContent: 'flex-end'
         }}>
-        <SearchButton />
+        {/* <SearchButton /> */}
         <IconButton aria-label="GitHub repository for CSESoc Learn">
           <a href={GITHUB_URL} target="_blank" rel="noreferrer">
             <GithubLogo weight="fill" />
