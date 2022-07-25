@@ -94,7 +94,7 @@ interface AnswerProps {
   children: ReactNode
 }
 
-const Answer = ({ isCorrect, answerNum, children }: AnswerProps) => {
+const Answer = ({ isCorrect = false, answerNum, children }: AnswerProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const array = Children.toArray(children) as ReactElement[]
   const answer = array.filter((child) => child.type === 'p')
