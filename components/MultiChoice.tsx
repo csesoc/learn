@@ -161,9 +161,10 @@ const Explanation = ({ content, children }: ExplanationProps) => {
     setIsExpanded((prev) => !prev)
   }
 
-  if ((paragraphs.length > 1 || textLength > 120) && !isExpanded) {
+  const threshold = 500
+  if ((paragraphs.length > 1 || textLength > threshold) && !isExpanded) {
     const previewText = paragraphs[0].props.children
-      .substring(0, 120)
+      .substring(0, threshold)
       // trims all non-letter characters from end of string
       .replace(/[^a-z]+$/gi, '')
 
@@ -177,6 +178,7 @@ const Explanation = ({ content, children }: ExplanationProps) => {
       </ExplanationBase>
     )
   }
+
   return <ExplanationBase>{children}</ExplanationBase>
 }
 
