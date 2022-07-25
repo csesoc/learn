@@ -89,12 +89,18 @@ const AnswerBase = styled('div', {
 })
 
 interface AnswerProps {
+  content: ReactElement
   isCorrect: boolean
   answerNum: number
   children: ReactNode
 }
 
-const Answer = ({ isCorrect = false, answerNum, children }: AnswerProps) => {
+const Answer = ({
+  content,
+  isCorrect = false,
+  answerNum,
+  children
+}: AnswerProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const array = Children.toArray(children) as ReactElement[]
   const answer = array.filter((child) => child.type === 'p')
@@ -106,11 +112,13 @@ const Answer = ({ isCorrect = false, answerNum, children }: AnswerProps) => {
     setIsExpanded((prev) => !prev)
   }
 
+  // content is used for short answers
+  // long answers use the children prop
   return (
     <AnswerBase onClick={handleOnClick}>
       <Flex direction="row" gap="3" align="center">
         {renderCircle(isExpanded ? isCorrect : answerNum)}
-        <div>{answer}</div>
+        {content ? <p>{content}</p> : <div>{answer}</div>}
       </Flex>
       {isExpanded && renderIsCorrect(isCorrect)}
       {isExpanded && explanation}
@@ -125,16 +133,27 @@ const ExplanationBase = styled('div', {
 })
 
 interface ExplanationProps {
+  content: ReactElement
   children: ReactNode
 }
 
-const Explanation = ({ children }: ExplanationProps) => {
+const Explanation = ({ content, children }: ExplanationProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const paragraphs = Children.toArray(children) as ReactElement[]
   const textLength = paragraphs.reduce(
     (prev, child) => prev + child.props.children.length,
     0
   )
+
+  // content is used for short explanations
+  // long explanations use the children prop
+  if (content) {
+    return (
+      <ExplanationBase>
+        <p>{content}</p>
+      </ExplanationBase>
+    )
+  }
 
   const handleOnClick = (event) => {
     // prevents collapsing the parent component
