@@ -11,6 +11,7 @@ import {
 import {
   Children,
   cloneElement,
+  MouseEvent,
   ReactElement,
   ReactNode,
   useState
@@ -63,6 +64,7 @@ interface QuestionProps {
 }
 
 const Question = ({ children }: QuestionProps) => {
+  // a clone of children, except the images are centred
   const questionWithCenteredImages = Children.map(
     children as ReactElement[],
     (child) => {
@@ -98,12 +100,12 @@ const Answer = ({ isCorrect, answerNum, children }: AnswerProps) => {
   const answer = Children.toArray(children)[0]
   const explanation = Children.toArray(children)[1]
 
-  const handleClickAnswer = () => {
-    setIsExpanded((isExpanded) => !isExpanded)
+  const handleOnClick = () => {
+    setIsExpanded((prev) => !prev)
   }
 
   return (
-    <AnswerBase onClick={handleClickAnswer}>
+    <AnswerBase onClick={handleOnClick}>
       <Flex direction="row" gap="3" align="center">
         {renderCircle(isExpanded ? isCorrect : answerNum)}
         {answer}
@@ -125,6 +127,31 @@ interface ExplanationProps {
 }
 
 const Explanation = ({ children }: ExplanationProps) => {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const array = Children.toArray(children) as ReactElement[]
+  const textLength = array.reduce(
+    (prev, child) => prev + child.props.children.length,
+    0
+  )
+
+  const handleOnClick = (event) => {
+    // prevents the parent from collapsing the answer component
+    event.stopPropagation()
+    setIsExpanded((prev) => !prev)
+  }
+
+  if (textLength > 120 && !isExpanded) {
+    const previewText = array[0].props.children.substring(0, 120)
+    return (
+      <ExplanationBase>
+        <p>
+          {previewText.trim()}
+          {'... '}
+          <a onClick={(event) => handleOnClick(event)}>Read more</a>
+        </p>
+      </ExplanationBase>
+    )
+  }
   return <ExplanationBase>{children}</ExplanationBase>
 }
 
