@@ -39,9 +39,9 @@ const Answer = ({
   children
 }: AnswerProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
-  const array = Children.toArray(children) as ReactElement[]
-  const answer = array.filter((child) => child.type === 'p')
-  const explanation = array.find(
+  const childrenArray = Children.toArray(children) as ReactElement[]
+  const answer = childrenArray.filter((child) => child.type === 'p')
+  const explanation = childrenArray.find(
     (child) => child.type === MultiChoice.Explanation
   )
 
