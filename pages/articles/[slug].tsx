@@ -10,9 +10,18 @@ import { Box } from 'components/Box'
 import Callout from 'components/Callout'
 import FileName from 'components/Filename'
 import Centerer from 'components/Centerer'
+import MultiChoice from 'components/MultiChoice'
 import Link from 'next/link'
 
-const defaultComponents = { Image, Callout, FileName, Centerer, Link}
+const defaultComponents = {
+  Image,
+  Callout,
+  FileName,
+  Centerer,
+  MultiChoice,
+  Link
+}
+
 // Add any components used in MDX files here.
 // Components here load dynamically if they're used.
 // See https://github.com/tsriram/with-mdx-bundler for details.
@@ -37,7 +46,12 @@ export async function getStaticProps({ params }: { params: Article }) {
 
 function ArticleHeader({ article }: { article: Article }) {
   return (
-    <Flex css={{ flexDirection: 'column', padding: '0 0 1.4rem', borderBottom: 'solid 0.5px' }}>
+    <Flex
+      css={{
+        flexDirection: 'column',
+        padding: '0 0 1.4rem',
+        borderBottom: 'solid 0.5px'
+      }}>
       <Text size="label-md" css={{ color: '$slate11' }}>
         {format(parseISO(article.date), 'LLL d, yyy')}
       </Text>

@@ -1,0 +1,46 @@
+---
+title: Multi Choice Demo
+date: 2022-07-25
+desc: Demo for the MultiChoice component.
+tags:
+  - 'ReactJS'
+author: Terence Lau
+coverPhoto: '/images/generic/alexandru-acea-XEB8y0nRRP4-unsplash.jpg'
+---
+
+Can you solve these questions?
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Question 1
+    
+    What is the time complexity of this algorithm?
+    
+    ![A placeholder image meant to show an algorithm](/images/comp2521-revision/0.png)
+  </MultiChoice.Question>
+  <MultiChoice.Answer isCorrect={true}>
+    O(n^2)
+    <MultiChoice.Explanation>
+      There is a for-loop within a for-loop.
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer isCorrect={false}>
+    O(n)
+    <MultiChoice.Explanation>
+      Each iteration of the outer for-loop is an O(n) process.
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer isCorrect={false}>
+    This answer has no explanation.
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Question 2
+    
+    What is the time complexity of this algorithm?
+    
+    ![A placeholder image meant to show an algorithm](/images/comp2521-revision/0.png)
+  </MultiChoice.Question>
+</MultiChoice>
