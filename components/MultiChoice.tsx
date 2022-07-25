@@ -130,8 +130,8 @@ interface ExplanationProps {
 
 const Explanation = ({ children }: ExplanationProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
-  const array = Children.toArray(children) as ReactElement[]
-  const textLength = array.reduce(
+  const paragraphs = Children.toArray(children) as ReactElement[]
+  const textLength = paragraphs.reduce(
     (prev, child) => prev + child.props.children.length,
     0
   )
@@ -142,12 +142,16 @@ const Explanation = ({ children }: ExplanationProps) => {
     setIsExpanded((prev) => !prev)
   }
 
-  if (textLength > 120 && !isExpanded) {
-    const previewText = array[0].props.children.substring(0, 120)
+  if ((paragraphs.length > 1 || textLength > 120) && !isExpanded) {
+    const previewText = paragraphs[0].props.children
+      .substring(0, 120)
+      // trims all non-letter characters from end of string
+      .replace(/[^a-z]+$/gi, '')
+
     return (
       <ExplanationBase>
         <p>
-          {previewText.trim()}
+          {previewText}
           {'... '}
           <a onClick={(event) => handleOnClick(event)}>Read more</a>
         </p>
