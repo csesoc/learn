@@ -11,7 +11,6 @@ import {
 import {
   Children,
   cloneElement,
-  MouseEvent,
   ReactElement,
   ReactNode,
   useState
@@ -65,7 +64,7 @@ interface QuestionProps {
 
 const Question = ({ children }: QuestionProps) => {
   // a clone of children, except the images are centred
-  const questionWithCenteredImages = Children.map(
+  const childrenWithCenteredImages = Children.map(
     children as ReactElement[],
     (child) => {
       if (childIsType(child, 'img')) {
@@ -75,7 +74,7 @@ const Question = ({ children }: QuestionProps) => {
     }
   )
 
-  return <QuestionBase>{questionWithCenteredImages}</QuestionBase>
+  return <QuestionBase>{childrenWithCenteredImages}</QuestionBase>
 }
 
 // MultiChoice.Answer component
@@ -97,8 +96,11 @@ interface AnswerProps {
 
 const Answer = ({ isCorrect, answerNum, children }: AnswerProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
-  const answer = Children.toArray(children)[0]
-  const explanation = Children.toArray(children)[1]
+  const array = Children.toArray(children) as ReactElement[]
+  const answer = array.filter((child) => child.type === 'p')
+  const explanation = array.filter(
+    (child) => child.type === MultiChoice.Explanation
+  )
 
   const handleOnClick = () => {
     setIsExpanded((prev) => !prev)
@@ -108,9 +110,9 @@ const Answer = ({ isCorrect, answerNum, children }: AnswerProps) => {
     <AnswerBase onClick={handleOnClick}>
       <Flex direction="row" gap="3" align="center">
         {renderCircle(isExpanded ? isCorrect : answerNum)}
-        {answer}
+        <div>{answer}</div>
       </Flex>
-      {isExpanded && renderJudgment(isCorrect)}
+      {isExpanded && renderIsCorrect(isCorrect)}
       {isExpanded && explanation}
     </AnswerBase>
   )
@@ -135,7 +137,7 @@ const Explanation = ({ children }: ExplanationProps) => {
   )
 
   const handleOnClick = (event) => {
-    // prevents the parent from collapsing the answer component
+    // prevents collapsing the parent component
     event.stopPropagation()
     setIsExpanded((prev) => !prev)
   }
@@ -177,7 +179,7 @@ const childIsType = (child: ReactElement, type: string): boolean => {
   return isType
 }
 
-const renderJudgment = (isCorrect: boolean) => {
+const renderIsCorrect = (isCorrect: boolean) => {
   if (isCorrect) {
     const style = { color: COLOR_CORRECT, fontWeight: 'bold' }
     return <p style={style}>Correct!</p>
