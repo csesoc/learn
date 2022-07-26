@@ -1,11 +1,11 @@
-import React from 'react'
+// @ts-nocheck
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Box, styled } from '@modulz/design-system'
 import { useComposedRefs } from '@radix-ui/react-compose-refs'
 import { createContext } from '@radix-ui/react-context'
 import { useCallbackRef } from '@radix-ui/react-use-callback-ref'
 import { composeEventHandlers } from '@radix-ui/primitive'
 import debounce from 'lodash.debounce'
-import { useCallback, useEffect, useRef, useState } from 'react'
 import smoothscroll from 'smoothscroll-polyfill'
 
 import { Article } from 'contentlayer/generated'
@@ -298,7 +298,7 @@ export const Carousel = (props) => {
       return slidesArray.find(
         (slide) => slide.dataset.slideIntersectionRatio !== '0'
       )
-    }
+    } 
   })
 
   const handleNextClick = useCallback(() => {
@@ -513,6 +513,7 @@ const CarouselArrowButton = styled('button', {
   margin: 0,
   border: 0,
   padding: 0,
+  length: 0,
 
   display: 'flex',
   position: 'relative',
