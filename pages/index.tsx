@@ -9,8 +9,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'phosphor-react'
-import { DiscordLogo, FacebookLogo, InstagramLogo } from 'phosphor-react'
+import { DiscordLogo, FacebookLogo, InstagramLogo, ArrowRight } from 'phosphor-react'
 import { ArticlesCarousel } from 'components/ArticlesCarousel'
 
 export async function getStaticProps() {
