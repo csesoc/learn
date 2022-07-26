@@ -1,4 +1,5 @@
-import { Children, ReactElement, ReactNode, useState } from 'react'
+import React, { Children, ReactElement, ReactNode, useState } from 'react'
+import { callbackify } from 'util'
 import { styled } from '../stitches.config'
 
 const ExplanationBase = styled('div', {
@@ -7,7 +8,7 @@ const ExplanationBase = styled('div', {
 
 type ExplanationProps = {
   content: ReactElement
-  children: ReactNode
+  children: JSX.Element[]
 }
 
 const Explanation = ({ content, children }: ExplanationProps) => {
@@ -23,12 +24,32 @@ const Explanation = ({ content, children }: ExplanationProps) => {
     )
   }
 
-  const paragraphs = Children.toArray(children) as ReactElement[]
-  const textLength = paragraphs.reduce(
-    (prev, child) => prev + child.props.children.length,
-    0
-  )
+  console.log("children", children)
+    const traverse = (ele: JSX.Element[] | JSX.Element | string, callback: (ele: string) => void) => {
+    if (typeof ele === 'string') {
+      // console.log("ele is string:", ele)
+      callback(ele);
+      return;
+    }
+    if (Array.isArray(ele)) {
+      // console.log("ele is array:", ele)
+      ele.forEach((subEle) => traverse(subEle, callback));
+    } else if (React.isValidElement(ele)) {
+      // console.log("ele is react element:", ele)
+      if (ele.props.hasOwnProperty('children')) {
+        // Only if the props of this react element has a children prop.
+        // Might not in some cases, e.g. when ele.type === "img"
+        traverse((ele as JSX.Element).props.children, callback);
+      }
+    }
+  }
 
+  // Traverse the component tree to count total length of text.
+  let textLength = 0;
+  traverse(children, (text) => {
+    textLength += text.length
+  })
+  
   const handleOnClick = (event) => {
     // prevents collapsing the parent component
     event.stopPropagation()
@@ -37,9 +58,19 @@ const Explanation = ({ content, children }: ExplanationProps) => {
 
   // above collapsable threshold
   const threshold = 500
-  if ((paragraphs.length > 1 || textLength > threshold) && !isExpanded) {
-    const previewText = paragraphs[0].props.children
-      .substring(0, threshold)
+  if ((children.length > 1 || textLength > threshold) && !isExpanded) {
+    let previewTextFound = false
+    let previewText = ""
+
+    // Traverse the component tree and find the first text node.    
+    traverse(children, (text: string) => {
+      if (!previewTextFound) {
+        previewText = text
+        previewTextFound = true
+      }
+    })
+
+    previewText.substring(0, threshold)
       // trims all non-letter characters from end of string
       // this ensures the truncated paragraph looks good with the ellipsis (...)
       .replace(/[^a-z]+$/gi, '')
