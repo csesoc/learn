@@ -10,127 +10,13 @@ author: CSESoc Education team
 coverPhoto: '/images/generic/alexandru-acea-XEB8y0nRRP4-unsplash.jpg'
 ---
 
-These questions cover most topics in COMP2521 and will give you a chance to flex your theoretical knowledge.
+This page has 16 practice questions that cover most topics in COMP2521 22T2 and will give you a chance to test your knowledge of data structures and algorithms.
 
-Note that the theory questions in the real exam will not be multiple choice!
-
-<MultiChoice>
-  <MultiChoice.Question>
-    ### Question 1 - Euler paths 
-    
-    Does an Euler path exist for this graph?
-    
-    <Centerer>
-      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/1-euler.png" alt="Graph" width="70%" />
-    </Centerer>
-
-  </MultiChoice.Question>
-
-  <MultiChoice.Answer content="No"/>
-  <MultiChoice.Answer
-    content="Yes"
-    isCorrect>
-    <MultiChoice.Explanation>
-      An Euler Path does not exist for this graph.
-
-      It is known that a graph has an Euler path if and only if:
-          - It is connected
-          - It has exactly two vertices that have an odd degree
-
-      The given graph satisfies the first criteria as it is connected.
-
-      However, it does not satisfy the second criteria, as none of the vertices have
-      an odd degree. In general terms, the degree of a vertex is the number of edges
-      connecting it. Looking at this graph, we see:
-
-      <table >
-        <tr>
-          <th>Node</th><th>Degree</th>
-        </tr>
-        <tr>
-          <td>0</td><td>2</td>
-        </tr>
-        <tr>
-          <td>1</td><td>4</td>
-        </tr>
-        <tr>
-          <td>2</td><td>2</td>
-        </tr>
-        <tr>
-          <td>3</td><td>4</td>
-        </tr>
-        <tr>
-          <td>4</td><td>2</td>
-        </tr>
-        <tr>
-          <td>5</td><td>4</td>
-        </tr>
-        <tr>
-          <td>6</td><td>2</td>
-        </tr>
-        <tr>
-          <td>7</td><td>4</td>
-        </tr>
-      </table>
-
-      And realise that none of the nodes/vertices have an odd degree. Hence the second
-      criteria is unfufilled.
-
-      Hence, it is concluded that an Euler path does not exist for this graph.
-    </MultiChoice.Explanation>
-
-  </MultiChoice.Answer>
-</MultiChoice>
+Note that the theory questions in the real COMP2521 22T2 exam will not be multiple choice!
 
 <MultiChoice>
   <MultiChoice.Question>
-    ### Question 2 - Time complexity
-    
-    What is the time complexity of this algorithm?
-
-    ```c:question2.c
-    void function(int n) {
-        for (int i = 0; i < n; i++) {
-            int *a = calloc(n, sizeof(int));
-            printf("Hello!\n");
-            free(a);
-        }
-    }
-    ```
-
-  </MultiChoice.Question>
-  <MultiChoice.Answer content="O(n)" />
-  <MultiChoice.Answer content="O(n^2)" isCorrect>
-    <MultiChoice.Explanation content="Calloc is an O(n) operation. As it is nested in a for loop of O(n), the time complexities multiply, resulting in O(n^2)." />
-  </MultiChoice.Answer>
-  <MultiChoice.Answer content="O(n + m)" />
-  <MultiChoice.Answer content="O(n * log(n))" />
-</MultiChoice>
-
-<MultiChoice>
-  <MultiChoice.Question>
-    ### Question 3 - Sorting
-    
-    In which of the following sorting algorithms is the performance for both sorted and reverse inputs slower than random inputs?
-
-  </MultiChoice.Question>
-  <MultiChoice.Answer content="Bubble sort">
-    <MultiChoice.Explanation content="Bubble sort will perform with O(n) complexity in the sorted case, but O(n^2) in the reverse case."/>
-  </MultiChoice.Answer>
-  <MultiChoice.Answer content="Selection sort" >
-    <MultiChoice.Explanation content="Selection sort performs equally in all cases." />
-  </MultiChoice.Answer>
-  <MultiChoice.Answer content="Naive quicksort" isCorrect>
-    <MultiChoice.Explanation content="Naive quicksort will be consistently slow with sorted and reverse inputs at it chooses the least efficient pivot, but quicker for random inputs as the pivot is more wisely chosen." />
-  </MultiChoice.Answer>
-  <MultiChoice.Answer content="Merge sort">
-    <MultiChoice.Explanation content="Merge sort has the same time complexity for all cases." />
-  </MultiChoice.Answer>
-</MultiChoice>
-
-<MultiChoice>
-  <MultiChoice.Question>
-    ### Question 4 - MST
+    ### Question 1 - Minimum Spanning Tree
     
     Given this graph, what is the total weight of the minimum spanning tree?
 
@@ -162,7 +48,7 @@ Note that the theory questions in the real exam will not be multiple choice!
 
 <MultiChoice>
   <MultiChoice.Question>
-    ### Question 5 - BFS and DFS
+    ### Question 2 - Graph Traversal Algorithms
     
     Consider the following iterative functions for breadth-first 
     and depth-first traversal on a graph.
@@ -248,7 +134,7 @@ Note that the theory questions in the real exam will not be multiple choice!
 
 <MultiChoice>
   <MultiChoice.Question>
-    ### Question 6 - Time complexity
+    ### Question 3 - Time complexity
 
     What is the time complexity of the following function?
 
@@ -271,6 +157,120 @@ Note that the theory questions in the real exam will not be multiple choice!
   </MultiChoice.Answer >
   <MultiChoice.Answer content="O(n)" />
   <MultiChoice.Answer content="O(n ^ 2)" />
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Question 4 - Euler paths 
+    
+    Does an Euler path exist for this graph?
+    
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/1-euler.png" alt="Graph" width="70%" />
+    </Centerer>
+
+  </MultiChoice.Question>
+
+  <MultiChoice.Answer content="No"/>
+  <MultiChoice.Answer
+    content="Yes"
+    isCorrect>
+    <MultiChoice.Explanation>
+      An Euler Path does not exist for this graph.
+
+      It is known that a graph has an Euler path if and only if:
+          - It is connected
+          - It has exactly two vertices that have an odd degree
+
+      The given graph satisfies the first criteria as it is connected.
+
+      However, it does not satisfy the second criteria, as none of the vertices have
+      an odd degree. In general terms, the degree of a vertex is the number of edges
+      connecting it. Looking at this graph, we see:
+
+      <table >
+        <tr>
+          <th>Node</th><th>Degree</th>
+        </tr>
+        <tr>
+          <td>0</td><td>2</td>
+        </tr>
+        <tr>
+          <td>1</td><td>4</td>
+        </tr>
+        <tr>
+          <td>2</td><td>2</td>
+        </tr>
+        <tr>
+          <td>3</td><td>4</td>
+        </tr>
+        <tr>
+          <td>4</td><td>2</td>
+        </tr>
+        <tr>
+          <td>5</td><td>4</td>
+        </tr>
+        <tr>
+          <td>6</td><td>2</td>
+        </tr>
+        <tr>
+          <td>7</td><td>4</td>
+        </tr>
+      </table>
+
+      And realise that none of the nodes/vertices have an odd degree. Hence the second
+      criteria is unfufilled.
+
+      Hence, it is concluded that an Euler path does not exist for this graph.
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Question 5 - Sorting
+    
+    In which of the following sorting algorithms is the performance for both sorted and reverse inputs slower than random inputs?
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="Bubble sort">
+    <MultiChoice.Explanation content="Bubble sort will perform with O(n) complexity in the sorted case, but O(n^2) in the reverse case."/>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="Selection sort" >
+    <MultiChoice.Explanation content="Selection sort performs equally in all cases." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="Naive quicksort" isCorrect>
+    <MultiChoice.Explanation content="Naive quicksort will be consistently slow with sorted and reverse inputs at it chooses the least efficient pivot, but quicker for random inputs as the pivot is more wisely chosen." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="Merge sort">
+    <MultiChoice.Explanation content="Merge sort has the same time complexity for all cases." />
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Question 6 - Time complexity
+    
+    What is the time complexity of this algorithm?
+
+    ```c:question2.c
+    void function(int n) {
+        for (int i = 0; i < n; i++) {
+            int *a = calloc(n, sizeof(int));
+            printf("Hello!\n");
+            free(a);
+        }
+    }
+    ```
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="O(n)" />
+  <MultiChoice.Answer content="O(n^2)" isCorrect>
+    <MultiChoice.Explanation content="Calloc is an O(n) operation. As it is nested in a for loop of O(n), the time complexities multiply, resulting in O(n^2)." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="O(n + m)" />
+  <MultiChoice.Answer content="O(n * log(n))" />
 </MultiChoice>
 
 <MultiChoice>
@@ -330,7 +330,7 @@ Note that the theory questions in the real exam will not be multiple choice!
 
 <MultiChoice>
   <MultiChoice.Question>
-    ### Question 10 - AVL Trees
+    ### Question 9 - AVL Trees
 
     After inserting `45` into this AVL tree, what will the tree look like?
 
@@ -378,7 +378,7 @@ Note that the theory questions in the real exam will not be multiple choice!
 
 <MultiChoice>
   <MultiChoice.Question>
-    ### Question 12 - BFS and DFS
+    ### Question 10 - BFS and DFS
 
     What is the difference between the implementation of iterative BFS and iterative DFS and the theoretical difference between the two?
 
@@ -400,7 +400,7 @@ Note that the theory questions in the real exam will not be multiple choice!
 
 <MultiChoice>
   <MultiChoice.Question>
-    ### Question 13 - Graph ordering
+    ### Question 11 - Graph ordering
 
     Which of the following is post order?
 
@@ -444,7 +444,29 @@ Note that the theory questions in the real exam will not be multiple choice!
 
 <MultiChoice>
   <MultiChoice.Question>
-    ### Question 14 - MST
+    ### Question 12 - Tree Rotations
+
+    What sequence of rotations will transform this tree to end up with 7 at the root?
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/rotate-7-base.png" alt="Graph" width="60%" />
+    </Centerer>
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="rotate_right(7), rotate_left(8), rotate_right(5)" />
+  <MultiChoice.Answer content="rotate_left(8), rotate_right(5), rotate_left(10)" />
+  <MultiChoice.Answer content="rotate_left(5), rotate_right(8), rotate_right(8)"/>
+  <MultiChoice.Answer isCorrect>
+    rotate_right(8), rotate_left(5), rotate_right(10)
+    <MultiChoice.Explanation>
+      Rotating right on node 8 brings the 7 up to 8's position. Then we rotate left on the 5 to bring up the 7 again and finally rotate right on 10 to push the 7 into the root position.
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Question 13 - Kruskal's Algorithm
 
     Using Kruskal's algorithm, find the minimum spanning tree of this fully connected and weighted graph.
 
@@ -518,29 +540,7 @@ Note that the theory questions in the real exam will not be multiple choice!
 
 <MultiChoice>
   <MultiChoice.Question>
-    ### Question 15 - Tree Rotations
-
-    What sequence of rotations will transform this tree to end up with 7 at the root?
-
-    <Centerer>
-      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/rotate-7-base.png" alt="Graph" width="60%" />
-    </Centerer>
-
-  </MultiChoice.Question>
-  <MultiChoice.Answer content="rotate_right(7), rotate_left(8), rotate_right(5)" />
-  <MultiChoice.Answer content="rotate_left(8), rotate_right(5), rotate_left(10)" />
-  <MultiChoice.Answer content="rotate_left(5), rotate_right(8), rotate_right(8)"/>
-  <MultiChoice.Answer isCorrect>
-    rotate_right(8), rotate_left(5), rotate_right(10)
-    <MultiChoice.Explanation>
-      Rotating right on node 8 brings the 7 up to 8's position. Then we rotate left on the 5 to bring up the 7 again and finally rotate right on 10 to push the 7 into the root position.
-    </MultiChoice.Explanation>
-  </MultiChoice.Answer>
-</MultiChoice>
-
-<MultiChoice>
-  <MultiChoice.Question>
-    ### Question 16 - Tree Rotations
+    ### Question 14 - Tree Rotations
 
     Which sequence of transformations will make the following transformation?
 
@@ -573,7 +573,7 @@ Note that the theory questions in the real exam will not be multiple choice!
 
 <MultiChoice>
   <MultiChoice.Question>
-    ### Question 11 - Dijkstra (Challenge)
+    ### Question 15 - Dijkstra's Algorithm (Challenge)
 
     Using Dijkstra's algorithm, find the shortest path from A to all other vertices in this fully connected directed and weighted graph.
 
@@ -581,7 +581,7 @@ Note that the theory questions in the real exam will not be multiple choice!
       <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q11-dijk.png" alt="Graph" width="70%" />
     </Centerer>
 
-    During this procedure, how many times is edge relaxation done towards vertex E? In other words, on how many occasions do we compare the current distance from A to E with a newly calculated distance from A to E?
+    During this procedure, how many times is an edge relaxed towards vertex E? In other words, on how many occasions do we update our knowledge of the shortest distance from A to E?
 
   </MultiChoice.Question>
   <MultiChoice.Answer content="0"/>
@@ -589,16 +589,15 @@ Note that the theory questions in the real exam will not be multiple choice!
   <MultiChoice.Answer isCorrect>
     2
     <MultiChoice.Explanation>
-      Visit [here](https://github.com/dqna64/comp2521-revision-session-questions/blob/main/dijkstra.md) for an explanation as to how to get this answer.
+      Visit [here](https://gist.github.com/dqna64/e8c09e5a49630886692c9dac4f215688) for an explanation as to how to get this answer.
     </MultiChoice.Explanation>
   </MultiChoice.Answer>
   <MultiChoice.Answer content="3"/>
 </MultiChoice>
 
-
 <MultiChoice>
   <MultiChoice.Question>
-    ### Question 9 - Time complexity (Challenge)
+    ### Question 16 - Time complexity (Challenge)
 
     What is the time complexity of the following function? You may assume the value of `n` is positive.
 
