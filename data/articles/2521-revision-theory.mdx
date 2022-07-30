@@ -1,0 +1,628 @@
+---
+title: COMP2521 Revision Theory Questions
+date: 2022-08-01
+desc: Theory based questions for the CSESoc COMP2521 Exam Revision Session.
+tags:
+  - 'COMP2521'
+  - 'Exam Revision'
+author: CSESoc  Education  Team
+coverPhoto: '/images/generic/alexandru-acea-XEB8y0nRRP4-unsplash.jpg'
+---
+
+This page has 16 practice questions that cover most topics in COMP2521 22T2 and will give you a chance to test your knowledge of data structures and algorithms.
+
+Note that the theory questions in the real COMP2521 22T2 exam will not be multiple choice!
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 1 - Minimum Spanning Tree
+    
+    Given this graph, what is the total weight of the minimum spanning tree?
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/4-mst.png" alt="Graph" width="70%" />
+    </Centerer>
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="14" />
+  <MultiChoice.Answer content="15" isCorrect>
+    <MultiChoice.Explanation>
+      Easier: Kruskal's algorithm
+
+      Harder: Prim's algorithm
+
+      Using principals of Kruskal's algorithm:
+
+      A minimum spanning tree is a tree which contains all vertices, has no cycles, and has the smallest total weight of all possible spanning trees.
+      Since we want the smallest total weight, start by adding the edge with the smallest weight into your MST graph. In this case, it is edge VW with weight 1.
+      We then repeat the process for the next smallest edge: UW, RV, QR, or ST etc, continually adding them to your MST as long as the edge does not form a cycle. If the edge forms a cycle,
+      move on to next smallest edge.
+
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="16" />
+  <MultiChoice.Answer content="18" />
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 2 - Graph Traversal Algorithms
+    
+    Consider the following iterative functions for breadth-first 
+    and depth-first traversal on a graph.
+
+    Show what would be printed by the following calls to
+    these functions on this graph:
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/bft-dft.png" alt="Graph" width="70%" />
+    </Centerer>
+
+    a) `breadthFirst(g, 3)`
+
+    b) `depthFirst(g, 0)`
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer>
+    a) 3, 2, 0, 6, 5, 4, 1
+
+    b) 0, 1, 5, 2, 3, 4, 6
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer isCorrect>
+    a) 3, 0, 2, 1, 4, 5, 6
+
+    b) 0, 1, 5, 2, 3, 6, 4
+    <MultiChoice.Explanation>
+      **a) Solution for breadth-first traversal**
+
+      Given vertex v = 3, our breadthFirst traversal will begin at v = 3.
+
+      Since vertex x = 3 has not been visited, it is printed as first element. The for loop
+      then checks every vertex y from 0 to nV - 1.
+
+      If y is connected to vertex x via
+      an edge, and has not been visited, add y to queue.
+
+      Since y = 0 and y = 2 are
+      the only vertices which are connected to x = 3 and haven't been visited, add them to queue
+      respectively.
+
+      Vertex 0 is then dequeued, where x = 0 (note queue is a first in, first out ADT).
+
+      Since vertex x = 0 has not been visited, it is
+      printed as second element.
+
+      The for loop then checks every vertex y from 0 to nV - 1.
+
+      If y is connected to vertex x via
+      an edge, and has not been visited, add y to queue.
+
+      Since y = 1, y = 4, and y = 5 are
+      the only vertices which are connected to x = 0 and haven't been visited, add them to queue
+      respectively.
+
+      This process is repeated until the queue is empty, and resulted in the vertices printed in this
+      order: 3, 0, 2, 1, 4, 5.
+
+
+      **b) Solution for depth-first traversal**
+
+      Similar process to part a), except depthFirst() doesn't use a queue,
+      but a stack (a first in, last out ADT).
+
+      Another difference is that the for loop
+      starts checking from the largest vertex nV - 1, to the smallest vertex 0.
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer>
+    a) 3, 0, 1, 5, 2, 6, 4
+
+    b) 0, 1, 5, 4, 2, 3, 6
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer>
+    a) 0, 1, 5, 2, 4, 6, 3
+
+    b) 3, 0, 1, 5, 2, 6, 4
+
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 3 - Time complexity
+
+    What is the time complexity of the following function?
+
+    ```c:print_nums.c
+    void print_nums(int nums[]) {
+        for (int i = 0; i < 100; i++) {
+            printf(""%d\n"", nums[i]);
+        }
+    }
+    ```
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer isCorrect>
+    O(1)
+    <MultiChoice.Explanation content="This loops time will always be constant as have defined how many times it will be executed."/>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer isCorrect>
+    O(100)
+    <MultiChoice.Explanation content="O(100) is equivalent to O(1). This loops time will always be constant as have defined how many times it will be executed."/>
+  </MultiChoice.Answer >
+  <MultiChoice.Answer content="O(n)" />
+  <MultiChoice.Answer content="O(n ^ 2)" />
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 4 - Euler paths 
+    
+    Does an Euler path exist for this graph?
+    
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/1-euler.png" alt="Graph" width="70%" />
+    </Centerer>
+
+  </MultiChoice.Question>
+
+  <MultiChoice.Answer content="No"/>
+  <MultiChoice.Answer
+    content="Yes"
+    isCorrect>
+    <MultiChoice.Explanation>
+      An Euler Path does not exist for this graph.
+
+      It is known that a graph has an Euler path if and only if:
+          - It is connected
+          - It has exactly two vertices that have an odd degree
+
+      The given graph satisfies the first criteria as it is connected.
+
+      However, it does not satisfy the second criteria, as none of the vertices have
+      an odd degree. In general terms, the degree of a vertex is the number of edges
+      connecting it. Looking at this graph, we see:
+
+      <table >
+        <tr>
+          <th>Node</th><th>Degree</th>
+        </tr>
+        <tr>
+          <td>0</td><td>2</td>
+        </tr>
+        <tr>
+          <td>1</td><td>4</td>
+        </tr>
+        <tr>
+          <td>2</td><td>2</td>
+        </tr>
+        <tr>
+          <td>3</td><td>4</td>
+        </tr>
+        <tr>
+          <td>4</td><td>2</td>
+        </tr>
+        <tr>
+          <td>5</td><td>4</td>
+        </tr>
+        <tr>
+          <td>6</td><td>2</td>
+        </tr>
+        <tr>
+          <td>7</td><td>4</td>
+        </tr>
+      </table>
+
+      And realise that none of the nodes/vertices have an odd degree. Hence the second
+      criteria is unfufilled.
+
+      Hence, it is concluded that an Euler path does not exist for this graph.
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 5 - Sorting
+    
+    In which of the following sorting algorithms is the performance for both sorted and reverse inputs slower than random inputs?
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="Bubble sort">
+    <MultiChoice.Explanation content="Bubble sort will perform with O(n) complexity in the sorted case, but O(n^2) in the reverse case."/>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="Selection sort" >
+    <MultiChoice.Explanation content="Selection sort performs equally in all cases." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="Naive quicksort" isCorrect>
+    <MultiChoice.Explanation content="Naive quicksort will be consistently slow with sorted and reverse inputs at it chooses the least efficient pivot, but quicker for random inputs as the pivot is more wisely chosen." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="Merge sort">
+    <MultiChoice.Explanation content="Merge sort has the same time complexity for all cases." />
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 6 - Time complexity
+    
+    What is the time complexity of this algorithm?
+
+    ```c:question2.c
+    void function(int n) {
+        for (int i = 0; i < n; i++) {
+            int *a = calloc(n, sizeof(int));
+            printf("Hello!\n");
+            free(a);
+        }
+    }
+    ```
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="O(n)" />
+  <MultiChoice.Answer content="O(n^2)" isCorrect>
+    <MultiChoice.Explanation content="Calloc is an O(n) operation. As it is nested in a for loop of O(n), the time complexities multiply, resulting in O(n^2)." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="O(n + m)" />
+  <MultiChoice.Answer content="O(n * log(n))" />
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 7 - Time complexity
+
+    What is the time complexity of the following function? You may assume that `n` is positive.
+
+    ```c:halve.c
+    void halve(int n) {
+        printf(""called halve(%d)\n"", n);
+        if (n == 0) {
+            return;
+        }
+        halve(n / 2);
+    }
+    ```
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="O(1)"/>
+  <MultiChoice.Answer isCorrect>
+    O(log(n))
+    <MultiChoice.Explanation>
+    The value of `n` is halved at each step, hence is reduced to 0 in a logarithmic fashion.
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="O(n)" />
+  <MultiChoice.Answer content="O(2 ^ n)"/>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 8 - Time complexity
+
+    What is the time complexity of the following function? You may assume the values of `n` and `m` passed in are positive.
+
+    ```c:rem.c
+    int rem(int n, int m) {
+      while (n >= m) {
+          n -= m;
+      }
+      return n;
+    }
+    ```
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="O(n + m)"/>
+  <MultiChoice.Answer content="O(n - m)" />
+  <MultiChoice.Answer content="O(n * m)"/>
+  <MultiChoice.Answer isCorrect>
+    O(n / m)
+    <MultiChoice.Explanation>
+    This function is used to find the remainder of a division, hence the number of steps will be how many times `m` goes into `n`.
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 9 - AVL Trees
+
+    After inserting `45` into this AVL tree, what will the tree look like?
+
+    <Centerer>
+    <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-basic.png" alt="Graph" width="100%" />
+    </Centerer>
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer>
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-a.png" alt="Graph" width="100%" />
+    </Centerer>
+    <MultiChoice.Explanation content="Just inserts the 45 doing a BST insert without balancing." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer>
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-b.png" alt="Graph" width="100%" />
+    </Centerer>
+    <MultiChoice.Explanation content="Inserts the 45 directly after the 43 and pushes the 67 down, then also rearranges 67's children." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer>
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-c.png" alt="Graph" width="100%" />
+    </Centerer>
+    <MultiChoice.Explanation content="Right rotation about 67. This is part 1 of the solution." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer isCorrect>
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-d.png" alt="Graph" width="100%" />
+    </Centerer>
+    <MultiChoice.Explanation>
+      After inserting 45, 43 becomes unbalanced (2 left vs 4 right).
+
+      Also, its right child is left-heavy, so before doing a left rotation, we do a right rotation.
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer>
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-e.png" alt="Graph" width="100%" />
+    </Centerer>
+    <MultiChoice.Explanation content="Some other balanced tree" />
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 10 - BFS and DFS
+
+    What is the difference between the implementation of iterative BFS and iterative DFS and the theoretical difference between the two?
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer isCorrect>
+    BFS uses a queue, checking all neighbours of a node before moving on to another node, and DFS uses a stack, checking every new node as it is found.
+
+    <MultiChoice.Explanation>
+      BFS uses a queue to store the next node to be explored. This makes it so that when a node is visited, we add all its neighbours to the queue and when we check through the queue, we check all the most recently added nodes, i.e., all the added neighbours of a node, before we move further down the graph.
+
+      DFS uses a stack, meaning we explore by checking the most recently added node to the stack. This means we will keep checking the most recently added node before we check previously added nodes, meaning we will keep going though the tree until we hit the end before we check a particular nodes neighbours.
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="BFS uses a stack, checking all neighbours of a node before moving on to another node, and DFS uses a queue, checking every new node as it is found."/>
+  <MultiChoice.Answer content="BFS uses a queue, checking every new node as it is found, and DFS uses a stack, checking all neighbours of a node before moving on to another node."/>
+  <MultiChoice.Answer content="BFS uses a stack, checking every new node as it is found, and DFS uses a queue, checking all neighbours of a node before moving on to another node."/>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 11 - Graph ordering
+
+    Which of the following is post order?
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer>
+    1. Traverse the left subtree, i.e., call recursion (left-subtree).
+    
+    2. Visit the root (i.e., do work on the current node).
+    
+    3. Traverse the right subtree, i.e., call recursion (right-subtree).
+  </MultiChoice.Answer>
+
+  <MultiChoice.Answer>
+    1. Visit the root (i.e., do work on the current node).
+
+    2. Traverse the left subtree, i.e., call recursion (left-subtree).
+
+    3. Traverse the right subtree, i.e., call recursion (right-subtree).
+
+  </MultiChoice.Answer>
+
+  <MultiChoice.Answer isCorrect>
+    1. Traverse the left subtree, i.e., call recursion (left-subtree).
+
+    2. Traverse the right subtree, i.e., call recursion (right-subtree).
+
+    3. Visit the root (i.e., do work on the current node).
+    <MultiChoice.Explanation>
+      For Inorder, you traverse from the left subtree to the root then to the right subtree.
+
+      For Preorder, you traverse from the root to the left subtree then to the right subtree.
+
+      For Post order, you traverse from the left subtree to the right subtree then to the root.
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer>
+    None of the above.
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 12 - Tree Rotations
+
+    What sequence of rotations will transform this tree to end up with 7 at the root?
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/rotate-7-base.png" alt="Graph" width="60%" />
+    </Centerer>
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="rotate_right(7), rotate_left(8), rotate_right(5)" />
+  <MultiChoice.Answer content="rotate_left(8), rotate_right(5), rotate_left(10)" />
+  <MultiChoice.Answer content="rotate_left(5), rotate_right(8), rotate_right(8)"/>
+  <MultiChoice.Answer isCorrect>
+    rotate_right(8), rotate_left(5), rotate_right(10)
+    <MultiChoice.Explanation>
+      Rotating right on node 8 brings the 7 up to 8's position. Then we rotate left on the 5 to bring up the 7 again and finally rotate right on 10 to push the 7 into the root position.
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 13 - Kruskal's Algorithm
+
+    Using Kruskal's algorithm, find the minimum spanning tree of this fully connected and weighted graph.
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/kruskal.png" alt="Graph" width="70%" />
+    </Centerer>
+
+    During this procedure, how many times do you encounter a cycle before you find the MST?
+
+  </MultiChoice.Question>
+
+  <MultiChoice.Answer content="0" />
+  <MultiChoice.Answer content="1" />
+  <MultiChoice.Answer content="2" />
+  <MultiChoice.Answer isCorrect>
+    3
+    <MultiChoice.Explanation>
+      The Kruskal's algorithm is a greedy algorithm that finds the minimum spanning tree of a graph. It works by choosing edges in sorted order by lowest weight (unless it forms a cycle) until all vertices are included.
+
+      Let's walk through applying Kruskal's algorithm to the graph.
+
+      We start with an empty set of edges which represents the MST we want to build. We also keep a count of the number of vertices that have been included in the MST so we can stop when we have included all vertices.
+
+      We sort the existing edges in the graph by weight and start to choose them by lowest weight edge to add to the MST.
+
+      We choose the first edge E-G with weight 1 and add it to our MST. We then check that our new MST does not form a cycle after this addition and keep the edge.
+
+      ![Imgur](https://i.imgur.com/tQxZSzH.png)
+
+      Next add the edge G-F with weight 2 to our MST. We check that it does not form a cycle and keep the edge.
+
+      ![Imgur](https://i.imgur.com/1DgtJGV.png)
+
+      Next add the edge A-C with weight 3 to our MST. We check that it does not form a cycle and keep the edge.
+
+      ![Imgur](https://i.imgur.com/pWk6eb2.png)
+
+      Next add the edge E-F with weight 4 to our MST. We find that after this addtion our MST now has a cycle, so we remove the edge.
+
+      ![Imgur](https://i.imgur.com/te21CM1.png)
+
+      Next add the edge E-D with weight 5 to our MST. We check that it does not form a cycle and keep the edge.
+
+      ![Imgur](https://i.imgur.com/ruMBsMN.png)
+
+      Next we find two edges with the same weigth 6: A-D and F-D. We can choose these edges to add to the MST in arbitrary order since it would not make a difference to the minimum weight of our MST.
+
+      We'll add the edge A-D first. We check that it does not form a cycle and keep the edge.
+
+      ![Imgur](https://i.imgur.com/mED0IRd.png)
+
+      Next we add the edge F-D; the remaining edge with weigth 6. We find that after this addtion our MST now has a cycle, so we remove the edge.
+
+      ![Imgur](https://i.imgur.com/zNM0uo2.png)
+
+      Next add the edge C-F with weight 7 to our MST. We find that after this addtion our MST now has a cycle, so we remove the edge.
+
+      ![Imgur](https://i.imgur.com/Zk0qOEl.png)
+
+      Next we add the edge A-B with weight 8 to our MST. We check that it does not form a cycle and keep the edge.
+
+      ![Imgur](https://i.imgur.com/KSTqyfQ.png)
+
+      At this point our MST contains all the vertices from the original graph, and hence we have found the minimum spanning tree.
+
+      To answer the question, there were three instances where we added an edge and found that it formed a cycle in our MST.
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 14 - Tree Rotations
+
+    Which sequence of transformations will make the following transformation?
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/rotate-seq-base.png" alt="Graph" width="60%" />
+    </Centerer>
+
+    <Centerer>
+      <ArrowDown size={32}/>
+    </Centerer>
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/rotate-seq-after.png" alt="Graph" width="60%" />
+    </Centerer>
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="rotate_right(1), rotate_left(7)" />
+  <MultiChoice.Answer isCorrect>
+    rotate_right(2), rotate_left(6)
+    <MultiChoice.Explanation>
+      Rotating shifts the root node in the direction of the rotation. Hence as 2 moves down to the right, we do rotate_right(2).
+
+      Similar logic can be applied for rotate_left(6).
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="rotate_right(5), rotate_left(3)"/>
+  <MultiChoice.Answer content="rotate_right(6), rotate_left(2)" />
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 15 - Dijkstra's Algorithm (Challenge)
+
+    Using Dijkstra's algorithm, find the shortest path from A to all other vertices in this fully connected directed and weighted graph.
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q11-dijk.png" alt="Graph" width="70%" />
+    </Centerer>
+
+    During this procedure, how many times is an edge relaxed towards vertex E? In other words, on how many occasions do we update our knowledge of the shortest distance from A to E?
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="0"/>
+  <MultiChoice.Answer content="1"/>
+  <MultiChoice.Answer isCorrect>
+    2
+    <MultiChoice.Explanation>
+      Visit [here](https://gist.github.com/dqna64/e8c09e5a49630886692c9dac4f215688) for an explanation as to how to get this answer.
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="3"/>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ## Question 16 - Time complexity (Challenge)
+
+    What is the time complexity of the following function? You may assume the value of `n` is positive.
+
+    ```c:print_pairs.c
+    void print_pairs(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j += i) {
+                printf("%d %d\n", i, j);
+            }
+        }
+    }
+    ```
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="O(n)"/>
+  <MultiChoice.Answer isCorrect>
+    O(n * log(n))
+    <MultiChoice.Explanation>
+      We firstly know that we will iterate through the outside loop `n` times, that gives us our `n` value.
+
+      The number of iterations of the inside loop is reduced on every iteration of `i`, hence the number of inside loop iterations is being reduced in a logarithmic fashion.
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="O(n^1.5)" />
+  <MultiChoice.Answer content="O(n^2)"/>
+</MultiChoice>
+
+Good luck for the exam! Remember; you've been preparing for it for the entire term so all that's left is to apply everything you've learned and to do your best :D

@@ -4,18 +4,17 @@ import { Card } from 'components/Card'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
 import { allArticles } from 'contentlayer/generated'
-import { compareDesc } from 'date-fns'
+import { compareAsc, compareDesc } from 'date-fns'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'phosphor-react'
-import { DiscordLogo, FacebookLogo, InstagramLogo } from 'phosphor-react'
+import { DiscordLogo, FacebookLogo, InstagramLogo, ArrowRight } from 'phosphor-react'
 import { ArticlesCarousel } from 'components/ArticlesCarousel'
 
 export async function getStaticProps() {
   const articles = allArticles.sort((a, b) => {
-    return compareDesc(new Date(b.date), new Date(a.date))
+    return compareAsc(new Date(b.date), new Date(a.date))
   })
   return { props: { articles } }
 }
