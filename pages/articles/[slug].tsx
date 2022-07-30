@@ -12,6 +12,7 @@ import FileName from 'components/Filename'
 import Centerer from 'components/Centerer'
 import MultiChoice from 'components/MultiChoice'
 import Link from 'next/link'
+import { ArrowDown } from 'phosphor-react'
 
 const defaultComponents = {
   Image,
@@ -19,7 +20,8 @@ const defaultComponents = {
   FileName,
   Centerer,
   MultiChoice,
-  Link
+  Link,
+  ArrowDown
 }
 
 // Add any components used in MDX files here.

@@ -40,7 +40,9 @@ const Answer = ({
 }: AnswerProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const childrenArray = Children.toArray(children) as ReactElement[]
-  const answer = childrenArray.filter((child) => child.type === 'p')
+  const answer = childrenArray.filter(
+    (child) => child.type != MultiChoice.Explanation
+  )
   const explanation = childrenArray.find(
     (child) => child.type === MultiChoice.Explanation
   )
@@ -76,7 +78,7 @@ const renderIsCorrect = (isCorrect: boolean) => {
 }
 
 const renderCircle = (circleType: boolean | number) => {
-  const iconProps: IconProps = { size: '32px' }
+  const iconProps: IconProps = { size: '32px', style: { flexShrink: 0 } }
   switch (circleType) {
     case true:
       return <CheckCircle color={COLOR_CORRECT} weight="fill" {...iconProps} />
