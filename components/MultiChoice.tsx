@@ -9,9 +9,10 @@ const MultiChoiceBase = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: '$slate1',
-  padding: '0 $3 $3',
-  borderRadius: '8px',
-  margin: '$3 0 $3'
+  padding: '$2 $6 $6',
+  borderRadius: '16px',
+  margin: '$6 0 $6',
+  boxShadow: '0px 4px 55px -42px rgba(0,0,0,0.74)',
 })
 
 interface MultiChoiceProps {
