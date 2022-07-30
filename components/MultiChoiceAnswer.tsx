@@ -41,7 +41,7 @@ const Answer = ({
   const [isExpanded, setIsExpanded] = useState(false)
   const childrenArray = Children.toArray(children) as ReactElement[]
   const answer = childrenArray.filter(
-    (child) => child.type != MultiChoice.Explanation
+    (child) => child.type !== MultiChoice.Explanation
   )
   const explanation = childrenArray.find(
     (child) => child.type === MultiChoice.Explanation

@@ -72,7 +72,7 @@ export default makeSource({
       rehypeHighlight,
       rehypePrismPlus,
       rehypeAutolinkHeadings,
-      rehypeSlug,
+      rehypeSlug
     ]
   }
 })
