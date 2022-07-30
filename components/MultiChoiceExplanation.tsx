@@ -57,7 +57,7 @@ const Explanation = ({ content, children }: ExplanationProps) => {
   }
 
   // above collapsable threshold
-  const threshold = 500
+  const threshold = 1000
   if ((children.length > 1 || textLength > threshold) && !isExpanded) {
     let previewTextFound = false
     let previewText = ""

@@ -142,8 +142,9 @@ Note that the theory questions in the real exam will not be multiple choice!
   <MultiChoice.Answer content="14" />
   <MultiChoice.Answer content="15" isCorrect>
     <MultiChoice.Explanation>
-      Easiest: Kruskal's algorithm
-      Hardest: Priam's algorithm
+      Easier: Kruskal's algorithm
+
+      Harder: Prim's algorithm
 
       Using principals of Kruskal's algorithm:
 
@@ -173,9 +174,9 @@ Note that the theory questions in the real exam will not be multiple choice!
       <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/bft-dft.png" alt="Graph" width="70%" />
     </Centerer>
 
-    a) breadthFirst(g, 3)
+    a) `breadthFirst(g, 3)`
 
-    b) depthFirst(g, 0)
+    b) `depthFirst(g, 0)`
 
   </MultiChoice.Question>
   <MultiChoice.Answer>
@@ -189,7 +190,7 @@ Note that the theory questions in the real exam will not be multiple choice!
 
     b) 0, 1, 5, 2, 3, 6, 4
     <MultiChoice.Explanation>
-      ### a)
+      **a) Solution for breadth-first traversal**
 
       Given vertex v = 3, our breadthFirst traversal will begin at v = 3.
 
@@ -221,7 +222,7 @@ Note that the theory questions in the real exam will not be multiple choice!
       order: 3, 0, 2, 1, 4, 5.
 
 
-      ### b)
+      **b) Solution for depth-first traversal**
 
       Similar process to part a), except depthFirst() doesn't use a queue,
       but a stack (a first in, last out ADT).
@@ -292,7 +293,9 @@ Note that the theory questions in the real exam will not be multiple choice!
   <MultiChoice.Answer content="O(1)"/>
   <MultiChoice.Answer isCorrect>
     O(log(n))
-    <MultiChoice.Explanation content="The value of `n` is halved at each step, hence is reduced to 0 in a logarithmic fashion."/>
+    <MultiChoice.Explanation>
+    The value of `n` is halved at each step, hence is reduced to 0 in a logarithmic fashion.
+    </MultiChoice.Explanation>
   </MultiChoice.Answer>
   <MultiChoice.Answer content="O(n)" />
   <MultiChoice.Answer content="O(2 ^ n)"/>
@@ -319,39 +322,10 @@ Note that the theory questions in the real exam will not be multiple choice!
   <MultiChoice.Answer content="O(n * m)"/>
   <MultiChoice.Answer isCorrect>
     O(n / m)
-    <MultiChoice.Explanation content="This function is used to find the remainder of a division, hence the number of steps will be how many times `m` goes into `n`."/>
-  </MultiChoice.Answer>
-</MultiChoice>
-
-<MultiChoice>
-  <MultiChoice.Question>
-    ### Question 9 - Time complexity (Challenge)
-
-    What is the time complexity of the following function? You may assume the value of `n` is positive.
-
-    ```c:print_pairs.c
-    void print_pairs(int n) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j += i) {
-                printf(""%d %d\n"", i, j);
-            }
-        }
-    }
-    ```
-
-  </MultiChoice.Question>
-  <MultiChoice.Answer content="O(n)"/>
-  <MultiChoice.Answer isCorrect>
-    O(n * log(n))
     <MultiChoice.Explanation>
-      We firstly know that we will iterate through the outside loop `n` times, that gives us our `n` value.
-
-      The number of iterations of the inside loop is reduced on every iteration of `i`, hence the number of inside loop iterations is being reduced in a logarithmic fashion.
+    This function is used to find the remainder of a division, hence the number of steps will be how many times `m` goes into `n`.
     </MultiChoice.Explanation>
-
   </MultiChoice.Answer>
-  <MultiChoice.Answer content="O(n^1.5)" />
-  <MultiChoice.Answer content="O(n^2)"/>
 </MultiChoice>
 
 <MultiChoice>
@@ -388,8 +362,6 @@ Note that the theory questions in the real exam will not be multiple choice!
       <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-d.png" alt="Graph" width="100%" />
     </Centerer>
     <MultiChoice.Explanation>
-      Left rotation about 32. This is part 2 of the solution and the actual solution.
-
       After inserting 45, 43 becomes unbalanced (2 left vs 4 right).
 
       Also, its right child is left-heavy, so before doing a left rotation, we do a right rotation.
@@ -402,30 +374,6 @@ Note that the theory questions in the real exam will not be multiple choice!
     </Centerer>
     <MultiChoice.Explanation content="Some other balanced tree" />
   </MultiChoice.Answer>
-</MultiChoice>
-
-<MultiChoice>
-  <MultiChoice.Question>
-    ### Question 11 - Dijkstra
-
-    Using Dijkstra's algorithm, find the shortest path from A to all other vertices in this fully connected directed and weighted graph.
-
-    <Centerer>
-      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q11-dijk.png" alt="Graph" width="70%" />
-    </Centerer>
-
-    During this procedure, how many times is edge relaxation done towards vertex E? In other words, on how many occasions do we compare the current distance from A to E with a newly calculated distance from A to E?
-
-  </MultiChoice.Question>
-  <MultiChoice.Answer content="0"/>
-  <MultiChoice.Answer content="1"/>
-  <MultiChoice.Answer isCorrect>
-    2
-    <MultiChoice.Explanation>
-      Visit [here](https://github.com/dqna64/comp2521-revision-session-questions/blob/main/dijkstra.md) for an explanation as to how to get this answer.
-    </MultiChoice.Explanation>
-  </MultiChoice.Answer>
-  <MultiChoice.Answer content="3"/>
 </MultiChoice>
 
 <MultiChoice>
@@ -511,7 +459,7 @@ Note that the theory questions in the real exam will not be multiple choice!
   <MultiChoice.Answer content="0" />
   <MultiChoice.Answer content="1" />
   <MultiChoice.Answer content="2" />
-  <MultiChoice.Answer>
+  <MultiChoice.Answer isCorrect>
     3
     <MultiChoice.Explanation>
       The Kruskal's algorithm is a greedy algorithm that finds the minimum spanning tree of a graph. It works by choosing edges in sorted order by lowest weight (unless it forms a cycle) until all vertices are included.
@@ -622,3 +570,60 @@ Note that the theory questions in the real exam will not be multiple choice!
   <MultiChoice.Answer content="rotate_right(5), rotate_left(3)"/>
   <MultiChoice.Answer content="rotate_right(6), rotate_left(2)" />
 </MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Question 11 - Dijkstra (Challenge)
+
+    Using Dijkstra's algorithm, find the shortest path from A to all other vertices in this fully connected directed and weighted graph.
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q11-dijk.png" alt="Graph" width="70%" />
+    </Centerer>
+
+    During this procedure, how many times is edge relaxation done towards vertex E? In other words, on how many occasions do we compare the current distance from A to E with a newly calculated distance from A to E?
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="0"/>
+  <MultiChoice.Answer content="1"/>
+  <MultiChoice.Answer isCorrect>
+    2
+    <MultiChoice.Explanation>
+      Visit [here](https://github.com/dqna64/comp2521-revision-session-questions/blob/main/dijkstra.md) for an explanation as to how to get this answer.
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="3"/>
+</MultiChoice>
+
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Question 9 - Time complexity (Challenge)
+
+    What is the time complexity of the following function? You may assume the value of `n` is positive.
+
+    ```c:print_pairs.c
+    void print_pairs(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j += i) {
+                printf("%d %d\n", i, j);
+            }
+        }
+    }
+    ```
+
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="O(n)"/>
+  <MultiChoice.Answer isCorrect>
+    O(n * log(n))
+    <MultiChoice.Explanation>
+      We firstly know that we will iterate through the outside loop `n` times, that gives us our `n` value.
+
+      The number of iterations of the inside loop is reduced on every iteration of `i`, hence the number of inside loop iterations is being reduced in a logarithmic fashion.
+    </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="O(n^1.5)" />
+  <MultiChoice.Answer content="O(n^2)"/>
+</MultiChoice>
+
