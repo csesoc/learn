@@ -185,9 +185,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
           }}>
           {/* TODO: display featured content here, not first 3 articles */}
           {articles.slice(0, 3).map((article: Article, index: number) => (
-            <Box>
-              <ArticleCard key={index} article={article} />
-            </Box>
+            <ArticleCard key={index} article={article} />
           ))}
         </Flex>
 
