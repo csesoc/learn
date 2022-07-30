@@ -1,0 +1,134 @@
+---
+title: Multi Choice Demo
+date: 2022-07-25
+desc: Demo for the MultiChoice component.
+tags:
+  - 'ReactJS'
+author: Terence Lau
+coverPhoto: '/images/generic/alexandru-acea-XEB8y0nRRP4-unsplash.jpg'
+---
+
+Can you solve these questions?
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Question 1
+    
+    What is the time complexity of this algorithm?
+    
+    ![A placeholder image meant to show an algorithm](/images/comp2521-revision/0.png)
+  </MultiChoice.Question>
+  <MultiChoice.Answer content="O(n^2)" isCorrect>
+    <MultiChoice.Explanation content="There is a for-loop within a for-loop." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="O(n)">
+    <MultiChoice.Explanation content="Each iteration of the outer for-loop is an O(n) process." />
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="This answer has no explanation." />
+  <MultiChoice.Answer content="This answer has a very long explanation." isCorrect>
+    <MultiChoice.Explanation>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet tristique nunc et posuere. Aenean ullamcorper ex non ipsum congue elementum. Integer pellentesque, velit non aliquam imperdiet, mi neque pharetra ante, commodo luctus erat ex ultrices nulla. Nam justo est, consectetur eget feugiat eu, volutpat quis leo. Donec lectus dolor, laoreet ac urna non, hendrerit elementum nibh. Ut libero nunc, efficitur eu tincidunt eleifend, interdum eu arcu. Fusce non elit sed elit tempor tempor. Sed lobortis sem nec malesuada ornare. Quisque eu tincidunt lacus. Pellentesque porta maximus bibendum.
+      
+      Duis consectetur efficitur nulla sit amet dapibus. Quisque sagittis, purus et eleifend dignissim, quam ante facilisis dolor, quis sodales nunc odio at nisi. Mauris id sapien ac erat tempus tristique. Duis maximus pharetra mauris, in efficitur nunc dictum eget. Cras eget dolor non mi ornare feugiat sed vitae libero. Nam faucibus scelerisque erat. Nulla eleifend tellus elit, eget facilisis justo dapibus vitae. Fusce tempus sapien et dapibus tempus. Maecenas blandit tempor molestie.
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Graphs: Question 1
+    
+    Which satellite telescope is shaped like this graph?
+    
+    ![A graph](/images/comp2521-revision/0.png)
+  </MultiChoice.Question>
+  <MultiChoice.Answer isCorrect>
+    This answer is correct.
+    
+    It has multiple paragraphs.
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="Short explanations can have multiple paragraphs.">
+    <MultiChoice.Explanation>
+      Only the first one is shown by default.
+      
+      The rest are hidden by default.
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="This answer is also correct." isCorrect />
+  <MultiChoice.Answer>
+    ![A graph](/images/comp2521-revision/0.png)
+  </MultiChoice.Answer>
+</MultiChoice>
+
+<MultiChoice>
+  <MultiChoice.Question>
+    ### Graphs: Question 2
+    
+    What is the following graph whispering?
+    
+    ![A graph](/images/comp2521-revision/0.png)
+  </MultiChoice.Question>
+
+  <MultiChoice.Answer>
+    The explantation contains an image and mdx component.
+    <MultiChoice.Explanation>
+      Here's the image
+      
+      ![A graph](/images/comp2521-revision/0.png)
+
+      Here's the Callout component.
+
+      <Callout type="note">
+      The tutorial starts getting a bit tricky here. If you get lost at any point, take a look at the sample implementation at [github.com/dqna64/reactjs-project-tutorial/tree/full-walkthrough](https://github.com/dqna64/reactjs-project-tutorial/tree/full-walkthrough).
+      </Callout>
+
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer isCorrect>
+    Test explanation preview: If an mdx comopnent in explanation comes first, the preview will find the first text node in its component tree.
+    <MultiChoice.Explanation>
+      <Callout type="note">
+      The tutorial starts getting a bit tricky here. If you get lost at any point, take a look at the sample implementation at [github.com/dqna64/reactjs-project-tutorial/tree/full-walkthrough](https://github.com/dqna64/reactjs-project-tutorial/tree/full-walkthrough).
+      </Callout>
+
+      That was the Callout component. Hopefully it was previewed properly!
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer isCorrect>
+    Test explanation preview: The explantation contains an image and mdx component, but it is in the same component (not separated by newline).
+    <MultiChoice.Explanation>
+      Here's the image
+      ![A graph](/images/comp2521-revision/0.png)
+
+      ANother para
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer isCorrect>
+    Test explanation preview: Start with two imgs not separated into separate paragraphs.
+    <MultiChoice.Explanation>
+      ![A graph](/images/comp2521-revision/0.png)
+      ![A another graph](/images/comp2521-revision/0.png)
+
+      Extra paragraph
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+  <MultiChoice.Answer isCorrect>
+    Test explanation preview: Start with two mdx components not separated into separate paragraphs.
+    <MultiChoice.Explanation>
+      <Callout type="note">
+      Important note.
+
+      Read carefully.
+      It is important.
+      </Callout>
+      <Callout type="warning">
+      Important wrarning.
+
+      Read carefully.
+      It is important.
+      </Callout>
+
+      Extra paragraph
+    </MultiChoice.Explanation>
+  </MultiChoice.Answer>
+</MultiChoice>
