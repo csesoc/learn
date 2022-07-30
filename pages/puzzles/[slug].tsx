@@ -46,41 +46,29 @@ export async function getStaticProps({ params }: { params: Puzzle }) {
   }
 }
 
-function ArticleHeader({ puzzle }: { puzzle: Puzzle }) {
-  return (
-    <Flex
-      css={{
-        flexDirection: 'column',
-        padding: '0 0 1.4rem',
-        borderBottom: 'solid 0.5px'
-      }}>
-      <Text
-        size="headline"
-        css={{ color: '$slate12', fontWeight: '600', paddingTop: '$2' }}>
-        {puzzle.title}
-      </Text>
-      <Text size="title-sm" css={{ color: '$slate12', paddingTop: '$1' }}>
-        {puzzle.desc}
-      </Text>
-      <Flex
-        css={{
-          flexDirection: 'row',
-          gap: '0.75rem',
-          alignItems: 'center',
-          paddingTop: '$5'
-        }}></Flex>
-    </Flex>
-  )
-}
-
-const ArticleLayout = ({ puzzle }: { puzzle: Puzzle }) => {
+const PuzzleLayout = ({ puzzle }: { puzzle: Puzzle }) => {
   const MDXContent = useMDXComponent(puzzle.body.code)
 
   return (
-    <Flex css={{ justifyContent: 'center', paddingTop: '$6' }}>
+    <Flex
+      css={{
+        justifyContent: 'center',
+        padding: '$6',
+        flexDirection: 'column'
+      }}>
       <Head>
         <title>{puzzle.title}</title>
       </Head>
+      <Text
+        size="headline"
+        css={{
+          color: '$slate12',
+          fontWeight: '600',
+          paddingTop: '$2',
+          alignSelf: 'center'
+        }}>
+        {puzzle.title}
+      </Text>
       <Box css={{ paddingTop: '$2' }}>
         <Text>
           <MDXContent components={components} />
@@ -90,4 +78,4 @@ const ArticleLayout = ({ puzzle }: { puzzle: Puzzle }) => {
   )
 }
 
-export default ArticleLayout
+export default PuzzleLayout
