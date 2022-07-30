@@ -1,0 +1,114 @@
+---
+title: Graph Cycle Detection
+description: Given an undirected, unweighted graph with at least one edge, write a function that returns true if the graph contains a cycle, and false otherwise.
+class: COMP2521
+---
+
+Given an undirected, unweighted graph with at least one edge, write a function that returns true if the graph contains a cycle, and false otherwise.
+
+Implement the function `graphDetectCycle` in `graph_detect_cycle.c`. This function will then be called by the `main` function in `test_graph_detect_cycle.c`.
+
+To run your solution:
+
+```bash
+$ dcc test_graph_detect_cycle.c graph_detect_cycle.c Graph.c -o test_graph_detect_cycle
+$ ./test_graph_detect_cycle
+```
+
+## Input format
+
+The program will read from stdin.
+
+The first line should be `n` the number of vertices in your graph.
+
+The following lines (until EOF) contains the two vertices connected by an edge. Vertices are numbered `0` to `n-1` inclusive.
+
+E.g `0 <-> 1` for an edge between vertices 0 and 1.
+
+## Output format
+
+The program will write to stdout.
+
+It will print `Has cycle` if your `graphDetectCycle` function returns true, and `Does not have cycle` if it returns false.
+
+## Sample 1
+
+Input:
+
+```bash
+3
+0 <-> 1
+1 <-> 2
+
+```
+
+Output:
+
+```bash
+Does not have cycle
+```
+
+Explanation: The graph `0 <-> 1 <-> 2` does not contain any cycles.
+
+## Sample 2
+
+Input:
+
+```bash
+3
+0 <-> 1
+1 <-> 2
+0 <-> 2
+
+```
+
+Output:
+
+```bash
+Has cycle
+```
+
+Explanation: The graph contains a cycle for vertices 0, 1, 2.
+
+## Sample 3
+
+Input:
+
+```bash
+6
+0 <-> 1
+1 <-> 2
+2 <-> 3
+2 <-> 4
+2 <-> 5
+
+```
+
+Output:
+
+```bash
+Does not have cycle
+```
+
+Explanation: The graph does not contain any cycles.
+
+## Assumptions
+
+- Graphs are undirected.
+- Graphs are unweighted.
+- Graphs are connected.
+- Graphs are not empty.
+- Graphs have no self-loops.
+- Graphs have no multiple edges.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash
+$ 2521 autotest graph_detect_cycle
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/dqna64/comp2521-revision-session/blob/main/problems/graph_detect_cycle/solution/graph_detect_cycle.c).
