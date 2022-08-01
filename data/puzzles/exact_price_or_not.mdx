@@ -1,0 +1,114 @@
+---
+title: Exact Price or Not?
+desc: Jack wants to pay for an item at the convenient store.
+class: COMP2521
+---
+
+Jack wants to pay for an item at the convenient store. However, this particular store does not give change, i.e., the amount you pay must be the exact amount of the item you are buying, and only takes exactly three coins. Luckily, Jack brought a lot of coins. See if Jack can get the exact price for a given item price `p` he wants using exactly three coins.
+
+Complete the `sumCoins` function and return `1` if it's possible and `0` is it isn't.
+
+To run your solution:
+
+```bash
+$ gcc test_exact_price_or_not.c exact_price_or_not.c -o test_exact_price_or_not
+$ ./test_exact_price_or_not
+```
+
+## Input format
+
+The program will read from stdin.
+
+The price of the item is given as an argument `p`. All Jack's coins are given in an array `coins` with a given length of `n`.
+
+## Output format
+
+The program will write to stdout.
+
+Return `1` from the `sumCoins` function if Jack can find the right combination of three coins. If he cannot, then return `0`.
+
+## Sample 1
+
+Input:
+
+```bash
+150
+3
+50
+50
+50
+
+```
+
+Output:
+
+```bash
+1
+
+```
+
+Explanation: The price of the item was 1.50. There are three 50c coins so you can get 1.50 by choosing all three 50c coins.
+
+## Sample 2
+
+Input:
+
+```bash
+400
+6
+50
+10
+20
+10
+100
+200
+
+```
+
+Output:
+
+```bash
+0
+
+```
+
+Explanation: There is no combination of three coins that add up to 4.
+
+## Sample 3
+
+Input:
+
+```bash
+500
+3
+200
+200
+200
+
+```
+
+Output:
+
+```bash
+0
+
+```
+
+Explanation: Even thought we can get more than 5 with our three 2 coins, it is not the exact change for 5 so we return 0.
+
+## Assumptions
+
+- The values of the `p` and all values in the array `coins` are positive
+- `n` will always be equal or larger than 3
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash
+$ 2521 autotest exact_price_or_not
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/dqna64/comp2521-revision-session/blob/main/problems/exact_price_or_not/solution/exact_price_or_not.c).

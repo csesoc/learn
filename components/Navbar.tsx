@@ -56,6 +56,17 @@ export default function Navbar() {
             Creators
           </Text>
         </Link>
+        <Link href="/puzzles">
+          <Text
+            as="a"
+            size="label-lg"
+            css={{
+              color: '$slate12',
+              cursor: 'pointer'
+            }}>
+            Puzzles
+          </Text>
+        </Link>
         <Text
           as="a"
           size="label-lg"

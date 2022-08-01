@@ -62,9 +62,43 @@ export const Article = defineDocumentType(() => ({
   computedFields
 }))
 
+export const Puzzle = defineDocumentType(() => ({
+  name: 'Puzzle',
+  filePathPattern: `puzzles/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the puzzle',
+      required: true
+    },
+    desc: {
+      type: 'string',
+      description: 'One sentence that summarises the puzzle objective.',
+      required: true
+    },
+    class: {
+      type: 'string',
+      description: 'The class the puzzle relates to',
+      required: true
+    }
+  },
+  computedFields
+}))
+
+export const BlockContent = defineDocumentType(() => ({
+  name: 'BlockContent',
+  filePathPattern: `block-content/*.mdx`,
+  contentType: 'mdx',
+  fields: {},
+  computedFields: {
+    slug: computedFields.slug
+  }
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Article],
+  documentTypes: [Article, Puzzle, BlockContent],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
@@ -72,7 +106,7 @@ export default makeSource({
       rehypeHighlight,
       rehypePrismPlus,
       rehypeAutolinkHeadings,
-      rehypeSlug,
+      rehypeSlug
     ]
   }
 })
