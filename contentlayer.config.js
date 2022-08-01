@@ -81,6 +81,11 @@ export const Puzzle = defineDocumentType(() => ({
       type: 'string',
       description: 'The class the puzzle relates to',
       required: true
+    },
+    difficulty: {
+      type: 'number',
+      description: 'The difficulty of the puzzle',
+      required: true
     }
   },
   computedFields
