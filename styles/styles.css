@@ -31,5 +31,5 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding-inline: 12rem;
 }

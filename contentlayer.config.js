@@ -86,9 +86,19 @@ export const Puzzle = defineDocumentType(() => ({
   computedFields
 }))
 
+export const BlockContent = defineDocumentType(() => ({
+  name: 'BlockContent',
+  filePathPattern: `block-content/*.mdx`,
+  contentType: 'mdx',
+  fields: {},
+  computedFields: {
+    slug: computedFields.slug
+  }
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Article, Puzzle],
+  documentTypes: [Article, Puzzle, BlockContent],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
