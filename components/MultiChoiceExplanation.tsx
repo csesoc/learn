@@ -25,7 +25,6 @@ const Explanation = ({ content, children }: ExplanationProps) => {
     )
   }
 
-  console.log('children', children)
   const traverse = (
     ele: JSX.Element[] | JSX.Element | string,
     callback: (ele: string) => void
@@ -40,7 +39,10 @@ const Explanation = ({ content, children }: ExplanationProps) => {
       ele.forEach((subEle) => traverse(subEle, callback))
     } else if (React.isValidElement(ele)) {
       // console.log("ele is react element:", ele)
-      if (ele.props.includes('children')) {
+
+      const props = ele.props as any
+
+      if (props.children) {
         // Only if the props of this react element has a children prop.
         // Might not in some cases, e.g. when ele.type === "img"
         traverse((ele as JSX.Element).props.children, callback)
