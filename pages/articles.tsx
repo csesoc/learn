@@ -10,7 +10,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import { styled } from '../stitches.config'
 import { MagnifyingGlass } from 'phosphor-react'
-import { ArticleRow } from './ArticleRow'
+import { ArticleRow } from '../components/ArticleRow'
 
 export async function getStaticProps() {
   const articles = allArticles.sort((a, b) => {
