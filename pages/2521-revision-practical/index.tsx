@@ -1,5 +1,6 @@
 import { Card } from '@modulz/design-system'
 import ArticleLayout from 'components/ArticleLayout'
+import { ProblemCard } from 'components/ProblemCard'
 import { Tag } from 'components/Tag'
 import { allPuzzles, allBlockContents } from 'contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
@@ -30,11 +31,11 @@ const PuzzlesPage = ({
         <MDXContent />
         {puzzles?.map((puzzle) => (
           <Link href={`2521-revision-practical/${puzzle.slug}`} passHref key={puzzle.slug}>
-            <Card css={{ padding: '1rem', margin: '0.6rem 0' }}>
+            <ProblemCard>
               <h1>{puzzle.title}</h1>
               <Tag>Pain score: {puzzle.difficulty} 💀</Tag>
               <p>{puzzle.desc}</p>
-            </Card>
+            </ProblemCard>
           </Link>
         ))}
       </ArticleLayout>
