@@ -26,10 +26,3 @@ a {
 a:hover {
   color: #69a2f3;
 }
-
-.title-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-inline: 12rem;
-}

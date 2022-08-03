@@ -8,7 +8,7 @@ import { composeEventHandlers } from '@radix-ui/primitive'
 import debounce from 'lodash.debounce'
 import smoothscroll from 'smoothscroll-polyfill'
 
-import { Article } from 'contentlayer/generated'
+import { ArticleType } from 'contentlayer/generated'
 import ArticleCard from './ArticleCard'
 import { CaretLeft, CaretRight } from 'phosphor-react'
 
@@ -227,7 +227,7 @@ export function ArticlesCarousel(props) {
               pr: '$$gap'
             }
           }}>
-          {props.articles.map((article: Article, index: number) => (
+          {props.articles.map((article: ArticleType, index: number) => (
             <CarouselSlide key={index}>
               <ArticleCard article={article} />
             </CarouselSlide>

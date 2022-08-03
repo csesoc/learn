@@ -1,6 +1,6 @@
 ---
 title: BST Difference
-desc: built diff 🦾
+desc: Find the mininum distance between any two numbers in a binary search tree.
 class: COMP2521
 difficulty: 4
 ---
@@ -13,7 +13,7 @@ function will then be called by the `main` function in `bstree_difference.c`.
 
 To run your solution:
 
-```bash
+```bash:~/2521-revision/bstree_difference
 $ make
 $ ./test_bstree_difference
 ```
@@ -33,13 +33,13 @@ by the return value of the call made to `bstree_difference`.
 
 Input:
 
-```
+```bash:~/2521-revision/bstree_difference
 11 7 4 20 18 23 30
 ```
 
 Output:
 
-```
+```bash:~/2521-revision/bstree_difference
 Minimum difference: 2
 ```
 
@@ -47,7 +47,7 @@ Explanation:
 
 The BST is
 
-```
+```bash:~/2521-revision/bstree_difference
      11
     /  \
    /    \
@@ -71,7 +71,7 @@ and the minimum difference between any two different values in it is 20 - 18 = 2
 
 When you think your program is working, you can use CSE autotest to test your solution.
 
-```bash
+```bash:~/2521-revision/bstree_difference
 $ 2521 autotest bstree_difference
 ```
 

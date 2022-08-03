@@ -1,6 +1,6 @@
 ---
 title: Graph Cycle Detection
-desc: Given an undirected, unweighted graph with at least one edge, write a function that returns true if the graph contains a cycle, and false otherwise.
+desc: Determine whether a graph has a cycle.
 class: COMP2521
 difficulty: 5
 ---
@@ -11,7 +11,7 @@ Implement the function `graphDetectCycle` in `graph_detect_cycle.c`. This functi
 
 To run your solution:
 
-```bash
+```bash:~/2521-revision/graph_detect_cycle
 $ dcc test_graph_detect_cycle.c graph_detect_cycle.c Graph.c -o test_graph_detect_cycle
 $ ./test_graph_detect_cycle
 ```
@@ -36,7 +36,7 @@ It will print `Has cycle` if your `graphDetectCycle` function returns true, and 
 
 Input:
 
-```bash
+```bash:~/2521-revision/graph_detect_cycle
 3
 0 <-> 1
 1 <-> 2
@@ -45,7 +45,7 @@ Input:
 
 Output:
 
-```bash
+```bash:~/2521-revision/graph_detect_cycle
 Does not have cycle
 ```
 
@@ -55,7 +55,7 @@ Explanation: The graph `0 <-> 1 <-> 2` does not contain any cycles.
 
 Input:
 
-```bash
+```bash:~/2521-revision/graph_detect_cycle
 3
 0 <-> 1
 1 <-> 2
@@ -65,7 +65,7 @@ Input:
 
 Output:
 
-```bash
+```bash:~/2521-revision/graph_detect_cycle
 Has cycle
 ```
 
@@ -75,7 +75,7 @@ Explanation: The graph contains a cycle for vertices 0, 1, 2.
 
 Input:
 
-```bash
+```bash:~/2521-revision/graph_detect_cycle
 6
 0 <-> 1
 1 <-> 2
@@ -87,7 +87,7 @@ Input:
 
 Output:
 
-```bash
+```bash:~/2521-revision/graph_detect_cycle
 Does not have cycle
 ```
 
@@ -106,7 +106,7 @@ Explanation: The graph does not contain any cycles.
 
 When you think your program is working, you can use CSE autotest to test your solution.
 
-```bash
+```bash:~/2521-revision/graph_detect_cycle
 $ 2521 autotest graph_detect_cycle
 ```
 

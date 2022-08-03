@@ -1,4 +1,4 @@
-import { Article } from 'contentlayer/generated'
+import { ArticleType } from 'contentlayer/generated'
 import { Box } from './Box'
 import { Card } from './Card'
 import { Text } from './Text'
@@ -10,7 +10,7 @@ import { format, parseISO } from 'date-fns'
 import { Tag } from 'components/Tag'
 
 interface Props {
-  article: Article
+  article: ArticleType
 }
 
 const ArticleCard = ({ article }: Props) => {

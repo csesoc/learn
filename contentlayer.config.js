@@ -19,8 +19,8 @@ const computedFields = {
   }
 }
 
-export const Article = defineDocumentType(() => ({
-  name: 'Article',
+export const ArticleType = defineDocumentType(() => ({
+  name: 'ArticleType',
   filePathPattern: `articles/*.mdx`,
   contentType: 'mdx',
   fields: {
@@ -64,7 +64,7 @@ export const Article = defineDocumentType(() => ({
 
 export const Puzzle = defineDocumentType(() => ({
   name: 'Puzzle',
-  filePathPattern: `puzzles/*.mdx`,
+  filePathPattern: `2521-revision-practical/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: {
@@ -103,7 +103,7 @@ export const BlockContent = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Article, Puzzle, BlockContent],
+  documentTypes: [ArticleType, Puzzle, BlockContent],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

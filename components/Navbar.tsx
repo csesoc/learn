@@ -56,7 +56,7 @@ export default function Navbar() {
             Creators
           </Text>
         </Link>
-        <Link href="/puzzles">
+        <Link href="/2521-revision-practical">
           <Text
             as="a"
             size="label-lg"
@@ -64,7 +64,7 @@ export default function Navbar() {
               color: '$slate12',
               cursor: 'pointer'
             }}>
-            Puzzles
+            COMP2521
           </Text>
         </Link>
         <Text

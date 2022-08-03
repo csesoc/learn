@@ -3,7 +3,7 @@ import { Button } from 'components/Button'
 import { Card } from 'components/Card'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
-import { allArticles } from 'contentlayer/generated'
+import { allArticleTypes } from 'contentlayer/generated'
 import { compareAsc, compareDesc } from 'date-fns'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -13,7 +13,7 @@ import { DiscordLogo, FacebookLogo, InstagramLogo, ArrowRight } from 'phosphor-r
 import { ArticlesCarousel } from 'components/ArticlesCarousel'
 
 export async function getStaticProps() {
-  const articles = allArticles.sort((a, b) => {
+  const articles = allArticleTypes.sort((a, b) => {
     return compareAsc(new Date(b.date), new Date(a.date))
   })
   return { props: { articles } }

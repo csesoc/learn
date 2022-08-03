@@ -1,6 +1,6 @@
 ---
 title: Exact Price or Not?
-desc: Jack wants to pay for an item at the convenient store.
+desc: Determine whether a price can be paid for using exactly three coins.
 class: COMP2521
 difficulty: 2
 ---
@@ -11,8 +11,8 @@ Complete the `sumCoins` function and return `1` if it's possible and `0` is it i
 
 To run your solution:
 
-```bash
-$ gcc test_exact_price_or_not.c exact_price_or_not.c -o test_exact_price_or_not
+```bash:~/2521-revision/exact_price_or_not
+$ make
 $ ./test_exact_price_or_not
 ```
 
@@ -32,7 +32,7 @@ Return `1` from the `sumCoins` function if Jack can find the right combination o
 
 Input:
 
-```bash
+```bash:~/2521-revision/exact_price_or_not
 150
 3
 50
@@ -43,7 +43,7 @@ Input:
 
 Output:
 
-```bash
+```bash:~/2521-revision/exact_price_or_not
 1
 
 ```
@@ -54,7 +54,7 @@ Explanation: The price of the item was 1.50. There are three 50c coins so you ca
 
 Input:
 
-```bash
+```bash:~/2521-revision/exact_price_or_not
 400
 6
 50
@@ -68,7 +68,7 @@ Input:
 
 Output:
 
-```bash
+```bash:~/2521-revision/exact_price_or_not
 0
 
 ```
@@ -79,7 +79,7 @@ Explanation: There is no combination of three coins that add up to 4.
 
 Input:
 
-```bash
+```bash:~/2521-revision/exact_price_or_not
 500
 3
 200
@@ -90,7 +90,7 @@ Input:
 
 Output:
 
-```bash
+```bash:~/2521-revision/exact_price_or_not
 0
 
 ```
@@ -106,7 +106,7 @@ Explanation: Even thought we can get more than 5 with our three 2 coins, it is n
 
 When you think your program is working, you can use CSE autotest to test your solution.
 
-```bash
+```bash:~/2521-revision/exact_price_or_not
 $ 2521 autotest exact_price_or_not
 ```
 

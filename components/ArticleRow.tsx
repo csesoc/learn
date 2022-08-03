@@ -2,12 +2,12 @@ import Avatar from 'boring-avatars'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
 import { Tag } from 'components/Tag'
-import { Article } from 'contentlayer/generated'
+import { ArticleType } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export function ArticleRow(article: Article) {
+export function ArticleRow(article: ArticleType) {
   return (
     <Flex direction="row" css={{ py: '$4' }}>
       <Flex direction="column" justify="between" css={{ flex: 3 }}>

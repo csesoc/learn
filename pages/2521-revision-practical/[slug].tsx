@@ -12,7 +12,9 @@ import FileName from 'components/Filename'
 import Centerer from 'components/Centerer'
 import MultiChoice from 'components/MultiChoice'
 import Link from 'next/link'
-import { ArrowDown } from 'phosphor-react'
+import { ArrowDown, ArrowLeft } from 'phosphor-react'
+import ArticleLayout from 'components/ArticleLayout'
+import { Button } from 'components/Button'
 
 const defaultComponents = {
   Image,
@@ -50,15 +52,15 @@ const PuzzleLayout = ({ puzzle }: { puzzle: Puzzle }) => {
   const MDXContent = useMDXComponent(puzzle.body.code)
 
   return (
-    <Flex
-      css={{
-        justifyContent: 'center',
-        padding: '$6',
-        flexDirection: 'column'
-      }}>
+    <ArticleLayout>
       <Head>
         <title>{puzzle.title}</title>
       </Head>
+      <Link href="/2521-revision-practical">
+      <Button css={{padding: '3px 14px' , borderRadius: '100vh', width:"fit-content"}}>
+        <ArrowLeft />Back
+      </Button>
+      </Link>
       <Text
         size="headline"
         css={{
@@ -74,7 +76,7 @@ const PuzzleLayout = ({ puzzle }: { puzzle: Puzzle }) => {
           <MDXContent components={components} />
         </Text>
       </Box>
-    </Flex>
+    </ArticleLayout>
   )
 }
 

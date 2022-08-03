@@ -3,7 +3,7 @@ import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
 import { Button } from 'components/Button'
 import ArticleCard from 'components/ArticleCard'
-import { allArticles, Article } from 'contentlayer/generated'
+import { ArticleType, allArticleTypes } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { NextPage } from 'next'
 import Head from 'next/head'
@@ -13,10 +13,10 @@ import { MagnifyingGlass } from 'phosphor-react'
 import { ArticleRow } from '../components/ArticleRow'
 
 export async function getStaticProps() {
-  const articles = allArticles.sort((a, b) => {
+  const articles = allArticleTypes.sort((a, b) => {
     return compareDesc(new Date(b.date), new Date(a.date))
   })
-  const tagLists = allArticles.map((article) =>
+  const tagLists = allArticleTypes.map((article) =>
     article.tags ? article.tags : []
   )
   const flattenedTags = tagLists.flat(1)
@@ -39,6 +39,12 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
   const [currentSearch, setCurrentSearch] = useState('')
   const [filteredArticles, setFilteredArticles] = useState(articles)
 
+  const featuredArticleTitles = [
+    'COMP2521 Revision Theory Questions',
+    'ReactJS Project Tutorial: Introduction',
+    'Backend Project Tutorial 1 - Creating a simple Express.js backend'
+  ]
+
   const updateTag = (tag: string) => {
     setCurrentTag(tag)
     updateArticles(tag, currentSearch)
@@ -52,14 +58,14 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
   const updateArticles = (tag: string, search: string) => {
     if (tag === 'All Topics') {
       setFilteredArticles(
-        articles.filter((article: Article) =>
+        articles.filter((article: ArticleType) =>
           article.title.toLowerCase().includes(search)
         )
       )
     } else {
       setFilteredArticles(
         articles.filter(
-          (article: Article) =>
+          (article: ArticleType) =>
             article.title.toLowerCase().includes(search) &&
             article.tags &&
             article.tags.includes(tag)
@@ -113,8 +119,9 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
             flexWrap: 'nowrap',
             gap: '$4'
           }}>
-          {/* TODO: display featured content here, not first 3 articles */}
-          {articles.slice(0, 3).map((article: Article, index: number) => (
+          {/* Display featured articles here */}
+            
+          {articles.filter((article) => featuredArticleTitles.includes(article.title)).map((article: ArticleType, index: number) => (
             <ArticleCard key={index} article={article} />
           ))}
         </Flex>
@@ -193,7 +200,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
                 placeholder="Search by title..."
               />
             </Flex>
-            {filteredArticles.map((article: Article, index: number) => (
+            {filteredArticles.map((article: ArticleType, index: number) => (
               <ArticleRow key={index} {...article} />
             ))}
           </Flex>

@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import ArticleLayout from 'components/ArticleLayout'
 import { Box } from 'components/Box'
 import { Button } from 'components/Button'
 import { Card, CardSmall } from 'components/Card'
@@ -10,11 +11,11 @@ import { ArrowRight } from 'phosphor-react'
 
 const Creators: NextPage = () => {
   return (
-    <Flex css={{ justifyContent: 'center', paddingTop: '$6' }}>
+    <ArticleLayout>
       <Head>
         <title>Creators - CSESoc</title>
       </Head>
-      <Box as="article" css={{ alignItems: 'center', width: '75%' }}>
+      <Box as="article" >
         <Box
           as="main"
           css={{ flexDirection: 'column', alignItems: 'center', gap: '$3' }}>
@@ -272,7 +273,7 @@ const Creators: NextPage = () => {
           </Text>
         </Flex>
       </Box>
-    </Flex>
+    </ArticleLayout>
   )
 }
 

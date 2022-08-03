@@ -1,7 +1,7 @@
 import Avatar from 'boring-avatars'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
-import { allArticles, Article } from 'contentlayer/generated'
+import { allArticleTypes, ArticleType } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Head from 'next/head'
@@ -13,6 +13,8 @@ import Centerer from 'components/Centerer'
 import MultiChoice from 'components/MultiChoice'
 import Link from 'next/link'
 import { ArrowDown } from 'phosphor-react'
+import { styled } from '@stitches/react'
+import ArticleLayout from 'components/ArticleLayout'
 
 const defaultComponents = {
   Image,
@@ -30,15 +32,15 @@ const defaultComponents = {
 const components = { ...defaultComponents }
 
 export async function getStaticPaths() {
-  const paths = allArticles.map((a) => ({ params: { slug: a.slug } }))
+  const paths = allArticleTypes.map((a) => ({ params: { slug: a.slug } }))
   return {
     paths,
     fallback: false
   }
 }
 
-export async function getStaticProps({ params }: { params: Article }) {
-  const article = allArticles.find((article) => article.slug === params.slug)
+export async function getStaticProps({ params }: { params: ArticleType }) {
+  const article = allArticleTypes.find((article) => article.slug === params.slug)
   return {
     props: {
       article
@@ -46,7 +48,7 @@ export async function getStaticProps({ params }: { params: Article }) {
   }
 }
 
-function ArticleHeader({ article }: { article: Article }) {
+function ArticleHeader({ article }: { article: ArticleType }) {
   return (
     <Flex
       css={{
@@ -90,18 +92,19 @@ function ArticleHeader({ article }: { article: Article }) {
   )
 }
 
-const ArticleLayout = ({ article }: { article: Article }) => {
+
+const Article = ({ article }: { article: ArticleType }) => {
   const MDXContent = useMDXComponent(article.body.code)
 
   return (
-    <Flex css={{ justifyContent: 'center', paddingTop: '$6' }}>
+    <ArticleLayout>
       <Head>
         <title>{article.title}</title>
       </Head>
       <Box
         as="article"
         css={{
-          width: '75%'
+          width: '100%',
         }}>
         <ArticleHeader article={article} />
         <Box css={{ paddingTop: '$2' }}>
@@ -110,8 +113,8 @@ const ArticleLayout = ({ article }: { article: Article }) => {
           </Text>
         </Box>
       </Box>
-    </Flex>
+    </ArticleLayout>
   )
 }
 
-export default ArticleLayout
+export default Article
