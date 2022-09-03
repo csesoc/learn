@@ -1,0 +1,11 @@
+.layer {
+        display: block;
+        content: "";
+        background-color: black;
+        width: 100%;
+        height: 3px;
+    }
+
+.topBun #cross {
+    transform: rotateZ(45deg);
+}
