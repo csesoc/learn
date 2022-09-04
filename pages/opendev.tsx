@@ -354,8 +354,8 @@ const OpenDevTwo: NextPage = () => {
           <Box css={{ width: '75%', margin: '0 auto' }}>
             <Image
               src="/images/opendev/mongo-express.png"
-              width="860"
-              height="404"
+              width="837"
+              height="340"
               objectFit="cover"
             />
           </Box>
