@@ -119,11 +119,11 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
             flexWrap: 'nowrap',
             gap: '$4'
           }}>
-          {/* Display featured articles here */}
-            
-          {articles.filter((article) => featuredArticleTitles.includes(article.title)).map((article: ArticleType, index: number) => (
-            <ArticleCard key={index} article={article} />
-          ))}
+          {articles
+            .filter((article) => featuredArticleTitles.includes(article.title))
+            .map((article: ArticleType, index: number) => (
+              <ArticleCard key={index} article={article} />
+            ))}
         </Flex>
 
         {/* <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
