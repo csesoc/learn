@@ -56,6 +56,17 @@ export default function Navbar() {
             Creators
           </Text>
         </Link>
+        <Link href="/opendev">
+          <Text
+            as="a"
+            size="label-lg"
+            css={{
+              color: '$slate12',
+              cursor: 'pointer'
+            }}>
+            Open Dev
+          </Text>
+        </Link>
         <Link href="/2521-revision-practical">
           <Text
             as="a"
