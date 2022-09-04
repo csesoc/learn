@@ -9,6 +9,7 @@ import { Box } from 'components/Box'
 // import 'highlight.js/styles/github-dark.css';
 import 'styles/prism-theme.css'
 import 'styles/Article.css'
+import ArticleLayout from 'components/ArticleLayout'
 
 function MyApp({ Component, pageProps }: AppProps) {
   // TODO: Use return statement when dark theme is added
@@ -22,7 +23,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Box css={{ height: '100vh' }}>
         <Navbar />
-        <Component {...pageProps} />
+        <ArticleLayout>
+          {/* <Box css={{ height: '2.5rem' }} /> */}
+          <Component {...pageProps} />
+        </ArticleLayout>
         <Footer />
       </Box>
     </>
