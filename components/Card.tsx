@@ -22,9 +22,10 @@ export const CardSmall = styled('div', {
   marginTop: '2em',
   marginInline: '0.5em',
   padding: '$4',
-  height: '10em',
+  height: '15em',
   color: '$slate12',
   background: '$blue4',
   borderRadius: '$sm',
-  lineHeight: '1.3rem'
+  lineHeight: '1.3rem',
+  boxShadow: "0px 0px 39px -32px rgba(0,0,0,0.54)"
 })

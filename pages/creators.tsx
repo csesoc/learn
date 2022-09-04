@@ -18,18 +18,21 @@ const Creators: NextPage = () => {
   return (
     <ArticleLayout>
       <Head>
-        <title>Creators - CSESoc</title>
+        <title>Contribute - CSESoc</title>
       </Head>
       <Box as="article" >
         <Box
           as="main"
           css={{ flexDirection: 'column', alignItems: 'center', gap: '$3' }}>
           <Text
-            size="display"
             css={{
               color: '$slate12',
               paddingTop: '$6',
-              fontWeight: '600'
+              fontWeight: '600',
+              fontSize: '2.0rem',
+              "@media (min-width: 768px)": {
+                fontSize: '2.4rem',
+              }
             }}>
             Become a contributer to the Learning Platform
           </Text>
@@ -73,12 +76,15 @@ const Creators: NextPage = () => {
           </Flex>
          
           <Text
-            size="headline"
             css={{
               color: '$slate12',
               fontWeight: '600',
               marginTop: '$6',
-              marginBottom: '$3'
+              marginBottom: '$3',
+              fontSize: '1.4rem',
+              "@media (min-width: 768px)": {
+                fontSize: '1.8rem',
+              }
             }}>
             Why should you present your content on the CSESoc Learning Platform?
           </Text>
@@ -88,25 +94,53 @@ const Creators: NextPage = () => {
               flexWrap: 'wrap',
               justifyContent: 'space-around'
             }}>
-            <CardSmall>
-              Connect with CSESoc's global network of students, alumni and
+            <CardSmall css={{color: "#6a6a6a"}}>
+              {/* <Image src="/images/contribute/network-icon.png" width="200" height="200" objectFit='contain'/> */}
+              <Box css={{ margin: '0 auto 0.3rem' }}>
+                <Image
+                  src="/images/contribute/network-icon.png"
+                  width="90"
+                  height="90"
+                  objectFit="cover"
+                />
+              </Box>
+                Connect with CSESoc's global network of students, alumni and
               sponsors
             </CardSmall>
-            <CardSmall>
+            <CardSmall css={{color: "#6a6a6a"}}>
+              <Box css={{ margin: '0 auto 0.3rem' }}>
+                <Image
+                  src="/images/contribute/audience-icon.png"
+                  width="90"
+                  height="90"
+                  objectFit="cover"
+                />
+              </Box>
               Share your passion with over 10,000 keen and curious UNSW computing students
             </CardSmall>
-            <CardSmall>
-              Demostrate your technical expertise and communication skills to 
+            <CardSmall css={{color: "#6a6a6a"}}>
+              <Box css={{ margin: '0 auto 0.3rem' }}>
+                <Image
+                  src="/images/contribute/presentation-icon.png"
+                  width="90"
+                  height="90"
+                  objectFit="cover"
+                />
+              </Box>
+              Demonstrate your technical expertise and communication skills to 
               potential employers
             </CardSmall>
           </Flex>
           <Text
-            size="headline"
             css={{
               color: '$slate12',
               fontWeight: '600',
               marginTop: '$6',
-              marginBottom: '$3'
+              marginBottom: '$3',
+              fontSize: '1.4rem',
+              "@media (min-width: 768px)": {
+                fontSize: '1.8rem',
+              }
             }}>
             What kind of content are we looking for?
           </Text>
@@ -138,12 +172,15 @@ const Creators: NextPage = () => {
             to discuss your idea with the media team :D
           </Text>
           <Text
-            size="headline"
             css={{
               color: '$slate12',
               fontWeight: '600',
               marginTop: '$6',
-              marginBottom: '$3'
+              marginBottom: '$3',
+              fontSize: '1.4rem',
+              "@media (min-width: 768px)": {
+                fontSize: '1.8rem',
+              }
             }}>
             What format can you present your content in?
           </Text>
@@ -266,12 +303,15 @@ const Creators: NextPage = () => {
             let us know!
           </Text>
           <Text
-            size="headline"
             css={{
               color: '$slate12',
               fontWeight: '600',
               marginTop: '$6',
-              marginBottom: '$3'
+              marginBottom: '$3',
+              fontSize: '1.4rem',
+              "@media (min-width: 768px)": {
+                fontSize: '1.8rem',
+              }
             }}>
             What support will CSESoc provide to me for creating content?
           </Text>
