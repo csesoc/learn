@@ -8,25 +8,33 @@ import { Text } from 'components/Text'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { ArrowRight } from 'phosphor-react'
+import Image from 'next/image'
+import articleImg from 'pages/images/article_logo.png'
+import videoImg from 'pages/images/video_logo.png'
+import infographicImg from 'pages/images/infographic_logo.png'
+import liveImg from 'pages/images/live_logo.png'
 
 const Creators: NextPage = () => {
   return (
     <ArticleLayout>
       <Head>
-        <title>Creators - CSESoc</title>
+        <title>Contribute - CSESoc</title>
       </Head>
       <Box as="article" >
         <Box
           as="main"
           css={{ flexDirection: 'column', alignItems: 'center', gap: '$3' }}>
           <Text
-            size="display"
             css={{
               color: '$slate12',
               paddingTop: '$6',
-              fontWeight: '600'
+              fontWeight: '600',
+              fontSize: '2.0rem',
+              "@media (min-width: 768px)": {
+                fontSize: '2.4rem',
+              }
             }}>
-            Creating Content for the Learning Platform
+            Become a contributer to the Learning Platform
           </Text>
         </Box>
         <Flex
@@ -35,13 +43,20 @@ const Creators: NextPage = () => {
             paddingTop: '$6'
             // alignItems: 'left'
           }}>
+
           <Text>
-            The CSESoc community is full of curious and creative minds like you,
-            each travelling on a unique journey through the rapidly developing
-            world of computing and technology. CSESoc invites you to share your
-            knowledge and experience through an open platform dedicated to
-            technical educational content made by students, for the students.
+            The CSESoc Learning Platform is an open platform dedicated to hosting
+            technical educational content within the field of computing and technology.
+            As the largest computing student body in the southern hemisphere, {' '}
+            <a target="blank" href="https://www.csesoc.unsw.edu.au/about">
+              CSESoc
+            </a>
+            &nbsp;invites you to share your knowledge and experience to passionate and curious
+            learners of the CSESoc and wider community.
+
           </Text>
+
+
           <Flex css={{ flexDirection: 'column', alignItems: 'center' }}>
             <a
               target="blank"
@@ -59,56 +74,19 @@ const Creators: NextPage = () => {
               </Button>
             </a>
           </Flex>
+
           <Text
-            size="headline"
             css={{
               color: '$slate12',
               fontWeight: '600',
               marginTop: '$6',
-              marginBottom: '$3'
+              marginBottom: '$3',
+              fontSize: '1.4rem',
+              "@media (min-width: 768px)": {
+                fontSize: '1.8rem',
+              }
             }}>
-            What is this CSESoc Learning Platform?
-          </Text>
-          <Text>
-            The CSESoc Learning Platform is a new website, similar to the{' '}
-            <a target="blank" href="https://media.csesoc.org.au/">
-              current media website
-            </a>
-            , to host technical educational content like articles, videos and
-            presentations made by members of the community and made publicly
-            available online. Content creators are encouraged to submit an
-            outline of your ideas so we can work with you to produce content for
-            the platform.
-          </Text>
-          <Text
-            size="headline"
-            css={{
-              color: '$slate12',
-              fontWeight: '600',
-              marginTop: '$6',
-              marginBottom: '$3'
-            }}>
-            Who can create content for the CSESoc Learning Platform?
-          </Text>
-          <Text>
-            The CSESoc Learning Platform is intended to be an open area of
-            learning and discussion for all members of the CSESoc community. We
-            value the perspectives and experiences from people of all skill
-            levels and backgrounds, from budding beginners to seasoned
-            professionals. No matter what your interests are or how much
-            experience you have, there's always something you can share that
-            others will find valuable. Anyone interested in sharing their
-            learning with the community is encouraged to work with us.
-          </Text>
-          <Text
-            size="headline"
-            css={{
-              color: '$slate12',
-              fontWeight: '600',
-              marginTop: '$6',
-              marginBottom: '$3'
-            }}>
-            Why should I present my content on the CSESoc Learning Platform?
+            Why should you present your content on the CSESoc Learning Platform?
           </Text>
           <Flex
             css={{
@@ -116,43 +94,75 @@ const Creators: NextPage = () => {
               flexWrap: 'wrap',
               justifyContent: 'space-around'
             }}>
-            <CardSmall>
+            <CardSmall css={{ color: "#6a6a6a" }}>
+              {/* <Image src="/images/contribute/network-icon.png" width="200" height="200" objectFit='contain'/> */}
+              <Box css={{ margin: '0 auto 0.3rem' }}>
+                <Image
+                  src="/images/contribute/network-icon.png"
+                  width="90"
+                  height="90"
+                  objectFit="cover"
+                />
+              </Box>
               Connect with CSESoc's global network of students, alumni and
               sponsors
             </CardSmall>
-            <CardSmall>
-              Share your passion with a community of keen and curious learners
+            <CardSmall css={{ color: "#6a6a6a" }}>
+              <Box css={{ margin: '0 auto 0.3rem' }}>
+                <Image
+                  src="/images/contribute/audience-icon.png"
+                  width="90"
+                  height="90"
+                  objectFit="cover"
+                />
+              </Box>
+              Share your passion with over 10,000 keen and curious UNSW computing students
             </CardSmall>
-            <CardSmall>
-              Demonstrate your communication skills and technical expertise to
+            <CardSmall css={{ color: "#6a6a6a" }}>
+              <Box css={{ margin: '0 auto 0.3rem' }}>
+                <Image
+                  src="/images/contribute/presentation-icon.png"
+                  width="90"
+                  height="90"
+                  objectFit="cover"
+                />
+              </Box>
+              Demonstrate your technical expertise and communication skills to
               potential employers
-            </CardSmall>
-            <CardSmall>
-              Reach the extensive CSESoc audience and draw attention to your own
-              content platforms
             </CardSmall>
           </Flex>
           <Text
-            size="headline"
             css={{
               color: '$slate12',
               fontWeight: '600',
               marginTop: '$6',
-              marginBottom: '$3'
+              marginBottom: '$3',
+              fontSize: '1.4rem',
+              "@media (min-width: 768px)": {
+                fontSize: '1.8rem',
+              }
             }}>
-            What kind of content can I present on the CSESoc Learning Platform?
+            What kind of content are we looking for?
           </Text>
           <Text>
-            The Learning Platform will be a home for technical educational
-            content that is not explored in the lectures and tutorials of your
-            uni courses, but nonetheless highly relevant to students. For
-            inspiration, you could write an introductory overview of a broad
-            area like theory of computation, or you could present a deep dive
-            into something beyond the scope of a uni course, like the inner
-            workings of Git. You could focus on explaining theoretical concepts
-            like algorithmic time complexity, or you teach something practical
-            like coding up a discord bot. Don't let our imagination limit you!
+            The CSESoc Learning Platform will be home to technical educational
+            content that is not usually explored in uni lectures, but nonetheless
+            highly relevant to computing students. You could provide an introductory
+            overview on a broad topic like the theory of computation, or dive beyond the
+            uni syllabus to explore the inner workings of Git. You could focus on explaining
+            theoretical concepts like algorithmic time complexity, or teach something more practical
+            like coding up a discord bot. There are endless possibilities!
+
+
           </Text>
+
+          <Text css={{ marginTop: '$3' }}>
+            Whether you are new to computing or a seasoned professional, anyone interested in sharing
+            their learning with the community is highly encouraged to work with us. There's always something
+            you can share, that others will find valuable!
+          </Text>
+
+
           <Text css={{ marginTop: '$3' }}>
             Note: If you are interested in sharing non-technical topics, CSESoc
             also has a home for that! Reach out to{' '}
@@ -162,77 +172,157 @@ const Creators: NextPage = () => {
             to discuss your idea with the media team :D
           </Text>
           <Text
-            size="headline"
             css={{
               color: '$slate12',
               fontWeight: '600',
               marginTop: '$6',
-              marginBottom: '$3'
+              marginBottom: '$3',
+              fontSize: '1.4rem',
+              "@media (min-width: 768px)": {
+                fontSize: '1.8rem',
+              }
             }}>
-            What format can I present my content in?
+            What format can you present your content in?
           </Text>
           <Text>
             Express yourself using a format that feels most natural to you and
             your content. Here is a list of common content formats:
           </Text>
-          <ul style={{ gap: '$2' }}>
-            <li style={{ listStyleType: 'disc' }}>
-              <Text
-                css={{
-                  borderWidth: '100px',
-                  borderColor: 'black',
-                  fontWeight: '600'
-                }}>
-                Article or blog post
-              </Text>
-              <Text css={{ marginTop: '$1' }}>
-                Write up a digital article complete with embedded images,
-                tables, graphs, code snippets and even mathematical typesetting.
-                We'll help you format your article to publication quality.
-              </Text>
-            </li>
-            <li style={{ listStyleType: 'disc' }}>
-              <Text css={{ fontWeight: '600' }}>Video or series of videos</Text>
-              <Text css={{ marginTop: '$1' }}>
-                Hit record and talk through a presentation or a live coding
-                demo, or both! Do as many takes as you need to get it just
-                right. We'll help you edit your recordings to make the final
-                cut.
-              </Text>
-            </li>
-            <li style={{ listStyleType: 'disc' }}>
-              <Text css={{ fontWeight: '600' }}>
-                Live workshop or presentation
-              </Text>
-              <Text css={{ marginTop: '$1' }}>
-                Present a live workshop either in-person or online, with a
-                polished recording posted onto the website. We'll handle all the
-                logistics and stream setup to make a smooth-running event for
-                you and your audience.
-              </Text>
-            </li>
-            <li style={{ listStyleType: 'disc' }}>
-              <Text css={{ fontWeight: '600' }}>
-                Infographic or reference sheet
-              </Text>
-              <Text css={{ marginTop: '$1' }}>
-                Create a concise overview that students can use at a glance.
-                We'll help with formatting and visual aesthetics to make it
-                readable and appealing.
-              </Text>
-            </li>
-          </ul>
-          <Text>
-            If you have other ideas for how you want to present your content, we
-            would love to know!
+
+
+
+          <Flex  /**grid container */
+            css={{
+              display: 'grid',
+              gridTemplateColumns: '1fr',
+              "@media (min-width: 624px)": {
+                gridTemplateColumns: '3fr 1fr',
+              },
+              gridTemplateRows: 'auto auto auto auto',
+              width: '100%',
+              gridRowGap: "1rem"
+            }}>
+
+            <ul style={{ gap: '$2' }}>
+              <li style={{ listStyleType: 'disc' }}>
+                <Text
+                  css={{
+                    borderWidth: '100px',
+                    borderColor: 'black',
+                    fontWeight: '600'
+                  }}>
+                  Article or blog post
+                </Text>
+
+                <Text
+                  css={{
+                    marginTop: '$1'
+                  }}>
+
+                  Write up a digital article complete with embedded images,
+                  tables, graphs, code snippets, and even mathematical typesetting.
+                  We'll help you format your article to publication quality.
+                </Text>
+              </li>
+            </ul>
+
+            <Box css={{ margin: '0 auto' }}>
+              <Image alt="article logo" src={articleImg}
+                width="200"
+                height="110"
+                objectFit="contain"
+                layout="fixed"
+              />
+
+            </Box>
+
+            <ul style={{ gap: '$2' }}>
+
+              <li style={{ listStyleType: 'disc' }}>
+                <Text css={{ fontWeight: '600' }}>Video or a video series</Text>
+                <Text css={{ marginTop: '$1' }}>
+                  Hit record and talk through a presentation, or conduct a live coding
+                  demo. We'll help you edit your recordings to make the final
+                  cut.
+                </Text>
+              </li>
+            </ul>
+            <Box css={{ margin: '0 auto' }}>
+
+              <Image alt="Video logo" src={videoImg}
+                width="200"
+                height="98"
+                objectFit="contain"
+                layout="fixed"
+              />
+            </Box>
+            <ul style={{ gap: '$2' }}>
+              <li style={{ listStyleType: 'disc' }}>
+                <Text css={{ fontWeight: '600' }}>
+                  Live workshop or presentation
+                </Text>
+                <Text css={{ marginTop: '$1' }}>
+                  Present a live workshop either in-person or online, with a
+                  polished recording posted onto our website. We'll handle all the
+                  logistics and stream setup to make a smooth-running event for
+                  you and your audience.
+                </Text>
+              </li>
+            </ul>
+
+            <Box css={{ margin: '0 auto' }}>
+
+              <Image alt="live logo" src={liveImg}
+                width="200"
+                height="100"
+                objectFit="contain"
+                layout="fixed"
+              />
+            </Box>
+            <ul style={{ gap: '$2' }}>
+
+              <li style={{ listStyleType: 'disc' }}>
+                <Text css={{ fontWeight: '600' }}>
+                  Infographic or reference sheet
+                </Text>
+                <Text css={{ marginTop: '$1' }}>
+                  Create a concise overview that students can use at a glance.
+                  We'll help with formatting and visual aesthetics to make it
+                  readable and appealing.
+                </Text>
+              </li>
+
+            </ul>
+
+            <Box css={{ margin: '0 auto' }}>
+
+              <Image alt="infographic logo" src={infographicImg}
+                width="200"
+                height="100"
+                objectFit="contain"
+                layout="fixed"
+              />
+            </Box>
+          </Flex>
+
+          <Text
+            css={{
+              marginTop: '$6'
+            }}>
+
+            If you have any other ideas to how you would want to present your content,
+            let us know!
           </Text>
           <Text
-            size="headline"
             css={{
               color: '$slate12',
               fontWeight: '600',
               marginTop: '$6',
-              marginBottom: '$3'
+              marginBottom: '$3',
+              fontSize: '1.4rem',
+              "@media (min-width: 768px)": {
+                fontSize: '1.8rem',
+              }
             }}>
             What support will CSESoc provide to me for creating content?
           </Text>

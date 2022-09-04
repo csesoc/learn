@@ -25,6 +25,11 @@ const navItems = [
     'path': '2521-revision-practical',
     'title': 'COMP2521',
   },
+  {
+    'path': 'opendev',
+    'title': 'Open Dev Series',
+  },
+
 
 ]
 
@@ -73,23 +78,23 @@ const NavContainer = styled('div', {
 })
 
 const Layer = styled('div', {
-        display: "block",
-        content: "",
-        backgroundColor: 'black',
-        width: "100%",
-        height: '3px',
-        variants: {
-            isOpen: {
-                true: {
-                    backgroundColor: "CornflowerBlue"
-                }
-            }
-        }
-            
+  display: "block",
+  content: "",
+  backgroundColor: 'black',
+  width: "100%",
+  height: '3px',
+  variants: {
+    isOpen: {
+      true: {
+        backgroundColor: "CornflowerBlue"
+      }
+    }
+  }
+
 })
 
 const TopBun = styled(Layer, {
-    
+
 })
 
 const Filling = styled(Layer, {
@@ -101,20 +106,20 @@ const BottomBun = styled(Layer, {
 })
 
 const Burger = styled('div', {
-    display: "flex",
-    flexFlow: "column nowrap",
-    justifyContent: "space-between",
-    width: "22px",
-    height: '16px',
-    cursor: "pointer",
-    "@media screen and (min-width: 768px)": {
-        display: "none",
-    },
-    zIndex: 10,
+  display: "flex",
+  flexFlow: "column nowrap",
+  justifyContent: "space-between",
+  width: "22px",
+  height: '16px',
+  cursor: "pointer",
+  "@media screen and (min-width: 768px)": {
+    display: "none",
+  },
+  zIndex: 10,
 })
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Flex
@@ -143,15 +148,15 @@ export default function Navbar() {
       </Flex>
       <NavContainer isOpen={isOpen}>
         {navItems.map((navItem, idx) => (
-        <Link key={idx} href={`/${navItem.path}`}>
-          <Text
-            as="a"
-            css={{ color: '$slate12', cursor: 'pointer' }}
-            onClick={() => {setIsOpen(false); console.log('hi')}}>
-            {navItem.title}
-            
-          </Text>
-        </Link>
+          <Link key={idx} href={`/${navItem.path}`}>
+            <Text
+              as="a"
+              css={{ color: '$slate12', cursor: 'pointer' }}
+              onClick={() => { setIsOpen(false); console.log('hi') }}>
+              {navItem.title}
+
+            </Text>
+          </Link>
 
         )
         )}
@@ -178,9 +183,9 @@ export default function Navbar() {
 
       }}></Box>
       <Burger onClick={() => setIsOpen((val) => !val)}>
-          <TopBun isOpen={isOpen}></TopBun>
-          <Filling isOpen={isOpen}></Filling>
-          <BottomBun isOpen={isOpen}></BottomBun>
+        <TopBun isOpen={isOpen}></TopBun>
+        <Filling isOpen={isOpen}></Filling>
+        <BottomBun isOpen={isOpen}></BottomBun>
       </Burger>
       {/* <Flex
         css={{
@@ -196,6 +201,6 @@ export default function Navbar() {
         </IconButton>
       </Flex> */}
     </Flex>
-    
+
   )
 }

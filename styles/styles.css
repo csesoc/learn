@@ -26,3 +26,19 @@ a {
 a:hover {
   color: #69a2f3;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  /* border: 1px solid black; */
+  padding: 8px;
+}
+
+.vertically-centered {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
