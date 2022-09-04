@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { relative } from 'path'
 import { GithubLogo } from 'phosphor-react'
 import { useState } from 'react'
+import { Box } from './Box'
 import { Flex } from './Flex'
 import { IconButton } from './IconButton'
 import Logo from './Logo'
@@ -28,25 +29,47 @@ const navItems = [
 ]
 
 const NavContainer = styled('div', {
-  display: 'flex',
+  display: 'block',
   flexFlow: 'column nowrap',
-  position: "absolute",
-  left: 0,
+  position: "fixed",
+  left: "100vw",
+  right: "inherit",
+  top: 0,
   transform: "translateX(100vw)",
   variants: {
     isOpen: {
       true: {
-        transform: "translateX(30vw)",
+        // transform: "translateX(30vw)",
+        left: "inherit",
+        right: "100vw",
       }
     }
   },
+  backgroundColor: '#e8ebed',
+  boxShadow: "0px 0px 31px -19px rgba(0,0,0,0.54)",
+  width: '100vw',
+  maxWidth: '548px',
+  height: '100vh',
+  zIndex: 5,
+  padding: "4rem",
+  fontSize: "2.4rem",
+  lineHeight: "4.4rem",
   "@media screen and (min-width: 768px)": {
+    display: "flex",
+    fontSize: "1rem",
+    lineHeight: "inherit",
     flexFlow: "row nowrap",
     gap: '2.25rem',
     justifyContent: 'center',
     position: "relative",
+    left: "inherit",
+    right: "inherit",
     transform: "none",
-  }
+    backgroundColor: 'transparent',
+    padding: "0",
+    width: 'auto',
+    height: "inherit",
+  },
 })
 
 const Layer = styled('div', {
@@ -86,7 +109,8 @@ const Burger = styled('div', {
     cursor: "pointer",
     "@media screen and (min-width: 768px)": {
         display: "none",
-    }
+    },
+    zIndex: 10,
 })
 
 export default function Navbar() {
@@ -100,6 +124,9 @@ export default function Navbar() {
         px: '$6',
         alignItems: 'center',
         zIndex: '1',
+        position: 'fixed',
+        width: "100%",
+        background: "linear-gradient(180deg, rgba(244,244,244,1) 0%, rgba(244,244,244,1) 90%, rgba(244,244,244,0.8084599921043882) 96%, rgba(244,244,244,0) 100%)",
       }}>
       <Flex css={{ flex: 1, justifyContent: 'flex-start' }}>
         <Link href="/">
@@ -119,7 +146,6 @@ export default function Navbar() {
         <Link key={idx} href={`/${navItem.path}`}>
           <Text
             as="a"
-            size="label-lg"
             css={{ color: '$slate12', cursor: 'pointer' }}
             onClick={() => {setIsOpen(false); console.log('hi')}}>
             {navItem.title}
@@ -140,11 +166,22 @@ export default function Navbar() {
           About
         </Text> */}
       </NavContainer>
-              <Burger onClick={() => setIsOpen((val) => !val)}>
-            <TopBun isOpen={isOpen}></TopBun>
-            <Filling isOpen={isOpen}></Filling>
-            <BottomBun isOpen={isOpen}></BottomBun>
-        </Burger>
+      <Box css={{
+        display: isOpen ? "block" : "none",
+        position: "absolute",
+        left: "0",
+        top: "0",
+        background: "rgb(0,0,0,0.3)",
+        width: "100vw",
+        height: "100vh",
+        zIndex: 3,
+
+      }}></Box>
+      <Burger onClick={() => setIsOpen((val) => !val)}>
+          <TopBun isOpen={isOpen}></TopBun>
+          <Filling isOpen={isOpen}></Filling>
+          <BottomBun isOpen={isOpen}></BottomBun>
+      </Burger>
       {/* <Flex
         css={{
           flex: 1,
@@ -159,5 +196,6 @@ export default function Navbar() {
         </IconButton>
       </Flex> */}
     </Flex>
+    
   )
 }
