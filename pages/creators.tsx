@@ -45,7 +45,7 @@ const Creators: NextPage = () => {
           }}>
 
           <Text>
-            The CSESoc Learning Platform is an open platform dedicated to hosting 
+            The CSESoc Learning Platform is an open platform dedicated to hosting
             technical educational content within the field of computing and technology.
             As the largest computing student body in the southern hemisphere, {' '}
             <a target="blank" href="https://www.csesoc.unsw.edu.au/about">
@@ -56,7 +56,7 @@ const Creators: NextPage = () => {
 
           </Text>
 
-      
+
           <Flex css={{ flexDirection: 'column', alignItems: 'center' }}>
             <a
               target="blank"
@@ -74,7 +74,7 @@ const Creators: NextPage = () => {
               </Button>
             </a>
           </Flex>
-         
+
           <Text
             css={{
               color: '$slate12',
@@ -94,7 +94,7 @@ const Creators: NextPage = () => {
               flexWrap: 'wrap',
               justifyContent: 'space-around'
             }}>
-            <CardSmall css={{color: "#6a6a6a"}}>
+            <CardSmall css={{ color: "#6a6a6a" }}>
               {/* <Image src="/images/contribute/network-icon.png" width="200" height="200" objectFit='contain'/> */}
               <Box css={{ margin: '0 auto 0.3rem' }}>
                 <Image
@@ -104,10 +104,10 @@ const Creators: NextPage = () => {
                   objectFit="cover"
                 />
               </Box>
-                Connect with CSESoc's global network of students, alumni and
+              Connect with CSESoc's global network of students, alumni and
               sponsors
             </CardSmall>
-            <CardSmall css={{color: "#6a6a6a"}}>
+            <CardSmall css={{ color: "#6a6a6a" }}>
               <Box css={{ margin: '0 auto 0.3rem' }}>
                 <Image
                   src="/images/contribute/audience-icon.png"
@@ -118,7 +118,7 @@ const Creators: NextPage = () => {
               </Box>
               Share your passion with over 10,000 keen and curious UNSW computing students
             </CardSmall>
-            <CardSmall css={{color: "#6a6a6a"}}>
+            <CardSmall css={{ color: "#6a6a6a" }}>
               <Box css={{ margin: '0 auto 0.3rem' }}>
                 <Image
                   src="/images/contribute/presentation-icon.png"
@@ -127,7 +127,7 @@ const Creators: NextPage = () => {
                   objectFit="cover"
                 />
               </Box>
-              Demonstrate your technical expertise and communication skills to 
+              Demonstrate your technical expertise and communication skills to
               potential employers
             </CardSmall>
           </Flex>
@@ -145,21 +145,21 @@ const Creators: NextPage = () => {
             What kind of content are we looking for?
           </Text>
           <Text>
-            The CSESoc Learning Platform will be home to technical educational 
+            The CSESoc Learning Platform will be home to technical educational
             content that is not usually explored in uni lectures, but nonetheless
             highly relevant to computing students. You could provide an introductory
             overview on a broad topic like the theory of computation, or dive beyond the
             uni syllabus to explore the inner workings of Git. You could focus on explaining
             theoretical concepts like algorithmic time complexity, or teach something more practical
-            like coding up a discord bot. There are endless possibilities! 
-            
-            
+            like coding up a discord bot. There are endless possibilities!
+
+
           </Text>
 
           <Text css={{ marginTop: '$3' }}>
-            Whether you are new to computing or a seasoned professional, anyone interested in sharing 
+            Whether you are new to computing or a seasoned professional, anyone interested in sharing
             their learning with the community is highly encouraged to work with us. There's always something
-            you can share, that others will find valuable!  
+            you can share, that others will find valuable!
           </Text>
 
 
@@ -189,12 +189,15 @@ const Creators: NextPage = () => {
             your content. Here is a list of common content formats:
           </Text>
 
-          
+
 
           <Flex  /**grid container */
             css={{
               display: 'grid',
-              gridTemplateColumns: '3fr 1fr',
+              gridTemplateColumns: '1fr',
+              "@media (min-width: 624px)": {
+                gridTemplateColumns: '3fr 1fr',
+              },
               gridTemplateRows: 'auto auto auto auto',
               width: '100%',
               gridRowGap: "1rem"
@@ -223,12 +226,15 @@ const Creators: NextPage = () => {
               </li>
             </ul>
 
-            <Image alt="article logo" src={articleImg}
-              width="200"
-              height="110"
-              objectFit="contain"
-              layout="fixed"
-            />
+            <Box css={{ margin: '0 auto' }}>
+              <Image alt="article logo" src={articleImg}
+                width="200"
+                height="110"
+                objectFit="contain"
+                layout="fixed"
+              />
+
+            </Box>
 
             <ul style={{ gap: '$2' }}>
 
@@ -241,14 +247,15 @@ const Creators: NextPage = () => {
                 </Text>
               </li>
             </ul>
+            <Box css={{ margin: '0 auto' }}>
 
-            <Image alt="Video logo" src={videoImg}
-              width="200"
-              height="98"
-              objectFit="contain"
-              layout="fixed"      
-            />
-
+              <Image alt="Video logo" src={videoImg}
+                width="200"
+                height="98"
+                objectFit="contain"
+                layout="fixed"
+              />
+            </Box>
             <ul style={{ gap: '$2' }}>
               <li style={{ listStyleType: 'disc' }}>
                 <Text css={{ fontWeight: '600' }}>
@@ -262,14 +269,16 @@ const Creators: NextPage = () => {
                 </Text>
               </li>
             </ul>
-            
-            <Image alt="live logo" src={liveImg}
-              width="200"
-              height="100"
-              objectFit="contain"
-              layout="fixed"  
-            />
 
+            <Box css={{ margin: '0 auto' }}>
+
+              <Image alt="live logo" src={liveImg}
+                width="200"
+                height="100"
+                objectFit="contain"
+                layout="fixed"
+              />
+            </Box>
             <ul style={{ gap: '$2' }}>
 
               <li style={{ listStyleType: 'disc' }}>
@@ -285,13 +294,15 @@ const Creators: NextPage = () => {
 
             </ul>
 
-            <Image alt="infographic logo" src={infographicImg}
-              width="200"
-              height="100"
-              objectFit="contain"
-              layout="fixed"  
-            />
+            <Box css={{ margin: '0 auto' }}>
 
+              <Image alt="infographic logo" src={infographicImg}
+                width="200"
+                height="100"
+                objectFit="contain"
+                layout="fixed"
+              />
+            </Box>
           </Flex>
 
           <Text
@@ -299,7 +310,7 @@ const Creators: NextPage = () => {
               marginTop: '$6'
             }}>
 
-            If you have any other ideas to how you would want to present your content, 
+            If you have any other ideas to how you would want to present your content,
             let us know!
           </Text>
           <Text
