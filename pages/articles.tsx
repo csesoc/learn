@@ -120,7 +120,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
             gap: '$4'
           }}>
           {/* Display featured articles here */}
-            
+
           {articles.filter((article) => featuredArticleTitles.includes(article.title)).map((article: ArticleType, index: number) => (
             <ArticleCard key={index} article={article} />
           ))}

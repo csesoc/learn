@@ -128,11 +128,11 @@ const Home: NextPage = ({ articles }: any) => {
             <a
               href="https://cseso.cc/discord/"
               target="blank"
-              style={{ textDecoration: 'none' }}>
+              style={{ textDecoration: 'none', width: '100%', }}>
               <Button
                 size="large"
                 css={{
-                  width: '24em',
+                  width: '100%',
                   cursor: 'pointer',
                   backgroundColor: '$indigo4',
                   '&:hover': { backgroundColor: '$indigo5' }

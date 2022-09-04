@@ -24,10 +24,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Box css={{ height: '100vh' }}>
         <Navbar />
         <ArticleLayout>
-          <Box>
-            {/* <Box css={{ height: '2.5rem' }} /> */}
-            <Component {...pageProps} />
-          </Box>
+          {/* <Box css={{ height: '2.5rem' }} /> */}
+          <Component {...pageProps} />
         </ArticleLayout>
         <Footer />
       </Box>
