@@ -49,6 +49,101 @@ const OpenDevTwo: NextPage = () => {
           <p>Scroll down to see the full schedule. See you soon!</p>
         </Text>
       </Box>
+      <Text
+        size="headline"
+        css={{
+          color: '$slate12',
+          fontWeight: '600',
+          py: '$2',
+          alignSelf: 'center',
+          marginTop: '1rem',
+        }}>
+        Schedule
+      </Text>
+      <Table>
+        <thead>
+          <tr style={{ backgroundColor: 'rgb(164, 195, 244)' }}>
+            <th>Week</th>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Time & Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
+            <td>Week 1</td>
+            <td>HTML + CSS + JS Workshop</td>
+            <td>14 Sep 2022</td>
+            <td>2pm-4pm, Quad G040</td>
+          </tr>
+          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
+            <td>Week 2</td>
+            <td>Beginner ReactJS Workshop</td>
+            <td>21 Sep 2022</td>
+            <td>2pm-4pm, Quad G040</td>
+          </tr>
+          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
+            <td>Week 3</td>
+            <td>Beginner ReactJS Dev Session</td>
+            <td>28 Sep 2022</td>
+            <td>2pm-4pm, Quad G040</td>
+          </tr>
+          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
+            <td>Week 4</td>
+            <td>Advanced ReactJS Workshop</td>
+            <td>5 Oct 2022</td>
+            <td>2pm-4pm, Quad G040</td>
+          </tr>
+          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
+            <td>Week 5</td>
+            <td>Advanced ReactJS Dev Session</td>
+            <td>12 Oct 2022</td>
+            <td>2pm-4pm, Quad G040</td>
+          </tr>
+          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
+            <td>Week 6</td>
+            <td colSpan={3}>
+              <i>Flexibility Week – No Event</i>
+            </td>
+          </tr>
+          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
+            <td>Week 7</td>
+            <td>MongoDB + ExpressJS Workshop</td>
+            <td>26 Oct 2022</td>
+            <td>2pm-4pm, Quad G040</td>
+          </tr>
+          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
+            <td>Week 8</td>
+            <td>MongoDB + ExpressJS Dev Session</td>
+            <td>2 Nov 2022</td>
+            <td>2pm-4pm, Quad G040</td>
+          </tr>
+          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
+            <td>Week 9</td>
+            <td>Project Dev Session</td>
+            <td>9 Nov 2022</td>
+            <td>2pm-4pm, Quad G040</td>
+          </tr>
+          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
+            <td>Week 10</td>
+            <td>Project Dev Session</td>
+            <td>16 Nov 2022</td>
+            <td>2pm-4pm, Quad G040</td>
+          </tr>
+        </tbody>
+      </Table>
+      <Text
+        size="headline"
+        css={{
+          color: '$slate12',
+          fontWeight: '600',
+          py: '$2',
+          alignSelf: 'center',
+          marginTop: '1rem',
+        }}>
+        Resources
+      </Text>
+      <Text>Workshop recordings, slides and exercises will be released throughout the term as workshops are run.</Text>
       <Flex
         as="section"
         css={{
@@ -63,7 +158,7 @@ const OpenDevTwo: NextPage = () => {
           css={{
             background: 'linear-gradient(75deg, #88B4E9 0%, #B5D1F1 100%)',
             height: '20em',
-            width: '20em'
+            width: '19em'
           }}>
           <Box css={{ width: '75%', margin: '0 auto' }}>
             <Image
@@ -167,7 +262,7 @@ const OpenDevTwo: NextPage = () => {
           css={{
             background: 'linear-gradient(75deg, #88B4E9 0%, #B5D1F1 100%)',
             height: '20em',
-            width: '20em'
+            width: '19em'
           }}>
           <Box css={{ width: '75%', margin: '0 auto' }}>
             <Image
@@ -258,7 +353,7 @@ const OpenDevTwo: NextPage = () => {
           css={{
             background: 'linear-gradient(75deg, #88B4E9 0%, #B5D1F1 100%)',
             height: '20em',
-            width: '20em'
+            width: '19em'
           }}>
           <Box css={{ width: '75%', margin: '0 auto' }}>
             <Image
@@ -349,7 +444,7 @@ const OpenDevTwo: NextPage = () => {
           css={{
             background: 'linear-gradient(75deg, #88B4E9 0%, #B5D1F1 100%)',
             height: '20em',
-            width: '20em'
+            width: '19em'
           }}>
           <Box css={{ width: '75%', margin: '0 auto' }}>
             <Image
@@ -437,88 +532,6 @@ const OpenDevTwo: NextPage = () => {
           </Flex>
         </Card>
       </Flex>
-      <Text
-        size="headline"
-        css={{
-          color: '$slate12',
-          fontWeight: '600',
-          py: '$2',
-          alignSelf: 'center'
-        }}>
-        Schedule
-      </Text>
-      <Table>
-        <thead>
-          <tr style={{ backgroundColor: 'rgb(164, 195, 244)' }}>
-            <th>Week</th>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Time & Location</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
-            <td>Week 1</td>
-            <td>HTML + CSS + JS Workshop</td>
-            <td>14 Sep 2022</td>
-            <td>2pm-4pm, Quad G040</td>
-          </tr>
-          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
-            <td>Week 2</td>
-            <td>Beginner ReactJS Workshop</td>
-            <td>21 Sep 2022</td>
-            <td>2pm-4pm, Quad G040</td>
-          </tr>
-          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
-            <td>Week 3</td>
-            <td>Beginner ReactJS Dev Session</td>
-            <td>28 Sep 2022</td>
-            <td>2pm-4pm, Quad G040</td>
-          </tr>
-          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
-            <td>Week 4</td>
-            <td>Advanced ReactJS Workshop</td>
-            <td>5 Oct 2022</td>
-            <td>2pm-4pm, Quad G040</td>
-          </tr>
-          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
-            <td>Week 5</td>
-            <td>Advanced ReactJS Dev Session</td>
-            <td>12 Oct 2022</td>
-            <td>2pm-4pm, Quad G040</td>
-          </tr>
-          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
-            <td>Week 6</td>
-            <td colSpan={3}>
-              <i>Flexibility Week – No Event</i>
-            </td>
-          </tr>
-          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
-            <td>Week 7</td>
-            <td>MongoDB + ExpressJS Workshop</td>
-            <td>26 Oct 2022</td>
-            <td>2pm-4pm, Quad G040</td>
-          </tr>
-          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
-            <td>Week 8</td>
-            <td>MongoDB + ExpressJS Dev Session</td>
-            <td>2 Nov 2022</td>
-            <td>2pm-4pm, Quad G040</td>
-          </tr>
-          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
-            <td>Week 9</td>
-            <td>Project Dev Session</td>
-            <td>9 Nov 2022</td>
-            <td>2pm-4pm, Quad G040</td>
-          </tr>
-          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
-            <td>Week 10</td>
-            <td>Project Dev Session</td>
-            <td>16 Nov 2022</td>
-            <td>2pm-4pm, Quad G040</td>
-          </tr>
-        </tbody>
-      </Table>
     </ArticleLayout>
   )
 }
