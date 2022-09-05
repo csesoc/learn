@@ -13,6 +13,8 @@ const OpenDevTwo: NextPage = () => {
     <ArticleLayout>
       <Head>
         <title>Open Dev Series – CSESoc Learn</title>
+        <meta name="description" content="CSESoc open dev series" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Text
         as="h1"
