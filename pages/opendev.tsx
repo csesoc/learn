@@ -27,11 +27,11 @@ const OpenDevTwo: NextPage = () => {
       <Box css={{ paddingTop: '$2' }}>
         <Text>
           <p>
-            In 22T3, CSESoc will be running a new "Open Dev Series" initiative
+            In 22T3, CSESoc will be running a new &quot;Open Dev Series&quot; initiative
             involving weekly sessions every Wednesday 2-4pm in Quad G040.
           </p>
           <p>
-            Over the course of the term, you'll learn how to build your own
+            Over the course of the term, you&apos;ll learn how to build your own
             project with the popular MERN stack through workshops with
             interactive exercises and help sessions where experienced student
             developers give you guidance on new coding exercises based on the
