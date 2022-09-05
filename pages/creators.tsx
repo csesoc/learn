@@ -191,7 +191,7 @@ const Creators: NextPage = () => {
 
 
 
-          <Flex  /**grid container */
+          <Flex  /* grid container */
             css={{
               display: 'grid',
               gridTemplateColumns: '1fr',
