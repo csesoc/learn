@@ -15,7 +15,8 @@ const OpenDevTwo: NextPage = () => {
         <title>Open Dev Series – CSESoc Learn</title>
       </Head>
       <Text
-        size="headline"
+        as="h1"
+        size="display"
         css={{
           color: '$slate12',
           fontWeight: '600',

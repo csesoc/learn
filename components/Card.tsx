@@ -5,7 +5,7 @@ export const Card = styled('div', {
   flexDirection: 'column',
   height: '28em',
   padding: '$6 $5',
-  maxWidth: '24rem',
+  width: '24rem',
   boxShadow: '$default',
   background: '$slate1',
   borderRadius: '$lg'

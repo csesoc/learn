@@ -11,6 +11,7 @@ import { useState } from 'react'
 import { styled } from '../stitches.config'
 import { MagnifyingGlass } from 'phosphor-react'
 import { ArticleRow } from '../components/ArticleRow'
+import { ArticlesCarousel } from 'components/ArticlesCarousel'
 
 export async function getStaticProps() {
   const articles = allArticleTypes.sort((a, b) => {
@@ -109,12 +110,12 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
           Featured Content
         </Text>
 
-        <Flex
+        {/* <Flex
           as="section"
           css={{
             flexDirection: 'row',
             justifyContent: 'space-between',
-            width: '75%',
+            width: '100%',
             overflowX: 'scroll',
             flexWrap: 'nowrap',
             gap: '$4'
@@ -124,8 +125,11 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
             .map((article: ArticleType, index: number) => (
               <ArticleCard key={index} article={article} />
             ))}
-        </Flex>
+        </Flex> */}
 
+        <Box css={{ width: "100%" }}>
+          <ArticlesCarousel articles={articles} />
+        </Box>
         {/* <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
           <Text
             size="title-lg"
@@ -151,7 +155,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
           css={{
             display: 'grid',
             gridTemplateColumns: '1fr 4fr',
-            width: '75%'
+            width: '100%'
           }}>
           <Flex css={{ paddingTop: '$4', flexDirection: 'column', gap: '$2' }}>
             {allTags.map((tag: string, index: number) => (
@@ -206,7 +210,7 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
           </Flex>
         </Flex>
       </Flex>
-    </Box>
+    </Box >
   )
 }
 
