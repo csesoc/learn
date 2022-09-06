@@ -15,6 +15,7 @@ import Link from 'next/link'
 import { ArrowDown } from 'phosphor-react'
 import { styled } from '@stitches/react'
 import ArticleLayout from 'components/ArticleLayout'
+import ArticleScrollProg from 'components/ArticleScrollProg'
 
 const defaultComponents = {
   Image,
@@ -98,6 +99,7 @@ const Article = ({ article }: { article: ArticleType }) => {
 
   return (
     <ArticleLayout>
+      <ArticleScrollProg />
       <Head>
         <title>{article.title}</title>
       </Head>

@@ -1,4 +1,4 @@
-/* Partytown 0.6.2 - MIT builder.io */
+/* Partytown 0.6.4 - MIT builder.io */
 (self => {
     const WinIdKey = Symbol();
     const InstanceIdKey = Symbol();
@@ -714,7 +714,7 @@
         return resolvedUrl;
     };
     const resolveUrl = (env, url, type) => resolveToUrl(env, url, type) + "";
-    const getPartytownScript = () => `<script src="${partytownLibUrl("partytown.js?v=0.6.2")}"><\/script>`;
+    const getPartytownScript = () => `<script src="${partytownLibUrl("partytown.js?v=0.6.4")}"><\/script>`;
     const createImageConstructor = env => class HTMLImageElement {
         constructor() {
             this.s = "";
@@ -815,10 +815,15 @@
                 },
                 set(url) {
                     const orgUrl = resolveUrl(env, url, null);
+                    const config = webWorkerCtx.$config$;
                     url = resolveUrl(env, url, "script");
                     setInstanceStateValue(this, 4, url);
                     setter(this, [ "src" ], url);
                     orgUrl !== url && setter(this, [ "dataset", "ptsrc" ], orgUrl);
+                    if (this.type && config.loadScriptsOnMainThread) {
+                        const shouldExecuteScriptViaMainThread = config.loadScriptsOnMainThread.some((scriptUrl => scriptUrl === url));
+                        shouldExecuteScriptViaMainThread && setter(this, [ "type" ], "text/javascript");
+                    }
                 }
             },
             textContent: innerHTMLDescriptor,
@@ -1010,6 +1015,11 @@
             },
             head: {
                 get: () => env.$head$
+            },
+            images: {
+                get() {
+                    return getter(this, [ "images" ]);
+                }
             },
             implementation: {
                 get() {
@@ -1270,7 +1280,7 @@
                         (() => {
                             if (!webWorkerCtx.$initWindowMedia$) {
                                 self.$bridgeToMedia$ = [ getter, setter, callMethod, constructGlobal, definePrototypePropertyDescriptor, randomId, WinIdKey, InstanceIdKey, ApplyPathKey ];
-                                webWorkerCtx.$importScripts$(partytownLibUrl("partytown-media.js?v=0.6.2"));
+                                webWorkerCtx.$importScripts$(partytownLibUrl("partytown-media.js?v=0.6.4"));
                                 webWorkerCtx.$initWindowMedia$ = self.$bridgeFromMedia$;
                                 delete self.$bridgeFromMedia$;
                             }
