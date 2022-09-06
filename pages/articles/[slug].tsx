@@ -15,6 +15,7 @@ import Link from 'next/link'
 import { ArrowDown } from 'phosphor-react'
 import { styled } from '@stitches/react'
 import ArticleLayout from 'components/ArticleLayout'
+import { DiscussionEmbed } from 'disqus-react';
 import ArticleScrollProg from 'components/ArticleScrollProg'
 
 const defaultComponents = {
@@ -107,6 +108,7 @@ const Article = ({ article }: { article: ArticleType }) => {
         as="article"
         css={{
           width: '100%',
+          marginBottom: '$7'
         }}>
         <ArticleHeader article={article} />
         <Box css={{ paddingTop: '$2' }}>
@@ -115,6 +117,17 @@ const Article = ({ article }: { article: ArticleType }) => {
           </Text>
         </Box>
       </Box>
+      <DiscussionEmbed
+        shortname='learning-platform'
+        config={
+          {
+            url: `https://learn.csesoc.org.au/articles/${article.slug}`,
+            identifier: article._id,
+            title: article.title,
+            language: 'en'
+          }
+        }
+      />
     </ArticleLayout>
   )
 }
