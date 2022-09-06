@@ -122,7 +122,7 @@ const Article = ({ article }: { article: ArticleType }) => {
             url: `https://learn.csesoc.org.au/articles/${article.slug}`,
             identifier: article._id,
             title: article.title,
-            language: 'en' //e.g. for Traditional Chinese (Taiwan)	
+            language: 'en'
           }
         }
       />
