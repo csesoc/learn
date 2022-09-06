@@ -51,7 +51,7 @@
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@typescript-eslint/eslint-plugin": "5.30.4",
     "@typescript-eslint/parser": "5.30.4",
-    "contentlayer": "^0.2.4",
+    "contentlayer": "0.2.7",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
     "eslint-config-prettier": "^8.5.0",
