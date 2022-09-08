@@ -26,6 +26,10 @@ export const Button = styled('button', {
       large: {
         padding: '28px',
         borderRadius: '$full'
+      },
+      small: {
+        marginRight: '15px',
+        borderRadius: '$full'
       }
     }
   }

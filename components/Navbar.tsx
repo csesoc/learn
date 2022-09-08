@@ -29,6 +29,10 @@ const navItems = [
     'path': 'opendev',
     'title': 'Open Dev Series',
   },
+  {
+    'path': 'about',
+    'title': 'About',
+  },
 
 
 ]

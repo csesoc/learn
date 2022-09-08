@@ -9,10 +9,10 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { ArrowRight } from 'phosphor-react'
 import Image from 'next/image'
-import articleImg from 'pages/images/article_logo.png'
-import videoImg from 'pages/images/video_logo.png'
-import infographicImg from 'pages/images/infographic_logo.png'
-import liveImg from 'pages/images/live_logo.png'
+import articleImg from 'public/images/contribute/article_logo.png'
+import videoImg from 'public/images/contribute/video_logo.png'
+import infographicImg from 'public/images/contribute/infographic_logo.png'
+import liveImg from 'public/images/contribute/live_logo.png'
 
 const Creators: NextPage = () => {
   return (
