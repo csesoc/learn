@@ -97,7 +97,8 @@ const Creators: NextPage = () => {
                                     css={{
                                         fontSize: '0.9rem'
                                     }}>
-                                    <a target="blank" href="https://learning-platform-six.vercel.app/2521-revision-practical">
+
+                                    <a target="blank" href="https://learn.csesoc.org.au/articles/2521-revision-theory">
                                         COMP2521 Exam Revision
                                     </a>
                                 </Text>
