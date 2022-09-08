@@ -27,7 +27,7 @@ const navItems = [
   },
   {
     'path': 'opendev',
-    'title': 'Open Dev Series',
+    'title': 'Open Dev',
   },
   {
     'path': 'about',
@@ -63,7 +63,7 @@ const NavContainer = styled('div', {
   padding: "4rem",
   fontSize: "2.4rem",
   lineHeight: "4.4rem",
-  "@media screen and (min-width: 768px)": {
+  "@media (min-width: 768px)": {
     display: "flex",
     fontSize: "1rem",
     lineHeight: "inherit",

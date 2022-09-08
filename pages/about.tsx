@@ -40,7 +40,7 @@ const Creators: NextPage = () => {
             </Flex>
 
 
-            <Box as="about" >
+            <Box>
                 <Flex
                     css={{
                         flexDirection: 'column',
@@ -320,13 +320,11 @@ const Creators: NextPage = () => {
 
 
                     <  Flex
-                        direction="column"
-                        justify="between"
-                        // align="left"
-                        align="center"
-                        paddingTop='$6'
-
                         css={{
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            paddingTop: '$6',
                             height: '10rem',
                             marginBottom: '30%',
                             "@media (min-width: 768px)": {
