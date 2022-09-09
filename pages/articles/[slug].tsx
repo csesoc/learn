@@ -17,6 +17,10 @@ import { styled } from '@stitches/react'
 import ArticleLayout from 'components/ArticleLayout'
 import { DiscussionEmbed } from 'disqus-react';
 import ArticleScrollProg from 'components/ArticleScrollProg'
+import NextArticleButton from 'components/NextArticleButton'
+// import PrevArticleButton from 'components/PrevArticleButton'
+import ArticleButtonContainer from 'components/ButtonRow'
+
 
 const defaultComponents = {
   Image,
@@ -25,7 +29,10 @@ const defaultComponents = {
   Centerer,
   MultiChoice,
   Link,
-  ArrowDown
+  ArrowDown,
+  NextArticleButton,
+  // PrevArticleButton,
+  ArticleButtonContainer
 }
 
 // Add any components used in MDX files here.

@@ -14,7 +14,6 @@ import MultiChoice from 'components/MultiChoice'
 import Link from 'next/link'
 import { ArrowDown, ArrowLeft } from 'phosphor-react'
 import ArticleLayout from 'components/ArticleLayout'
-import { Button } from 'components/Button'
 
 const defaultComponents = {
   Image,
@@ -57,9 +56,9 @@ const PuzzleLayout = ({ puzzle }: { puzzle: Puzzle }) => {
         <title>{puzzle.title}</title>
       </Head>
       <Link href="/2521-revision-practical">
-      <Button css={{padding: '3px 14px' , borderRadius: '100vh', width:"fit-content"}}>
-        <ArrowLeft />Back
-      </Button>
+        <Button css={{ padding: '3px 14px', borderRadius: '100vh', width: "fit-content" }}>
+          <ArrowLeft />Back
+        </Button>
       </Link>
       <Text
         size="headline"
