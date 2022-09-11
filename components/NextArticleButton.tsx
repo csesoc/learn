@@ -1,14 +1,14 @@
 import { styled } from "@stitches/react";
 import { Flex } from 'components/Flex'
-import { ArrowRight } from 'phosphor-react'
-import { ArrowLeft } from 'phosphor-react'
+import { ArrowRight, ArrowLeft } from 'phosphor-react'
 import { Text } from 'components/Text'
+import Link from 'next/link'
+import { withCoalescedInvoke } from "next/dist/lib/coalesced-function";
 
 
-// Styling element button, storing it in var name buttonStyle
 
 const ButtonStyle = styled('button', {
-    //css code
+
     backgroundColor: '$blue4',
     fontSize: '$label-lg',
     fontWeight: '500',
@@ -27,26 +27,20 @@ const ButtonStyle = styled('button', {
     },
 
     borderRadius: '$full',
-    padding: '1rem 1.8rem',
+    padding: '1rem 1.8rem'
+
 
 })
 
-//Create react component - always return smth (ur base css tag)
-//children are content that go inbetween your <articleButton> tag in mdx file
-//To access the content, we use {props.children}
-
-//props are like arguments, extra info, given to ur tags eg) <articleButton type="prev">
 
 const NextArticleButton = (props) => {
 
-
-    // can only return single element
-
     return (
 
-        <div>
+        <div style={{ width: '48%' }}>
 
-            {props.type == "prev" ?
+
+            {props.type === "prev" ?
 
                 <Flex
                     css={{ flex: 1, padding: '0.8rem', justifyContent: 'flex-start' }}>
@@ -84,43 +78,48 @@ const NextArticleButton = (props) => {
 
             }
 
-            <ButtonStyle>
 
-                {props.type == "prev" ?
-
-                    <Flex
-                        css={{ flex: 1, padding: '0.2rem', justifyContent: 'flex-start' }}>
-                        <ArrowLeft weight="bold" size={27} color="#00254D" />
-                    </Flex> :
-
-                    <Flex
-                        css={{ fontSize: '0.95rem' }}>
-
-                        {props.children}
-
-                    </Flex>
-
-                }
-
-                {props.type == "prev" ?
-
-                    <Flex
-                        css={{ fontSize: '0.95rem' }}>
-
-                        {props.children}
-
-                    </Flex> :
-
-                    <Flex
-                        css={{ flex: 1, padding: '0.2rem', justifyContent: 'flex-start' }}>
-                        <ArrowRight weight="bold" size={27} color="#00254D" />
-                    </Flex>
-
-                }
+            <Link href={props.link}>
 
 
-            </ButtonStyle>
+                <ButtonStyle css={{ height: "65%", width: "100%", justifyContent: "start" }}>
+                    {props.type === "prev" ?
 
+                        <Flex
+                            css={{ padding: '0.2rem', justifyContent: 'flex-start' }}>
+                            <ArrowLeft weight="bold" size={27} color="#00254D" />
+                        </Flex> :
+
+                        <Flex
+                            css={{ fontSize: '0.95rem', flexGrow: 1 }}>
+
+                            {props.children}
+
+                        </Flex>
+
+                    }
+
+                    {props.type === "prev" ?
+
+                        <Flex
+                            css={{ fontSize: '0.95rem' }}>
+
+                            {props.children}
+
+                        </Flex> :
+
+                        <Flex
+                            css={{ flex: 1, padding: '0.2rem', justifyContent: 'flex-start' }}>
+                            <ArrowRight weight="bold" size={27} color="#00254D" />
+                        </Flex>
+
+
+                    }
+
+
+                </ButtonStyle>
+
+            </Link>
 
         </div>
 
@@ -131,12 +130,6 @@ const NextArticleButton = (props) => {
 }
 
 
-//Always gotta export the component
-
 export default NextArticleButton
 
 
-//Import button into button container file
-//mdx file - refer to container tag
-
-//article button always render - up to container whether we should render or not 

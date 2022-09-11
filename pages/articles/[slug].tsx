@@ -19,7 +19,7 @@ import { DiscussionEmbed } from 'disqus-react';
 import ArticleScrollProg from 'components/ArticleScrollProg'
 import NextArticleButton from 'components/NextArticleButton'
 // import PrevArticleButton from 'components/PrevArticleButton'
-import ArticleButtonContainer from 'components/ButtonRow'
+import ArticleButtonContainer from 'components/ArticleNavigationContainer'
 
 
 const defaultComponents = {

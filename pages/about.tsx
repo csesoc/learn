@@ -64,7 +64,7 @@ const Creators: NextPage = () => {
                     </Text>
 
                     <Text css={{ marginTop: '$3' }}>
-                        In addition to the development of the Learning Platform and its contents, here's an overview
+                        In addition to the development of the Learning Platform and its contents, here&apos;s an overview
                         what our driven and passionate team in CSESoc Learn has produced so far in 2022:
                     </Text>
 
@@ -132,7 +132,7 @@ const Creators: NextPage = () => {
                     </Flex>
 
                     <Text css={{ marginTop: '$3' }}>
-                        For any inquiries, please don't hesitate to reach out to us at{' '}
+                        For any inquiries, please don&apos;t hesitate to reach out to us at{' '}
                         <a target="blank" href="mailto:education@csesoc.org.au">
                             education@csesoc.org.au
                         </a>{' '}

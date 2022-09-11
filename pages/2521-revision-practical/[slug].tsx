@@ -14,6 +14,7 @@ import MultiChoice from 'components/MultiChoice'
 import Link from 'next/link'
 import { ArrowDown, ArrowLeft } from 'phosphor-react'
 import ArticleLayout from 'components/ArticleLayout'
+import { Button } from 'components/Button'
 
 const defaultComponents = {
   Image,

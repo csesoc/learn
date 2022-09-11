@@ -1,6 +1,5 @@
 import { styled } from '../stitches.config'
-import { Children } from 'react'
-import { Flex } from './Flex'
+
 
 export const Button = styled('button', {
   backgroundColor: '$blue4',
