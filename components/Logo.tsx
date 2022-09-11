@@ -17,7 +17,7 @@ const LogoPrimitive = styled('div', {
   }
 })
 
-export default function Logo () {
+export default function Logo() {
   return (
     <LogoPrimitive>
       {' '}
@@ -31,7 +31,7 @@ export default function Logo () {
         <path d="M7.06 16.66V20l11.332-.016V16.66H7.06ZM0 0v4.143l5.728 2.245L0 8.6v4.16l11.027-4.77V4.786" />
       </svg>
       <span>Learn</span>
-      <VersionBadge>Beta</VersionBadge>
+      {/* <VersionBadge>Beta</VersionBadge> */}
     </LogoPrimitive>
   )
 }
