@@ -3,6 +3,7 @@ import NextArticleButton from 'components/NextArticleButton'
 // import PrevArticleButton from 'components/PrevArticleButton'
 import { styled } from '../stitches.config'
 
+
 const ContainerRow = styled('div', {
     display: 'flex',
     flexDirection: 'row',
@@ -12,7 +13,7 @@ const ContainerRow = styled('div', {
 
 })
 
-const ButtonContainer = (props) => {
+const ArticleButtonContainer = (props) => {
 
     return (
 
@@ -28,7 +29,6 @@ const ButtonContainer = (props) => {
                     {props.prevName}
 
 
-
                 </NextArticleButton>
             }
 
@@ -37,7 +37,6 @@ const ButtonContainer = (props) => {
                 <NextArticleButton>
 
                     {props.nextName}
-
 
 
                 </NextArticleButton>
