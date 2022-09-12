@@ -76,7 +76,9 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
   }
 
   return (
-    <Box>
+    <Box css={{
+      padding: "0 1rem",
+    }}>
       <Head>
         <title>Articles - CSESoc Learn</title>
         <meta name="description" content="Learn something new." />
