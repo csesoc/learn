@@ -119,7 +119,7 @@ const Article = ({ article }: { article: ArticleType }) => {
         }}>
         <ArticleHeader article={article} />
         <Box css={{ paddingTop: '$2' }}>
-          <Text>
+          <Text size="body">
             <MDXContent components={components} />
           </Text>
         </Box>

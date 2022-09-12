@@ -52,11 +52,16 @@ export const Text = styled('span', {
         letterSpacing: '-0.003rem',
         lineHeight: '18px'
       },
-      body: {
+      'body': {
         fontSize: '$body',
         letterSpacing: '-0.011rem',
-        lineHeight: '22px'
-      }
+        lineHeight: '1.8rem'
+      },
+      'subtitle': {
+        fontSize: '$body',
+        letterSpacing: '-0.011rem',
+        lineHeight: '1.8rem'
+      },
     }
   }
 })
