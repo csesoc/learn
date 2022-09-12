@@ -33,8 +33,10 @@ const Home: NextPage = ({ articles }: any) => {
       <Flex
         as="main"
         css={{
+          marginTop: '3rem',
           flexDirection: 'column',
-          alignItems: 'center'
+          alignItems: 'center',
+          padding: '0 1rem',
         }}>
         <Text
           as="h1"
@@ -66,7 +68,8 @@ const Home: NextPage = ({ articles }: any) => {
         as="main"
         css={{
           flexDirection: 'column',
-          alignItems: 'center'
+          alignItems: 'center',
+          padding: '0 1rem',
         }}>
         <Text size="headline" css={{ fontWeight: 600, paddingTop: '$8' }}>
           Join the CSESoc community
