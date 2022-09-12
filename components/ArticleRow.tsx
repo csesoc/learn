@@ -6,16 +6,25 @@ import { ArticleType } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Box } from './Box'
 
 export function ArticleRow(article: ArticleType) {
   return (
-    <Flex direction="row" css={{ py: '$4' }}>
-      <Flex direction="column" justify="between" css={{ flex: 3 }}>
+    <Flex css={{
+      py: '$4',
+      "@media (max-width: 768px)": {
+        flexDirection: "column-reverse",
+
+      }
+    }}>
+      <Flex direction="column" justify="between" css={{ flexGrow: '4' }}>
         <Flex
           css={{
             flexDirection: 'row',
             paddingTop: '$2',
-            gap: '$2'
+            "@media (min-width: 768px)": {
+              gap: '$2'
+            }
           }}>
           <Text size="label-md" css={{ color: '$slate11' }}>
             {format(parseISO(article.date), 'LLL d, yyy')} ⸱{' '}
@@ -51,12 +60,19 @@ export function ArticleRow(article: ArticleType) {
           </Text>
         </Flex>
       </Flex>
-      <Flex
+      <Box
         css={{
-          flex: 1,
-          justifyContent: 'flex-end',
-          overflow: 'hidden'
-        }}>
+          // flexGrow: '3',
+          minHeight: '150px',
+          height: '100%',
+          maxHeight: '220px',
+          position: 'relative',
+          "@media (min-width: 768px)": {
+            marginLeft: '1rem',
+            width: '40%',
+            maxWidth: '600px',
+          }
+        }} >
         <Image
           src={
             article.coverPhoto
@@ -64,12 +80,11 @@ export function ArticleRow(article: ArticleType) {
               : '/images/defaultCoverPhoto.png'
           }
           style={{ borderRadius: '20px' }}
-          width="300px"
-          height="150px"
           objectFit="cover"
+          layout="fill"
           alt={article.title}
         />
-      </Flex>
-    </Flex>
+      </Box>
+    </Flex >
   )
 }

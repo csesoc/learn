@@ -34,6 +34,13 @@ const SearchBar = styled('input', {
   lineHeight: 1
 })
 
+const TagsContainer = styled('div', {
+  paddingTop: '$4',
+  flexDirection: 'column',
+  gap: '$2',
+  "@media (max-width: 768px)": { display: "none" }
+})
+
 // I'm tired, I didn't type this properly ok
 const Articles: NextPage = ({ articles, allTags }: any) => {
   const [currentTag, setCurrentTag] = useState('All Topics')
@@ -155,11 +162,9 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
 
         <Flex
           css={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 4fr',
-            width: '100%'
+            width: '100%',
           }}>
-          <Flex css={{ paddingTop: '$4', flexDirection: 'column', gap: '$2' }}>
+          <TagsContainer>
             {allTags.map((tag: string, index: number) => (
               <Button
                 key={index}
@@ -175,12 +180,11 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
                 {tag}
               </Button>
             ))}
-          </Flex>
+          </TagsContainer>
           <Flex
             css={{
               flexDirection: 'column',
               width: '100%',
-              paddingLeft: '$8',
               paddingTop: '$4',
               gap: '$4'
             }}>
