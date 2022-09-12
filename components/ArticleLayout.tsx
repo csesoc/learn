@@ -6,6 +6,7 @@ const ArticleLayout = styled('div', {
   flexFlow: 'column nowrap',
   justifyContent: 'center',
   padding: '1.6rem 1rem 1rem',
+  width: '100%',
   maxWidth: '768px',
   margin: '0 auto',
 })
