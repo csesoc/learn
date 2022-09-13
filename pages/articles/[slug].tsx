@@ -22,6 +22,7 @@ import NextArticleButton from 'components/NextArticleButton'
 import ArticleButtonContainer from 'components/ArticleNavigationContainer'
 import { ArrowLeft } from 'phosphor-react'
 import { Button } from 'components/Button'
+import { BackButton } from 'components/BackButton'
 
 
 const defaultComponents = {
@@ -137,21 +138,7 @@ const Article = ({ article }: { article: ArticleType }) => {
           }
         }
       />
-      <Link href="/creators">
-        <Button
-          size="default"
-          css={{
-            width: 'fit-content',
-            marginTop: '$4',
-            cursor: 'pointer',
-            backgroundColor: '$blue9',
-            color: 'white',
-            '&:hover': { backgroundColor: '$blue10' }
-          }}>
-          <ArrowLeft weight="bold" />
-          Back to home
-        </Button>
-      </Link>
+      <BackButton path="/" />
     </ArticleLayout>
   )
 }
