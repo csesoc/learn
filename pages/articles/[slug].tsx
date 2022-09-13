@@ -20,6 +20,8 @@ import ArticleScrollProg from 'components/ArticleScrollProg'
 import NextArticleButton from 'components/NextArticleButton'
 // import PrevArticleButton from 'components/PrevArticleButton'
 import ArticleButtonContainer from 'components/ArticleNavigationContainer'
+import { ArrowLeft } from 'phosphor-react'
+import { Button } from 'components/Button'
 
 
 const defaultComponents = {
@@ -135,6 +137,21 @@ const Article = ({ article }: { article: ArticleType }) => {
           }
         }
       />
+      <Link href="/creators">
+        <Button
+          size="default"
+          css={{
+            width: 'fit-content',
+            marginTop: '$4',
+            cursor: 'pointer',
+            backgroundColor: '$blue9',
+            color: 'white',
+            '&:hover': { backgroundColor: '$blue10' }
+          }}>
+          <ArrowLeft weight="bold" />
+          Back to home
+        </Button>
+      </Link>
     </ArticleLayout>
   )
 }
