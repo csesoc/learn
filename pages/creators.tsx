@@ -44,7 +44,7 @@ const Creators: NextPage = () => {
             // alignItems: 'left'
           }}>
 
-          <Text>
+          <Text size="body">
             The CSESoc Learning Platform is an open platform dedicated to hosting
             technical educational content within the field of computing and technology.
             As the largest computing student body in the southern hemisphere, {' '}
@@ -104,8 +104,10 @@ const Creators: NextPage = () => {
                   objectFit="cover"
                 />
               </Box>
-              Connect with CSESoc's global network of students, alumni and
-              sponsors
+              <Text css={{ lineHeight: '1.3rem' }}>
+                Connect with CSESoc's global network of students, alumni and
+                sponsors
+              </Text>
             </CardSmall>
             <CardSmall css={{ color: "#6a6a6a" }}>
               <Box css={{ margin: '0 auto 0.3rem' }}>
@@ -116,7 +118,9 @@ const Creators: NextPage = () => {
                   objectFit="cover"
                 />
               </Box>
-              Share your passion with over 10,000 keen and curious UNSW computing students
+              <Text css={{ lineHeight: '1.3rem' }}>
+                Share your passion with over 10,000 keen and curious UNSW computing students
+              </Text>
             </CardSmall>
             <CardSmall css={{ color: "#6a6a6a" }}>
               <Box css={{ margin: '0 auto 0.3rem' }}>
@@ -127,8 +131,10 @@ const Creators: NextPage = () => {
                   objectFit="cover"
                 />
               </Box>
-              Demonstrate your technical expertise and communication skills to
-              potential employers
+              <Text css={{ lineHeight: '1.3rem' }}>
+                Demonstrate your technical expertise and communication skills to
+                potential employers
+              </Text>
             </CardSmall>
           </Flex>
           <Text
@@ -144,7 +150,7 @@ const Creators: NextPage = () => {
             }}>
             What kind of content are we looking for?
           </Text>
-          <Text>
+          <Text size="body">
             The CSESoc Learning Platform will be home to technical educational
             content that is not usually explored in uni lectures, but nonetheless
             highly relevant to computing students. You could provide an introductory
@@ -156,14 +162,14 @@ const Creators: NextPage = () => {
 
           </Text>
 
-          <Text css={{ marginTop: '$3' }}>
+          <Text size="body" css={{ marginTop: '$3' }}>
             Whether you are new to computing or a seasoned professional, anyone interested in sharing
             their learning with the community is highly encouraged to work with us. There's always something
             you can share, that others will find valuable!
           </Text>
 
 
-          <Text css={{ marginTop: '$3' }}>
+          <Text size="body" css={{ marginTop: '$3' }}>
             Note: If you are interested in sharing non-technical topics, CSESoc
             also has a home for that! Reach out to{' '}
             <a target="blank" href="mailto:media@csesoc.org.au">
@@ -184,7 +190,7 @@ const Creators: NextPage = () => {
             }}>
             What format can you present your content in?
           </Text>
-          <Text>
+          <Text size="body" >
             Express yourself using a format that feels most natural to you and
             your content. Here is a list of common content formats:
           </Text>
@@ -214,7 +220,7 @@ const Creators: NextPage = () => {
                   Article or blog post
                 </Text>
 
-                <Text
+                <Text size="body"
                   css={{
                     marginTop: '$1'
                   }}>
@@ -240,7 +246,7 @@ const Creators: NextPage = () => {
 
               <li style={{ listStyleType: 'disc' }}>
                 <Text css={{ fontWeight: '600' }}>Video or a video series</Text>
-                <Text css={{ marginTop: '$1' }}>
+                <Text size="body" css={{ marginTop: '$1' }}>
                   Hit record and talk through a presentation, or conduct a live coding
                   demo. We'll help you edit your recordings to make the final
                   cut.
@@ -261,7 +267,7 @@ const Creators: NextPage = () => {
                 <Text css={{ fontWeight: '600' }}>
                   Live workshop or presentation
                 </Text>
-                <Text css={{ marginTop: '$1' }}>
+                <Text size="body" css={{ marginTop: '$1' }}>
                   Present a live workshop either in-person or online, with a
                   polished recording posted onto our website. We'll handle all the
                   logistics and stream setup to make a smooth-running event for
@@ -285,7 +291,7 @@ const Creators: NextPage = () => {
                 <Text css={{ fontWeight: '600' }}>
                   Infographic or reference sheet
                 </Text>
-                <Text css={{ marginTop: '$1' }}>
+                <Text size="body" css={{ marginTop: '$1' }}>
                   Create a concise overview that students can use at a glance.
                   We'll help with formatting and visual aesthetics to make it
                   readable and appealing.
@@ -305,7 +311,7 @@ const Creators: NextPage = () => {
             </Box>
           </Flex>
 
-          <Text
+          <Text size="body"
             css={{
               marginTop: '$6'
             }}>
@@ -326,7 +332,7 @@ const Creators: NextPage = () => {
             }}>
             What support will CSESoc provide to me for creating content?
           </Text>
-          <Text>
+          <Text size="body" >
             We want to make your content creation experience as enjoyable and
             productive as possible. The CSESoc team will handle all the tedious
             work of polishing, publishing and promoting your work, so you can
@@ -334,16 +340,22 @@ const Creators: NextPage = () => {
           </Text>
           <ul>
             <li style={{ listStyleType: 'disc' }}>
-              Graphical illustrations and animations to effectively convey your
-              ideas
+              <Text css={{ lineHeight: '1.6rem', marginTop: '$1' }}>
+                Graphical illustrations and animations to effectively convey your
+                ideas
+              </Text>
             </li>
             <li style={{ listStyleType: 'disc' }}>
-              Professional aesthetics and visual themes for the presentation of
-              your content
+              <Text css={{ lineHeight: '1.6rem', marginTop: '$1' }}>
+                Professional aesthetics and visual themes for the presentation of
+                your content
+              </Text>
             </li>
             <li style={{ listStyleType: 'disc' }}>
-              Promotion on CSESoc's high-traffic social media platforms and
-              newsletter
+              <Text css={{ lineHeight: '1.6rem', marginTop: '$1' }}>
+                Promotion on CSESoc's high-traffic social media platforms and
+                newsletter
+              </Text>
             </li>
           </ul>
           <Text>
@@ -353,7 +365,7 @@ const Creators: NextPage = () => {
             </a>
             .
           </Text>
-          <Text css={{ marginTop: '$3' }}>
+          <Text size="body" css={{ marginTop: '$3' }}>
             If you have any questions, thoughts or suggestions, please don't
             hesitate to reach out to us at{' '}
             <a target="blank" href="mailto:education@csesoc.org.au">

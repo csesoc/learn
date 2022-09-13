@@ -64,7 +64,16 @@ const OpenDevTwo: NextPage = () => {
         }}>
         Schedule
       </Text>
-      <Table>
+      <Text>Workshops will consists of lecture-style coding demonstrations with some time for you to try out some relevant coding exercises throughout.
+        <br />
+        Dev sessions will be like casual help sessions where you can drop in to ask our experienced student developers for help on the coding exercises, or just hang out and chat.</Text>
+      <Table css={{
+        marginTop: '2rem',
+        lineHeight: '1.5rem',
+        "@media (max-width: 768px)": {
+          fontSize: '0.8rem',
+        }
+      }}>
         <thead>
           <tr style={{ backgroundColor: 'rgb(164, 195, 244)' }}>
             <th>Week</th>
@@ -78,7 +87,7 @@ const OpenDevTwo: NextPage = () => {
             <td>Week 1</td>
             <td>HTML + CSS + JS Workshop</td>
             <td>14 Sep 2022</td>
-            <td>2pm-4pm, Quad G040</td>
+            <td>2pm-4pm, <br />J17 Design Next Studio</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 2</td>
@@ -535,7 +544,7 @@ const OpenDevTwo: NextPage = () => {
           </Flex>
         </Card>
       </Flex>
-    </ArticleLayout>
+    </ArticleLayout >
   )
 }
 
