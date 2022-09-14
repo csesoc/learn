@@ -62,6 +62,11 @@ export const Text = styled('span', {
         letterSpacing: '-0.011rem',
         lineHeight: '1.8rem'
       },
+      'info': {
+        fontSize: '$body',
+        letterSpacing: '-0.011rem',
+        lineHeight: '1.7rem'
+      },
     }
   }
 })

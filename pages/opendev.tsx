@@ -8,6 +8,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Button } from 'components/Button'
 
 const OpenDevTwo: NextPage = () => {
   return (
@@ -29,10 +30,11 @@ const OpenDevTwo: NextPage = () => {
         Open Dev Series
       </Text>
       <Box css={{ paddingTop: '$2' }}>
-        <Text>
+        <Text
+          size="info">
           <p>
             In 22T3, CSESoc will be running a new &quot;Open Dev Series&quot; initiative
-            involving weekly sessions every Wednesday 2-4pm in Quad G040.
+            involving weekly sessions every Wednesday 2-4pm (location may vary, see schedule).
           </p>
           <p>
             Over the course of the term, you&apos;ll learn how to build your own
@@ -62,9 +64,31 @@ const OpenDevTwo: NextPage = () => {
           alignSelf: 'center',
           marginTop: '1rem',
         }}>
+        Feedback
+      </Text>
+      <Text
+        size="info"
+      >
+        After attending, please fill out this anonymous feedback form to help us improve these events! We read every single response :D
+        <div style={{ marginTop: "1rem", display: "flex", justifyContent: "center" }}>
+          <a href='https://docs.google.com/forms/d/e/1FAIpQLScpydFTRZhLwNRX2Z2lkpBsZxF2mcRzAM_5dvvk237-OIRDmg/viewform' target="_blank" style={{ textDecoration: "none" }}>
+            <Button size="default" css={{ backgroundColor: "hsl(256, 73.7%, 61.2%)", color: "white", fontWeight: "600" }}>Feedback Form</Button>
+          </a>
+
+        </div>
+      </Text>
+      <Text
+        size="headline"
+        css={{
+          color: '$slate12',
+          fontWeight: '600',
+          py: '$2',
+          alignSelf: 'center',
+          marginTop: '1rem',
+        }}>
         Schedule
       </Text>
-      <Text>Workshops will consists of lecture-style coding demonstrations with some time for you to try out some relevant coding exercises throughout.
+      <Text size="info">Workshops will consists of lecture-style coding demonstrations with some time for you to try out some relevant coding exercises throughout.
         <br />
         Dev sessions will be like casual help sessions where you can drop in to ask our experienced student developers for help on the coding exercises, or just hang out and chat.</Text>
       <Table css={{
@@ -83,7 +107,7 @@ const OpenDevTwo: NextPage = () => {
           </tr>
         </thead>
         <tbody>
-          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
+          <tr style={{ backgroundColor: 'rgb(233, 240, 251)', color: '#b8bcc0' }}>
             <td>Week 1</td>
             <td>HTML + CSS + JS Workshop</td>
             <td>14 Sep 2022</td>
@@ -93,7 +117,7 @@ const OpenDevTwo: NextPage = () => {
             <td>Week 2</td>
             <td>Beginner ReactJS Workshop</td>
             <td>21 Sep 2022</td>
-            <td>2pm-4pm, Quad G040</td>
+            <td>2pm-4pm, Quad G040<br />(room tentative)</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
             <td>Week 3</td>
@@ -156,7 +180,7 @@ const OpenDevTwo: NextPage = () => {
         }}>
         Resources
       </Text>
-      <Text>Workshop recordings, slides and exercises will be released throughout the term as workshops are run.</Text>
+      <Text size="info">Workshop recordings, slides and exercises will be released throughout the term as workshops are run.</Text>
       <Flex
         as="section"
         css={{
