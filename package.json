@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "partytown copylib public/~partytown && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build-index": "contentlayer build && node ./scripts/build-index.js"
   },
   "prettier": "prettier-config-standard",
   "dependencies": {
@@ -20,6 +21,7 @@
     "@radix-ui/react-avatar": "0.1.4",
     "@radix-ui/react-portal": "0.1.4",
     "@stitches/react": "1.2.8",
+    "algoliasearch": "^4.14.2",
     "boring-avatars": "1.7.0",
     "date-fns": "2.29.2",
     "disqus-react": "1.1.3",
