@@ -71,7 +71,7 @@ const OpenDevTwo: NextPage = () => {
       >
         After attending, please fill out this anonymous feedback form to help us improve these events! We read every single response :D
         <div style={{ marginTop: "1rem", display: "flex", justifyContent: "center" }}>
-          <a href='https://docs.google.com/forms/d/e/1FAIpQLScpydFTRZhLwNRX2Z2lkpBsZxF2mcRzAM_5dvvk237-OIRDmg/viewform' target="_blank" style={{ textDecoration: "none" }}>
+          <a href='https://docs.google.com/forms/d/e/1FAIpQLScpydFTRZhLwNRX2Z2lkpBsZxF2mcRzAM_5dvvk237-OIRDmg/viewform' target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
             <Button size="default" css={{ backgroundColor: "hsl(256, 73.7%, 61.2%)", color: "white", fontWeight: "600" }}>Feedback Form</Button>
           </a>
 

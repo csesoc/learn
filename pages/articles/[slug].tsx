@@ -12,7 +12,7 @@ import FileName from 'components/Filename'
 import Centerer from 'components/Centerer'
 import MultiChoice from 'components/MultiChoice'
 import Link from 'next/link'
-import { ArrowDown } from 'phosphor-react'
+import { ArrowDown, ArrowLeft } from 'phosphor-react'
 import { styled } from '@stitches/react'
 import ArticleLayout from 'components/ArticleLayout'
 import { DiscussionEmbed } from 'disqus-react';
@@ -20,8 +20,6 @@ import ArticleScrollProg from 'components/ArticleScrollProg'
 import NextArticleButton from 'components/NextArticleButton'
 // import PrevArticleButton from 'components/PrevArticleButton'
 import ArticleButtonContainer from 'components/ArticleNavigationContainer'
-import { ArrowLeft } from 'phosphor-react'
-import { Button } from 'components/Button'
 import { BackButton } from 'components/BackButton'
 
 
