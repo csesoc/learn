@@ -217,13 +217,12 @@ const OpenDevTwo: NextPage = () => {
             css={{
               display: 'flex',
               alignItems: 'center',
-              color: '$slate11',
+              color: '#69a2f3',
               alignSelf: 'center',
               userSelect: 'none',
-              cursor: 'not-allowed',
               paddingBottom: '$2'
             }}>
-            <Text as="a" css={{ color: '$slate11' }}>
+            <Text as="a" href="https://www.canva.com/design/DAFLpV21DLY/5GP43_9-0QocXmk7aNAurw/view?utm_content=DAFLpV21DLY&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank">
               Slides &nbsp;
             </Text>
             <svg
