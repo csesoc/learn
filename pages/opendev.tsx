@@ -10,6 +10,27 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from 'components/Button'
 import { ArrowSquareOut } from 'phosphor-react'
+import { styled } from '@stitches/react'
+import { constants } from 'os'
+
+const DisabledExternLink = styled(Flex, {
+  display: 'flex',
+  alignItems: 'center',
+  color: '$slate11',
+  alignSelf: 'center',
+  userSelect: 'none',
+  cursor: 'not-allowed',
+  paddingBottom: '$2'
+})
+
+const EnabledExternLink = styled(Flex, {
+  display: 'flex',
+  alignItems: 'center',
+  color: '#69a2f3',
+  alignSelf: 'center',
+  userSelect: 'none',
+  paddingBottom: '$2'
+})
 
 const OpenDevTwo: NextPage = () => {
   return (
@@ -195,7 +216,7 @@ const OpenDevTwo: NextPage = () => {
         }}>
         <Card
           css={{
-            background: 'linear-gradient(75deg, #88B4E9 0%, #B5D1F1 100%)',
+            background: 'linear-gradient(75deg, rgb(163, 197, 238) 0%, rgb(199, 219, 242) 100%)',
             height: '20em',
             width: '19em'
           }}>
@@ -217,37 +238,7 @@ const OpenDevTwo: NextPage = () => {
             }}>
             HTML + CSS + JS
           </Text>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '$slate11',
-              alignSelf: 'center',
-              userSelect: 'none',
-              cursor: 'not-allowed',
-              paddingBottom: '$2'
-            }}>
-            <Text as="a" css={{ color: '$slate11' }}>
-              Recording &nbsp;
-            </Text>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              viewBox="0 0 16 16">
-              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
-            </svg>
-          </Flex>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '#69a2f3',
-              alignSelf: 'center',
-              userSelect: 'none',
-              paddingBottom: '$2'
-            }}>
+          <EnabledExternLink>
             <Text as="a" href="https://www.canva.com/design/DAFLpV21DLY/5GP43_9-0QocXmk7aNAurw/view?utm_content=DAFLpV21DLY&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank">
               Slides &nbsp;
             </Text>
@@ -259,16 +250,8 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
             </svg>
-          </Flex>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '#69a2f3',
-              alignSelf: 'center',
-              userSelect: 'none',
-              paddingBottom: '$2'
-            }}>
+          </EnabledExternLink>
+          <EnabledExternLink>
             <Text as="a" href="https://www.notion.so/CSESoc-Open-Dev-HTML-CSS-JavaScript-Exercises-7085baebc47e49a0b1710212eebf4b30" target="_blank">
               Exercises &nbsp;
             </Text>
@@ -280,7 +263,20 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
             </svg>
-          </Flex>
+          </EnabledExternLink>
+          <DisabledExternLink>
+            <Text as="a" css={{ color: "inherit" }}>
+              Recording &nbsp;
+            </Text>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16">
+              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+            </svg>
+          </DisabledExternLink>
           {/* <Text css={{ alignSelf: 'center', paddingBottom: '$2' }}>
             <a href="#" style={{ textDecoration: 'none' }}>
               Slides &nbsp;
@@ -297,7 +293,7 @@ const OpenDevTwo: NextPage = () => {
         </Card>
         <Card
           css={{
-            background: 'linear-gradient(75deg, #88B4E9 0%, #B5D1F1 100%)',
+            background: 'linear-gradient(75deg, rgb(163, 197, 238) 0%, rgb(199, 219, 242) 100%)',
             height: '20em',
             width: '19em'
           }}>
@@ -319,39 +315,8 @@ const OpenDevTwo: NextPage = () => {
             }}>
             Basic ReactJS
           </Text>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '$slate11',
-              alignSelf: 'center',
-              userSelect: 'none',
-              cursor: 'not-allowed',
-              paddingBottom: '$2'
-            }}>
-            <Text as="a" css={{ color: '$slate11' }}>
-              Recording &nbsp;
-            </Text>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              viewBox="0 0 16 16">
-              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
-            </svg>
-          </Flex>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '$slate11',
-              alignSelf: 'center',
-              userSelect: 'none',
-              cursor: 'not-allowed',
-              paddingBottom: '$2'
-            }}>
-            <Text as="a" css={{ color: '$slate11' }}>
+          <DisabledExternLink>
+            <Text as="a" css={{ color: "inherit" }}>
               Slides &nbsp;
             </Text>
             <svg
@@ -362,18 +327,9 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
             </svg>
-          </Flex>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '$slate11',
-              alignSelf: 'center',
-              userSelect: 'none',
-              cursor: 'not-allowed',
-              paddingBottom: '$2'
-            }}>
-            <Text as="a" css={{ color: '$slate11' }}>
+          </DisabledExternLink>
+          <DisabledExternLink>
+            <Text as="a" css={{ color: "inherit" }}>
               Exercises &nbsp;
             </Text>
             <svg
@@ -384,11 +340,24 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
             </svg>
-          </Flex>
+          </DisabledExternLink>
+          <DisabledExternLink>
+            <Text as="a" css={{ color: "inherit" }}>
+              Recording &nbsp;
+            </Text>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16">
+              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+            </svg>
+          </DisabledExternLink>
         </Card>
         <Card
           css={{
-            background: 'linear-gradient(75deg, #88B4E9 0%, #B5D1F1 100%)',
+            background: 'linear-gradient(75deg, rgb(163, 197, 238) 0%, rgb(199, 219, 242) 100%)',
             height: '20em',
             width: '19em'
           }}>
@@ -410,39 +379,8 @@ const OpenDevTwo: NextPage = () => {
             }}>
             Advanced ReactJS
           </Text>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '$slate11',
-              alignSelf: 'center',
-              userSelect: 'none',
-              cursor: 'not-allowed',
-              paddingBottom: '$2'
-            }}>
-            <Text as="a" css={{ color: '$slate11' }}>
-              Recording &nbsp;
-            </Text>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              viewBox="0 0 16 16">
-              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
-            </svg>
-          </Flex>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '$slate11',
-              alignSelf: 'center',
-              userSelect: 'none',
-              cursor: 'not-allowed',
-              paddingBottom: '$2'
-            }}>
-            <Text as="a" css={{ color: '$slate11' }}>
+          <DisabledExternLink>
+            <Text as="a" css={{ color: "inherit" }}>
               Slides &nbsp;
             </Text>
             <svg
@@ -453,18 +391,9 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
             </svg>
-          </Flex>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '$slate11',
-              alignSelf: 'center',
-              userSelect: 'none',
-              cursor: 'not-allowed',
-              paddingBottom: '$2'
-            }}>
-            <Text as="a" css={{ color: '$slate11' }}>
+          </DisabledExternLink>
+          <DisabledExternLink>
+            <Text as="a" css={{ color: "inherit" }}>
               Exercises &nbsp;
             </Text>
             <svg
@@ -475,11 +404,24 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
             </svg>
-          </Flex>
+          </DisabledExternLink>
+          <DisabledExternLink>
+            <Text as="a" css={{ color: "inherit" }}>
+              Recording &nbsp;
+            </Text>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16">
+              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+            </svg>
+          </DisabledExternLink>
         </Card>
         <Card
           css={{
-            background: 'linear-gradient(75deg, #88B4E9 0%, #B5D1F1 100%)',
+            background: 'linear-gradient(75deg, rgb(163, 197, 238) 0%, rgb(199, 219, 242) 100%)',
             height: '20em',
             width: '19em'
           }}>
@@ -501,39 +443,8 @@ const OpenDevTwo: NextPage = () => {
             }}>
             MongoDB + ExpressJS
           </Text>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '$slate11',
-              alignSelf: 'center',
-              userSelect: 'none',
-              cursor: 'not-allowed',
-              paddingBottom: '$2'
-            }}>
-            <Text as="a" css={{ color: '$slate11' }}>
-              Recording &nbsp;
-            </Text>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              viewBox="0 0 16 16">
-              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
-            </svg>
-          </Flex>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '$slate11',
-              alignSelf: 'center',
-              userSelect: 'none',
-              cursor: 'not-allowed',
-              paddingBottom: '$2'
-            }}>
-            <Text as="a" css={{ color: '$slate11' }}>
+          <DisabledExternLink>
+            <Text as="a" css={{ color: "inherit" }}>
               Slides &nbsp;
             </Text>
             <svg
@@ -544,18 +455,9 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
             </svg>
-          </Flex>
-          <Flex
-            css={{
-              display: 'flex',
-              alignItems: 'center',
-              color: '$slate11',
-              alignSelf: 'center',
-              userSelect: 'none',
-              cursor: 'not-allowed',
-              paddingBottom: '$2'
-            }}>
-            <Text as="a" css={{ color: '$slate11' }}>
+          </DisabledExternLink>
+          <DisabledExternLink>
+            <Text as="a" css={{ color: "inherit" }}>
               Exercises &nbsp;
             </Text>
             <svg
@@ -566,7 +468,20 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
             </svg>
-          </Flex>
+          </DisabledExternLink>
+          <DisabledExternLink>
+            <Text as="a" css={{ color: "inherit" }}>
+              Recording &nbsp;
+            </Text>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16">
+              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+            </svg>
+          </DisabledExternLink>
         </Card>
       </Flex>
     </ArticleLayout >
