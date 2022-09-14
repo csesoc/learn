@@ -9,6 +9,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from 'components/Button'
+import { ArrowSquareOut } from 'phosphor-react'
 
 const OpenDevTwo: NextPage = () => {
   return (
@@ -72,7 +73,7 @@ const OpenDevTwo: NextPage = () => {
         After attending, please fill out this anonymous feedback form to help us improve these events! We read every single response :D
         <div style={{ marginTop: "1rem", display: "flex", justifyContent: "center" }}>
           <a href='https://docs.google.com/forms/d/e/1FAIpQLScpydFTRZhLwNRX2Z2lkpBsZxF2mcRzAM_5dvvk237-OIRDmg/viewform' target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
-            <Button size="default" css={{ backgroundColor: "hsl(256, 73.7%, 61.2%)", color: "white", fontWeight: "600" }}>Feedback Form</Button>
+            <Button size="default" css={{ backgroundColor: "hsl(256, 73.7%, 61.2%)", color: "white", fontWeight: "600", "&:hover": { backgroundColor: "rgb(177, 152, 246)" } }}>Feedback Form <ArrowSquareOut size={20} color="#dbdbdb" /></Button>
           </a>
 
         </div>
