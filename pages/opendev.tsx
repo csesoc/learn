@@ -7,6 +7,7 @@ import { Table } from 'components/Table'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const OpenDevTwo: NextPage = () => {
   return (
@@ -238,13 +239,12 @@ const OpenDevTwo: NextPage = () => {
             css={{
               display: 'flex',
               alignItems: 'center',
-              color: '$slate11',
+              color: '#69a2f3',
               alignSelf: 'center',
               userSelect: 'none',
-              cursor: 'not-allowed',
               paddingBottom: '$2'
             }}>
-            <Text as="a" css={{ color: '$slate11' }}>
+            <Text as="a" href="https://www.notion.so/CSESoc-Open-Dev-HTML-CSS-JavaScript-Exercises-7085baebc47e49a0b1710212eebf4b30" target="_blank">
               Exercises &nbsp;
             </Text>
             <svg

@@ -14,6 +14,10 @@ import { Text } from './Text'
 const GITHUB_URL = 'https://github.com/csesoc/learning-platform'
 const navItems = [
   {
+    'path': '',
+    'title': 'Home',
+  },
+  {
     'path': 'articles',
     'title': 'Collection',
   },
@@ -155,7 +159,7 @@ export default function Navbar() {
           <Link key={idx} href={`/${navItem.path}`}>
             <Text
               as="a"
-              css={{ color: '$slate12', cursor: 'pointer' }}
+              css={{ color: '$slate12', cursor: 'pointer', whiteSpace: 'nowrap' }}
               onClick={() => { setIsOpen(false); console.log('hi') }}>
               {navItem.title}
 

@@ -20,6 +20,9 @@ import ArticleScrollProg from 'components/ArticleScrollProg'
 import NextArticleButton from 'components/NextArticleButton'
 // import PrevArticleButton from 'components/PrevArticleButton'
 import ArticleButtonContainer from 'components/ArticleNavigationContainer'
+import { ArrowLeft } from 'phosphor-react'
+import { Button } from 'components/Button'
+import { BackButton } from 'components/BackButton'
 
 
 const defaultComponents = {
@@ -135,6 +138,7 @@ const Article = ({ article }: { article: ArticleType }) => {
           }
         }
       />
+      <BackButton path="/" />
     </ArticleLayout>
   )
 }
