@@ -111,11 +111,11 @@ const OpenDevTwo: NextPage = () => {
         }}>
         Schedule
       </Text>
-      <Text size="info">Workshops will consists of lecture-style coding demonstrations with some time for you to try out some relevant coding exercises throughout.
-        <br />
-        Dev sessions will be like casual help sessions where you can drop in to ask our experienced student developers for help on the coding exercises, or just hang out and chat.</Text>
+      <Text size="info"><p>Workshops will consists of lecture-style coding demonstrations with some time for you to try out some relevant coding exercises throughout.
+      </p><p>
+          Dev sessions will be like casual help sessions where you can drop in to ask our experienced student developers for help on the coding exercises, or just hang out and chat.</p></Text>
       <Table css={{
-        marginTop: '2rem',
+        marginTop: '1rem',
         lineHeight: '1.5rem',
         "@media (max-width: 768px)": {
           fontSize: '0.8rem',
@@ -140,25 +140,25 @@ const OpenDevTwo: NextPage = () => {
             <td>Week 2</td>
             <td>Beginner ReactJS Workshop</td>
             <td>21 Sep 2022</td>
-            <td>2pm-4pm, Quad G040<br />(room tentative)</td>
+            <td>2pm-4pm, J17 Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
             <td>Week 3</td>
             <td>Beginner ReactJS Dev Session</td>
             <td>28 Sep 2022</td>
-            <td>2pm-4pm, Quad G040</td>
+            <td>2pm-4pm, J17 Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 4</td>
             <td>Advanced ReactJS Workshop</td>
             <td>5 Oct 2022</td>
-            <td>2pm-4pm, Quad G040</td>
+            <td>2pm-4pm, J17 Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
             <td>Week 5</td>
             <td>Advanced ReactJS Dev Session</td>
             <td>12 Oct 2022</td>
-            <td>2pm-4pm, Quad G040</td>
+            <td>2pm-4pm, J17 Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 6</td>
@@ -170,25 +170,25 @@ const OpenDevTwo: NextPage = () => {
             <td>Week 7</td>
             <td>MongoDB + ExpressJS Workshop</td>
             <td>26 Oct 2022</td>
-            <td>2pm-4pm, Quad G040</td>
+            <td>2pm-4pm, J17 Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 8</td>
             <td>MongoDB + ExpressJS Dev Session</td>
             <td>2 Nov 2022</td>
-            <td>2pm-4pm, Quad G040</td>
+            <td>2pm-4pm, J17 Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
             <td>Week 9</td>
             <td>Project Dev Session</td>
             <td>9 Nov 2022</td>
-            <td>2pm-4pm, Quad G040</td>
+            <td>2pm-4pm, J17 Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 10</td>
             <td>Project Dev Session</td>
             <td>16 Nov 2022</td>
-            <td>2pm-4pm, Quad G040</td>
+            <td>2pm-4pm, J17 Ainsworth 202</td>
           </tr>
         </tbody>
       </Table>
@@ -315,8 +315,8 @@ const OpenDevTwo: NextPage = () => {
             }}>
             Basic ReactJS
           </Text>
-          <DisabledExternLink>
-            <Text as="a" css={{ color: "inherit" }}>
+          <EnabledExternLink>
+            <Text as="a" href="https://www.canva.com/design/DAFMIEc5xeE/9RywyQayzKOXMVOhjhIQDQ/view?utm_content=DAFMIEc5xeE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank">
               Slides &nbsp;
             </Text>
             <svg
@@ -327,9 +327,9 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
             </svg>
-          </DisabledExternLink>
-          <DisabledExternLink>
-            <Text as="a" css={{ color: "inherit" }}>
+          </EnabledExternLink>
+          <EnabledExternLink>
+            <Text as="a" href="https://snow-equipment-0c9.notion.site/CSESoc-Open-Dev-Intro-to-React-Exercises-f960c27b17b94115b87c50bdfc4bbb3b" target="_blank">
               Exercises &nbsp;
             </Text>
             <svg
@@ -340,7 +340,7 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
             </svg>
-          </DisabledExternLink>
+          </EnabledExternLink>
           <DisabledExternLink>
             <Text as="a" css={{ color: "inherit" }}>
               Recording &nbsp;
