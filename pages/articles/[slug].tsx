@@ -136,7 +136,7 @@ const Article = ({ article }: { article: ArticleType }) => {
           }
         }
       />
-      <BackButton path="/" />
+      <BackButton path="/" text="Back to home" />
     </ArticleLayout>
   )
 }
