@@ -64,12 +64,20 @@ const OpenDevTwo: NextPage = () => {
                 Recordings for Week 1 - HTML/CSS/JS
             </Text>
             <Box css={{ marginTop: '2rem' }}>
+                <Text>Slides for this workshop <a href="https://www.canva.com/design/DAFLpV21DLY/5GP43_9-0QocXmk7aNAurw/view?utm_content=DAFLpV21DLY&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank">
+                    here
+                </a>.</Text><br />
+                <Text>Sample code for this workshop             <a href="https://github.com/M-Xue/opendev-html-css-js-22T3" target="_blank">
+                    here
+                </a>.</Text>
+            </Box>
+            <Box css={{ marginTop: '2rem' }}>
                 <Text
                     size="title-lg">
                     Part 1 - HTML
                 </Text>
                 <Flex css={{ justifyContent: "center", paddingTop: "1rem" }}>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5oAoHYnx6UQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5oAoHYnx6UQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </Flex>
             </Box>
             <Box css={{ marginTop: '2rem' }}>
@@ -78,7 +86,7 @@ const OpenDevTwo: NextPage = () => {
                     Part 2 - CSS
                 </Text>
                 <Flex css={{ justifyContent: "center", paddingTop: "1rem" }}>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/im4O_-ySJcU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/im4O_-ySJcU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </Flex>
             </Box>
             <Box css={{ marginTop: '2rem' }}>
@@ -87,10 +95,10 @@ const OpenDevTwo: NextPage = () => {
                     Part 3 - JavaScript
                 </Text>
                 <Flex css={{ justifyContent: "center", paddingTop: "1rem" }}>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/GlGcRvkRDKA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/GlGcRvkRDKA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </Flex>
                 <Flex css={{ justifyContent: "center", paddingTop: "1rem" }}>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4w37R5ZwKqM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4w37R5ZwKqM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </Flex>
             </Box>
             <BackButton path="/opendev" text="Back to Open Dev" />
