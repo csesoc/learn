@@ -1,0 +1,206 @@
+---
+title: Discord bot tutorial
+date: 2022-09-18
+desc: Learn to build a reactions bot for your discord server.
+tags:
+  - 'Discord'
+  - 'Typescript'
+author: Winnie Zhang
+coverPhoto: '/images/generic/alexandru-acea-XEB8y0nRRP4-unsplash.jpg'
+---
+
+You may see in some Discord servers that there are bots that do some funky tasks! These tasks range from:
+
+- Playing music (e.g. Rythm, Groovy, Chip),
+- Assigning server roles (e.g. Carl-bot, YAGPDB),
+- Study help (e.g. Pomomo the Pomodoro Timer Bot), or
+- Being a minigame (e.g. Tatsu where you build your own house and have pets).
+
+There is a wide variety of bots out there and there is a lot more that can be made!
+
+But have you ever wondered how to make a Discord bot? Well, you have stumbled on the right place! Here, we are going to step through a simple starter project that will familiarise you with the Discord coding library and making a bot for your own server.
+
+New tools to add to your Coding Toolkit:
+
+- Typescript,
+- Node,
+- Discord.js library, and
+- Understanding Discord more and its server permissions.
+
+## Project
+
+**Goal**: To make a bot that accepts slash commands and returns an emoji.
+
+We will be creating a Discord bot for your server that handles a slash command /react. This command replies with an emoji according to the name requested.
+
+Emojis and their respective names are as following:
+
+```json:
+{
+"happy": 😄,
+"sad": 😔,
+"angry":😠,
+"wink": 😉,
+"thinking": 🤔
+}
+```
+
+Only one name is requested each time (don’t need to handle multiple options) . This command should only work in the react channel. When users evoke the command in other channels, reply with appropriate error messages instead. When the requested name is not one of the five names above, also reply with appropriate error messages.
+
+**Example interaction**:
+
+User: `/react wink`
+
+Bot: `😉`
+
+User: `/react random`
+
+bot: `Sorry, I don't understand.`
+
+### Setup Directory
+
+A step 0 that I use to organise the file structure of a discord bot project is linked below:
+https://sabe.io/tutorials/how-to-build-discord-bot-typescript
+
+I recommend going through this first before embarking onwards.
+
+As part of the set up too, it would be good to secure the bot, especially if would like to put your code on GitHub publicly. This is because if you share your token (a security authentication code) Discord will reset the token, which you will need to change again in your code.
+
+To avoid this, you can create a `.env` file that can store your token. And make sure it does not get pushed to the repository!
+
+This is done by running
+
+```shell:
+$ yarn add dotenv
+```
+
+Create a file called .env and put:
+`TOKEN=....`
+Where the token replaces ….
+
+Then putting
+
+```js:Bot.ts showLineNumbers
+import "dotenv/config";
+```
+
+At the top of the Bot.ts file. This will add in the correct `.env` file to use, where you would use the line in:
+
+```js:Bot.ts
+const token = process.env.TOKEN; // access value in .env like this
+```
+
+–
+Now for the fun! I recommend trying to give the task a go on your own, then looking back here for the step through.
+
+Which files might we want to change?
+We would want to add a new file in the commands folder, because that holds all the available slash commands.
+
+Let us create one called `Emoji.ts`.
+
+Let us copy over the Hello.ts contents and rename the sections accordingly:
+
+```js:Emoji.ts
+  name: "react",
+  description: "Returns an emoji",
+  options: [
+    {
+      name: "emotion",
+      description: "The emotion of the emoji",
+      required: true,
+      type: Constants.ApplicationCommandOptionTypes.STRING,
+    }
+  ],
+```
+
+But this time, our slash command takes in input from the user, and this input will need to be observed to know what the bot should respond.
+
+So, underneath that, we will add a function with the type `async`, which means that it will create a request to fetch what the user has inputted in their slash command. Let us start off like this:
+
+```js:Emoji.ts showLineNumbers
+run: async (client: Client, interaction: BaseCommandInteraction) => {
+    const inputEmotion = interaction.options.get("emotion")!.value;
+    // …
+}
+```
+
+Here, we have put this function as part of the whole slash command object. We want to feed in the user/client who sent that message, as well as the interaction type we saw in `interactionCreate.ts`. This type handles slash commands.
+
+Then we create the variable `inputEmotion` and set it to the user’s input. The `interaction.options.get("emotion")!.value;` is built into the Discord library (the Discord library has so many helpful functions which is very powerful). This takes the interaction and gets the user’s value. Since we wrote above that the name was “emotion”, we use the name again here.
+
+Now that we have the input, we can do some classic coding logic to tell our bot how to reply to our user.
+
+Let us set the default message to be the error message, then run through if statements to decide the right response. Here is an example below:
+
+```js:Emoji.ts {3-17} showLineNumbers
+run: async (client: Client, interaction: BaseCommandInteraction) => {
+    const inputEmotion = interaction.options.get("emotion")!.value;
+    let content = "Sorry, I don't understand.";
+
+    if (interaction.channelId !== "964428440675684395") {
+      content = "Can only use in `react` channel of `not engsoc` server.";
+    } else if (inputEmotion === "happy") {
+      content = "😄";
+    } else if (inputEmotion === "sad") {
+      content = "😔";
+    } else if (inputEmotion === "angry") {
+      content = "😠";
+    } else if (inputEmotion === "wink") {
+      content = "😉";
+    } else if (inputEmotion === "thinking") {
+      content = "🤔";
+    }
+}
+```
+
+Now we just need to reply to the user! This is done by adding a section below:
+
+```js:Emoji.ts {18-21} showLineNumbers
+run: async (client: Client, interaction: BaseCommandInteraction) => {
+    const inputEmotion = interaction.options.get("emotion")!.value;
+    let content = "Sorry, I don't understand.";
+
+    if (interaction.channelId !== "964428440675684395") {
+      content = "Can only use in `react` channel of `not engsoc` server.";
+    } else if (inputEmotion === "happy") {
+      content = "😄";
+    } else if (inputEmotion === "sad") {
+      content = "😔";
+    } else if (inputEmotion === "angry") {
+      content = "😠";
+    } else if (inputEmotion === "wink") {
+      content = "😉";
+    } else if (inputEmotion === "thinking") {
+      content = "🤔";
+    }
+    await interaction.followUp({
+      ephemeral: true,
+      content
+    });
+}
+
+```
+
+The `await…` section replies the content to the user, as you can see, content in one of their fields in the object.
+
+And that is all the nitty gritty of writing the functionality.
+
+Now you may have noticed in the tutorial of Commands.ts. This is actually how we help make things more scalable. As soon as me make a new command, we will need to import and add it to the list of commands. This is seen below:
+
+```
+import { Command } from "./Command";
+import { Emoji } from "./commands/Emoji";
+import { Hello } from "./commands/Hello";
+
+
+export const Commands: Command[] = [Hello, Emoji];
+```
+
+And that is it for the project!
+
+### Extension activities
+
+Instead of emoji, return GIFs instead. You may use external APIs like GIPHY
+You may have noticed that you need to run the commands `npm run dev` and then the bot is up and running. To have the bot always be online, you can try deploying it
+https://sabe.io/tutorials/how-to-deploy-node-app-docker
+Looking at the GUILDS setting - to allow for easier keeping track of multiple servers
