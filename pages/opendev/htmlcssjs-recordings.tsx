@@ -64,10 +64,10 @@ const OpenDevTwo: NextPage = () => {
                 Recordings for Week 1 - HTML/CSS/JS
             </Text>
             <Box css={{ marginTop: '2rem' }}>
-                <Text>Slides for this workshop <a href="https://www.canva.com/design/DAFLpV21DLY/5GP43_9-0QocXmk7aNAurw/view?utm_content=DAFLpV21DLY&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank">
+                <Text>Slides for this workshop <a href="https://www.canva.com/design/DAFLpV21DLY/5GP43_9-0QocXmk7aNAurw/view?utm_content=DAFLpV21DLY&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank" rel="noreferrer">
                     here
                 </a>.</Text><br />
-                <Text>Sample code for this workshop             <a href="https://github.com/M-Xue/opendev-html-css-js-22T3" target="_blank">
+                <Text>Sample code for this workshop <a href="https://github.com/M-Xue/opendev-html-css-js-22T3" target="_blank" rel="noreferrer">
                     here
                 </a>.</Text>
             </Box>
