@@ -1575,10 +1575,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@18.0.19":
+"@types/react@*":
   version "18.0.19"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.19.tgz#269a5f35b9a73c69dfb0c7189017013ab02acbaa"
   integrity sha512-BDc3Q+4Q3zsn7k9xZrKfjWyJsSlEDMs38gD1qp2eDazLCdcPqAT+vq1ND+Z8AGel/UiwzNUk8ptpywgNQcJ1MQ==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@18.0.20":
+  version "18.0.20"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.20.tgz#e4c36be3a55eb5b456ecf501bd4a00fd4fd0c9ab"
+  integrity sha512-MWul1teSPxujEHVwZl4a5HxQ9vVNsjTchVA+xRqv/VYGCuKGAU6UhfrTdF5aBefwD1BHUD8i/zq+O/vyCm/FrA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -1705,7 +1714,7 @@ ajv@^6.10.0, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-algoliasearch@^4.14.2:
+algoliasearch@4.14.2:
   version "4.14.2"
   resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-4.14.2.tgz#63f142583bfc3a9bd3cd4a1b098bf6fe58e56f6c"
   integrity sha512-ngbEQonGEmf8dyEh5f+uOIihv4176dgbuOZspiuhmTTBRBuzWu3KCGHre6uHj5YyuC7pNvQGzB6ZNJyZi0z+Sg==
@@ -2053,10 +2062,10 @@ data-uri-to-buffer@^4.0.0:
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-4.0.0.tgz#b5db46aea50f6176428ac05b73be39a57701a64b"
   integrity sha512-Vr3mLBA8qWmcuschSLAOogKgQ/Jwxulv3RNE4FXnYWRGujzrRWQI4m12fQqRkwX06C0KanhLr4hK+GydchZsaA==
 
-date-fns@2.29.2:
-  version "2.29.2"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.2.tgz#0d4b3d0f3dff0f920820a070920f0d9662c51931"
-  integrity sha512-0VNbwmWJDS/G3ySwFSJA3ayhbURMTJLtwM2DTxf9CWondCnh6DTNlO9JgRSq6ibf4eD0lfMJNBxUdEAHHix+bA==
+date-fns@2.29.3:
+  version "2.29.3"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
+  integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
 
 debug@^2.6.9:
   version "2.6.9"
@@ -2139,11 +2148,6 @@ doctrine@^3.0.0:
   integrity sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
   dependencies:
     esutils "^2.0.2"
-
-dotenv@^16.0.2:
-  version "16.0.2"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.2.tgz#0b0f8652c016a3858ef795024508cddc4bffc5bf"
-  integrity sha512-JvpYKUmzQhYoIFgK2MOnF3bciIZoItIIoryihy0rIA+H4Jy0FmgyKYAHCTN98P5ybGSJcIFbh6QKeJdtZd1qhA==
 
 emoji-regex@^8.0.0:
   version "8.0.0"

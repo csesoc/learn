@@ -16,7 +16,7 @@ export const BackButton = (props) => {
                     '&:hover': { backgroundColor: '$blue10' }
                 }}>
                 <ArrowLeft weight="bold" />
-                Back to home
+                {props.text}
             </Button>
         </Link>)
 }
