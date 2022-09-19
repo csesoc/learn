@@ -324,7 +324,7 @@ const OpenDevTwo: NextPage = () => {
             </svg>
           </EnabledExternLink>
           <EnabledExternLink>
-            <Link href="/open-dev-react-1-wkshp-code.zip" download>
+            <Link href="/open-dev-react-1-workshop-demo-code.zip" download>
               Workshop Demo Code &nbsp;
             </Link>
             <svg
@@ -336,12 +336,12 @@ const OpenDevTwo: NextPage = () => {
               <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
             </svg>
           </EnabledExternLink>
-          <DisabledExternLink>
-            <Text>
+          <EnabledExternLink>
+            <Text as="a" href="https://snow-equipment-0c9.notion.site/Intro-to-React-Part-1-Exercises-f960c27b17b94115b87c50bdfc4bbb3b" target="_blank">
               Exercises &nbsp;
             </Text>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><path d="M104,32V93.8a8.4,8.4,0,0,1-1.1,4.1l-63.6,106A8,8,0,0,0,46.1,216H209.9a8,8,0,0,0,6.8-12.1l-63.6-106a8.4,8.4,0,0,1-1.1-4.1V32" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"></path><line x1="88" y1="32" x2="168" y2="32" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"></line><path d="M62.6,165c11.8-8.7,32.1-13.6,65.4,3,35.7,17.9,56.5,10.8,67.9,1.1" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"></path></svg>
-          </DisabledExternLink>
+          </EnabledExternLink>
           <EnabledExternLink>
             <Link href="/open-dev-react-1-exer-starter.zip" download>
               Exercises Starter Code &nbsp;
@@ -357,6 +357,32 @@ const OpenDevTwo: NextPage = () => {
           </EnabledExternLink>
           <EnabledExternLink>
             <Link href="/open-dev-react-1-exer-solutions.zip" download>
+              Exercises Solutions &nbsp;
+            </Link>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16">
+              <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
+            </svg>
+          </EnabledExternLink>
+          <EnabledExternLink>
+            <Link href="/open-dev-react-1-exercises-starter.zip" download>
+              Exercises Starter Code &nbsp;
+            </Link>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16">
+              <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
+            </svg>
+          </EnabledExternLink>
+          <EnabledExternLink>
+            <Link href="/open-dev-react-1-exercises-solutions.zip" download>
               Exercises Solutions &nbsp;
             </Link>
             <svg
