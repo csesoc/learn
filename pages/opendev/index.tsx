@@ -311,7 +311,7 @@ const OpenDevTwo: NextPage = () => {
             ReactJS Part 1
           </Text>
           <EnabledExternLink>
-            <Text as="a" href="https://www.canva.com/design/DAFMIEc5xeE/9RywyQayzKOXMVOhjhIQDQ/view?utm_content=DAFMIEc5xeE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank">
+            <Text as="a" href="https://www.canva.com/design/DAFMxYKCTfA/CvS4PZce2_8RSuVm-0ppmQ/view?utm_content=DAFMxYKCTfA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank">
               Workshop Slides &nbsp;
             </Text>
             <svg
