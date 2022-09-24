@@ -16,7 +16,7 @@ You may see in some Discord servers that there are bots that do some funky tasks
 - Study help (e.g. Pomomo the Pomodoro Timer Bot), or
 - Being a minigame (e.g. Tatsu where you build your own house and have pets).
 
-There is a wide variety of bots out there and there is a lot more that can be made!
+There is a wide variety of bots out there and there is a lot more that can be done!
 
 But have you ever wondered how to make a Discord bot? Well, you have stumbled on the right place! Here, we are going to step through a simple starter project that will familiarise you with the Discord coding library and making a bot for your own server.
 
@@ -31,7 +31,7 @@ New tools to add to your Coding Toolkit:
 
 **Goal**: To make a bot that accepts slash commands and returns an emoji.
 
-We will be creating a Discord bot for your server that handles a slash command /react. This command replies with an emoji according to the name requested.
+We will be creating a Discord bot for your server that handles a slash command `/react`. This command replies with an emoji according to a requested name.
 
 Emojis and their respective names are as following:
 
@@ -45,7 +45,10 @@ Emojis and their respective names are as following:
 }
 ```
 
-Only one name is requested each time (don’t need to handle multiple options) . This command should only work in the react channel. When users evoke the command in other channels, reply with appropriate error messages instead. When the requested name is not one of the five names above, also reply with appropriate error messages.
+**Constraints**
+
+Only one name is requested each time (don’t need to handle multiple options).
+When the requested name is not one of the five names above, reply with an appropriate error messages.
 
 **Example interaction**:
 
@@ -55,18 +58,18 @@ Bot: `😉`
 
 User: `/react random`
 
-bot: `Sorry, I don't understand.`
+Bot: `Sorry, I don't understand.`
 
-### Setup Directory
+### Setting Up Your Coding Space
 
 A step 0 that I use to organise the file structure of a discord bot project is linked below:
 https://sabe.io/tutorials/how-to-build-discord-bot-typescript
 
-I recommend going through this first before embarking onwards.
+I recommend going through this first before embarking onwards, as I will be assuming it was followed for the rest of this article.
 
-As part of the set up too, it would be good to secure the bot, especially if would like to put your code on GitHub publicly. This is because if you share your token (a security authentication code) Discord will reset the token, which you will need to change again in your code.
+As part of the set up too, it would be good add a bit of security to the bot, especially if would like to put your code on GitHub publicly. Every Discord Bot is given a unique token (a security authentication code). If you share your token (such as having it appear publicly on GitHub), Discord will reset the token, and you will need to change your code again.
 
-To avoid this, you can create a `.env` file that can store your token. And make sure it does not get pushed to the repository!
+To avoid this, you can create a `.env` file that can store your token. This will be a local file that does not get pushed to the repository!
 
 This is done by running
 
@@ -76,25 +79,26 @@ $ yarn add dotenv
 
 Create a file called .env and put:
 `TOKEN=....`
-Where the token replaces ….
 
-Then putting
+Where your bot's token replaces ….
+
+Then put
 
 ```js:Bot.ts showLineNumbers
 import "dotenv/config";
 ```
 
-At the top of the Bot.ts file. This will add in the correct `.env` file to use, where you would use the line in:
+at the top of the Bot.ts file (if you followed the above `sabe.io` tutorial). This will add in the correct `.env` file to use, where you would use the line in:
 
 ```js:Bot.ts
 const token = process.env.TOKEN; // access value in .env like this
 ```
 
-–
-Now for the fun! I recommend trying to give the task a go on your own, then looking back here for the step through.
+### Jumping into the Project
 
-Which files might we want to change?
-We would want to add a new file in the commands folder, because that holds all the available slash commands.
+Now for the fun! I recommend trying to give the project task a go on your own, then looking back here for the step through if needed.
+
+So firstly, which files might we want to change? We would want to add a new file in the commands folder, because that holds all the available slash commands.
 
 Let us create one called `Emoji.ts`.
 
@@ -115,7 +119,7 @@ Let us copy over the Hello.ts contents and rename the sections accordingly:
 
 But this time, our slash command takes in input from the user, and this input will need to be observed to know what the bot should respond.
 
-So, underneath that, we will add a function with the type `async`, which means that it will create a request to fetch what the user has inputted in their slash command. Let us start off like this:
+So, underneath that, we will add a function with the type `async`, which means that it will create and wait for a request to fetch what the user has inputted in their slash command. Let us start off like this:
 
 ```js:Emoji.ts showLineNumbers
 run: async (client: Client, interaction: BaseCommandInteraction) => {
@@ -124,9 +128,9 @@ run: async (client: Client, interaction: BaseCommandInteraction) => {
 }
 ```
 
-Here, we have put this function as part of the whole slash command object. We want to feed in the user/client who sent that message, as well as the interaction type we saw in `interactionCreate.ts`. This type handles slash commands.
+Here, we have put this function as part of the whole slash command object. We want to put the user/client who sent that message as a parameter, as well as the interaction type we saw in `interactionCreate.ts`. This type handles slash commands.
 
-Then we create the variable `inputEmotion` and set it to the user’s input. The `interaction.options.get("emotion")!.value;` is built into the Discord library (the Discord library has so many helpful functions which is very powerful). This takes the interaction and gets the user’s value. Since we wrote above that the name was “emotion”, we use the name again here.
+Then we create the variable `inputEmotion` and set it to the user’s input. The `interaction.options.get("emotion")!.value;` is built into the Discord library (the Discord library has so many helpful functions which is very powerful). This takes the interaction and gets the user’s input. Since we wrote above in the `options` part of the file that the name was “emotion”, we use the name again here.
 
 Now that we have the input, we can do some classic coding logic to tell our bot how to reply to our user.
 
@@ -160,9 +164,7 @@ run: async (client: Client, interaction: BaseCommandInteraction) => {
     const inputEmotion = interaction.options.get("emotion")!.value;
     let content = "Sorry, I don't understand.";
 
-    if (interaction.channelId !== "964428440675684395") {
-      content = "Can only use in `react` channel of `not engsoc` server.";
-    } else if (inputEmotion === "happy") {
+    if (inputEmotion === "happy") {
       content = "😄";
     } else if (inputEmotion === "sad") {
       content = "😔";
@@ -181,13 +183,13 @@ run: async (client: Client, interaction: BaseCommandInteraction) => {
 
 ```
 
-The `await…` section replies the content to the user, as you can see, content in one of their fields in the object.
+The `await…` section replies the content to the user. As you can see in the curly brackets, `content`, which holds the reply, is within that return value object.
 
-And that is all the nitty gritty of writing the functionality.
+And that is all the nitty gritty of writing the functionality. But there is one last thing to do!
 
-Now you may have noticed in the tutorial of Commands.ts. This is actually how we help make things more scalable. As soon as me make a new command, we will need to import and add it to the list of commands. This is seen below:
+You may have noticed in the tutorial that we created the file `Commands.ts`. This is actually how we help make things more scalable. As soon as me make a new command, we will need to import and add it to the list of commands. This is seen below:
 
-```
+```js:Commands.ts
 import { Command } from "./Command";
 import { Emoji } from "./commands/Emoji";
 import { Hello } from "./commands/Hello";
@@ -196,11 +198,12 @@ import { Hello } from "./commands/Hello";
 export const Commands: Command[] = [Hello, Emoji];
 ```
 
-And that is it for the project!
+And that is it for the project! Make sure to have a go testing and playing around with your bot :)
 
 ### Extension activities
 
-Instead of emoji, return GIFs instead. You may use external APIs like GIPHY
-You may have noticed that you need to run the commands `npm run dev` and then the bot is up and running. To have the bot always be online, you can try deploying it
-https://sabe.io/tutorials/how-to-deploy-node-app-docker
-Looking at the GUILDS setting - to allow for easier keeping track of multiple servers
+Here are some fun things to look at further if you want to explore the Discord Bot sphere more:
+
+- Instead of returning an emoji in the above project, return GIFs instead. You may use external APIs like GIPHY
+- You may have noticed that you need to run the commands `npm run dev` every time so that the bot is up and running. To have the bot always be online, you can try deploying it, and this tutorial might help: https://sabe.io/tutorials/how-to-deploy-node-app-docker
+- You might want to explore the GUILDS setting - this just makes it a bit more scalable as it makes it easier for your bot to keep track of multiple servers
