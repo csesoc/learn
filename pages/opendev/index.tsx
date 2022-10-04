@@ -86,29 +86,6 @@ const OpenDevTwo: NextPage = () => {
           alignSelf: 'center',
           marginTop: '1rem',
         }}>
-        Feedback
-      </Text>
-      <Text
-        size="info"
-      >
-        After attending, please fill out this anonymous           <a href='https://docs.google.com/forms/d/e/1FAIpQLScpydFTRZhLwNRX2Z2lkpBsZxF2mcRzAM_5dvvk237-OIRDmg/viewform' target="_blank" rel="noreferrer" style={{ textDecoration: "none", display: "inline-block" }}>
-          feedback form <ArrowSquareOut size={16} color="#3f89f1" style={{ verticalAlign: "text-bottom" }} /></a> to help us improve these events! We read every single response :D
-        <div style={{ marginTop: "1rem", display: "flex", justifyContent: "center" }}>
-          <a href='https://docs.google.com/forms/d/e/1FAIpQLScpydFTRZhLwNRX2Z2lkpBsZxF2mcRzAM_5dvvk237-OIRDmg/viewform' target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
-            <Button size="default" css={{ backgroundColor: "hsl(256, 73.7%, 61.2%)", color: "white", fontWeight: "600", "&:hover": { backgroundColor: "rgb(177, 152, 246)" } }}>Feedback Form <ArrowSquareOut size={20} color="#dbdbdb" /></Button>
-          </a>
-
-        </div>
-      </Text>
-      <Text
-        size="headline"
-        css={{
-          color: '$slate12',
-          fontWeight: '600',
-          py: '$2',
-          alignSelf: 'center',
-          marginTop: '1rem',
-        }}>
         Schedule
       </Text>
       <Text size="info"><p>Workshops will consists of lecture-style coding demonstrations with some time for you to try out some relevant coding exercises throughout.
@@ -134,64 +111,108 @@ const OpenDevTwo: NextPage = () => {
             <td>Week 1</td>
             <td>HTML/CSS/JS Workshop</td>
             <td>14 Sep 2022</td>
-            <td>2pm-4pm, <br />J17 Design Next Studio</td>
+            <td>2-4pm, <br />J17 Design Next Studio</td>
           </tr>
-          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
+          <tr style={{ backgroundColor: 'rgb(224, 235, 253)', color: '#b8bcc0' }}>
             <td>Week 2</td>
             <td>ReactJS Part 1 Workshop</td>
             <td>21 Sep 2022</td>
-            <td>2pm-4pm, J17 Ainsworth 202</td>
+            <td>2-4pm, J17 202</td>
           </tr>
-          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
+          <tr style={{ backgroundColor: 'rgb(233, 240, 251)', color: '#b8bcc0' }}>
             <td>Week 3</td>
             <td>ReactJS Part 1 Dev Session</td>
             <td>28 Sep 2022</td>
-            <td>2pm-4pm, J17 Ainsworth 202</td>
+            <td>2-4pm, J17 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 4</td>
-            <td>ReactJS Part 2 Workshop</td>
-            <td>5 Oct 2022</td>
-            <td>2pm-4pm, J17 Ainsworth 202</td>
+            <td>
+              <span style={{ fontWeight: "800" }} >Casual Dev Session</span>
+              <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
+                No new content/exercises. Come in to chill, chat, study :D<br />
+                Preceded by <a href="https://fb.me/e/222WehuYI" target="_blank">
+                  <i>CSESoc Pearler Tech Talk</i>
+                </a><br />
+                Followed by <a href="https://fb.me/e/2e7XbZV6q" target="_blank">
+                  <i>CSESoc Personal Projects award ceremony</i>
+                </a>
+              </p>
+            </td>
+            <td>
+              5 Oct 2022
+            </td>
+            <td>3:30-5:30pm, CLB 6</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
             <td>Week 5</td>
-            <td>ReactJS Part 2 Dev Session</td>
+            <td>
+              <span style={{ fontWeight: "800" }} >ReactJS Part 2 Workshop</span>
+              <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
+                New content &amp; exercises! Bring your laptop and friends 💙
+              </p>
+            </td>
             <td>12 Oct 2022</td>
-            <td>2pm-4pm, J17 Ainsworth 202</td>
+            <td>2-4pm, CLB 6</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 6</td>
-            <td colSpan={3}>
-              <i>Flexibility Week – No Event</i>
+            <td>
+              <span style={{ fontWeight: "800" }} >ReactJS Part 2 Dev Session</span>
+              <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
+                Work on ReactJS Part 2 exercises and get help 🥰<br />
+                Chill, chat, study. Snacks provided 🧁
+              </p>
             </td>
+            <td>19 Oct 2022</td>
+            <td>2-4pm, CLB 6</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
             <td>Week 7</td>
-            <td>MongoDB + ExpressJS Workshop</td>
+            <td><span style={{ fontWeight: "800" }} >MongoDB &amp; ExpressJS Workshop</span>
+              <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
+                New content &amp; exercises! Bring your laptop and friends 💙
+              </p>
+            </td>
             <td>26 Oct 2022</td>
-            <td>2pm-4pm, J17 Ainsworth 202</td>
+            <td>2-4pm, CLB 6</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 8</td>
-            <td>MongoDB + ExpressJS Dev Session</td>
+            <td>
+              <span style={{ fontWeight: "800" }} >MongoDB &amp; ExpressJS Dev Session</span>
+              <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
+                Work on ReactJS Part 2 exercises and get help 🥰<br />
+                Chill, chat, study. Snacks provided 🧁
+              </p>
+            </td>
             <td>2 Nov 2022</td>
-            <td>2pm-4pm, J17 Ainsworth 202</td>
+            <td>2-4pm, CLB 6</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
             <td>Week 9</td>
-            <td>Project Dev Session</td>
+            <td><span style={{ fontWeight: "800" }} >Project Dev Session</span>
+              <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
+                Put your new skills to the test and build a project!<br />
+                Chill, chat, study. Snacks provided 🧁
+              </p></td>
             <td>9 Nov 2022</td>
-            <td>2pm-4pm, J17 Ainsworth 202</td>
+            <td>2-4pm, CLB 6</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 10</td>
-            <td>Project Dev Session</td>
+            <td><span style={{ fontWeight: "800" }} >Project Dev Session</span>              <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
+              Put your new skills to the test and build a project!<br />
+              Chill, chat, study. Snacks provided 🧁
+            </p></td>
+
             <td>16 Nov 2022</td>
-            <td>2pm-4pm, J17 Ainsworth 202</td>
+            <td>2-4pm, CLB 6</td>
           </tr>
         </tbody>
-      </Table>
+      </Table >
+      <p style={{ fontSize: "0.8rem" }}>Last updated 2022/10/04 15:09</p>
+
       <Text
         size="headline"
         css={{
@@ -406,8 +427,8 @@ const OpenDevTwo: NextPage = () => {
             }}>
             ReactJS Part 2
           </Text>
-          <DisabledExternLink>
-            <Text as="a" css={{ color: "inherit" }}>
+          <EnabledExternLink>
+            <Text as="a" href="https://www.canva.com/design/DAFMNDWVjNY/IYxdLWVn2SJm7nsvpnpoSw/view?utm_content=DAFMNDWVjNY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank">
               Workshop Slides &nbsp;
             </Text>
             <svg
@@ -418,7 +439,7 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
             </svg>
-          </DisabledExternLink>
+          </EnabledExternLink>
           <DisabledExternLink>
             <Text as="a" css={{ color: "inherit" }}>
               Exercises &nbsp;
@@ -497,6 +518,30 @@ const OpenDevTwo: NextPage = () => {
           </DisabledExternLink>
         </Card>
       </Flex>
+      <Text
+        size="headline"
+        css={{
+          color: '$slate12',
+          fontWeight: '600',
+          py: '$2',
+          alignSelf: 'center',
+          marginTop: '1rem',
+        }}>
+        Feedback
+      </Text>
+      <Text
+        size="info"
+      >
+        After attending, please fill out this anonymous           <a href='https://docs.google.com/forms/d/e/1FAIpQLScpydFTRZhLwNRX2Z2lkpBsZxF2mcRzAM_5dvvk237-OIRDmg/viewform' target="_blank" rel="noreferrer" style={{ textDecoration: "none", display: "inline-block" }}>
+          feedback form <ArrowSquareOut size={16} color="#3f89f1" style={{ verticalAlign: "text-bottom" }} /></a> to help us improve these events! We read every single response :D
+        <div style={{ marginTop: "1rem", display: "flex", justifyContent: "center" }}>
+          <a href='https://docs.google.com/forms/d/e/1FAIpQLScpydFTRZhLwNRX2Z2lkpBsZxF2mcRzAM_5dvvk237-OIRDmg/viewform' target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
+            <Button size="default" css={{ backgroundColor: "hsl(256, 73.7%, 61.2%)", color: "white", fontWeight: "600", "&:hover": { backgroundColor: "rgb(177, 152, 246)" } }}>Feedback Form <ArrowSquareOut size={20} color="#dbdbdb" /></Button>
+          </a>
+
+        </div>
+      </Text>
+
     </ArticleLayout >
   )
 }
