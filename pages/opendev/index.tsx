@@ -131,10 +131,10 @@ const OpenDevTwo: NextPage = () => {
               <span style={{ fontWeight: "800" }} >Casual Dev Session</span>
               <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
                 No new content/exercises. Come in to chill, chat, study :D<br />
-                Preceded by <a href="https://fb.me/e/222WehuYI" target="_blank">
+                Preceded by <a href="https://fb.me/e/222WehuYI" target="_blank" rel="noreferrer">
                   <i>CSESoc Pearler Tech Talk</i>
                 </a><br />
-                Followed by <a href="https://fb.me/e/2e7XbZV6q" target="_blank">
+                Followed by <a href="https://fb.me/e/2e7XbZV6q" target="_blank" rel="noreferrer">
                   <i>CSESoc Personal Projects award ceremony</i>
                 </a>
               </p>
