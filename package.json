@@ -11,9 +11,9 @@
   },
   "prettier": "prettier-config-standard",
   "dependencies": {
-    "@builder.io/partytown": "0.7.0",
-    "@fontsource/inter": "4.5.12",
-    "@fontsource/jetbrains-mono": "4.5.10",
+    "@builder.io/partytown": "0.7.1",
+    "@fontsource/inter": "4.5.13",
+    "@fontsource/jetbrains-mono": "4.5.11",
     "@modulz/design-system": "0.6.3",
     "@modulz/radix-icons": "4.0.0",
     "@radix-ui/colors": "0.1.8",
