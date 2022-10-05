@@ -1,4 +1,4 @@
-import { styled } from '../stitches.config'
+import { styled } from '@stitches/react'
 
 export const Tag = styled('div', {
   display: 'flex',

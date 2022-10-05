@@ -83,8 +83,7 @@ const Home: NextPage = ({ articles }: any) => {
         </Text>
         <Flex
           css={{
-            px: '$6',
-            paddingTop: '$6',
+            padding: '$6 0',
             gap: '$7',
             flexWrap: 'wrap',
             justifyContent: 'center'
@@ -141,7 +140,7 @@ const Home: NextPage = ({ articles }: any) => {
                   '&:hover': { backgroundColor: '$indigo5' }
                 }}>
                 <Flex
-                  css={{ py: '$3', pl: '$2', pr: '$1', color: '$indigo10' }}>
+                  css={{ padding: '$3 $1 $3 $2', color: '$indigo10' }}>
                   <DiscordLogo weight="fill" size={36} />
                 </Flex>
                 <Text size="title-md" css={{ fontWeight: '600' }}>
@@ -166,7 +165,7 @@ const Home: NextPage = ({ articles }: any) => {
                   backgroundColor: '$blue4',
                   '&:hover': { backgroundColor: '$blue5' }
                 }}>
-                <Flex css={{ py: '$3', pl: '$2', pr: '$1', color: '$blue10' }}>
+                <Flex css={{ padding: '$3 $1 $3 $2', color: '$blue10' }}>
                   <FacebookLogo weight="fill" size={36} />
                 </Flex>
                 <Text size="title-md" css={{ fontWeight: '600' }}>
@@ -191,7 +190,7 @@ const Home: NextPage = ({ articles }: any) => {
                   backgroundColor: '$pink4',
                   '&:hover': { backgroundColor: '$pink5' }
                 }}>
-                <Flex css={{ py: '$3', pl: '$2', pr: '$1', color: '$pink10' }}>
+                <Flex css={{ padding: '$3 $1 $3 $2', color: '$pink10' }}>
                   <InstagramLogo weight="fill" size={36} />
                 </Flex>
                 <Text size="title-md" css={{ fontWeight: '600' }}>

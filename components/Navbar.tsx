@@ -133,8 +133,7 @@ export default function Navbar() {
     <Flex
       as="header"
       css={{
-        py: '$4',
-        px: '$6',
+        padding: '$4 $6',
         alignItems: 'center',
         zIndex: '1',
         position: 'fixed',

@@ -1,4 +1,4 @@
-import { styled } from "@stitches/react";
+import { styled } from "../stitches.config";
 import { Flex } from 'components/Flex'
 import { ArrowRight, ArrowLeft } from 'phosphor-react'
 import { Text } from 'components/Text'

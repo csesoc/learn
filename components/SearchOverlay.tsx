@@ -17,7 +17,7 @@ const StyledPortal = styled(Portal.Root, {
 })
 
 export default function SearchOverlay({
-  changeActive = (state: boolean) => {}
+  changeActive = (state: boolean) => { }
 }) {
   const [loaded, setLoaded] = useState(false)
 
@@ -64,16 +64,15 @@ export default function SearchOverlay({
               backgroundColor: '$blue3',
               fontSize: '$label-sm',
               color: '$blue12',
-              px: '$3',
-              py: '$1',
-              mb: '$2',
+              padding: '$1 $3',
+              marginBottom: '$2',
               width: 'fit-content',
               borderRadius: '$sm'
             }}>
             Search for content (Beta). Press Esc to close. Use Cmd + K to bring
             up search anytime.
           </Flex>
-          <button aria-label="Close search" style={{border: 0, backgroundColor: 'transparent', cursor: 'pointer'}}>
+          <button aria-label="Close search" style={{ border: 0, backgroundColor: 'transparent', cursor: 'pointer' }}>
             <XCircle
               size={24}
               color="#889096"

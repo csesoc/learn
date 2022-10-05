@@ -43,7 +43,7 @@ export function ArticlesCarousel(props) {
           const nextDemo = allAreas[nextIndex]
           isRoving.current = true
           nextDemo.focus()
-          ;(nextDemo as any).scrollIntoViewIfNeeded?.(true)
+            ; (nextDemo as any).scrollIntoViewIfNeeded?.(true)
           lastUsedFocusArea.current = nextDemo
           isRoving.current = false
         }
@@ -60,7 +60,7 @@ export function ArticlesCarousel(props) {
           const prevDemo = allAreas[prevIndex]
           isRoving.current = true
           prevDemo.focus()
-          ;(prevDemo as any).scrollIntoViewIfNeeded?.(true)
+            ; (prevDemo as any).scrollIntoViewIfNeeded?.(true)
           lastUsedFocusArea.current = prevDemo
           isRoving.current = false
         }
@@ -199,9 +199,9 @@ export function ArticlesCarousel(props) {
             display: 'grid',
             gridAutoFlow: 'column',
             gridAutoColumns: 'min-content',
-            ox: 'auto',
-            oy: 'hidden',
-            py: '$1',
+            overflowX: 'auto',
+            overflowY: 'hidden',
+            padding: '$1 0',
             WebkitOverflowScrolling: 'touch',
 
             // Gap between slides
@@ -298,7 +298,7 @@ export const Carousel = (props) => {
       return slidesArray.find(
         (slide) => slide.dataset.slideIntersectionRatio !== '0'
       )
-    } 
+    }
   })
 
   const handleNextClick = useCallback(() => {

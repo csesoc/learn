@@ -11,7 +11,7 @@ import { Box } from './Box'
 export function ArticleRow(article: ArticleType) {
   return (
     <Flex css={{
-      py: '$4',
+      padding: '$4 0',
       "@media (max-width: 768px)": {
         flexDirection: "column-reverse",
 

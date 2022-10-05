@@ -1,6 +1,6 @@
 // Based off https://github.com/radix-ui/design-system/blob/master/components/Text.tsx
 
-import { styled } from '../stitches.config'
+import { styled } from '@stitches/react'
 
 export const Text = styled('span', {
   // Reset

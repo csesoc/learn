@@ -1,24 +1,24 @@
-import { styled } from "@stitches/react"
+import { styled } from "../stitches.config";
 import { useState } from "react"
 
 const Layer = styled('div', {
-        display: "block",
-        content: "",
-        backgroundColor: 'black',
-        width: "100%",
-        height: '3px',
-        variants: {
-            isOpen: {
-                true: {
-                    backgroundColor: "CornflowerBlue"
-                }
+    display: "block",
+    content: "",
+    backgroundColor: 'black',
+    width: "100%",
+    height: '3px',
+    variants: {
+        isOpen: {
+            true: {
+                backgroundColor: "CornflowerBlue"
             }
         }
-            
+    }
+
 })
 
 const TopBun = styled(Layer, {
-    
+
 })
 
 const Filling = styled(Layer, {

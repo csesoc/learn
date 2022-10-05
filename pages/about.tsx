@@ -13,6 +13,33 @@ import mediaImg from 'public/images/about/media.png'
 
 import { DiscordLogo, FacebookLogo, InstagramLogo, ArrowRight, CodeSimple } from 'phosphor-react'
 
+const socialLinks = [
+    {
+        'name': 'Facebook',
+        'icon': <FacebookLogo weight="fill" size={36} />,
+        'link': 'https://www.facebook.com/csesoc/',
+        'bg_color': '$blue4',
+        'bg_color_hover': '$blue5',
+        'icon_color': '$blue10',
+    },
+    {
+        'name': 'Instagram',
+        'icon': <InstagramLogo weight="fill" size={36} />,
+        'link': 'https://www.instagram.com/csesoc_unsw/',
+        'bg_color': '$pink4',
+        'bg_color_hover': '$pink5',
+        'icon_color': '$pink10',
+    },
+    {
+        'name': 'Discord',
+        'icon': <DiscordLogo weight="fill" size={36} />,
+        'link': 'https://cseso.cc/discord/',
+        'bg_color': '$indigo4',
+        'bg_color_hover': '$indigo5',
+        'icon_color': '$indigo10',
+    },
+]
+
 const Creators: NextPage = () => {
     return (
         <ArticleLayout>
@@ -348,110 +375,47 @@ const Creators: NextPage = () => {
 
                             }}>
 
-                            {/* TODO: avoid copypaste for social media buttons */}
-                            <a
-                                href="https://cseso.cc/discord/"
-                                target="blank"
-                                style={{
-                                    textDecoration: 'none',
-                                    width: '100%',
-                                    margin: '8px 15px 8px 0'
+                            {
+                                socialLinks.map((item) => (
+
+                                    <a
+                                        href={item.link}
+                                        target="blank"
+                                        style={{
+                                            textDecoration: 'none',
+                                            width: '100%',
+                                            margin: '8px 15px 8px 0'
 
 
-                                }}>
-
-
-                                <Button
-                                    size="small"
-                                    css={{
-                                        width: '100%',
-                                        cursor: 'pointer',
-                                        marginBottom: "$3",
-                                        backgroundColor: '$indigo4',
-                                        '&:hover': { backgroundColor: '$indigo5' },
-                                        "@media (min-width: 768px)": {
-                                            marginBottom: "auto",
-                                            marginRight: "15px",
-                                            paddingRight: "30px",
-                                            paddingLeft: "$4",
-
-                                        }
-                                    }}>
-                                    <Flex
-                                        css={{
-                                            py: '$3', pl: '$2', pr: '$1', color: '$indigo10', paddingLeft: '$3'
                                         }}>
-                                        <DiscordLogo weight="fill" size={36} />
-                                    </Flex>
-                                    <Text size="title-md" css={{ fontWeight: '600' }}>
-                                        Discord
-                                    </Text>
 
-                                </Button>
-                            </a>
-                            <a
-                                href="https://www.facebook.com/csesoc/"
-                                target="blank"
-                                style={{
-                                    textDecoration: 'none',
-                                    width: '100%',
-                                    margin: '8px 15px 8px 0'
-                                }}>
-                                <Button
-                                    size="small"
-                                    css={{
-                                        width: '100%',
-                                        cursor: 'pointer',
-                                        marginBottom: "$3",
-                                        backgroundColor: '$blue4',
-                                        '&:hover': { backgroundColor: '$blue5' },
-                                        "@media (min-width: 768px)": {
-                                            marginBottom: "auto",
-                                            paddingRight: "$3",
-                                            paddingLeft: "$3",
 
-                                        }
-                                    }}>
-                                    <Flex css={{ py: '$3', pl: '$2', pr: '$1', color: '$blue10', paddingLeft: '$3' }}>
-                                        <FacebookLogo weight="fill" size={36} />
-                                    </Flex>
-                                    <Text size="title-md" css={{ fontWeight: '600' }}>
-                                        Facebook
-                                    </Text>
+                                        <Button
+                                            size="small"
+                                            css={{
+                                                width: '100%',
+                                                cursor: 'pointer',
+                                                marginBottom: "$3",
+                                                backgroundColor: item.bg_color,
+                                                '&:hover': { backgroundColor: item.bg_color_hover },
+                                                "@media (min-width: 768px)": {
+                                                    marginBottom: "auto",
+                                                    marginRight: "15px",
+                                                    paddingRight: "30px",
+                                                    paddingLeft: "$4",
 
-                                </Button>
-                            </a>
-                            <a
-                                href="https://www.instagram.com/csesoc_unsw/"
-                                target="blank"
-                                style={{
-                                    textDecoration: 'none',
-                                    width: '100%',
-                                    margin: '8px 15px 8px 0'
-                                }}>
-                                <Button
-                                    size="small"
-                                    css={{
-                                        width: '100%',
-                                        cursor: 'pointer',
-                                        marginBottom: "$3",
-                                        backgroundColor: '$pink4',
-                                        '&:hover': { backgroundColor: '$pink5' },
-                                        "@media (min-width: 768px)": {
-                                            marginBottom: "auto",
-                                            paddingLeft: "15px",
-                                            paddingRight: "15px"
-                                        }
-                                    }}>
-                                    <Flex css={{ py: '$3', pl: '$2', pr: '$1', color: '$pink10', paddingLeft: '$3' }}>
-                                        <InstagramLogo weight="fill" size={36} />
-                                    </Flex>
-                                    <Text size="title-md" css={{ fontWeight: '600' }}>
-                                        Instagram
-                                    </Text>
+                                                }
+                                            }}>
+                                            <Flex css={{ padding: '$3 $1 $3 $3', color: item.icon_color }}>
+                                                {item.icon}
+                                            </Flex>
+                                            <Text size="title-md" css={{ fontWeight: '600' }}>
+                                                Discord
+                                            </Text>
 
-                                </Button>
-                            </a>
+                                        </Button>
+                                    </a>)
+                                )}
                         </Flex>
 
 

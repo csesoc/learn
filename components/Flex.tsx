@@ -1,6 +1,6 @@
 // https://github.com/radix-ui/design-system/blob/master/components/Flex.tsx
 
-import { styled } from '../stitches.config'
+import { styled } from '@stitches/react'
 
 export const Flex = styled('div', {
   boxSizing: 'border-box',

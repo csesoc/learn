@@ -82,7 +82,7 @@ const OpenDevTwo: NextPage = () => {
         css={{
           color: '$slate12',
           fontWeight: '600',
-          py: '$2',
+          padding: '$2',
           alignSelf: 'center',
           marginTop: '1rem',
         }}>
@@ -125,18 +125,18 @@ const OpenDevTwo: NextPage = () => {
             <td>28 Sep 2022</td>
             <td>2-4pm, J17 202</td>
           </tr>
-          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
+          <tr style={{ backgroundColor: 'rgb(224, 235, 253)', color: '#b8bcc0' }}>
             <td>Week 4</td>
             <td>
               <span style={{ fontWeight: "800" }} >Casual Dev Session</span>
               <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
                 No new content/exercises. Come in to chill, chat, study :D<br />
-                Preceded by <a href="https://fb.me/e/222WehuYI" target="_blank" rel="noreferrer">
-                  <i>CSESoc Pearler Tech Talk</i>
-                </a><br />
-                Followed by <a href="https://fb.me/e/2e7XbZV6q" target="_blank" rel="noreferrer">
-                  <i>CSESoc Personal Projects award ceremony</i>
-                </a>
+                Preceded by
+                <i> CSESoc Pearler Tech Talk</i>
+                <br />
+                Followed by
+                <i> CSESoc Personal Projects award ceremony</i>
+
               </p>
             </td>
             <td>
@@ -149,7 +149,9 @@ const OpenDevTwo: NextPage = () => {
             <td>
               <span style={{ fontWeight: "800" }} >ReactJS Part 2 Workshop</span>
               <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
-                New content &amp; exercises! Bring your laptop and friends 💙
+                New content &amp; exercises! Bring your laptop and friends 💙<br />
+                <a href="https://fb.me/e/2rGssJNQi" target="_blank" rel="noreferrer"><i>Facebook event</i></a>
+
               </p>
             </td>
             <td>12 Oct 2022</td>
@@ -218,7 +220,7 @@ const OpenDevTwo: NextPage = () => {
         css={{
           color: '$slate12',
           fontWeight: '600',
-          py: '$2',
+          padding: '$2',
           alignSelf: 'center',
           marginTop: '1rem',
         }}>
@@ -233,7 +235,7 @@ const OpenDevTwo: NextPage = () => {
           justifyContent: 'center',
           rowGap: '$6',
           columnGap: '$8',
-          py: '$6'
+          padding: '$6'
         }}>
         <Card
           css={{
@@ -255,7 +257,7 @@ const OpenDevTwo: NextPage = () => {
               color: '$slate12',
               fontWeight: '600',
               alignSelf: 'center',
-              py: '$4'
+              padding: '$4'
             }}>
             HTML + CSS + JS
           </Text>
@@ -327,7 +329,7 @@ const OpenDevTwo: NextPage = () => {
               color: '$slate12',
               fontWeight: '600',
               alignSelf: 'center',
-              py: '$4'
+              padding: '$4'
             }}>
             ReactJS Part 1
           </Text>
@@ -423,7 +425,7 @@ const OpenDevTwo: NextPage = () => {
               color: '$slate12',
               fontWeight: '600',
               alignSelf: 'center',
-              py: '$4'
+              padding: '$4'
             }}>
             ReactJS Part 2
           </Text>
@@ -480,9 +482,10 @@ const OpenDevTwo: NextPage = () => {
               color: '$slate12',
               fontWeight: '600',
               alignSelf: 'center',
-              py: '$4'
+              padding: '$4',
+              textAlign: 'center'
             }}>
-            MongoDB + ExpressJS
+            ExpressJS &amp; MongoDB
           </Text>
           <DisabledExternLink>
             <Text as="a" css={{ color: "inherit" }}>
@@ -523,7 +526,7 @@ const OpenDevTwo: NextPage = () => {
         css={{
           color: '$slate12',
           fontWeight: '600',
-          py: '$2',
+          padding: '$2',
           alignSelf: 'center',
           marginTop: '1rem',
         }}>
