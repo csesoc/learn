@@ -376,9 +376,10 @@ const Creators: NextPage = () => {
                             }}>
 
                             {
-                                socialLinks.map((item) => (
+                                socialLinks.map((item, i) => (
 
                                     <a
+                                        key={i}
                                         href={item.link}
                                         target="blank"
                                         style={{
