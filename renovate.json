@@ -14,6 +14,10 @@
       "automerge": false,
       "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
       "groupName": "react monorepo with types"
+    },
+    {
+      "matchPackageNames": ["typescript"],
+      "enabled": false
     }
   ]
 }
