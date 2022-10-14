@@ -24,7 +24,7 @@
     "algoliasearch": "4.14.2",
     "boring-avatars": "1.7.0",
     "date-fns": "2.29.3",
-    "disqus-react": "1.1.4",
+    "disqus-react": "1.1.5",
     "gray-matter": "4.0.3",
     "lodash.debounce": "4.0.8",
     "next": "12.3.1",
