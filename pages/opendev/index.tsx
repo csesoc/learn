@@ -117,13 +117,13 @@ const OpenDevTwo: NextPage = () => {
             <td>Week 2</td>
             <td>ReactJS Part 1 Workshop</td>
             <td>21 Sep 2022</td>
-            <td>2-4pm, J17 202</td>
+            <td>2-4pm, Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(233, 240, 251)', color: '#b8bcc0' }}>
             <td>Week 3</td>
             <td>ReactJS Part 1 Dev Session</td>
             <td>28 Sep 2022</td>
-            <td>2-4pm, J17 202</td>
+            <td>2-4pm, Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)', color: '#b8bcc0' }}>
             <td>Week 4</td>
@@ -144,7 +144,7 @@ const OpenDevTwo: NextPage = () => {
             </td>
             <td>3:30-5:30pm, CLB 6</td>
           </tr>
-          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
+          <tr style={{ backgroundColor: 'rgb(233, 240, 251)', color: '#b8bcc0' }}>
             <td>Week 5</td>
             <td>
               <span style={{ fontWeight: "800" }} >ReactJS Part 2 Workshop</span>
@@ -157,7 +157,7 @@ const OpenDevTwo: NextPage = () => {
             <td>12 Oct 2022</td>
             <td>2-4pm, CLB 6</td>
           </tr>
-          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
+          <tr style={{ backgroundColor: 'rgb(224, 235, 253)', color: '#b8bcc0' }}>
             <td>Week 6</td>
             <td>
               <span style={{ fontWeight: "800" }} >ReactJS Part 2 Dev Session</span>
@@ -177,7 +177,7 @@ const OpenDevTwo: NextPage = () => {
               </p>
             </td>
             <td>26 Oct 2022</td>
-            <td>2-4pm, CLB 6</td>
+            <td>2-4pm, Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 8</td>
@@ -189,7 +189,7 @@ const OpenDevTwo: NextPage = () => {
               </p>
             </td>
             <td>2 Nov 2022</td>
-            <td>2-4pm, CLB 6</td>
+            <td>2-4pm, Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
             <td>Week 9</td>
@@ -199,7 +199,7 @@ const OpenDevTwo: NextPage = () => {
                 Chill, chat, study. Snacks provided 🧁
               </p></td>
             <td>9 Nov 2022</td>
-            <td>2-4pm, CLB 6</td>
+            <td>2-4pm, Ainsworth 202</td>
           </tr>
           <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
             <td>Week 10</td>
@@ -209,7 +209,7 @@ const OpenDevTwo: NextPage = () => {
             </p></td>
 
             <td>16 Nov 2022</td>
-            <td>2-4pm, CLB 6</td>
+            <td>2-4pm, Ainsworth 202</td>
           </tr>
         </tbody>
       </Table >
