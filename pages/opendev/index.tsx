@@ -500,8 +500,8 @@ const OpenDevTwo: NextPage = () => {
             }}>
             ExpressJS &amp; MongoDB
           </Text>
-          <DisabledExternLink>
-            <Text as="a" css={{ color: "inherit" }}>
+          <EnabledExternLink>
+            <Text as="a" css={{ color: "inherit" }} href="https://www.canva.com/design/DAFQGm7-JI8/iTpjUQ5gdn5Q49cTuzudNQ/view?utm_content=DAFQGm7-JI8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank">
               Workshop Slides &nbsp;
             </Text>
             <svg
@@ -512,7 +512,7 @@ const OpenDevTwo: NextPage = () => {
               viewBox="0 0 16 16">
               <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
             </svg>
-          </DisabledExternLink>
+          </EnabledExternLink>
           <EnabledExternLink>
             <Text as="a" css={{ color: "inherit" }} href="https://raspy-neon-a4e.notion.site/CSESoc-Open-Dev-MongoDB-ExpressJS-f115394e8ecb4f09a3b767bf52c3e6e8" target="_blank">
               Exercises &nbsp;
