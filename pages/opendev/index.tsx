@@ -513,12 +513,12 @@ const OpenDevTwo: NextPage = () => {
               <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
             </svg>
           </DisabledExternLink>
-          <DisabledExternLink>
-            <Text as="a" css={{ color: "inherit" }}>
+          <EnabledExternLink>
+            <Text as="a" css={{ color: "inherit" }} href="https://raspy-neon-a4e.notion.site/CSESoc-Open-Dev-MongoDB-ExpressJS-f115394e8ecb4f09a3b767bf52c3e6e8" target="_blank">
               Exercises &nbsp;
             </Text>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><path d="M104,32V93.8a8.4,8.4,0,0,1-1.1,4.1l-63.6,106A8,8,0,0,0,46.1,216H209.9a8,8,0,0,0,6.8-12.1l-63.6-106a8.4,8.4,0,0,1-1.1-4.1V32" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"></path><line x1="88" y1="32" x2="168" y2="32" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"></line><path d="M62.6,165c11.8-8.7,32.1-13.6,65.4,3,35.7,17.9,56.5,10.8,67.9,1.1" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"></path></svg>
-          </DisabledExternLink>
+          </EnabledExternLink>
           <DisabledExternLink>
             <Text as="a" css={{ color: "inherit" }}>
               Recording &nbsp;
