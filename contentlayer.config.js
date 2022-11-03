@@ -91,6 +91,59 @@ export const Puzzle = defineDocumentType(() => ({
   computedFields
 }))
 
+export const CourseRevisionOffering = defineDocumentType(() => ({
+  name: 'CourseRevisionOffering',
+  filePathPattern: `course-revision/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the exercise set',
+      required: true
+    },
+    course: {
+      type: 'string',
+      description: 'The course that the revision set relates to (COMP1511, COMP2521, ...)',
+      required: true
+    },
+    offering: {
+      type: 'string',
+      description: 'The offering of the course that the revision set is intended for (22T3, 23T1, ...)',
+      required: true
+    }
+  },
+  computedFields
+}))
+
+export const CourseRevisionExercise = defineDocumentType(() => ({
+  name: 'CourseRevisionExercise',
+  filePathPattern: `course-revision/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the exercise',
+      required: true
+    },
+    desc: {
+      type: 'string',
+      description: 'One sentence that summarises the exercise objective.',
+      required: true
+    },
+    class: {
+      type: 'string',
+      description: 'The class the exercise relates to (COMP1511, COMP2521, etc)',
+      required: true
+    },
+    difficulty: {
+      type: 'number',
+      description: 'The difficulty of the exercise (1=Easy, 2=Medium, 3=Hard)',
+      required: true
+    }
+  },
+  computedFields
+}))
+
 export const BlockContent = defineDocumentType(() => ({
   name: 'BlockContent',
   filePathPattern: `block-content/*.mdx`,
@@ -103,7 +156,7 @@ export const BlockContent = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [ArticleType, Puzzle, BlockContent],
+  documentTypes: [ArticleType, Puzzle, CourseRevisionOffering, CourseRevisionExercise, BlockContent],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
