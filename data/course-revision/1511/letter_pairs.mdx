@@ -1,0 +1,81 @@
+---
+title: Letter Pairs
+desc: Find the pairs of letters in a string
+class: COMP1511
+difficulty: 1
+---
+
+A letter pair is two of the same character appearing next to each other in a string. E.g. in the string "terrifically" there are 2 letter pairs "rr" and "ll".
+
+Write a program that reads a lowercase string as input, counts and prints out the number of letter pairs in a word.
+
+## Assumptions
+
+- The input string will have length 2-64 and be made of only lowercase alphabetical characters (a-z). There will be no spaces or punctuation marks.
+
+- Two letter pairs of the same character, e.g. the two pairs of “ee” found in “beekeeper,” both count as separate letter pairs.
+
+- No letters will appear consecutively more than twice (e.g. "aaa" will not be an input).
+
+
+### Examples
+
+Input: 
+
+```bash:~/1511-revision/letter_pairs
+$ dcc letter_pairs.c -o letter_pairs
+$ ./letter_pairs
+beekeeper
+```
+
+Output:
+
+```bash:~/1511-revision/letter_pairs
+2
+```
+
+Explanation: The double letter pair “ee” occurs twice in this word.
+
+Input: 
+
+```bash:~/1511-revision/letter_pairs
+$ dcc letter_pairs.c -o letter_pairs
+$ ./letter_pairs
+
+```
+
+Output:
+
+```bash:~/1511-revision/letter_pairs
+2
+```
+
+Explanation: The double letter pairs “ll” and “oo” each appear once in this word, so there are two double letter pairs.
+
+Input: 
+
+```bash:~/1511-revision/letter_pairs
+$ dcc letter_pairs.c -o letter_pairs
+$ ./letter_pairs
+distinction
+```
+
+Output:
+
+```bash:~/1511-revision/letter_pairs
+0
+```
+
+Explanation: There are no double letter pairs in this word - although some letters appear twice in the word, they do not appear consecutively, so they do not count as double letters.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/letter_pairs:~
+$ 1511 autotest letter_pairs
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/double-letters/solution.c).

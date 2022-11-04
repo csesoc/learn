@@ -119,40 +119,10 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
           Featured Content
         </Text>
 
-        {/* <Flex
-          as="section"
-          css={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            width: '100%',
-            overflowX: 'scroll',
-            flexWrap: 'nowrap',
-            gap: '$4'
-          }}>
-          {articles
-            .filter((article) => featuredArticleTitles.includes(article.title))
-            .map((article: ArticleType, index: number) => (
-              <ArticleCard key={index} article={article} />
-            ))}
-        </Flex> */}
-
         <Box css={{ width: "100%" }}>
-          <ArticlesCarousel articles={articles} />
+          <ArticlesCarousel articles={articles
+            .filter((article) => featuredArticleTitles.includes(article.title))} />
         </Box>
-        {/* <Flex css={{ width: '75%', flexWrap: 'wrap' }}>
-          <Text
-            size="title-lg"
-            css={{
-              backgroundColor: '$blue4',
-              fontWeight: '600',
-              borderRadius: '$full',
-              padding: '$4',
-              marginTop: '$7',
-              width: '100%'
-            }}>
-            All Content
-          </Text>
-        </Flex> */}
 
         <Text
           size="headline"
