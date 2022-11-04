@@ -26,10 +26,6 @@ const navItems = [
     'title': 'Contribute',
   },
   {
-    'path': '2521-revision-practical',
-    'title': 'COMP2521',
-  },
-  {
     'path': 'opendev',
     'title': 'Open Dev',
   },

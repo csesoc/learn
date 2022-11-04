@@ -15,6 +15,7 @@ import Link from 'next/link'
 import { ArrowDown, ArrowLeft } from 'phosphor-react'
 import ArticleLayout from 'components/ArticleLayout'
 import { Button } from 'components/Button'
+import { useRouter } from 'next/router'
 
 const defaultComponents = {
   Image,
@@ -47,23 +48,24 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const puzzle = allCourseRevisionExercises.find((e) => e.slug === params.exercise)
+  const exercise = allCourseRevisionExercises.find((e) => e.slug === params.exercise)
   return {
     props: {
-      puzzle
+      exercise
     }
   }
 }
 
-const PuzzleLayout = ({ puzzle }) => {
-  const MDXContent = useMDXComponent(puzzle.body.code)
+const ExercisePage = ({ exercise }) => {
+  const router = useRouter();
+  const MDXContent = useMDXComponent(exercise.body.code)
 
   return (
     <ArticleLayout>
       <Head>
-        <title>{puzzle.title}</title>
+        <title>{exercise.title}</title>
       </Head>
-      <Link href="/1511-revision-practical">
+      <Link href={`/course-revision/${router.query.course_offering}`}>
         <Button css={{ padding: '3px 14px', borderRadius: '100vh', width: "fit-content" }}>
           <ArrowLeft />Back
         </Button>
@@ -76,15 +78,15 @@ const PuzzleLayout = ({ puzzle }) => {
           paddingTop: '$2',
           alignSelf: 'center'
         }}>
-        {puzzle.title}
+        {exercise.title}
       </Text>
       <Box css={{ paddingTop: '$2' }}>
         <Text>
           <MDXContent components={components} />
         </Text>
       </Box>
-    </ArticleLayout>
+    </ArticleLayout >
   )
 }
 
-export default PuzzleLayout
+export default ExercisePage
