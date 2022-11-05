@@ -24,6 +24,7 @@ const ExercisesPage = ({
     return (
         <main>
             <ArticleLayout>
+                <h1>Course Revision</h1>
                 {allCourseRevisionOfferings?.map((offering) => (
                     <Link href={`course-revision/${offering.slug}`} passHref key={offering.slug}>
                         <div style={{
