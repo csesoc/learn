@@ -3,7 +3,7 @@ import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
 import { Button } from 'components/Button'
 import ArticleCard from 'components/ArticleCard'
-import { ArticleType, allArticleTypes } from 'contentlayer/generated'
+import { ArticleType, allArticleTypes, allCourseRevisionOfferings } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { NextPage } from 'next'
 import Head from 'next/head'
@@ -12,6 +12,7 @@ import { styled } from '../stitches.config'
 import { MagnifyingGlass } from 'phosphor-react'
 import { ArticleRow } from '../components/ArticleRow'
 import { ArticlesCarousel } from 'components/ArticlesCarousel'
+import CourseRevisionContainerHomePage from 'components/course-revision/CourseRevisionContainerHomePage'
 
 export async function getStaticProps() {
   const articles = allArticleTypes.sort((a, b) => {
@@ -22,7 +23,7 @@ export async function getStaticProps() {
   )
   const flattenedTags = tagLists.flat(1)
   const allTags = [...['All Topics'], ...new Set(flattenedTags)]
-  return { props: { articles, allTags } }
+  return { props: { articles, allTags, courseOfferingContent: allCourseRevisionOfferings } }
 }
 
 const SearchBar = styled('input', {
@@ -42,7 +43,7 @@ const TagsContainer = styled('div', {
 })
 
 // I'm tired, I didn't type this properly ok
-const Articles: NextPage = ({ articles, allTags }: any) => {
+const Articles: NextPage = ({ articles, allTags, courseOfferingContent }: any) => {
   const [currentTag, setCurrentTag] = useState('All Topics')
   const [currentSearch, setCurrentSearch] = useState('')
   const [filteredArticles, setFilteredArticles] = useState(articles)
@@ -110,8 +111,29 @@ const Articles: NextPage = ({ articles, allTags }: any) => {
           as="span"
           size="title-sm"
           css={{ color: '$slate12', paddingTop: '$1' }}>
-          Learn something new with our collection of articles and videos!
+          Learn something new with our collection of articles and tutorials
         </Text>
+
+        <Flex
+          as="main"
+          css={{
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '0 1rem',
+          }}>
+          <Text
+            size="headline"
+            css={{ fontWeight: 600, paddingTop: '$8', paddingBottom: '$4' }}>
+            Course Revision
+          </Text>
+          <Text
+            as="span"
+            size="title-sm"
+            css={{ color: '$slate12', paddingTop: '$1', textAlign: "center", width: "70%" }}>
+            Revise for your upcoming final exams with practice problems written by our Education Team. Solutions provided.
+          </Text>
+          <CourseRevisionContainerHomePage allCourseRevisionOfferings={courseOfferingContent} />
+        </Flex>
 
         <Text
           size="headline"

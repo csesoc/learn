@@ -3,7 +3,7 @@ import { Button } from 'components/Button'
 import { Card } from 'components/Card'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
-import { allArticleTypes } from 'contentlayer/generated'
+import { allArticleTypes, allCourseRevisionOfferings, ArticleType, CourseRevisionOffering } from 'contentlayer/generated'
 import { compareAsc, compareDesc } from 'date-fns'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -11,15 +11,24 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { DiscordLogo, FacebookLogo, InstagramLogo, ArrowRight } from 'phosphor-react'
 import { ArticlesCarousel } from 'components/ArticlesCarousel'
+import CourseRevisionCard from 'components/course-revision/CourseRevisionCard'
+import { styled } from '@stitches/react'
+import CourseRevisionMiniCard from 'components/course-revision/CourseRevisionMiniCard'
+import CourseRevisionContainerHomePage from 'components/course-revision/CourseRevisionContainerHomePage'
+
+type PropTypes = {
+  articles: ArticleType[],
+  courseOfferingContent: CourseRevisionOffering[],
+}
 
 export async function getStaticProps() {
   const articles = allArticleTypes.sort((a, b) => {
     return compareAsc(new Date(b.date), new Date(a.date))
   })
-  return { props: { articles } }
+  return { props: { articles, courseOfferingContent: allCourseRevisionOfferings } }
 }
 
-const Home: NextPage = ({ articles }: any) => {
+const Home: NextPage = ({ articles, courseOfferingContent }: PropTypes) => {
   return (
     <Box>
       <Head>
@@ -47,7 +56,7 @@ const Home: NextPage = ({ articles }: any) => {
         <Text
           as="span"
           size="title-sm"
-          css={{ color: '$slate12', paddingTop: '$1' }}>
+          css={{ color: '$slate12', paddingTop: '$1', textAlign: "center", width: "70%" }}>
           From articles on new technologies to sample projects, your learning
           outside the classroom starts here.
         </Text>
@@ -57,6 +66,34 @@ const Home: NextPage = ({ articles }: any) => {
             <ArrowRight weight="bold" />
           </Button>
         </Link>
+      </Flex>
+      <Flex
+        as="main"
+        css={{
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '0 1rem',
+        }}>
+        <Text
+          size="headline"
+          css={{ fontWeight: 600, paddingTop: '$8', paddingBottom: '$4' }}>
+          Course Revision
+        </Text>
+        <Text
+          as="span"
+          size="title-sm"
+          css={{ color: '$slate12', paddingTop: '$1', textAlign: "center", width: "70%" }}>
+          Revise for your upcoming final exams with practice problems written by our Education Team. Solutions provided.
+        </Text>
+        <CourseRevisionContainerHomePage allCourseRevisionOfferings={courseOfferingContent} />
+      </Flex>
+      <Flex
+        as="main"
+        css={{
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '0 1rem',
+        }}>
         <Text
           size="headline"
           css={{ fontWeight: 600, paddingTop: '$8', paddingBottom: '$4' }}>
@@ -77,7 +114,7 @@ const Home: NextPage = ({ articles }: any) => {
         <Text
           as="span"
           size="title-sm"
-          css={{ color: '$slate12', paddingTop: '$1' }}>
+          css={{ color: '$slate12', paddingTop: '$1', textAlign: "center", width: "70%" }}>
           Make friends with like-minded students and stay up-to-date with
           events.
         </Text>
@@ -210,3 +247,4 @@ const Home: NextPage = ({ articles }: any) => {
 }
 
 export default Home
+
