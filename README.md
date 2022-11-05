@@ -47,10 +47,16 @@ CSESoc Learn also focuses strongly on delightful UI/UX, driving engagement and r
 - Content: [MDX](https://mdxjs.com/) + [Contentlayer](https://www.contentlayer.dev/) 
 - Language: [TypeScript](https://stackoverflow.com/questions/12694530/what-is-typescript-and-why-would-i-use-it-in-place-of-javascript/35048303#35048303)
 - Styling: [Stitches](https://stitches.dev/)
+- Markdown plugins (see [contentlayer.config.js](contentlayer.config.js)`)
+  - rehypeCodeTitles,
+  - rehypeHighlight,
+  - rehypePrismPlus,
+  - rehypeAutolinkHeadings,
+  - rehypeSlug
 
 ## Documentation
 
-See the [wiki](https://github.com/csesoc/learning-platform/wiki). Documentation is currently being written.
+See the [wiki](https://github.com/csesoc/learning-platform/wiki).
 
 ## Our team
 

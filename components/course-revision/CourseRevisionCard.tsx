@@ -1,7 +1,7 @@
 import { styled } from "@stitches/react";
 
 
-export const CourseRevisionCard = styled('div', {
+const CourseRevisionCard = styled('div', {
     color: "#ebf2ff",
     padding: '1.2rem 1.6rem',
     display: 'flex',
@@ -28,3 +28,5 @@ export const CourseRevisionCard = styled('div', {
         background: 'linear-gradient(0.25turn, #4287f5, #4386f0);',
     }
 })
+
+export default CourseRevisionCard

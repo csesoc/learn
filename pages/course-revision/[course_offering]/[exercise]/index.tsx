@@ -16,7 +16,9 @@ import { ArrowDown, ArrowLeft } from 'phosphor-react'
 import ArticleLayout from 'components/ArticleLayout'
 import { Button } from 'components/Button'
 import { useRouter } from 'next/router'
-import CourseRevisionSidebar from 'components/CourseRevisionSidebar'
+import CourseRevisionSidebar from 'components/course-revision/CourseRevisionSidebar'
+import { styled } from '@stitches/react'
+import ContentContainer from 'components/course-revision/ContentContainer'
 
 const defaultComponents = {
   Image,
@@ -67,12 +69,11 @@ const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }) 
     <ArticleLayout style={{
       maxWidth: '1018px',
     }}>
-      <CourseRevisionSidebar contentList={[courseOfferingContent, ...exercisesContent]} currentContentIdx={exerciseIdx + 1} />
-      <div style={{
-        marginLeft: "266px",
-      }}>
-        <MDXContent components={components} />
-      </div>
+      <CourseRevisionSidebar courseOfferingTitle={courseOfferingContent.title} courseOfferingContent={courseOfferingContent} contentList={exercisesContent} currentContentIdx={exerciseIdx} />
+      <ContentContainer>
+        {MDXContent && <Text><MDXContent /></Text>}
+
+      </ContentContainer>
     </ArticleLayout >
   )
 }

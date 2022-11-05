@@ -1,7 +1,7 @@
 import { Card } from '@modulz/design-system'
 import { styled } from '@stitches/react'
 import ArticleLayout from 'components/ArticleLayout'
-import { CourseRevisionCard } from 'components/CourseRevisionCard'
+import CourseRevisionCard from 'components/course-revision/CourseRevisionCard'
 import { Tag } from 'components/Tag'
 import { allCourseRevisionOfferings } from 'contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
