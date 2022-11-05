@@ -10,12 +10,13 @@ type PropTypes = {
     /* Name of the revision session for this course offering */
     courseOfferingTitle: string,
 
+    /* Home page for this course offering e.g. 1511 22T3 */
     courseOfferingContent: CourseRevisionOffering,
 
-    /* First in list must be the course offering, the rest are exercises */
+    /* List of exercises content */
     contentList: CourseRevisionExercise[],
 
-    /* Index of the currently selected content in contentList*/
+    /* Index of the currently selected content in contentList */
     currentContentIdx: number,
 }
 
@@ -139,7 +140,7 @@ const CourseRevisionSidebar = ({ courseOfferingTitle, courseOfferingContent, con
                     backgroundColor: currentContentIdx === -1 ? "#31a7f5" : "#2285c7",
                     fontWeight: currentContentIdx === -1 ? "bold" : "normal",
                 }}>
-                    "Getting Started"
+                    Getting Started
 
                 </ExerciseButton>
             </Link>

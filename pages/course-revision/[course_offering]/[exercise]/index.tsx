@@ -15,13 +15,10 @@ import Link from 'next/link'
 import { ArrowDown, ArrowLeft } from 'phosphor-react'
 import ArticleLayout from 'components/ArticleLayout'
 import { Button } from 'components/Button'
-<<<<<<< HEAD
 import { useRouter } from 'next/router'
 import CourseRevisionSidebar from 'components/course-revision/CourseRevisionSidebar'
 import { styled } from '@stitches/react'
 import ContentContainer from 'components/course-revision/ContentContainer'
-=======
->>>>>>> main
 
 const defaultComponents = {
   Image,
