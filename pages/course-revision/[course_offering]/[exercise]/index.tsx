@@ -16,6 +16,7 @@ import { ArrowDown, ArrowLeft } from 'phosphor-react'
 import ArticleLayout from 'components/ArticleLayout'
 import { Button } from 'components/Button'
 import { useRouter } from 'next/router'
+import CourseRevisionSidebar from 'components/CourseRevisionSidebar'
 
 const defaultComponents = {
   Image,
@@ -48,43 +49,30 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const exercise = allCourseRevisionExercises.find((e) => e.slug === params.exercise)
+  const exercisesContent = allCourseRevisionExercises.filter((e) => e._raw.sourceFileDir.endsWith(params.course_offering)).sort((a, b) => a.difficulty - b.difficulty)
+  const exerciseIdx = exercisesContent.findIndex((e) => e.slug === params.exercise)
   return {
     props: {
-      exercise
+      courseOfferingContent: allCourseRevisionOfferings.find((c) => c.slug === params.course_offering),
+      exercisesContent,
+      exerciseIdx,
     }
   }
 }
 
-const ExercisePage = ({ exercise }) => {
-  const router = useRouter();
-  const MDXContent = useMDXComponent(exercise.body.code)
+const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }) => {
+  const MDXContent = useMDXComponent(exercisesContent[exerciseIdx].body.code)
 
   return (
-    <ArticleLayout>
-      <Head>
-        <title>{exercise.title}</title>
-      </Head>
-      <Link href={`/course-revision/${router.query.course_offering}`}>
-        <Button css={{ padding: '3px 14px', borderRadius: '100vh', width: "fit-content" }}>
-          <ArrowLeft />Back
-        </Button>
-      </Link>
-      <Text
-        size="headline"
-        css={{
-          color: '$slate12',
-          fontWeight: '600',
-          paddingTop: '$2',
-          alignSelf: 'center'
-        }}>
-        {exercise.title}
-      </Text>
-      <Box css={{ paddingTop: '$2' }}>
-        <Text>
-          <MDXContent components={components} />
-        </Text>
-      </Box>
+    <ArticleLayout style={{
+      maxWidth: '1018px',
+    }}>
+      <CourseRevisionSidebar contentList={[courseOfferingContent, ...exercisesContent]} currentContentIdx={exerciseIdx + 1} />
+      <div style={{
+        marginLeft: "266px",
+      }}>
+        <MDXContent components={components} />
+      </div>
     </ArticleLayout >
   )
 }

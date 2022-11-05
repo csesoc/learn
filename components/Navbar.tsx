@@ -54,7 +54,8 @@ const NavContainer = styled('div', {
       }
     }
   },
-  backgroundColor: '#e8ebed',
+  backgroundColor: 'rgb(232, 235, 237, 0.87)',
+  backdropFilter: 'blur(8px)',
   boxShadow: "0px 0px 31px -19px rgba(0,0,0,0.54)",
   width: '100vw',
   maxWidth: '548px',
@@ -134,7 +135,8 @@ export default function Navbar() {
         zIndex: '1',
         position: 'fixed',
         width: "100%",
-        background: "linear-gradient(180deg, rgba(244,244,244,1) 0%, rgba(244,244,244,1) 90%, rgba(244,244,244,0.8084599921043882) 96%, rgba(244,244,244,0) 100%)",
+        background: "rgba(244,244,244,0.78)",
+        backdropFilter: "blur(7px)",
       }}>
       <Flex css={{ flex: 1, justifyContent: 'flex-start' }}>
         <Link href="/">
