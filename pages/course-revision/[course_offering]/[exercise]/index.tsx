@@ -1,7 +1,7 @@
 import Avatar from 'boring-avatars'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
-import { allCourseRevisionOfferings, allCourseRevisionExercises } from 'contentlayer/generated'
+import { allCourseRevisionOfferings, allCourseRevisionExercises, CourseRevisionOffering, CourseRevisionExercise } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Head from 'next/head'
@@ -19,6 +19,7 @@ import { useRouter } from 'next/router'
 import CourseRevisionSidebar from 'components/course-revision/CourseRevisionSidebar'
 import { styled } from '@stitches/react'
 import ContentContainer from 'components/course-revision/ContentContainer'
+import { useEffect } from 'react'
 
 const defaultComponents = {
   Image,
@@ -34,6 +35,10 @@ const defaultComponents = {
 // Components here load dynamically if they're used.
 // See https://github.com/tsriram/with-mdx-bundler for details.
 const components = { ...defaultComponents }
+
+type PropTypes = {
+  courseOfferingContent: CourseRevisionOffering, exercisesContent: CourseRevisionExercise[], exerciseIdx: number
+}
 
 export async function getStaticPaths() {
   const paths = []
@@ -62,7 +67,8 @@ export async function getStaticProps({ params }) {
   }
 }
 
-const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }) => {
+const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }: PropTypes) => {
+  console.log(exercisesContent[exerciseIdx].body.code.slice(0, 35));
   const MDXContent = useMDXComponent(exercisesContent[exerciseIdx].body.code)
 
   return (
