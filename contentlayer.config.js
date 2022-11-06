@@ -62,35 +62,6 @@ export const ArticleType = defineDocumentType(() => ({
   computedFields
 }))
 
-export const Puzzle = defineDocumentType(() => ({
-  name: 'Puzzle',
-  filePathPattern: `2521-revision-practical/*.mdx`,
-  contentType: 'mdx',
-  fields: {
-    title: {
-      type: 'string',
-      description: 'The title of the puzzle',
-      required: true
-    },
-    desc: {
-      type: 'string',
-      description: 'One sentence that summarises the puzzle objective.',
-      required: true
-    },
-    class: {
-      type: 'string',
-      description: 'The class the puzzle relates to',
-      required: true
-    },
-    difficulty: {
-      type: 'number',
-      description: 'The difficulty of the puzzle',
-      required: true
-    }
-  },
-  computedFields
-}))
-
 export const CourseRevisionOffering = defineDocumentType(() => ({
   name: 'CourseRevisionOffering',
   filePathPattern: `course-revision/*.mdx`,
@@ -98,7 +69,12 @@ export const CourseRevisionOffering = defineDocumentType(() => ({
   fields: {
     title: {
       type: 'string',
-      description: 'The title of the exercise set',
+      description: 'The title of the exercise set e.g. COMP1511 22T3 Revision Session',
+      required: true
+    },
+    desc: {
+      type: 'string',
+      description: 'A brief 1-2 sentence description of what this course revision contains',
       required: true
     },
     course: {
@@ -144,19 +120,9 @@ export const CourseRevisionExercise = defineDocumentType(() => ({
   computedFields
 }))
 
-export const BlockContent = defineDocumentType(() => ({
-  name: 'BlockContent',
-  filePathPattern: `block-content/*.mdx`,
-  contentType: 'mdx',
-  fields: {},
-  computedFields: {
-    slug: computedFields.slug
-  }
-}))
-
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [ArticleType, Puzzle, CourseRevisionOffering, CourseRevisionExercise, BlockContent],
+  documentTypes: [ArticleType, CourseRevisionOffering, CourseRevisionExercise],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

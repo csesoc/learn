@@ -15,6 +15,10 @@ import Link from 'next/link'
 import { ArrowDown, ArrowLeft } from 'phosphor-react'
 import ArticleLayout from 'components/ArticleLayout'
 import { Button } from 'components/Button'
+import { useRouter } from 'next/router'
+import CourseRevisionSidebar from 'components/course-revision/CourseRevisionSidebar'
+import { styled } from '@stitches/react'
+import ContentContainer from 'components/course-revision/ContentContainer'
 
 const defaultComponents = {
   Image,
@@ -47,44 +51,31 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const puzzle = allCourseRevisionExercises.find((e) => e.slug === params.exercise)
+  const exercisesContent = allCourseRevisionExercises.filter((e) => e._raw.sourceFileDir.endsWith(params.course_offering)).sort((a, b) => a.difficulty - b.difficulty)
+  const exerciseIdx = exercisesContent.findIndex((e) => e.slug === params.exercise)
   return {
     props: {
-      puzzle
+      courseOfferingContent: allCourseRevisionOfferings.find((c) => c.slug === params.course_offering),
+      exercisesContent,
+      exerciseIdx,
     }
   }
 }
 
-const PuzzleLayout = ({ puzzle }) => {
-  const MDXContent = useMDXComponent(puzzle.body.code)
+const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }) => {
+  const MDXContent = useMDXComponent(exercisesContent[exerciseIdx].body.code)
 
   return (
-    <ArticleLayout>
-      <Head>
-        <title>{puzzle.title}</title>
-      </Head>
-      <Link href="/1511-revision-practical">
-        <Button css={{ padding: '3px 14px', borderRadius: '100vh', width: "fit-content" }}>
-          <ArrowLeft />Back
-        </Button>
-      </Link>
-      <Text
-        size="headline"
-        css={{
-          color: '$slate12',
-          fontWeight: '600',
-          paddingTop: '$2',
-          alignSelf: 'center'
-        }}>
-        {puzzle.title}
-      </Text>
-      <Box css={{ paddingTop: '$2' }}>
-        <Text>
-          <MDXContent components={components} />
-        </Text>
-      </Box>
-    </ArticleLayout>
+    <ArticleLayout style={{
+      maxWidth: '1018px',
+    }}>
+      <CourseRevisionSidebar courseOfferingTitle={courseOfferingContent.title} courseOfferingContent={courseOfferingContent} contentList={exercisesContent} currentContentIdx={exerciseIdx} />
+      <ContentContainer>
+        {MDXContent && <Text><MDXContent /></Text>}
+
+      </ContentContainer>
+    </ArticleLayout >
   )
 }
 
-export default PuzzleLayout
+export default ExercisePage
