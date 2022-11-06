@@ -19,7 +19,6 @@ import { useRouter } from 'next/router'
 import CourseRevisionSidebar from 'components/course-revision/CourseRevisionSidebar'
 import { styled } from '@stitches/react'
 import ContentContainer from 'components/course-revision/ContentContainer'
-import { useEffect } from 'react'
 
 const defaultComponents = {
   Image,
@@ -67,8 +66,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
-const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }: PropTypes) => {
-  console.log(exercisesContent[exerciseIdx].body.code.slice(0, 35));
+const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }) => {
   const MDXContent = useMDXComponent(exercisesContent[exerciseIdx].body.code)
 
   return (

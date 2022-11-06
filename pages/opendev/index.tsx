@@ -169,7 +169,7 @@ const OpenDevTwo: NextPage = () => {
             <td>19 Oct 2022</td>
             <td>2-4pm, CLB 6</td>
           </tr>
-          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
+          <tr style={{ backgroundColor: 'rgb(233, 240, 251)', color: '#b8bcc0' }}>
             <td>Week 7</td>
             <td><span style={{ fontWeight: "800" }} >MongoDB &amp; ExpressJS Workshop</span>
               <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
@@ -179,12 +179,12 @@ const OpenDevTwo: NextPage = () => {
             <td>26 Oct 2022</td>
             <td>2-4pm, Ainsworth 202</td>
           </tr>
-          <tr style={{ backgroundColor: 'rgb(224, 235, 253)' }}>
+          <tr style={{ backgroundColor: 'rgb(224, 235, 253)', color: '#b8bcc0' }}>
             <td>Week 8</td>
             <td>
               <span style={{ fontWeight: "800" }} >MongoDB &amp; ExpressJS Dev Session</span>
               <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
-                Work on ReactJS Part 2 exercises and get help 🥰<br />
+                Work on MongoDB &amp; ExpressJS exercises and get help 🥰<br />
                 Chill, chat, study. Snacks provided 🧁
               </p>
             </td>
@@ -193,10 +193,9 @@ const OpenDevTwo: NextPage = () => {
           </tr>
           <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
             <td>Week 9</td>
-            <td><span style={{ fontWeight: "800" }} >Project Dev Session</span>
+            <td><span style={{ fontWeight: "800" }} >Deploying Web Apps (as a broke uni student)</span>
               <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
-                Put your new skills to the test and build a project!<br />
-                Chill, chat, study. Snacks provided 🧁
+                Learn how to configure, build and deploy our web apps so everyone can see it online ⚡️
               </p></td>
             <td>9 Nov 2022</td>
             <td>2-4pm, Ainsworth 202</td>
