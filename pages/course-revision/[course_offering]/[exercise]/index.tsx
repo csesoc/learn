@@ -1,7 +1,7 @@
 import Avatar from 'boring-avatars'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
-import { allCourseRevisionOfferings, allCourseRevisionExercises } from 'contentlayer/generated'
+import { allCourseRevisionOfferings, allCourseRevisionExercises, CourseRevisionOffering, CourseRevisionExercise } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Head from 'next/head'
@@ -35,11 +35,17 @@ const defaultComponents = {
 // See https://github.com/tsriram/with-mdx-bundler for details.
 const components = { ...defaultComponents }
 
+type PropTypes = {
+  courseOfferingContent: CourseRevisionOffering, exercisesContent: CourseRevisionExercise[], exerciseIdx: number
+}
+
 export async function getStaticPaths() {
   const paths = []
   allCourseRevisionOfferings.forEach((o) => {
     allCourseRevisionExercises.forEach((e) => {
-      paths.push({ params: { course_offering: o.slug, exercise: e.slug } })
+      if (e._raw.sourceFileDir.endsWith(o.slug)) {
+        paths.push({ params: { course_offering: o.slug, exercise: e.slug } })
+      }
     })
   })
   console.log("paths: ", paths);
@@ -62,7 +68,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
-const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }) => {
+const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }: PropTypes) => {
   const MDXContent = useMDXComponent(exercisesContent[exerciseIdx].body.code)
 
   return (
