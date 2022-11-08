@@ -62,48 +62,67 @@ export const ArticleType = defineDocumentType(() => ({
   computedFields
 }))
 
-export const Puzzle = defineDocumentType(() => ({
-  name: 'Puzzle',
-  filePathPattern: `2521-revision-practical/*.mdx`,
+export const CourseRevisionOffering = defineDocumentType(() => ({
+  name: 'CourseRevisionOffering',
+  filePathPattern: `course-revision/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
-      description: 'The title of the puzzle',
+      description: 'The title of the exercise set e.g. COMP1511 22T3 Revision Session',
       required: true
     },
     desc: {
       type: 'string',
-      description: 'One sentence that summarises the puzzle objective.',
+      description: 'A brief 1-2 sentence description of what this course revision contains',
       required: true
     },
-    class: {
+    course: {
       type: 'string',
-      description: 'The class the puzzle relates to',
+      description: 'The course that the revision set relates to (COMP1511, COMP2521, ...)',
       required: true
     },
-    difficulty: {
-      type: 'number',
-      description: 'The difficulty of the puzzle',
+    offering: {
+      type: 'string',
+      description: 'The offering of the course that the revision set is intended for (22T3, 23T1, ...)',
       required: true
     }
   },
   computedFields
 }))
 
-export const BlockContent = defineDocumentType(() => ({
-  name: 'BlockContent',
-  filePathPattern: `block-content/*.mdx`,
+export const CourseRevisionExercise = defineDocumentType(() => ({
+  name: 'CourseRevisionExercise',
+  filePathPattern: `course-revision/**/*.mdx`,
   contentType: 'mdx',
-  fields: {},
-  computedFields: {
-    slug: computedFields.slug
-  }
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the exercise',
+      required: true
+    },
+    desc: {
+      type: 'string',
+      description: 'One sentence that summarises the exercise objective.',
+      required: true
+    },
+    class: {
+      type: 'string',
+      description: 'The class the exercise relates to (COMP1511, COMP2521, etc)',
+      required: true
+    },
+    difficulty: {
+      type: 'number',
+      description: 'The difficulty of the exercise (1=Easy, 2=Medium, 3=Hard)',
+      required: true
+    }
+  },
+  computedFields
 }))
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [ArticleType, Puzzle, BlockContent],
+  documentTypes: [ArticleType, CourseRevisionOffering, CourseRevisionExercise],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

@@ -36,6 +36,6 @@
     "components/Button.ts",
     "components/Logo.tsx",
     "pages/articles.js"
-  ],
+, "pages/course-revision/[course_offering]"  ],
   "exclude": ["node_modules"]
 }
