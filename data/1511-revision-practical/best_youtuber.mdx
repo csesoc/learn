@@ -1,0 +1,65 @@
+---
+title: Best Youtuber
+desc: Sort three numbers with pointers.
+class: COMP1511
+difficulty: Medium
+---
+
+Your program is given a list of thought-provoking YouTube videos. Each video has a creator and a number of likes. (They don’t, however, have any dislikes because YouTube removed the dislike button. 😢)
+
+Your task is to print out the YouTuber from among the videos with the best likes-to-videos ratio, along with that YouTuber's video count and total number of likes to prove it. They are thusly crowned the best YouTuber!
+
+A YouTuber’s likes-to-videos ratio is calculated by $\frac{\text{their total likes}}{\text{their number of videos}}$.
+
+If there's a tie, the program should print "It's a tie! There is no best YouTuber."
+
+Each line of input should be in the format `[video creator], [video likes]` (note the separating comma).
+
+The output from your program should look **exactly** like this:
+
+```bash:~/1511-revision/best_youtuber
+$ dcc best_youtuber.c -o best_youtuber
+$ ./best_youtuber
+**Wild Candy, 84317**
+**Logan Paul, 9185**
+**Wild Candy, 20097**
+**Jaden Smith, 35664**
+**Wild Candy, 15321**
+**Logan Paul, 75820**
+<CTRL+D>
+Logan Paul is the best YouTuber.
+Number of videos: 2
+Total likes: 85005
+```
+
+There are three YouTubers found from among the given videos: Wild Candy, Logan Paul, and Jaden Smith. Calculating each of their likes-to-videos ratios gives $39,911.\dot{6}$, $42,502.5$, and $35,664$, respectively.
+
+As Logan Paul has the greatest likes-to-videos ratio, he's the best YouTuber.
+
+```bash:~/1511-revision/best_youtuber
+$ dcc best_youtuber.c -o best_youtuber
+$ ./best_youtuber
+**Will Smith, 2000**
+**Logan Paul, 2000**
+**Will Smith, 2000**
+<CTRL+D>
+It's a tie! There is no best YouTuber.
+```
+
+## Assumptions/Restrictions/Clarifications
+
+Each YouTuber's name contains no more than 128 characters.
+
+There is no need to account for loss of precision from using floating-point numbers.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/best_youtuber
+$ 1511 csesoc-autotest best_youtuber best_youtuber.c
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/best-youtuber/solution.c).
