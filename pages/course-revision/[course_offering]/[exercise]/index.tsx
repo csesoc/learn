@@ -43,7 +43,9 @@ export async function getStaticPaths() {
   const paths = []
   allCourseRevisionOfferings.forEach((o) => {
     allCourseRevisionExercises.forEach((e) => {
-      paths.push({ params: { course_offering: o.slug, exercise: e.slug } })
+      if (e._raw.sourceFileDir.endsWith(o.slug)) {
+        paths.push({ params: { course_offering: o.slug, exercise: e.slug } })
+      }
     })
   })
   console.log("paths: ", paths);
@@ -66,7 +68,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
-const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }) => {
+const ExercisePage = ({ courseOfferingContent, exercisesContent, exerciseIdx }: PropTypes) => {
   const MDXContent = useMDXComponent(exercisesContent[exerciseIdx].body.code)
 
   return (
