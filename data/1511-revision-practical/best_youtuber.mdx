@@ -1,6 +1,6 @@
 ---
 title: Best Youtuber
-desc: Sort three numbers with pointers.
+desc: Traverse and construct linked lists + more.
 class: COMP1511
 difficulty: Medium
 ---
@@ -9,11 +9,11 @@ Your program is given a list of thought-provoking YouTube videos. Each video has
 
 Your task is to print out the YouTuber from among the videos with the best likes-to-videos ratio, along with that YouTuber's video count and total number of likes to prove it. They are thusly crowned the best YouTuber!
 
-A YouTuber’s likes-to-videos ratio is calculated by $\frac{\text{their total likes}}{\text{their number of videos}}$.
+A YouTuber’s likes-to-videos ratio is calculated by `their total likes / their number of videos`.
 
 If there's a tie, the program should print "It's a tie! There is no best YouTuber."
 
-Each line of input should be in the format `[video creator], [video likes]` (note the separating comma).
+Each line of input will be in the format `[video creator], [video likes]` (note the separating comma).
 
 The output from your program should look **exactly** like this:
 
@@ -32,9 +32,7 @@ Number of videos: 2
 Total likes: 85005
 ```
 
-There are three YouTubers found from among the given videos: Wild Candy, Logan Paul, and Jaden Smith. Calculating each of their likes-to-videos ratios gives $39,911.\dot{6}$, $42,502.5$, and $35,664$, respectively.
-
-As Logan Paul has the greatest likes-to-videos ratio, he's the best YouTuber.
+Explanation: There are three YouTubers found from among the given videos: Wild Candy, Logan Paul, and Jaden Smith. Calculating each of their likes-to-videos ratios gives `39,911.66...`, `2,502.5`, and `35,664`, respectively. As Logan Paul has the greatest likes-to-videos ratio, he's the best YouTuber.
 
 ```bash:~/1511-revision/best_youtuber
 $ dcc best_youtuber.c -o best_youtuber
@@ -48,9 +46,9 @@ It's a tie! There is no best YouTuber.
 
 ## Assumptions/Restrictions/Clarifications
 
-Each YouTuber's name contains no more than 128 characters.
+You can assume each YouTuber's name contains no more than 128 characters (including the '\0' null terminator).
 
-There is no need to account for loss of precision from using floating-point numbers.
+As you're calculating a ratio, fractional numbers will be involved. Please use a `double` for this (and not `float`, for example). Note that the nature of floating-point numbers like `double` and `float` mean they can experience a loss of precision when doing certain operations. You do not have to account for this loss of precision; just use `double` as though it'll always be accurate!
 
 ## CSE Autotest
 
