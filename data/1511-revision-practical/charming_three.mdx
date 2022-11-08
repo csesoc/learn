@@ -1,0 +1,41 @@
+---
+title: Charming Three
+desc: Sort three numbers with pointers.
+class: COMP1511
+difficulty: Easy
+---
+
+Bob thinks three is a lucky number - the Three Musketeers, the Holy Trinity, the three witches in Macbeth - it pops up everywhere. So he always collects numbers in groups of three.
+
+However, what's better than three numbers? Three sorted numbers! Let's help Bob out.
+
+Write a function, sort_three, that takes in three integer pointers as arguments and sorts the values they point to in increasing order.
+
+If you would like a challenge, try to accomplish this by using a single comparison operator, > no more than three times!
+
+Given `5 2 7\n` as input, it should print `2 5 7` to sort them.
+
+The output from your program should look **exactly** like this:
+
+```bash:~/1511-revision/charming_three
+$ dcc charming_three.c -o charming_three
+$ ./charming_three
+5 2 7
+2 5 7
+```
+
+## Assumptions/Restrictions/Clarifications
+
+All numbers that the pointer points to are positive.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/charming_three:~
+$ 1511 autotest charming_three
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/charming_three/solution.c).
