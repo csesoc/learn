@@ -1,0 +1,110 @@
+---
+title: Train Trauma
+desc: Representing data as a linked list for traversal.
+class: COMP1511
+difficulty: Medium
+---
+
+The train network in Sydney has been problematic for some time now, so the government is trying a new 'rapid prototyping approach'. Every day, one of the following will happen:
+
+1) A new station will be added. This station will initially be unconnected to the rest of the network. 
+2) A new track will be added between two existing stations, replacing the previous track coming out from the start station if one existed.
+
+Before the start of day 1, there are two stations: one near your house (initially named "home"), and one at UNSW (initially named "unsw"), which are initially connected by a track. At the start of each day, one of the above operations will occur. 
+
+Every day, your task is to determine whether it is possible to make it to UNSW by train.
+
+The first line of input is an integer: the number of days over which the prototyping will occur.
+
+Following this will be the same number of lines, which may be any of the following ([x] represents a string):
+
+- 's [name]', representing the construction of a new station called [name]. [name] will not match any existing station.
+- 't [start]\n[end]', representing the construction of a new track from [start] to [end]. [start] and [end] will both match an existing station. '\n' represents a new line.
+
+Your output should contain a number of lines equal to the integer.
+
+On each line of output, you should output "YES" if it is possible to travel from the stop at your house to the stop at UNSW after the change on the that day, and "NO" otherwise. 
+
+The output from your program should look **exactly** like this:
+
+```bash:~/1511-revision/train_trauma
+$ dcc train_trauma.c -o train_trauma
+$ ./train_trauma
+**5**
+**s central**
+**s moore_park**
+**t central**
+**moore_park**
+**t home**
+**central**
+**t moore_park**
+**unsw**
+<CTRL+D>
+YES
+YES
+YES
+NO
+YES
+```
+
+**Explanation**
+
+On each day, the train's path is
+
+1. home -> unsw
+2. home -> unsw
+3. home -> unsw
+4. home -> central -> moore_park
+5. home -> central -> moore_park -> unsw
+
+```bash:~/1511-revision/train_trauma
+$ dcc train_trauma.c -o train_trauma
+$ ./train_trauma
+**6**
+**s central**
+**t home**
+**central**
+**s surry_hills**
+**t central**
+**surry_hills**
+**t surry_hills**
+**home**
+**t surry_hills**
+**unsw**
+<CTRL+D>
+YES
+NO
+NO
+NO
+NO
+YES
+```
+
+**Explanation**
+
+On each day, the train's path is
+
+1. home -> unsw
+2. home -> central
+3. home -> central
+4. home -> central -> surry_hills
+5. home -> central -> surry_hills -> home -> (repeats infinitely)
+6. home -> central -> surry_hills -> unsw
+
+## Assumptions/Restrictions/Clarifications
+
+Each station has at most one track leading out from it.
+
+Station names will be up to 100 characters long (including the '\0' null terminator).
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/train_trauma
+$ 1511 csesoc-autotest train_trauma train_trauma.c
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/train-trauma/solution.c).
