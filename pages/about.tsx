@@ -12,6 +12,7 @@ import compclubImg from 'public/images/about/compclub.png'
 import mediaImg from 'public/images/about/media.png'
 
 import { DiscordLogo, FacebookLogo, InstagramLogo, ArrowRight, CodeSimple } from 'phosphor-react'
+import Link from 'next/link'
 
 const socialLinks = [
     {
@@ -113,9 +114,10 @@ const Creators: NextPage = () => {
                                     css={{
                                         fontSize: '0.9rem'
                                     }}>
-                                    <a target="blank" href="https://comp1511-revision-t1-2022.vercel.app/">
+                                    {/* <a target="blank" href="https://comp1511-revision-t1-2022.vercel.app/">
                                         COMP1511 Exam Revision
-                                    </a>
+                                    </a> */}
+                                    <Link href="/course-revision/1511-22T3">COMP1511 Exam Revision</Link>
                                 </Text>
                             </li>
 
