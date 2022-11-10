@@ -1,0 +1,91 @@
+---
+title: Scissors Paper Rock
+desc: Determine the winner in a '_best of 3_' game of Scissors Paper Rock
+class: COMP1511
+difficulty: 2
+---
+
+# Scissors Paper Rock
+
+Write a program `scissors_paper_rock` that takes the moves of two players in a '_best of 3_' game of Scissors Paper Rock and returns the winner.
+
+The program should scan two lines of input:
+
+1. Each line will contain a string, representing the moves of each player
+2. Valid moves include the characters R, S, and P
+
+**Output Format**  
+Print the following strings for the scenarios below.
+
+**_If Player 1 wins_**
+
+```c
+Player 1 won!
+```
+
+**_If Player 2 wins_**
+
+```c
+Player 2 won!
+```
+
+**_If the game is a draw_**
+
+```c
+It's a draw!
+```
+
+**_If invalid moves are entered for either or both players_**
+
+```c
+Moves invalid!
+```
+
+The output from your program should look **exactly** like this:
+
+```bash:~/1511-revision/scissors_paper_rock
+$ dcc scissors_paper_rock.c -o scissors_paper_rock
+$ ./scissors_paper_rock
+S P R
+R R S
+Player 1 won!
+```
+
+```bash:~/1511-revision/scissors_paper_rock
+$ dcc scissors_paper_rock.c -o scissors_paper_rock
+$ ./scissors_paper_rock
+S R P
+R P S
+Player 2 won!
+```
+
+```bash:~/1511-revision/scissors_paper_rock
+$ dcc scissors_paper_rock.c -o scissors_paper_rock
+$ ./scissors_paper_rock
+A B C
+D E F
+Moves invalid!
+```
+
+## Assumptions/Restrictions/Clarifications
+
+- There are three rounds in this game.
+- Rock wins against scissors, scissors wins against paper and paper wins against rock.
+- Rock is represented by the character `R`, scissors by the character `S`, and paper by the character `P`.
+- The validity of input strings is not guaranteed.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/scissors_paper_rock:~
+$ 1511 csesoc-autotest scissors_paper_rock
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/scissors-paper-rock/solution.c).
+
+
+
+

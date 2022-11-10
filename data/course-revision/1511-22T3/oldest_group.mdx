@@ -1,0 +1,65 @@
+---
+title: Oldest Group
+desc: Find the group with the highest sum of ages.
+class: COMP1511
+difficulty: 1
+---
+
+# Oldest Group
+
+At a birthday party, your friends are playing a game to determine which group of people are the oldest.
+
+Since you're a programmer, you decide to write a C program.
+
+Write a program `oldest_group.c` which scans the following input:
+
+1. The first line of input contains the integer N, the number of groups.
+2. The following N pairs of lines describe a group each. The first line in each pair holds the value K_i, which is the number of people in the group. The second line is K_i elements long and describes the ages of the people in that group.
+
+Your program should then output the group with the largest sum of their ages. 
+
+If two groups have the same sum of ages, print the group with the lower group number.
+
+The output from your program should look **exactly** like this:
+
+```bash:~/1511-revision/oldest_group
+$ dcc oldest_group.c -o oldest_group
+$ ./oldest_group
+2
+5
+26 19 31 23 28
+4
+56 34 47 29
+2
+```
+
+```bash:~/1511-revision/oldest_group
+$ ./oldest_group
+3
+2
+35 27
+2 
+48 23
+1
+98
+3
+```
+
+## Assumptions/Restrictions/Clarifications
+
+For all test cases:
+- 1 ≤ N ≤ 1000
+- 1 ≤ K_i ≤ 1000
+- The age of any person A is an integer 1 ≤ A ≤ 100
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/oldest_group:~
+$ 1511 csesoc-autotest oldest_group
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/oldest-group/solution.c).
