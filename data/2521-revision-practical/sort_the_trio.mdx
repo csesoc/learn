@@ -1,0 +1,86 @@
+---
+title: Sort the Trio
+desc: Given an array of only 0's, 1's, or 2's, write a O(n) function which sorts this array in ascending order.
+class: COMP2521
+difficulty: 1
+---
+
+Given an array of only 0's, 1's, or 2's, write a O(n) function which sorts this array in ascending order.
+
+Implement the function `sort` in `sort_the_trio.c`. This function will be then be called by the `main` function in
+`test_sort_the_trio.c`.
+
+To run your solution:
+
+```bash:~/2521-revision/sort_the_trio
+$ make
+$ ./test_sort_the_trio
+```
+
+## Input format
+
+The program will read from stdin until `ctrl + d` is entered.
+
+It can only read inputs which are either 0, 1, or 2, and they have to be newline or space seperated. These ints will then be passed into an array.
+
+E.g) `0 2 2 1 0 2 1` will create an array with elements `0 2 2 1 0 2 1` respectively.
+
+## Output format
+
+The program will write to stdout.
+
+It will print each element in the array, allowing you to check if your `sort` function correctly sorts the array.
+
+## Sample 1
+
+Input:
+
+```bash:~/2521-revision/sort_the_trio:~
+0 2 1 2 0 1 1 2 1
+`ctrl + d`
+```
+
+Output:
+
+```bash:~/2521-revision/sort_the_trio:~
+0 0 1 1 1 1 2 2 2
+```
+
+Explanation: Input must be in sorted ascending order.
+
+## Sample 2
+
+Input:
+
+```bash:~/2521-revision/sort_the_trio:~
+1 2
+0 1 1 2
+0
+2 1
+`ctrl + d`
+```
+
+Output:
+
+```bash:~/2521-revision/sort_the_trio:~
+0 0 1 1 1 1 2 2 2
+```
+
+Explanation: Input must be in sorted ascending order
+
+## NOTE
+
+- You do not have to read input from stdin, and pass it into an array. This has been done for you in `test_sort_the_trio.c`.
+- You are only required to implement the function `sort` in `sort_the_trio.c`, which is given an array of 0's, 1's, or 2's, read from stdin.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/2521-revision/sort_the_trio:~
+$ 2521 autotest sort_the_trio
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/dqna64/comp2521-revision-session/blob/main/problems/sort_the_trio/solution/sort_the_trio.c).
