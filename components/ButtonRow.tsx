@@ -3,7 +3,7 @@ import NextArticleButton from 'components/NextArticleButton'
 // import PrevArticleButton from 'components/PrevArticleButton'
 import { styled } from '../stitches.config'
 
-//INSPECT ELEMENT OP PLS USE esp for looking at margin etc
+// INSPECT ELEMENT OP PLS USE esp for looking at margin etc
 
 
 const ButtonRow = styled('div', {
@@ -73,5 +73,5 @@ export default ArticleButtonContainer
 
 
 
-//Step1. Design container
-//Step2. Design content inside container 
+// Step1. Design container
+// Step2. Design content inside container 
