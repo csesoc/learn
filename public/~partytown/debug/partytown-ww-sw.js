@@ -1,4 +1,4 @@
-/* Partytown 0.6.4 - MIT builder.io */
+/* Partytown 0.7.1 - MIT builder.io */
 (self => {
     const WinIdKey = Symbol();
     const InstanceIdKey = Symbol();
@@ -224,7 +224,7 @@
             this.stack = errorObject.stack;
         }
     }
-    const NodeList = class {
+    class NodeList {
         constructor(nodes) {
             (this._ = nodes).map(((node, index) => this[index] = node));
         }
@@ -249,7 +249,7 @@
         [Symbol.iterator]() {
             return this._[Symbol.iterator]();
         }
-    };
+    }
     const Attr = class {
         constructor(serializedAttr) {
             this.name = serializedAttr[0];
@@ -684,7 +684,7 @@
     };
     const run = (env, scriptContent, scriptUrl) => {
         env.$runWindowLoadEvent$ = 1;
-        scriptContent = `with(this){${(webWorkerCtx.$config$.globalFns || []).filter((globalFnName => /[a-zA-Z_$][0-9a-zA-Z_$]*/.test(globalFnName))).map((g => `(typeof ${g}=='function'&&(window.${g}=${g}))`)).join(";") + scriptContent.replace(/\bthis\b/g, "(thi$(this)?window:this)").replace(/\/\/# so/g, "//Xso")}\n;function thi$(t){return t===this}}` + (scriptUrl ? "\n//# sourceURL=" + scriptUrl : "");
+        scriptContent = `with(this){${scriptContent.replace(/\bthis\b/g, "(thi$(this)?window:this)").replace(/\/\/# so/g, "//Xso")}\n;function thi$(t){return t===this}};${(webWorkerCtx.$config$.globalFns || []).filter((globalFnName => /[a-zA-Z_$][0-9a-zA-Z_$]*/.test(globalFnName))).map((g => `(typeof ${g}=='function'&&(this.${g}=${g}))`)).join(";")};` + (scriptUrl ? "\n//# sourceURL=" + scriptUrl : "");
         env.$isSameOrigin$ || (scriptContent = scriptContent.replace(/.postMessage\(/g, `.postMessage('${env.$winId$}',`));
         new Function(scriptContent).call(env.$window$);
         env.$runWindowLoadEvent$ = 0;
@@ -714,12 +714,13 @@
         return resolvedUrl;
     };
     const resolveUrl = (env, url, type) => resolveToUrl(env, url, type) + "";
-    const getPartytownScript = () => `<script src="${partytownLibUrl("partytown.js?v=0.6.4")}"><\/script>`;
+    const getPartytownScript = () => `<script src="${partytownLibUrl("partytown.js?v=0.7.1")}"><\/script>`;
     const createImageConstructor = env => class HTMLImageElement {
         constructor() {
             this.s = "";
             this.l = [];
             this.e = [];
+            this.style = {};
         }
         get src() {
             return this.s;
@@ -852,6 +853,7 @@
     };
     const isScriptJsType = scriptType => !scriptType || "text/javascript" === scriptType;
     const createNodeCstr = (win, env, WorkerBase) => {
+        const config = webWorkerCtx.$config$;
         const WorkerNode = defineConstructorName(class extends WorkerBase {
             appendChild(node) {
                 return this.insertBefore(node, null);
@@ -859,6 +861,7 @@
             get href() {}
             set href(_) {}
             insertBefore(newNode, referenceNode) {
+                var _a, _b;
                 const winId = newNode[WinIdKey] = this[WinIdKey];
                 const instanceId = newNode[InstanceIdKey];
                 const nodeName = newNode[InstanceDataKey];
@@ -869,11 +872,17 @@
                     const scriptType = getInstanceStateValue(newNode, 5);
                     if (scriptContent) {
                         if (isScriptJsType(scriptType)) {
-                            const errorMsg = runScriptContent(env, instanceId, scriptContent, winId, "");
-                            const datasetType = errorMsg ? "pterror" : "ptid";
-                            const datasetValue = errorMsg || instanceId;
-                            setter(newNode, [ "type" ], "text/partytown-x");
-                            setter(newNode, [ "dataset", datasetType ], datasetValue);
+                            const scriptId = newNode.id;
+                            const loadOnMainThread = scriptId && (null === (_b = null === (_a = config.loadScriptsOnMainThread) || void 0 === _a ? void 0 : _a.includes) || void 0 === _b ? void 0 : _b.call(_a, scriptId));
+                            if (loadOnMainThread) {
+                                setter(newNode, [ "type" ], "text/javascript");
+                            } else {
+                                const errorMsg = runScriptContent(env, instanceId, scriptContent, winId, "");
+                                const datasetType = errorMsg ? "pterror" : "ptid";
+                                const datasetValue = errorMsg || instanceId;
+                                setter(newNode, [ "type" ], "text/partytown-x");
+                                setter(newNode, [ "dataset", datasetType ], datasetValue);
+                            }
                         }
                         setter(newNode, [ "innerHTML" ], scriptContent);
                     }
@@ -1280,7 +1289,7 @@
                         (() => {
                             if (!webWorkerCtx.$initWindowMedia$) {
                                 self.$bridgeToMedia$ = [ getter, setter, callMethod, constructGlobal, definePrototypePropertyDescriptor, randomId, WinIdKey, InstanceIdKey, ApplyPathKey ];
-                                webWorkerCtx.$importScripts$(partytownLibUrl("partytown-media.js?v=0.6.4"));
+                                webWorkerCtx.$importScripts$(partytownLibUrl("partytown-media.js?v=0.7.1"));
                                 webWorkerCtx.$initWindowMedia$ = self.$bridgeFromMedia$;
                                 delete self.$bridgeFromMedia$;
                             }
@@ -1301,6 +1310,9 @@
                 win.Window = WorkerWindow;
                 win.name = name + `${normalizedWinId($winId$)} (${$winId$})`;
                 createNodeCstr(win, env, WorkerBase);
+                (win => {
+                    win.NodeList = defineConstructorName(NodeList, "NodeList");
+                })(win);
                 createCSSStyleDeclarationCstr(win, WorkerBase, "CSSStyleDeclaration");
                 ((win, WorkerBase, cstrName) => {
                     win[cstrName] = defineConstructorName(class extends WorkerBase {
@@ -1653,6 +1665,7 @@
                     let errorMsg = "";
                     let env = environments[winId];
                     let rsp;
+                    let javascriptContentTypes = [ "text/jscript", "text/javascript", "text/x-javascript", "application/javascript", "application/x-javascript", "text/ecmascript", "text/x-ecmascript", "application/ecmascript" ];
                     if (scriptSrc) {
                         try {
                             scriptSrc = resolveToUrl(env, scriptSrc, "script") + "";
@@ -1660,9 +1673,16 @@
                             webWorkerCtx.$config$.logScriptExecution && logWorker(`Execute script src: ${scriptOrgSrc}`, winId);
                             rsp = await fetch(scriptSrc);
                             if (rsp.ok) {
-                                scriptContent = await rsp.text();
-                                env.$currentScriptId$ = instanceId;
-                                run(env, scriptContent, scriptOrgSrc || scriptSrc);
+                                let responseContentType = rsp.headers.get("content-type");
+                                let shouldExecute = javascriptContentTypes.some((ct => {
+                                    var _a, _b, _c;
+                                    return null === (_c = null === (_a = null == responseContentType ? void 0 : responseContentType.toLowerCase) || void 0 === _a ? void 0 : (_b = _a.call(responseContentType)).includes) || void 0 === _c ? void 0 : _c.call(_b, ct);
+                                }));
+                                if (shouldExecute) {
+                                    scriptContent = await rsp.text();
+                                    env.$currentScriptId$ = instanceId;
+                                    run(env, scriptContent, scriptOrgSrc || scriptSrc);
+                                }
                                 runStateLoadHandlers(instance, "load");
                             } else {
                                 errorMsg = rsp.statusText;
