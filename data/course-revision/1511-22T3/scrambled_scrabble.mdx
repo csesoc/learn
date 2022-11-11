@@ -1,0 +1,58 @@
+---
+title: Scrambled Scrabble
+desc: Determine the maximum score Hanyuan can achieve in a game of scrabble
+class: COMP1511
+difficulty: 3
+---
+
+
+# Scrambled Scrabble
+
+Hanyuan has recently been playing a lot of scrabble but is struggling to maximise the points he is getting on each word. 
+
+Given a string with some spots filled with letters and the others hyphens, and a list of letters that Hanyuan has access to, write a program `scrambled_scrabble.c` to find the maximum score he can achieve.
+
+The program should receive three lines of input:
+
+1. The first is an integer $N$.
+2. Next will be the target word of length $N$, with some letters filled in and hyphens where you insert other letters. You may assume that the target word will always contain at least one letter, i.e you will never be given a target word consisting of all hyphens.
+3. Finally will be the letter bank of length $N$ in reverse alphabetical order.
+
+**Output Format**
+
+If a word can be formed, print to stdout the value of the word. If a word cannot be formed, print `"Cannot be done!"`.
+
+## Assumptions/Restrictions/Clarifications
+
+- Fortunately, the words we create do not have to be real English words. The bank of letters we are given will also be the same length as the length of word we are trying to create. Note that spots in the target word with hyphens are where we need to put our letters.
+- Each letter will have a value corresponding to its position in the alphabet ($a=1$, $b=2$ etc.)
+- Each consonant must be followed by a vowel and each vowel must be followed by a consonant. (“abed” is valid, “abcd” is not). Words can start with either a consonant or vowel.
+- No letter from the letter bank can be used more than once. Note there may be duplicate letters in the letter bank, you can use both.
+- $1 <= N <= 1024$
+
+The output from your program should look **exactly** like this:
+
+```bash:~/1511-revision/scrambled_scrabble
+$ dcc scrambled_scrabble.c -o scrambled_scrabble
+$ ./scrambled_scrabble
+6
+a-eci-
+zyhdcb
+69
+```
+
+**Explanation**
+
+The highest scoring words we can make are “azeciy” or “ayeciz”. Assume we use "azeciy" as our word, then we calculate the score as $1 + 26 + 5 + 3 + 9 + 25 = 69$.
+
+```bash:~/1511-revision/scrambled_scrabble
+$ ./scrambled_scrabble
+5
+--ap-
+ufdcb
+Cannot be done!
+```
+
+**Explanation**
+
+There are 3 spots we need to fill using two vowels and a consonant. There is only one vowel in the letter bank we were given, hence we cannot form a word.
