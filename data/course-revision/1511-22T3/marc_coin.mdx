@@ -1,0 +1,64 @@
+---
+title: Marc Coin
+desc: Find the final balance of Bill and Ethan's accounts.
+class: COMP1511
+difficulty: 2
+---
+
+# Marc Coin
+
+Bill and Ethan are trading a cryptocurrency called Marc Coin on the Blockhain, a digital ledger for keeping track of Marc Coin transactions between its traders.
+
+Bill and Ethan make `T` transactions between each other. Each transaction consists of three things: a transaction ID, a Marc Coin value, and the sender (either Bill or Ethan).
+
+If the sender is Bill, then the receiver is Ethan, and vice versa.
+
+Bill and Ethan both begin with a set balance of 100 Marc Coin.
+
+After all transactions have been made, Bill and Ethan may decide to 'reverse' `R`of their previous transactions. For example, if Bill gave Ethan 23 Marc Coin in transation "845", and later they decide to reverse this transaction, then Ethan gives back Bill 23 Marc Coin.
+
+Write a program `marc_coin.c` takes in the following input:
+
+1. A line containing non-negative integers `T` and `R` which are the number of transactions and reversals, respectively.
+2. `T` lines each describe a transaction, including: 
+    - a unique and random 3-digit integer transaction ID such as `845`,
+    - a non-negative integer Marc Coin value such as `23`, and 
+    - a single character denoting the sender, either `B` for Bill or `E` for Ethan.
+3. `R` lines each describe a reversal using a transaction ID.
+
+Then output a single line with two integers separated by a space: Bill and Ethan's final balances, respectively.
+
+For example, if there were 2 transactions, one where Billy sent Ethan 15 Marc Coin and one where Ethan sent 30 Marc Coin to Billy, followed by one reversal where Billy's transaction was reversed, then the final balance for Billy would be 130 Marc Coin and 70 Marc Coin, respectively.
+
+The output for your program should look **exactly** like this:
+
+
+
+```bash:~/1511-revision/marc_coin
+$ dcc marc_coin.c -o marc_coin
+$ ./marc_coin
+2 1
+438 15 B
+892 30 E
+438
+130 70
+```
+
+## Assumptions/Restrictions/Clarifications
+- `0 < R <= T < 1000`
+- All given transaction IDs will be unique.
+- All given reversals will only be made on existing transactions and no more than once.
+- Bill and Ethan can go into debt with each other, but their balances by the end of the transactions and reversals should always add to 200.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+
+```bash:~/1511-revision/marc_coin
+$ 1511 csesoc-autotest marc_coin
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/marc-coin/solution.c).
