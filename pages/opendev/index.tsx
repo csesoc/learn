@@ -191,7 +191,7 @@ const OpenDevTwo: NextPage = () => {
             <td>2 Nov 2022</td>
             <td>2-4pm, Ainsworth 202</td>
           </tr>
-          <tr style={{ backgroundColor: 'rgb(233, 240, 251)' }}>
+          <tr style={{ backgroundColor: 'rgb(233, 240, 251)', color: '#b8bcc0' }}>
             <td>Week 9</td>
             <td><span style={{ fontWeight: "800" }} >Deploying Web Apps (as a broke uni student)</span>
               <p style={{ margin: "0.2rem 0 0", fontSize: "0.7rem", lineHeight: "0.9rem" }}>
