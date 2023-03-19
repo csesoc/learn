@@ -8492,6 +8492,11 @@ std-env@^3.0.1:
   resolved "https://registry.yarnpkg.com/std-env/-/std-env-3.3.2.tgz#af27343b001616015534292178327b202b9ee955"
   integrity sha512-uUZI65yrV2Qva5gqE0+A7uVAvO40iPo6jGhs7s8keRfHCmtg+uB2X6EiLGCI9IgL1J17xGhvoOqSz79lzICPTA==
 
+strapi-plugin-init-admin-user@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-init-admin-user/-/strapi-plugin-init-admin-user-0.2.1.tgz#dbc2064a4066defd35a87590b62a7138149f519d"
+  integrity sha512-j24QF4FS0BaElcXEIv1opJ+8JEO9LFhU0Oe8b7T88qMv0zPAP+kmeOJT7hsaqasNWQwrUoZyG1AMBxIClr57/Q==
+
 stream-chain@2.2.5, stream-chain@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/stream-chain/-/stream-chain-2.2.5.tgz#b30967e8f14ee033c5b9a19bbe8a2cba90ba0d09"
