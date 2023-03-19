@@ -7,9 +7,14 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "format": "prettier --write src/ config/",
+    "format:check": "prettier --check src/ config/",
+    "lint": "yarn format:check && tsc --noEmit"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  },
   "dependencies": {
     "@strapi/plugin-i18n": "4.8.2",
     "@strapi/plugin-users-permissions": "4.8.2",
