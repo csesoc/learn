@@ -11,32 +11,24 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "slug": {
+      "type": "uid"
+    },
     "title": {
       "type": "string"
     },
-    "content": {
-      "type": "richtext"
-    },
-    "excerpt": {
-      "type": "string"
-    },
-    "visibility": {
-      "type": "boolean"
-    },
-    "featuredImage": {
-      "allowedTypes": ["images", "files", "videos", "audios"],
+    "cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
       "type": "media",
       "multiple": false
     },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category",
-      "mappedBy": "article"
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
+    "content": {
+      "type": "richtext"
     }
   }
 }
