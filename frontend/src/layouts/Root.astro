@@ -1,0 +1,18 @@
+---
+// This is a layout that will be used for all pages
+import Header from "../components/Header.astro";
+import SEO from "../components/SEO.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <SEO /> -->
+  </head>
+  <body>
+    <main>
+      <Header />
+      <slot />
+    </main>
+  </body>
+</html>

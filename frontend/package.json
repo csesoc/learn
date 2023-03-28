@@ -9,20 +9,29 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write src/",
-    "format:check": "prettier --check src/",
-    "lint": "yarn format:check && tsc --noEmit"
+    "check": "astro check && prettier --check src/"
   },
   "dependencies": {
     "@astrojs/react": "^2.1.0",
     "@astrojs/sitemap": "^1.2.1",
+    "@astrojs/tailwind": "^3.1.1",
+    "@fontsource/inter": "^4.5.15",
+    "@fontsource/jetbrains-mono": "^4.5.12",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "astro": "^2.0.18",
+    "astro": "^2.1.3",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
+    "@radix-ui/colors": "^0.1.8",
+    "@tailwindcss/typography": "^0.5.9",
     "prettier": "^2.8.4",
-    "prettier-plugin-astro": "^0.8.0"
+    "prettier-plugin-astro": "^0.8.0",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "prettier-plugin-tailwindcss": "^0.2.5",
+    "windy-radix-palette": "^0.5.0",
+    "windy-radix-typography": "^0.1.0"
   }
 }
