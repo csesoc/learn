@@ -7,6 +7,7 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
+    "build:types": "strapi ts:generate-types -o ../frontend/src -f api.d.ts",
     "strapi": "strapi",
     "format": "prettier --write src/ config/",
     "format:check": "prettier --check src/ config/",

@@ -1,0 +1,25 @@
+---
+// This is a layout that will be used for all pages
+import type { ApiMetadataMetadata } from "../api";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import type { StrapiResponse } from "../utils";
+
+// Fetch site metadata from Strapi
+const response = await fetch(`${import.meta.env.API_URL}/api/metadata`);
+const { data } = (await response.json()) as StrapiResponse<ApiMetadataMetadata>;
+const { title, description } = data.attributes;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-1 text-gray-12">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="h-full">
+    <Header />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
