@@ -1,7 +1,14 @@
 ---
 import RootLayout from "../layouts/RootLayout.astro";
+
+const response = await fetch(
+  `${import.meta.env.API_URL}/api/home-page?populate=*`
+);
+const { data } = await response.json();
+data.attributes.blocks;
 ---
 
 <RootLayout>
   <h1>Home</h1>
+  {JSON.stringify(data)}
 </RootLayout>

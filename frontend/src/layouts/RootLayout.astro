@@ -7,7 +7,7 @@ import type { StrapiResponse } from "../utils";
 
 // Fetch site metadata from Strapi
 const response = await fetch(`${import.meta.env.API_URL}/api/metadata`);
-const { data } = (await response.json()) as StrapiResponse<ApiMetadataMetadata>;
+const { data } = await response.json();
 const { title, description } = data.attributes;
 ---
 

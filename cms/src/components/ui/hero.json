@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_ui_heroes",
+  "info": {
+    "displayName": "Hero"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "callToAction": {
+      "displayName": "Button",
+      "type": "component",
+      "repeatable": false,
+      "component": "ui.button"
+    }
+  }
+}
