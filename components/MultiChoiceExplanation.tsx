@@ -30,15 +30,12 @@ const Explanation = ({ content, children }: ExplanationProps) => {
     callback: (ele: string) => void
   ) => {
     if (typeof ele === 'string') {
-      // console.log("ele is string:", ele)
       callback(ele)
       return
     }
     if (Array.isArray(ele)) {
-      // console.log("ele is array:", ele)
       ele.forEach((subEle) => traverse(subEle, callback))
     } else if (React.isValidElement(ele)) {
-      // console.log("ele is react element:", ele)
 
       const props = ele.props as any
 

@@ -21,11 +21,10 @@ A place for the CSESoc community to learn and share their knowledge and expertis
 ## Getting Started
 > For detailed instructions, see [here](https://github.com/csesoc/learning-platform/wiki/Getting-started).  
 
-In a nutshell:
 
 1. Clone this repo
-2. `yarn install` to install all dependencies
-3. `yarn dev` to start the local server
+2. `npm install` to install all dependencies
+3. `npm run dev` to start the local server
 
 ## Vision ⚡️
 

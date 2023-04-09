@@ -1,24 +1,11 @@
-/** @type {import('next').NextConfig} */
 import { withContentlayer } from 'next-contentlayer'
 
-const nextConfig = {
-  swcMinify: true,
-  reactStrictMode: false,
-  // cursed cursed cursed cursed cursed cursed cursed
-  // cursed cursed cursed cursed cursed cursed cursed
-  // cursed cursed cursed cursed cursed cursed cursed
-  // cursed cursed cursed cursed cursed cursed cursed
-  // cursed cursed cursed cursed cursed cursed cursed
-  // cursed cursed cursed cursed cursed cursed cursed
-  // cursed cursed cursed cursed cursed cursed cursed
-  // cursed cursed cursed cursed cursed cursed cursed
-  // cursed cursed cursed cursed cursed cursed cursed
+/** @type {import('next').NextConfig} */
+export default withContentlayer({
   typescript: {
     ignoreBuildErrors: true
   },
   images: {
     domains: ['imgur.com']
   }
-}
-
-export default withContentlayer({ nextConfig })
+})
