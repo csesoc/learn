@@ -1,0 +1,69 @@
+---
+title: Sweet Potatoes
+desc: Determine the best place to setup your Sweet Potato Stall!
+class: COMP1511
+difficulty: 2
+---
+# X marks the Starch
+You've recently been reading the news and have seen a gap in the market for delicious, delectable sweet potatoes! 
+You've decided to set up shop at Town Hall, but unfortunately, you can only serve people in a cross pattern!
+```
+X 0 X
+0 X 0
+X 0 X
+```
+Even worse, your constant back pain forces you to stay still for the entire day. 
+Luckily, you've prepared for this and you have a map with $m$ rows and $n$ columns that contains the density of people who walk throughout Town Hall everyday.
+You know that everyone will want to taste your sweet potatoes as long as you can serve them. Therefore, your task is to write a program `sweet_potatoes.c` that finds the best place to put your cart so that you will end up serving the most people!
+
+For each testcase, print three integers - the row and column index (starting from $0$) of the best position to place your cart, and the total number of people you will serve. 
+
+The first line contains integer $m, n$.
+The next $m$ lines will have $n$ integers $r_{1}, r_{2}, ...,r_{n}$ denoting the density of people at that coordinate.
+
+The output from your program should look **exactly** like this:
+```bash
+Input:
+$ dcc sweet_potatoes.c -o sweet_potatoes
+$ ./sweet_potatoes
+3 5
+15 23 33 81 15
+01 93 51 53 12
+08 38 24 12 53
+1 2 205
+```
+
+### Assumptions/Restrictions/Clarifications
+ $3 \leq m,   n \leq 10^5$  
+ $0 \leq r_{i} \leq 10^5$ for any $1 \leq i \leq n$.
+Note that this means your inputs will fit inside an `int`. 
+
+If there exists multiple places where it is best to place your cart, any applicable answer is accepted.
+
+Note that you can place your cart at indexes where it is not possible to form an X shape. 
+For example,
+```
+X 0 0
+0 X 0
+0 0 0
+```
+at the uppermost left corner of your map.
+
+Hint: You can dynamically allocate an array by defining an array of int pointers in the form `int **arr`. 
+This can be thought as a pointer to a bunch of integer pointers, which can then be thought of as a sort of 2D array when dynamically allocated.
+```
+**int -> *int   *int   *int   *int
+           |      |      |      |
+          int    int    int    int
+``` 
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/sweet_potatoes
+$ 1511 csesoc-autotest sweet_potatoes
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/sweet_potatoes/solution.c).

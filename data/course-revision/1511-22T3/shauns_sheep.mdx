@@ -1,0 +1,59 @@
+---
+title: Shaun's Sheep
+desc: Determine if Shaun can drive to the end of the road!
+class: COMP1511
+difficulty: 3
+---
+# Shaun's Sheeps
+Shaun Forza needs your help! Currently, Shaun is on the uppermost left  $(1, 1)$, of a two lane road of $n$ length, specifically a $2 \times n$ rectangle grid, and needs to transport all his sheep to the end, $(2, n)$ safely. Shaun's car, the Sheepgatti Chiron, can only move in four directions, that is, left, right, up, and down. 
+
+Unfortunately, aliens have attacked Earth's sheep, and one notorious alien, Blamo, is specifically targeting Shaun by dropping sheep onto the road, causing certain positions in the grid to be blocked (forbidding Shaun to drive over them). 
+
+Fortunately, Blamo is not a very smart alien, and if he happens upon a position where he previously dropped a sheep, Blamo, mistaking the sheep for Shaun, will blast the sheep into dust, freeing the position up again for Shaun. 
+
+Shaun knows that Blamo only has $p$ minutes, and it takes him exactly 1 minute to either drop a sheep or blow it up into smithereens, where the $i$-th minute is where Blamo chooses to target position $(r_{i}, c_{i})$. 
+
+Shaun wonders, after every minute, whether it is still possible for him to move from his starting position $(1, 1)$, to the end, $(2, n)$ without driving into any sheep.
+
+Although Shaun is a superb driver, he isn't skilled enough to calculate such positions, and needs your help in writing a program, `shauns_sheep.c` to figure out if it is possible for him to drive to the end.
+
+The first line of input contains the integers $n$ and $p$.
+And each subsequent $p$ lines contain two integers $r_{i}$ and $c_{i}$.
+
+Your output should consist of either a 'Yes' if Shaun can make it to the end, or 'No' if not, after every minute.
+
+The output from your program should look **exactly** like this:
+```bash
+$ dcc shauns_sheep -o shauns_sheep
+$ ./shauns_sheep
+5 5
+2 3
+1 4
+2 4
+2 3
+1 4
+Yes
+No
+No
+No
+Yes
+```
+
+## Assumptions/Restrictions/Clarifications
+$2 \leq n \leq 10^5$  
+$1 \leq p \leq 10^5$
+Note that this means that your inputs will fit in an `int`.
+It is guaranteed that $(1, 1)$ and $(2, n)$ will never be targeted.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/shauns_sheep
+$ 1511 csesoc-autotest shauns_sheep
+```
+
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/shauns_sheep/solution.c).
