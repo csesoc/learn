@@ -128,6 +128,7 @@ const Home: NextPage = ({ articles, courseOfferingContent }: PropTypes) => {
           <Card css={{ backgroundColor: '$slate12', overflow: 'hidden' }}>
             <Box css={{ margin: '-$6 -$5 $5 -$5' }}>
               <Image
+                alt='Discord Logo'
                 src="/images/contribute.png"
                 width="702"
                 height="226"

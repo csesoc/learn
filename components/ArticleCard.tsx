@@ -26,6 +26,7 @@ const ArticleCard = ({ article }: Props) => {
         }}>
         <Box css={{ margin: '-$6 -$5 $5 -$6' }}>
           <Image
+            alt={article.title}
             src={
               article.coverPhoto
                 ? article.coverPhoto

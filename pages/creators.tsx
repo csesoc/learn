@@ -98,6 +98,7 @@ const Creators: NextPage = () => {
               {/* <Image src="/images/contribute/network-icon.png" width="200" height="200" objectFit='contain'/> */}
               <Box css={{ margin: '0 auto 0.3rem' }}>
                 <Image
+                  alt="network icon"
                   src="/images/contribute/network-icon.png"
                   width="90"
                   height="90"
@@ -112,6 +113,7 @@ const Creators: NextPage = () => {
             <CardSmall css={{ color: "#6a6a6a" }}>
               <Box css={{ margin: '0 auto 0.3rem' }}>
                 <Image
+                  alt='audience icon'
                   src="/images/contribute/audience-icon.png"
                   width="90"
                   height="90"
@@ -125,6 +127,7 @@ const Creators: NextPage = () => {
             <CardSmall css={{ color: "#6a6a6a" }}>
               <Box css={{ margin: '0 auto 0.3rem' }}>
                 <Image
+                  alt='presentation icon'
                   src="/images/contribute/presentation-icon.png"
                   width="90"
                   height="90"

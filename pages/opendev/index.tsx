@@ -244,6 +244,7 @@ const OpenDevTwo: NextPage = () => {
           }}>
           <Box css={{ width: '75%', margin: '0 auto' }}>
             <Image
+              alt='HTML + CSS + JS'
               src="/images/opendev/html-css-js.png"
               width="3960"
               height="1500"
@@ -316,6 +317,7 @@ const OpenDevTwo: NextPage = () => {
           }}>
           <Box css={{ width: '75%', margin: '0 auto' }}>
             <Image
+              alt='ReactJS Part 1'
               src="/images/opendev/basic-react.png"
               width="5000"
               height="1679"
@@ -412,6 +414,7 @@ const OpenDevTwo: NextPage = () => {
           }}>
           <Box css={{ width: '75%', margin: '0 auto' }}>
             <Image
+              alt='ReactJS Part 2'
               src="/images/opendev/advanced-react.png"
               width="2846"
               height="1072"
@@ -495,6 +498,7 @@ const OpenDevTwo: NextPage = () => {
           }}>
           <Box css={{ width: '75%', margin: '0 auto' }}>
             <Image
+              alt='Mongo Express'
               src="/images/opendev/mongo-express.png"
               width="837"
               height="340"
