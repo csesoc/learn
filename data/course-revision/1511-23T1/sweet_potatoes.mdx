@@ -10,7 +10,7 @@ difficulty: 2
 You've recently been reading the news and have seen a gap in the market for delicious, delectable sweet potatoes!
 You've decided to set up shop at Town Hall, but unfortunately, you can only serve people in a cross pattern!
 
-```
+```bash
 X 0 X
 0 X 0
 X 0 X
@@ -33,15 +33,15 @@ $ dcc sweet_potatoes.c -o sweet_potatoes
 $ ./sweet_potatoes
 3 5
 15 23 33 81 15
-01 93 51 53 12
-08 38 24 12 53
+1 93 51 53 12
+8 38 24 12 53
 1 2 205
 ```
 
 ### Assumptions/Restrictions/Clarifications
 
-$3 \leq m,   n \leq 10^5$  
-$0 \leq$ **r<sub>i</sub>** $\leq 10^5$ for any $1 \leq i \leq n$.
+3 ≤ m, n ≤ 10^5
+0 ≤ r<sub>i</sub> ≤ 10^5 for any 1 ≤ i ≤ n.
 Note that this means your inputs will fit inside an `int`.
 
 If there exists multiple places where it is best to place your cart, any applicable answer is accepted.
@@ -49,7 +49,7 @@ If there exists multiple places where it is best to place your cart, any applica
 Note that you can place your cart at indexes where it is not possible to form an X shape.
 For example,
 
-```
+```bash
 X 0 0
 0 X 0
 0 0 0
