@@ -1,14 +1,21 @@
 ---
+import { HomePageFactory } from "../components/factories/HomePageFactory";
 import RootLayout from "../layouts/RootLayout.astro";
 import type { HomePageResponse } from "../strapi";
 
 const response = await fetch(
   `${import.meta.env.API_URL}/api/home-page?populate=*`
 );
-const strapiData = (await response.json()) as HomePageResponse;
+const { data } = (await response.json()) as HomePageResponse;
 ---
 
 <RootLayout>
   <h1>Home</h1>
-  {JSON.stringify(strapiData)}
+  {
+    data && data.attributes ? (
+      <HomePageFactory client:load />
+    ) : (
+      <p>Uh oh! Something went wrong</p>
+    )
+  }
 </RootLayout>

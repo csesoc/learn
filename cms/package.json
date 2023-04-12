@@ -10,7 +10,8 @@
     "strapi": "strapi",
     "format": "prettier --write src/ config/",
     "format:check": "prettier --check src/ config/",
-    "lint": "yarn format:check && tsc --noEmit"
+    "lint": "yarn format:check && tsc --noEmit",
+    "build:types": "strapi ts:generate-types -o ../frontend/src -f strapi-components.d.ts"
   },
   "devDependencies": {
     "prettier": "^2.8.4"
