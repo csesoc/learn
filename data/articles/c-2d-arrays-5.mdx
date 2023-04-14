@@ -1,0 +1,74 @@
+---
+title: 2D Arrays in C Tutorial 5
+date: 2023-04-14
+desc: Iterating through a 2D Array
+tags:
+  - 'COMP1511'
+  - 'Exam Revision'
+  - '2D Arrays in C'
+author: William Huynh
+coverPhoto: '/images/lofi.jpg'
+---
+
+# Iterating through a 2D Array 🔁
+
+## Preface 🐶
+
+Whats the point of storing stuff in an array if we can access them all?
+Here we will learn how to iterate through a 2D array.
+
+## Getting Started 🎉
+
+To iterate through a 2D array you need:
+
+- A variable representing the **row** index
+- A variable representing the **column** index
+- A **nested for-loop**!
+
+> Remember that a nested for loop is a loop within a loop!
+
+So again, lets say we have the following array.
+
+```
+int my_array[2][4] = {
+  {1, 2, 3, 4}, // First row
+  {5, 6, 7, 8} // Second row
+};
+```
+
+How would we iterate through the elements and print them out?
+
+Well lets do it!
+
+```
+int row, col;
+for (row = 0; row < 2; row++) {
+    for (col = 0; col < 4; col++) {
+        printf("%d ", myArray[row][col]);
+    }
+    printf("\n");
+}
+```
+
+- The first loop runs through each row of the array, starting with row 0
+- Then for that specific row, the second for loop, runs through every column
+- Then for each column, we just print out the element!
+
+The result will be:
+
+```
+1, 2, 3, 4, 5, 6, 7, 8
+```
+
+And thats all!
+
+Congratulations, you are now a 2D Array King!
+
+<ArticleButtonContainer
+
+prev="/articles/c-2d-arrays-4"
+prevName="2D Arrays in C Tutorial 4 - Editing elements"
+
+>
+
+</ArticleButtonContainer>

@@ -20,10 +20,10 @@ After all transactions have been made, Bill and Ethan may decide to 'reverse' `R
 Write a program `marc_coin.c` takes in the following input:
 
 1. A line containing non-negative integers `T` and `R` which are the number of transactions and reversals, respectively.
-2. `T` lines each describe a transaction, including: 
-    - a unique and random 3-digit integer transaction ID such as `845`,
-    - a non-negative integer Marc Coin value such as `23`, and 
-    - a single character denoting the sender, either `B` for Bill or `E` for Ethan.
+2. `T` lines each describe a transaction, including:
+   - a unique and random 3-digit integer transaction ID such as `845`,
+   - a non-negative integer Marc Coin value such as `23`, and
+   - a single character denoting the sender, either `B` for Bill or `E` for Ethan.
 3. `R` lines each describe a reversal using a transaction ID.
 
 Then output a single line with two integers separated by a space: Bill and Ethan's final balances, respectively.
@@ -31,8 +31,6 @@ Then output a single line with two integers separated by a space: Bill and Ethan
 For example, if there were 2 transactions, one where Billy sent Ethan 15 Marc Coin and one where Ethan sent 30 Marc Coin to Billy, followed by one reversal where Billy's transaction was reversed, then the final balance for Billy would be 130 Marc Coin and 70 Marc Coin, respectively.
 
 The output for your program should look **exactly** like this:
-
-
 
 ```bash:~/1511-revision/marc_coin
 $ dcc marc_coin.c -o marc_coin
@@ -45,6 +43,7 @@ $ ./marc_coin
 ```
 
 ## Assumptions/Restrictions/Clarifications
+
 - `0 < R <= T < 1000`
 - All given transaction IDs will be unique.
 - All given reversals will only be made on existing transactions and no more than once.
@@ -54,11 +53,10 @@ $ ./marc_coin
 
 When you think your program is working, you can use CSE autotest to test your solution.
 
-
 ```bash:~/1511-revision/marc_coin
 $ 1511 csesoc-autotest marc_coin
 ```
 
 ## Solution
 
-You can view the solution code to this problem [here](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/marc-coin/solution.c).
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp1511-23T1-problems/blob/main/solutions/marc-coin/solution.c).
