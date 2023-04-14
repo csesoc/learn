@@ -1,0 +1,180 @@
+---
+title: COMP1511 Cheatsheet
+date: 2023-04-14
+desc: This COMP1511 Cheatsheet should provide you with a quick overview of the 1511 course and its key concepts.
+author: Saga Chandra
+tags:
+  - 'COMP1511'
+  - 'Exam Revision'
+coverPhoto: '/images/generic/anas-alshanti-feXpdV001o4-unsplash.jpg'
+---
+
+## Overview
+
+This COMP1511 Cheatsheet should provide you with a quick overview of the 1511 course and its key concepts. This won't cover all the possible edgecases, and any further questions should refer to the [C documetation](https://devdocs.io/c/), or other people.
+
+## Basic Syntax
+
+These contain the basic syntax of C.
+
+| Element             | C Syntax                          | Explanation                                                                                                                                                |
+| ------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Definition          | `type name;`                      | Provides a definition for a variable                                                                                                                       |
+| Function Prototype  | `return_type name(parameters);`   | Provides a prototype for a function                                                                                                                        |
+| Function Definition | `return_type name(parameters){};` | Provides the definition for a function.                                                                                                                    |
+| If Statement        | `if (expression) {}`              | Evaluates your expression and executes the code block if true                                                                                              |
+| If Else Statement   | `else if (expression) {}`         | Requires a previous if statement, will act similarly to an if statement                                                                                    |
+| Else Statement      | `else (expression) {}`            | Requires a previous if statement, will execute when the if statement is false                                                                              |
+| While Statement     | `while (expression) {}`           | Will continue to execute the codeblock as long as expression is true                                                                                       |
+| For Loop            | `for (init; cond; iter) {}`       | Will initialise an expression evaluated once (init), evaluate a conditional before the loop body, and then evaluate the iter statement after the loop body |
+| Return Statement    | `return (expression)`             | Evaluates the expression, terminates the current function, and returns the evaluated expression                                                            |
+| Pointer             | `type *name;`                     | A pointer that points to a given type. Remember that a pointer contains a memory address                                                                   |
+
+## Types
+
+A list of your basic C types.
+| Element | Explanation |
+|-----------|--------------------------|
+| int | A 32 bit integer |
+| char | An 8 bit ASCII character |
+| long long | A 64 bit integer |
+| double | A 64 bit floating-point |
+
+## Operators
+
+### Basic
+
+| Element | Explanation    |
+| ------- | -------------- |
+| +       | Addition       |
+| -       | Subtraction    |
+| \*      | Multiplication |
+| /       | Division       |
+| %       | Modulus        |
+| &&      | AND            |
+| !       | NOT            |
+| ==      | EQUAL          |
+
+### Bitwise (For those who enjoy pain)
+
+| Element | Explanation    |
+| ------- | -------------- |
+| &       | bitwise AND    |
+| \|      | bitwise OR     |
+| ^       | bitwise XOR    |
+| \<\<    | left bitshift  |
+| \>\>    | right bitshift |
+| ~       | bitwise NOT    |
+
+## I/O (Input/Output)
+
+Most I/O functions are defined under the header `stdio.h`.
+| Element | C Syntax | Explanation |
+|---------|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| fgets | `fgets(char *dest, int n, FILE *stream)` | fgets will read bytes from a stream (STDIN), into an array pointed to by dest, reading until either of 3 conditions are fulfilled. n-1 characters are read, a \n character is read, or the end of stream. |
+| printf | `printf(char *format, ...)` | printf formats and writes the string pointed by format to standard output (Prints to console) |
+| scanf | `scanf(char *format, ...)` | scanf reads data from stdin and stores them in locations given by the additional specifiers |
+
+### Format Specifications
+
+Format Specifiers for use in your `printf()` and `scanf()` functions.
+
+| Element | Explanation            |
+| ------- | ---------------------- |
+| d       | Signed Decimal Integer |
+| f       | Decimal Floating Point |
+| c       | Character              |
+| s       | String                 |
+
+## Data Structures
+
+A list of basic data structures that we have learnt over the course of COMP1511.
+
+| Element | C Syntax          | Explanation                                                                                                                                               |
+| ------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Enum    | `enum {};`        | Enums define a 'collection' of keywords. Under the hood, they are simply just integers.                                                                   |
+| Array   | `type name[size]` | A contiguous (adjacent) space of memory that allows us to 'associate' values together. Remember that they can be chained to form n-th dimensional arrays. |
+| Structs | `struct name {};` | A container that is able to hold varying types unlike arrays. They generally have to be instantiated to be used                                           |
+
+### Linked Lists
+
+Linked lists are a special form of data structures in that they are not implicitly defined in any C standard library.
+The main advantage of linked lists over arrays are that they are dynamic and their size can be changed at runtime (they can be changed after you compile the program) unlike arrays, where their size must be defined at compile-time.
+
+```c
+int arr[300];
+// Here the compiler must know the size of the array before it is compiled.
+```
+
+Note: There is an exception to this, it is called a variable-length array and is supported since C99. However, these should not be used.
+
+```c
+void foo(int n) {
+	int arr[n];
+	// This is a VLA and should not be used.
+}
+```
+
+#### Defining our Nodes
+
+```c
+struct Node {
+	int data; // holds the information stored in our node
+	struct node *next; // connects our nodes together
+}
+```
+
+Remember that Linked Lists are (usually) not stored contiguously in memory, meaning that they are usually at random locations throughout memory. Therefore, we will need to use pointers to connect our scattered nodes together.
+
+```c
+struct Node *head = malloc(sizeof(struct Node));
+head->data = 3;
+head->next = malloc(sizeof(struct Node));
+head->next->next = NULL;
+head->next->data = 2;
+// This is equivalent to 3 -> 2 -> NULL
+```
+
+## Standard Libraries
+
+Some useful standard library headers.
+
+### \<string.h\>
+
+| Element | C Syntax                                               | Explanation                                                                                                                 | Returns                                                      |
+| ------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| memcpy  | `void *memcpy(void *destination, void *src, size_t n)` | Takes in any two pointers, dest and src and copies n bytes from the location at src and copies it onto the location at dest | dest                                                         |
+| strcpy  | `char *strcpy(char *dest, char *src)`                  | Copies the string pointed by src into the location at dest. including the null terminator (\0)                              | dest                                                         |
+| strcat  | `char *strcat(char *dest, char *src)`                  | Appends a copy of src onto the end of dest. The null terminator is overwritten.                                             | dest                                                         |
+| memcmp  | `int memcmp(void *p1, void *p2, size_t n)`             | Takes in any two pointers and compares the first n bytes                                                                    | 0 - If they are the same                                     |
+| strcmp  | `int strcmp(char *s1, char *s2)`                       | Takes in two strings and compares the two, returning 0 if they are the same                                                 | 0 - If they are the same                                     |
+| strtok  | `char *strtok(char *s, char *delim)`                   | Splits your string into multiple strings separated by the given delimiter                                                   | If a token is found, a pointer to the beginning of the token |
+| strlen  | `size_t strlen(char *s)`                               | Gives you the length of your string                                                                                         | Returns the length of your string determined by \0.          |
+
+### \<math.h\>
+
+| Element | C Syntax                                   | Explanation                             | Returns                                   |
+| ------- | ------------------------------------------ | --------------------------------------- | ----------------------------------------- |
+| pow     | `double pow(double base, double exponent)` | Finds your base raised to your exponent | Returns your base raised to your exponent |
+| sqrt    | `double sqrt(double num)`                  | Square roots your num                   | Square root of num                        |
+| ceil    | `double ceil(double num)`                  | Rounds up                               | Rounded up num                            |
+| floor   | `double floor(double num)`                 | Rounds down                             | Rounded down num                          |
+
+### \<stdlib.h\>
+
+| Element | C Syntax                 | Explanation                                                 | Returns                                     |
+| ------- | ------------------------ | ----------------------------------------------------------- | ------------------------------------------- |
+| atoi    | `int atoi(char *s)`      | Converts ASCII to an integer. i.e, "32" -> 32               | Returns an integer                          |
+| free    | `void free(void *p)`     | A block of memory previously allocated by malloc() is freed | Nothing                                     |
+| malloc  | `void *malloc(size_t n)` | Allocates n bytes of memory                                 | Returns a pointer to the start of the block |
+
+### \<ctype.h\>
+
+| Element | C Syntax             | Explanation                                                                             | Returns                                                   |
+| ------- | -------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| isalpha | `int isalpha(int n)` | Checks if n is an alphabetic letter                                                     | A non-zero integer if true, 0 if false                    |
+| isdigit | `int isdigit(int n)` | Checks if n is a decimal number                                                         | A non-zero integer if true, 0 if false                    |
+| islower | `int islower(int n)` | Checks if n is a lower case alphabetic letter                                           | A non-zero integer if true, 0 if false                    |
+| isupper | `int isupper(int n)` | Checks if n is a upper case alphabetic letter                                           | A non-zero integer if true, 0 if false                    |
+| tolower | `int tolower(int n)` | Converts n to a lower case letter if it is upper case and has a lower case equivalent   | Returns n - remains unchanged if conditions not fulfilled |
+| toupper | `int toupper(int n)` | Converts n to an upper case letter if it is lower case and has an upper case equivalent | Returns n - remains unchanged if conditions not fulfilled |
