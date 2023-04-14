@@ -1,0 +1,68 @@
+---
+title: 2D Arrays in C Tutorial 4
+date: 2023-04-14
+desc: Editing elements in a 2D Arrays
+tags:
+  - 'COMP1511'
+  - 'Exam Revision'
+  - '2D Arrays in C'
+author: William Huynh
+coverPhoto: '/images/generic/simon-abrams-k_T9Zj3SE8k-unsplash.jpg'
+---
+
+# Editing elements in a 2D Array ✏️
+
+## Preface 🐶
+
+So we've learnt how to access elements in an array, but whats also cool is that we can change those elements too!
+
+## Getting Started 🎉
+
+To edit an element in a 2D array you need **two** things!
+
+- The **row** index
+- The **column** index
+
+With those two things we can access and thus edit any element!
+
+> Remember that indexes start at `0`, so the **first row** and **first column** will have indexes of `0`.
+
+Say we have the following array:
+
+```
+int my_array[2][4] = {
+  {1, 2, 3, 4}, // First row
+  {5, 6, 7, 8} // Second row
+};
+```
+
+We know that to access element `2`, we can do the following:
+
+```
+int my_num = my_array[0][1];
+```
+
+Luckily, editing it is very similar!
+
+Let say we want to change the element at `[0][1]` to be 42, we can do the following:
+
+```
+my_array[0][1] = 42;
+```
+
+Pretty cool right?
+Onto the final topic we go!
+
+### ✅ Now lets get started on **Iterating** through an array 😎 Continue [here](iterating.md)!
+
+<ArticleButtonContainer
+
+next="/articles/c-2d-arrays-5"
+nextName="2D Arrays in C Tutorial 5 - Iterating through a 2D Array"
+
+prev="/articles/c-2d-arrays-3"
+prevName="2D Arrays in C Tutorial 3 - Accessing a 2D Array"
+
+>
+
+</ArticleButtonContainer>
