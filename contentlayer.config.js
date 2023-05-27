@@ -69,22 +69,26 @@ export const CourseRevisionOffering = defineDocumentType(() => ({
   fields: {
     title: {
       type: 'string',
-      description: 'The title of the exercise set e.g. COMP1511 22T3 Revision Session',
+      description:
+        'The title of the exercise set e.g. COMP1511 22T3 Revision Session',
       required: true
     },
     desc: {
       type: 'string',
-      description: 'A brief 1-2 sentence description of what this course revision contains',
+      description:
+        'A brief 1-2 sentence description of what this course revision contains',
       required: true
     },
     course: {
       type: 'string',
-      description: 'The course that the revision set relates to (COMP1511, COMP2521, ...)',
+      description:
+        'The course that the revision set relates to (COMP1511, COMP2521, ...)',
       required: true
     },
     offering: {
       type: 'string',
-      description: 'The offering of the course that the revision set is intended for (22T3, 23T1, ...)',
+      description:
+        'The offering of the course that the revision set is intended for (22T3, 23T1, ...)',
       required: true
     }
   },
@@ -108,7 +112,8 @@ export const CourseRevisionExercise = defineDocumentType(() => ({
     },
     class: {
       type: 'string',
-      description: 'The class the exercise relates to (COMP1511, COMP2521, etc)',
+      description:
+        'The class the exercise relates to (COMP1511, COMP2521, etc)',
       required: true
     },
     difficulty: {
@@ -120,9 +125,47 @@ export const CourseRevisionExercise = defineDocumentType(() => ({
   computedFields
 }))
 
+export const WorkshopsOffering = defineDocumentType(() => ({
+  name: 'WorkshopsOffering',
+  filePathPattern: `workshops/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description:
+        'The title of the exercise set e.g. COMP2521 Fundamentals Workshop',
+      required: true
+    },
+    desc: {
+      type: 'string',
+      description:
+        'A brief 1-2 sentence description of what this workshop contains',
+      required: true
+    },
+    course: {
+      type: 'string',
+      description:
+        'The course that the revision set relates to (COMP1511, COMP2521, ...)',
+      required: true
+    },
+    offering: {
+      type: 'string',
+      description:
+        'The offering of the course that the revision set is intended for (22T3, 23T1, ...)',
+      required: true
+    }
+  },
+  computedFields
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [ArticleType, CourseRevisionOffering, CourseRevisionExercise],
+  documentTypes: [
+    ArticleType,
+    CourseRevisionOffering,
+    CourseRevisionExercise,
+    WorkshopsOffering
+  ],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
