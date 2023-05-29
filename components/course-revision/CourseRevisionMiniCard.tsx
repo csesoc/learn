@@ -1,10 +1,10 @@
 import { styled } from "@stitches/react";
 import { Text } from "components/Text";
-import { CourseRevisionOffering } from "contentlayer/generated";
+import { CourseRevisionOffering, WorkshopsOffering } from "contentlayer/generated";
 
 
 type PropTypes = {
-    courseOffering: CourseRevisionOffering
+    courseOffering: CourseRevisionOffering | WorkshopsOffering
 }
 
 const CourseRevisionMiniCardStyled = styled('div', {

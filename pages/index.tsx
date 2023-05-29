@@ -15,11 +15,12 @@ import CourseRevisionCard from 'components/course-revision/CourseRevisionCard'
 import { styled } from '@stitches/react'
 import CourseRevisionMiniCard from 'components/course-revision/CourseRevisionMiniCard'
 import CourseRevisionContainerHomePage from 'components/course-revision/CourseRevisionContainerHomePage'
+import WorkshopsContainerHomePage from 'components/workshops/WorkshopsContainerHomePage'
 
 type PropTypes = {
   articles: ArticleType[],
   courseOfferingContent: CourseRevisionOffering[],
-  workshopOfferingContent: CourseRevisionOffering[]
+  workshopOfferingContent: WorkshopsOffering[]
 }
 
 export async function getStaticProps() {
@@ -104,9 +105,9 @@ const Home: NextPage = ({ articles, courseOfferingContent, workshopOfferingConte
           as="span"
           size="title-sm"
           css={{ color: '$slate12', paddingTop: '$1', textAlign: "center", width: "70%" }}>
-          Placeholder
+          Explore the many workshops our Education Team has ran to become big brain.
         </Text>
-        <CourseRevisionContainerHomePage allCourseRevisionOfferings={workshopOfferingContent} />
+        <WorkshopsContainerHomePage allWorkshopsOffering={workshopOfferingContent} />
       </Flex>
       <Flex
         as="main"
