@@ -105,7 +105,7 @@ const Home: NextPage = ({ articles, courseOfferingContent, workshopOfferingConte
           as="span"
           size="title-sm"
           css={{ color: '$slate12', paddingTop: '$1', textAlign: "center", width: "70%" }}>
-          Explore the many workshops our Education Team has ran to become big brain.
+          Explore the many workshops our Education Team has curated to become big brain.
         </Text>
         <WorkshopsContainerHomePage allWorkshopsOffering={workshopOfferingContent} />
       </Flex>

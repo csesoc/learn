@@ -1,0 +1,49 @@
+---
+title: Anagram?
+desc: Determine if two words are an anagram or not
+class: COMP1511
+difficulty: 2
+---
+
+# Anagram?
+
+An anagram is a word formed by rearranging the letters of a different word.
+
+Write a program `anagram.c` which scans two lines of input, where each line contains a single word which is a string.
+
+Your program should then determine whether the two words are an anagram or not.
+
+The output from your program should look **exactly** like this:
+
+```bash:~/1511-revision/anagram
+$ dcc anagram.c -o anagram
+$ ./anagram
+angel
+glean
+Your two words are an anagram!
+```
+
+```bash:~/1511-revision/anagram
+$ ./anagram
+yummy
+mummy
+Your two words are not an anagram!
+```
+
+## Assumptions/Restrictions/Clarifications
+
+- You may assume all words will be in lowercase only
+- For both lines of input, the string will be of length $N$ ($0 ≤ N ≤ 1024$)
+- Don't forget to consider the new line character that is created at the end of each string.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/anagram
+$ 1511 csesoc-autotest anagram
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp1511-23T1-problems/tree/main/solutions/anagram).

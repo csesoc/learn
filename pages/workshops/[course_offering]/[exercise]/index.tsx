@@ -1,7 +1,7 @@
 import Avatar from 'boring-avatars'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
-import { allCourseRevisionOfferings, allCourseRevisionExercises, CourseRevisionOffering, CourseRevisionExercise } from 'contentlayer/generated'
+import { allWorkshopsOfferings, allWorkshopsExercises, WorkshopsOffering, WorkshopsExercise } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Head from 'next/head'
@@ -36,13 +36,13 @@ const defaultComponents = {
 const components = { ...defaultComponents }
 
 type PropTypes = {
-  courseOfferingContent: CourseRevisionOffering, exercisesContent: CourseRevisionExercise[], exerciseIdx: number
+  courseOfferingContent: WorkshopsOffering, exercisesContent: WorkshopsExercise[], exerciseIdx: number
 }
 
 export async function getStaticPaths() {
   const paths = []
-  allCourseRevisionOfferings.forEach((o) => {
-    allCourseRevisionExercises.forEach((e) => {
+  allWorkshopsOfferings.forEach((o) => {
+    allWorkshopsExercises.forEach((e) => {
       if (e._raw.sourceFileDir.endsWith(o.slug)) {
         paths.push({ params: { course_offering: o.slug, exercise: e.slug } })
       }
@@ -56,11 +56,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const exercisesContent = allCourseRevisionExercises.filter((e) => e._raw.sourceFileDir.endsWith(params.course_offering)).sort((a, b) => a.difficulty - b.difficulty)
+  const exercisesContent = allWorkshopsExercises.filter((e) => e._raw.sourceFileDir.endsWith(params.course_offering)).sort((a, b) => a.difficulty - b.difficulty)
   const exerciseIdx = exercisesContent.findIndex((e) => e.slug === params.exercise)
   return {
     props: {
-      courseOfferingContent: allCourseRevisionOfferings.find((c) => c.slug === params.course_offering),
+      courseOfferingContent: allWorkshopsOfferings.find((c) => c.slug === params.course_offering),
       exercisesContent,
       exerciseIdx,
     }

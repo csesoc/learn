@@ -158,13 +158,44 @@ export const WorkshopsOffering = defineDocumentType(() => ({
   computedFields
 }))
 
+export const WorkshopsExercise = defineDocumentType(() => ({
+  name: 'WorkshopsExercise',
+  filePathPattern: `workshops/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the exercise',
+      required: true
+    },
+    desc: {
+      type: 'string',
+      description: 'One sentence that summarises the exercise objective.',
+      required: true
+    },
+    class: {
+      type: 'string',
+      description:
+        'The class the exercise relates to (COMP1511, COMP2521, etc)',
+      required: true
+    },
+    difficulty: {
+      type: 'number',
+      description: 'The difficulty of the exercise (1=Easy, 2=Medium, 3=Hard)',
+      required: true
+    }
+  },
+  computedFields
+}))
+
 export default makeSource({
   contentDirPath: 'data',
   documentTypes: [
     ArticleType,
     CourseRevisionOffering,
     CourseRevisionExercise,
-    WorkshopsOffering
+    WorkshopsOffering,
+    WorkshopsExercise
   ],
   mdx: {
     remarkPlugins: [remarkGfm],

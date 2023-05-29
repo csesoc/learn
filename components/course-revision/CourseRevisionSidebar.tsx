@@ -1,5 +1,5 @@
 import { styled } from "@stitches/react"
-import { CourseRevisionExercise, CourseRevisionOffering, WorkshopsOffering } from "contentlayer/generated"
+import { CourseRevisionExercise, CourseRevisionOffering, WorkshopsOffering, WorkshopsExercise } from "contentlayer/generated"
 import Link from "next/link"
 import { ArrowLeft, CaretDown, CaretUp } from "phosphor-react"
 import { useState } from "react"
@@ -14,7 +14,7 @@ type PropTypes = {
     courseOfferingContent: CourseRevisionOffering | WorkshopsOffering,
 
     /* List of exercises content */
-    contentList: CourseRevisionExercise[],
+    contentList: CourseRevisionExercise[] | WorkshopsExercise[]
 
     /* Index of the currently selected content in contentList */
     currentContentIdx: number,

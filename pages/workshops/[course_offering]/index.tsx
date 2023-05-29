@@ -7,7 +7,7 @@ import CourseRevisionSidebar from 'components/course-revision/CourseRevisionSide
 import { ProblemCard } from 'components/ProblemCard'
 import { Tag } from 'components/Tag'
 import { Text } from 'components/Text'
-import { allCourseRevisionOfferings, allCourseRevisionExercises, CourseRevisionOffering, WorkshopsOffering, allWorkshopsOfferings } from 'contentlayer/generated'
+import { allCourseRevisionOfferings, allCourseRevisionExercises, CourseRevisionOffering, WorkshopsOffering, allWorkshopsOfferings, allWorkshopsExercises } from 'contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Link from 'next/link'
@@ -30,7 +30,7 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
-      exercisesContent: allCourseRevisionExercises.filter((e) => e._raw.sourceFileDir.endsWith(params.course_offering)).sort((a, b) => a.difficulty - b.difficulty),
+      exercisesContent: allWorkshopsExercises.filter((e) => e._raw.sourceFileDir.endsWith(params.course_offering)).sort((a, b) => a.difficulty - b.difficulty),
       courseOfferingContent
     }
   }
