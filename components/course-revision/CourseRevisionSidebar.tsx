@@ -111,12 +111,9 @@ const ExerciseButton = styled("button", {
     },
 })
 
-// const determineCourseRevisionOrWorkshopsOffering = (toBeDetermined: WorkshopsOffering | CourseRevisionOffering): toBeDetermined is CourseRevisionOffering => {
+const determineCourseRevisionOrWorkshopsOffering = (toBeDetermined: WorkshopsOffering | CourseRevisionOffering) => {
 
-// } 
-
-const determineCourseRevisionOrWorkshopsOffering = (toBeDetermined: WorkshopsOffering | CourseRevisionOffering): toBeDetermined is WorkshopsOffering => {
-    if ((toBeDetermined as WorkshopsOffering).type) {
+    if (toBeDetermined.type === "WorkshopsOffering") {
         return true;
     }
 
