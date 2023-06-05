@@ -136,7 +136,9 @@ const Articles: NextPage = ({ articles, allTags, courseOfferingContent, workshop
           <CourseRevisionContainerHomePage allCourseRevisionOfferings={courseOfferingContent} />
         </Flex>
 
-        <Flex
+        {/* Uncomment once we have content for workshops */}
+
+        {/* <Flex
           as="main"
           css={{
             flexDirection: 'column',
@@ -155,7 +157,7 @@ const Articles: NextPage = ({ articles, allTags, courseOfferingContent, workshop
             Explore the many workshops our Education Team has curated to become big brain.
           </Text>
           <WorkshopsContainerHomePage allWorkshopsOffering={workshopOfferingContent} />
-        </Flex>
+        </Flex> */}
 
         <Text
           size="headline"

@@ -89,7 +89,9 @@ const Home: NextPage = ({ articles, courseOfferingContent, workshopOfferingConte
         </Text>
         <CourseRevisionContainerHomePage allCourseRevisionOfferings={courseOfferingContent} />
       </Flex>
-      <Flex
+      {/* Uncomment once we have content for workshops */}
+
+      {/* <Flex
         as="main"
         css={{
           flexDirection: 'column',
@@ -108,7 +110,7 @@ const Home: NextPage = ({ articles, courseOfferingContent, workshopOfferingConte
           Explore the many workshops our Education Team has curated to become big brain.
         </Text>
         <WorkshopsContainerHomePage allWorkshopsOffering={workshopOfferingContent} />
-      </Flex>
+      </Flex> */}
       <Flex
         as="main"
         css={{
