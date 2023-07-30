@@ -1,0 +1,158 @@
+---
+title: Chaining in Hashmaps
+desc: A walkthrough to implementing chaining as a collision resolution to hashmaps.
+class: COMP2521
+difficulty: 1
+---
+
+# Chaining in Hashmaps
+
+_Written by Saga Chandra from CSESoc Education_
+
+This problem set will have you implement a hashing function that allow us to store strings in key pair values, and also implement the collision resolution strategy, chaining.
+
+This problem set will go through a very brief and simple introduction onto how hashmaps are implemented, and why they are implemented in this way while working on the questions.
+
+_Sidenote:_
+You can only test your code once you have completed all the tasks.
+
+Hashmaps involve turning our "key", into an integer, through a hashing function. This integer can then be used as the index for an array that stores the "value". Note that this allows us to achieve O(1) insertion, lookups, and deletion as long as we don't have any collisions, that is, no two "keys" provide the same integer from the hashing function.
+
+Note: Each "space" in an array is called a bucket in hashing because it can contain multiple key pair values (as we will see when we implement chaining)
+
+//
+This will be your first task. In `HashMap.c`, write the function `string_to_int` that takes in a string, adds up all the ASCII values of the string, and returns the sum.
+
+**Sample**
+Input:
+
+```bash
+"hi"
+```
+
+Output:
+
+```bash
+209
+```
+
+//
+
+However, if we simply leave it as is, we begin to waste a lot of space.
+For example, if we wanted a hashmap of size two, but the hashing function provides a value of 300, we would need to initialise an array of size 300, instead of two. Therefore, after we find the hash of the key, we perform a modulo of 2 operation on the hash so that it produces either a value of 0, or 1, allowing us to create an array of size 2.
+
+This method allows us to both save space while having an amazing O(1) time complexity, but it also leads to a key problem, collisions.
+Take for example, the hashing function that you just implemeneted that adds up all the ASCII values of the characters. We can observe that the words "dusty" and "study" would end up having the same hash value, which can lead to losing some key pair values in the hashmap.
+One way we can try to minimise the number of such collisions, is by considering coprime numbers. Coprime numbers tend to produce less collisions in a hashmap. But why?
+
+Let's consider another hashing function for a string, that adds up the ASCII values of each character, but also adds a factor of k into each character:
+`hash value: k^0 * str[0] + k * str[1] + k^2 * str[2] + ... + k^n * str[n]`.
+What would happen if we were to modulo every hash value by the same `k`?
+It would result in our `hash value` being the ASCII value of `str[0]`. This means that our hash depends on only the very first character of each string. This would result in collisions for `apples, angles, anatomicophysiological` and infinitely more!
+Which, suffice to say, is incredibly bad.
+
+Hence why we always want to be using coprime numbers, but not just any coprime numbers, we want to use prime numbers. This is because hashing functions and the hashtable itself are not necessarily written dependently, and we can't always ensure coprime values without using prime numbers.
+
+Hence, the size of our hashmap should always be the next prime number from the given size.
+
+//
+Your second task will be to write the functions `hash` and `HashMap_New` in `HashMap.c`.
+
+The function `hash` signature can be altered but note that it will be used in the insertion and lookup of your HashMap.
+
+The function `hash` should perform the modulo of the hash of str by a prime number and return that value.
+**Sample**
+Input:
+
+```c
+// We are hashing the str "hi" with the prime modulo 3
+// Note that your hash function signature can be different
+hash("hi", 3)
+```
+
+Output:
+
+```bash
+2
+```
+
+The function `HashMap_New` signature should not be changed.
+
+`HashMap_New` takes in an integer `n` that specifies the size the user wants the new HashMap to be.
+
+`HashMap_New` should initialise a HashMap that has the size of the next prime number after `n` and return the new HashMap.
+//
+
+Moving on to the actual useful parts of a hashmap, insertion and lookup implementations.
+
+FIrst off, note how bad our `hash` function is in creating collision-less hashes, as said above, anagrams produce collisions very easily using this method. Hence, in our insertion and lookup implementations, we need to consider collision resolution strategies to allow for such collisions to co-exist.
+
+One method we are going to implement is called chaining.
+Chaining involves storing our key pair values in linked lists. Hence our buckets can hold multiple key pair values. This resolves collisions by simply inserting a new key pair value linked list node into our buckets if a collision were to ever happen.
+
+For example, lets insert "cat": "one", and "act": "two" into our hashmap.
+
+Initially we have an empty hashmap with four empty buckets:
+
+```
+HashMap: | NULL | NULL | NULL | NULL |
+```
+
+At first, when we insert "cat": "one", we can insert a linked list node that contains the key, "cat", and the value "one".
+
+```
+HashMap: | NULL | "cat":"one" | NULL | NULL |
+```
+
+But when we try to insert "act":"two", we can see that "act" and "cat" are anagrams and without collision resolution strategies, will result in an overwrite:
+
+```
+HashMap: | NULL | "act":"two" | NULL | NULL |
+```
+
+However, with chaining, we can simply create a new linked list node and append it onto the bucket.
+
+```
+HashMap: | NULL | "cat":"one" -> "act":"two" | NULL | NULL |
+```
+
+_Sidenotes:_
+Although collision resolutions do exist, we can quickly guess that they will always ruin the O(1) operations of a hashmap, which is an integral characteristic of the data structure. Consider a hashmap that collides at every collision, with chaining, we essentially have a linked list, which is not O(1) time. Hence, if for whatever reason you are writing a hashmap, it is always better to consider writing a good hash function, and ensuring that the hash function is coprime to the number of buckets, rather than relying on collision resolution strategies.
+
+//
+Your final task will be to implement `HashMap_Insert` and `HashMap_Get` in `HashMap.c`.
+You should not alter either of these function's signatures.
+
+`HashMap_Insert` should take in a key and a value and insert it into the hashmap using the `hash` function outlined previously. `HashMap_Insert` should also use chaining to resolve collisions in the hashmap.
+
+`HashMap_Get` should take in a key and return the associated value in the hashmap. If the key does not exist in the hashmap, the string "Not Found" should be returned instead.
+//
+
+## How will your answers be tested?
+
+Once you are certain that all these components are fully working, you can test your code by compiling with `gcc hashmap_chaining.c main.c -o main` and then running `./main`
+.
+Main will initially ask for inputs `n, s`, which specifies the size of the hashmap, and the number of key value pairs you are putting into the map respectively.
+
+Then it will ask for a Key, and then a Value `s` times, which should be inserted into the hash map.
+
+Finally, the program will print out the entire hash map, showing each individual bucket, and its contents.
+
+_Sidenote:_
+If the same key is inserted twice into a single hashmap, then the value of the second key should overwrite the value of the first key.
+
+If the key does not exist, then `HashMap_get` should return the string "Not Found".
+
+Using a hashing function that differs from what is outlined previously (adding up the ASCII values of each character) will result in different collisions and hashes, and will probably mean acing the autotests given as they are specifically catered towards the outlined `hash` to produce and test collisions.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/2521-revision/hashmap_chaining:~
+$ 2521 autotest hashmap_chaining
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp2521-revision-session/tree/main/problems/hashmap_chaining/solution).
