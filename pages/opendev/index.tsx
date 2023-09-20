@@ -64,7 +64,7 @@ const OpenDevTwo: NextPage = () => {
         <Text
           size="info">
           <p>
-            The CSESoc Open Dev Series is back once again for 23T2! This initiative will involving weekly workshops for the first 4 weeks of term on Wednesdays 2-4pm (location may vary, see schedule).
+            The CSESoc Open Dev Series is back once again for 23T3! This initiative will involving weekly workshops for the first 4 weeks of term on Wednesdays 2-4pm (location may vary, see schedule).
           </p>
           <p>
             Over the course of 4 weeks, you&apos;ll learn how to build your own
@@ -96,61 +96,18 @@ const OpenDevTwo: NextPage = () => {
           marginTop: '1rem',
         }}>Week 1</Text>
       <LinksContainer justify="around">
-        <a href="https://www.canva.com/design/DAFLpV21DLY/5GP43_9-0QocXmk7aNAurw/view?utm_content=DAFLpV21DLY&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank">Slides</a>
-        <a href="https://codepen.io/xylo274/pen/jOQrQQE" target="_blank">Code</a>
-        <a href="https://www.notion.so/CSESoc-Open-Dev-HTML-CSS-JavaScript-Exercises-7085baebc47e49a0b1710212eebf4b30" target="_blank">Exercises</a>
+        <a href="https://www.canva.com/design/DAFhz2OFo8Y/InPtslQ6diPeqLV_AKynEw/edit" target="_blank">Slides</a>
+        <a href="https://codepen.io/Allynixtor/pen/GRPOYvX" target="_blank">Demo Code</a>
+        <a href="https://github.com/CSESocEducation/Open-Dev/tree/main/23T3/workshop-1/exercises" target="_blank">Exercises</a>
+        <span>Recording</span>
       </LinksContainer>
-      <a href="https://www.canva.com/design/DAFLpV21DLY/5GP43_9-0QocXmk7aNAurw/view?utm_content=DAFLpV21DLY&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank">
+      <a href="https://www.canva.com/design/DAFhz2OFo8Y/InPtslQ6diPeqLV_AKynEw/edit" target="_blank">
         <Centerer>
-          <Image src="/images/opendev/opendev-23t2-wk1-cover-slide.png" alt="Week 1 Slides" width="480" height="270" />
+          <Image src="/images/opendev/opendev-23t3-wk1-cover-slide.png" alt="Week 1 Slides" width="480" height="270" />
 
         </Centerer>
       </a>
 
-      <Text
-        size="headline"
-        css={{
-          color: '$slate12',
-          fontWeight: '600',
-          padding: '$2',
-          alignSelf: 'center',
-          marginTop: '1rem',
-        }}>Week 2</Text>
-      <LinksContainer justify="around">
-        <a href="https://www.canva.com/design/DAFj64DPw5g/-h9rLyCEeLi3QzZgVpQFrQ/view?utm_content=DAFj64DPw5g&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank">Slides</a>
-        <a href="https://codepen.io/parvyyy/pen/qBJgxwK" target="_blank">Javascript Code</a>
-        <a href="https://github.com/BinaryGamer/open-dev/tree/main/WEEK2" target="_blank">ReactJS Code</a>
-      </LinksContainer>
-      <Text as='body' css={{
-        marginTop: '1rem',
-        fontSize: '0.8rem',
-        textAlign: 'center',
-      }}>No exercises for week 2</Text>
-      <a href="https://www.canva.com/design/DAFj64DPw5g/-h9rLyCEeLi3QzZgVpQFrQ/view?utm_content=DAFj64DPw5g&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank">
-        <Centerer>
-          <Image src="/images/opendev/opendev-23t2-wk2-cover-slide.png" alt="Week 2 Slides" width="480" height="270" />
-        </Centerer>
-      </a>
-
-      <Text
-        size="headline"
-        css={{
-          color: '$slate12',
-          fontWeight: '600',
-          padding: '$2',
-          alignSelf: 'center',
-          marginTop: '1rem',
-        }}>Week 3</Text>
-      <LinksContainer justify="around">
-        <a href="https://www.canva.com/design/DAFlvj_OQsE/jVRyWqpHGUuW7rdlkBYJyA/view?utm_content=DAFlvj_OQsE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank">Slides</a>
-        <a href="https://github.com/BinaryGamer/open-dev/tree/main/WEEK3" target="_blank">Code</a>
-        <a href="https://terrie.notion.site/Intro-to-React-Part-1-Exercises-f960c27b17b94115b87c50bdfc4bbb3b" target="_blank">Exercise</a>
-      </LinksContainer>
-      <a href="https://www.canva.com/design/DAFlvj_OQsE/jVRyWqpHGUuW7rdlkBYJyA/view?utm_content=DAFlvj_OQsE&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank">
-        <Centerer>
-          <Image src="/images/opendev/opendev-23t2-wk3-cover-slide.png" alt="Week 3 Slides" width="480" height="270" />
-        </Centerer>
-      </a>
       <Text
         size="headline"
         css={{
