@@ -12,6 +12,7 @@ import { Button } from 'components/Button'
 import { ArrowSquareOut } from 'phosphor-react'
 import { styled } from '@stitches/react'
 import { constants } from 'os'
+import Centerer from 'components/Centerer'
 
 const DisabledExternLink = styled(Flex, {
   display: 'flex',
@@ -31,6 +32,14 @@ const EnabledExternLink = styled(Flex, {
   userSelect: 'none',
   paddingBottom: '$2'
 })
+
+const LinksContainer = styled(Flex, {
+  width: '60%',
+  maxWidth: '600px',
+  margin: '0 auto',
+  justifyContent: 'space-between',
+}
+)
 
 const OpenDevTwo: NextPage = () => {
   return (
@@ -55,7 +64,7 @@ const OpenDevTwo: NextPage = () => {
         <Text
           size="info">
           <p>
-            The CSESoc Open Dev Series is back once again for 23T2! This initiative will involving weekly workshops for the first 4 weeks of term on Wednesdays 2-4pm (location may vary, see schedule).
+            The CSESoc Open Dev Series is back once again for 23T3! This initiative will involving weekly workshops for the first 4 weeks of term on Wednesdays 2-4pm (location may vary, see schedule).
           </p>
           <p>
             Over the course of 4 weeks, you&apos;ll learn how to build your own
@@ -73,9 +82,10 @@ const OpenDevTwo: NextPage = () => {
             form a complete set of skills to allow you to build your own
             projects.
           </p>
-          <p>Scroll down to see the full schedule. See you soon!</p>
+          <p>Scroll down to see the slides, code and exercises for all weeks!</p>
         </Text>
       </Box>
+
       <Text
         size="headline"
         css={{
@@ -84,16 +94,20 @@ const OpenDevTwo: NextPage = () => {
           padding: '$2',
           alignSelf: 'center',
           marginTop: '1rem',
-        }}>
-        Resources
-      </Text>
-      <Text size="info"><p>The workshop slides for Week 1 can be found here:&nbsp;
-        <a href="https://www.canva.com/design/DAFLpV21DLY/5GP43_9-0QocXmk7aNAurw/view?utm_content=DAFLpV21DLY&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank">
-          Week 1 Workshop Slides</a>
-      </p></Text>
-      <a href="https://www.canva.com/design/DAFLpV21DLY/5GP43_9-0QocXmk7aNAurw/view?utm_content=DAFLpV21DLY&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank">
-        <Image src="/images/opendev/opendev-23t2-wk1-cover-slide.png" alt="Week 1" width="800" height="450" />
+        }}>Week 1</Text>
+      <LinksContainer justify="around">
+        <a href="https://www.canva.com/design/DAFhz2OFo8Y/InPtslQ6diPeqLV_AKynEw/edit" target="_blank">Slides</a>
+        <a href="https://codepen.io/Allynixtor/pen/GRPOYvX" target="_blank">Demo Code</a>
+        <a href="https://github.com/CSESocEducation/Open-Dev/tree/main/23T3/workshop-1/exercises" target="_blank">Exercises</a>
+        <span>Recording</span>
+      </LinksContainer>
+      <a href="https://www.canva.com/design/DAFhz2OFo8Y/InPtslQ6diPeqLV_AKynEw/edit" target="_blank">
+        <Centerer>
+          <Image src="/images/opendev/opendev-23t3-wk1-cover-slide.png" alt="Week 1 Slides" width="480" height="270" />
+
+        </Centerer>
       </a>
+
       <Text
         size="headline"
         css={{

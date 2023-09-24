@@ -1,0 +1,46 @@
+---
+title: Line Count
+desc: Count the number of line occurrences across multiple files (with threads)!
+class: COMP1521
+difficulty: 2
+---
+
+# Line Count
+
+Ruh roh! Daniel has jumbled up all the lines between his files! He wants to search for the number of instances of a specific line in his files, but due to severe time restrictions, he must use multi-threading to go sonic speed!
+
+Write a program `count_lines.c` which counts the number of times a certain line appears as a line across a library of files. The line and the files will be given as command line arguments. For example:
+`./count_lines "Jastavo Fring" a.txt b.txt c.txt`
+would search for the number of times lines matching exactly `Jastavo Fring` occurs across `a.txt`, `b.txt`, and `c.txt` combined.
+
+You program must create a separate thread to count occurrences for each file. Be careful to avoid race conditions, as the autotests will likely miss them! Feel free to ask one of the friendly helpers if you aren't sure whether your code includes any race-conditions or deadlocks :smile:.
+
+The output from your program should look **exactly** like this:
+
+```bash:~/1521-revision/count_lines
+$ rm count_file_one count_file_two count_file_three
+$ printf '%s\n' 'additional supply depots' 'additional supply depots ' 'additional supply depots required' 'additional supply depots' >> count_file_one
+$ printf '%s\n' 'additional supply depots' >> count_file_two
+$ printf '%s\n' '' 'additional supply depots' '' '' >> count_file_three
+$ dcc -pthread count_lines.c -o count_lines
+$ ./count_lines "additional supply depots" count_file_one count_file_three
+3 lines matching "additional supply depots" found across 2 files.
+```
+
+## Assumptions/Restrictions/Clarifications
+
+- All lines within any file will be at most `1000` characters.
+- You do not have to free memory in the event of an abnormal termination.
+- You do not need to worry about a horrific eldritch abomination destroying your computer midway through runtime.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1521-revision/count_lines
+$ 1521 csesoc-autotest count_lines
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp1521-revision-session/blob/main/problems/count_lines/solution/count_lines.c).

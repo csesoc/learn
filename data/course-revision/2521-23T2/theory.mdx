@@ -1,0 +1,49 @@
+---
+title: Short Answer Questions
+desc: Short answer questions to test your theory.
+class: COMP2521
+difficulty: 1
+---
+
+# CSESoc COMP2521 Short Answer Practice Problems
+
+## Q1
+
+A and B are weighted, undirected graphs. B has the same edges as A, except the weights are increased by 3.
+
+a) Do the minimal spanning trees of A and B always contain the same edges? Justify your answer.
+
+b) Consider the tree of single-source shortest paths from some vertex (e.g. as produced by Dijkstra's algorithm).
+Does this tree always contain the same edges in both graphs? Justify your answer.
+
+## Q2
+
+A particular graph is stored as an array of edges, each represented as a pair of vertices.
+When a new edge is added, it is placed at the end of the array.
+For example: [{2, 3}, {1, 2}, {0, 2}, {0, 1}].
+
+a) What is the time complexity of breadth first search using this representation? Give your answer in terms
+of V and E.
+
+b) How can this representation be adjusted to improve the complexity of BFS, while maintaining the same
+space complexity?
+
+## Q3
+
+Consider an arbitrary undirected connected graph G.
+A graph G\* is constructed by replacing every edge of G with 4 edges and two vertices like this:
+
+```
+       G                            G*
+                              ------ C ------
+                             /               \
+A ------------- B     =>    A                 B
+                             \               /
+                              ------ D ------
+```
+
+Is it true that G\* has an Euler cycle?
+
+## Solutions
+
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp2521-revision-session/blob/main/problems/theory/solution/answers.mdx).
