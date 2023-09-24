@@ -1,5 +1,5 @@
 import { styled } from "@stitches/react"
-import { CourseRevisionExercise, CourseRevisionOffering } from "contentlayer/generated"
+import { CourseRevisionExercise, CourseRevisionOffering, WorkshopsOffering, WorkshopsExercise } from "contentlayer/generated"
 import Link from "next/link"
 import { ArrowLeft, CaretDown, CaretUp } from "phosphor-react"
 import { useState } from "react"
@@ -11,10 +11,10 @@ type PropTypes = {
     courseOfferingTitle: string,
 
     /* Home page for this course offering e.g. 1511 22T3 */
-    courseOfferingContent: CourseRevisionOffering,
+    courseOfferingContent: CourseRevisionOffering | WorkshopsOffering,
 
     /* List of exercises content */
-    contentList: CourseRevisionExercise[],
+    contentList: CourseRevisionExercise[] | WorkshopsExercise[]
 
     /* Index of the currently selected content in contentList */
     currentContentIdx: number,
@@ -111,6 +111,16 @@ const ExerciseButton = styled("button", {
     },
 })
 
+const determineCourseRevisionOrWorkshopsOffering = (toBeDetermined: WorkshopsOffering | CourseRevisionOffering) => {
+
+    if (toBeDetermined.type === "WorkshopsOffering") {
+        return true;
+    }
+
+    return false;
+
+}
+
 const CourseRevisionSidebar = ({ courseOfferingTitle, courseOfferingContent, contentList, currentContentIdx }: PropTypes) => {
     /* ONLY applies when width < 768px (in mobile view) */
     const [showContent, setShowContent] = useState(false)
@@ -120,11 +130,23 @@ const CourseRevisionSidebar = ({ courseOfferingTitle, courseOfferingContent, con
             justifyContent: "space-between",
             alignItems: "center",
         }}>
-            <Link href={`/course-revision`}>
+            {determineCourseRevisionOrWorkshopsOffering(courseOfferingContent) ?
+                <Link href={`/workshops`}>
+                    <BackButton>
+                        <ArrowLeft style={{ marginRight: "0.4rem" }} />Other Workshops
+                    </BackButton>
+                </Link> :
+                <Link href={`/course-revision`}>
+                    <BackButton>
+                        <ArrowLeft style={{ marginRight: "0.4rem" }} />Other Courses
+                    </BackButton>
+                </Link>
+            }
+            {/* <Link href={`/course-revision`}>
                 <BackButton>
                     <ArrowLeft style={{ marginRight: "0.4rem" }} />Other Courses
                 </BackButton>
-            </Link>
+            </Link> */}
             <ToggleContent onClick={() => setShowContent((val) => !val)}>
                 {showContent ? (<><CaretDown size={16} style={{ marginRight: "0.4rem" }} />Hide Exercises</>) : <><CaretUp size={16} style={{ marginRight: "0.4rem" }} />Show Exercises</>}
             </ToggleContent>

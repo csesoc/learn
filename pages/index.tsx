@@ -3,7 +3,7 @@ import { Button } from 'components/Button'
 import { Card } from 'components/Card'
 import { Flex } from 'components/Flex'
 import { Text } from 'components/Text'
-import { allArticleTypes, allCourseRevisionOfferings, ArticleType, CourseRevisionOffering } from 'contentlayer/generated'
+import { allArticleTypes, allCourseRevisionOfferings, ArticleType, CourseRevisionOffering, WorkshopsOffering, allWorkshopsOfferings } from 'contentlayer/generated'
 import { compareAsc, compareDesc } from 'date-fns'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -15,20 +15,22 @@ import CourseRevisionCard from 'components/course-revision/CourseRevisionCard'
 import { styled } from '@stitches/react'
 import CourseRevisionMiniCard from 'components/course-revision/CourseRevisionMiniCard'
 import CourseRevisionContainerHomePage from 'components/course-revision/CourseRevisionContainerHomePage'
+import WorkshopsContainerHomePage from 'components/workshops/WorkshopsContainerHomePage'
 
 type PropTypes = {
   articles: ArticleType[],
   courseOfferingContent: CourseRevisionOffering[],
+  workshopOfferingContent: WorkshopsOffering[]
 }
 
 export async function getStaticProps() {
   const articles = allArticleTypes.sort((a, b) => {
     return compareAsc(new Date(b.date), new Date(a.date))
   })
-  return { props: { articles, courseOfferingContent: allCourseRevisionOfferings } }
+  return { props: { articles, courseOfferingContent: allCourseRevisionOfferings, workshopOfferingContent: allWorkshopsOfferings } }
 }
 
-const Home: NextPage = ({ articles, courseOfferingContent }: PropTypes) => {
+const Home: NextPage = ({ articles, courseOfferingContent, workshopOfferingContent }: PropTypes) => {
   return (
     <Box>
       <Head>
@@ -87,6 +89,28 @@ const Home: NextPage = ({ articles, courseOfferingContent }: PropTypes) => {
         </Text>
         <CourseRevisionContainerHomePage allCourseRevisionOfferings={courseOfferingContent} />
       </Flex>
+      {/* Uncomment once we have content for workshops */}
+
+      {/* <Flex
+        as="main"
+        css={{
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '0 1rem',
+        }}>
+        <Text
+          size="headline"
+          css={{ fontWeight: 600, paddingTop: '$8', paddingBottom: '$4' }}>
+          Workshops
+        </Text>
+        <Text
+          as="span"
+          size="title-sm"
+          css={{ color: '$slate12', paddingTop: '$1', textAlign: "center", width: "70%" }}>
+          Explore the many workshops our Education Team has curated to become big brain.
+        </Text>
+        <WorkshopsContainerHomePage allWorkshopsOffering={workshopOfferingContent} />
+      </Flex> */}
       <Flex
         as="main"
         css={{
