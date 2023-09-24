@@ -96,12 +96,12 @@ const OpenDevTwo: NextPage = () => {
           marginTop: '1rem',
         }}>Week 1</Text>
       <LinksContainer justify="around">
-        <a href="https://www.canva.com/design/DAFhz2OFo8Y/InPtslQ6diPeqLV_AKynEw/edit" target="_blank">Slides</a>
+        <a href="https://www.canva.com/design/DAFhz2OFo8Y/InPtslQ6diPeqLV_AKynEw/edit?utm_content=DAFhz2OFo8Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">Slides</a>
         <a href="https://codepen.io/Allynixtor/pen/GRPOYvX" target="_blank">Demo Code</a>
         <a href="https://github.com/CSESocEducation/Open-Dev/tree/main/23T3/workshop-1/exercises" target="_blank">Exercises</a>
         <span>Recording</span>
       </LinksContainer>
-      <a href="https://www.canva.com/design/DAFhz2OFo8Y/InPtslQ6diPeqLV_AKynEw/edit" target="_blank">
+      <a href="https://www.canva.com/design/DAFhz2OFo8Y/InPtslQ6diPeqLV_AKynEw/edit?utm_content=DAFhz2OFo8Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
         <Centerer>
           <Image src="/images/opendev/opendev-23t3-wk1-cover-slide.png" alt="Week 1 Slides" width="480" height="270" />
 
