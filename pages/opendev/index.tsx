@@ -99,7 +99,7 @@ const OpenDevTwo: NextPage = () => {
         <a href="https://www.canva.com/design/DAFhz2OFo8Y/InPtslQ6diPeqLV_AKynEw/edit?utm_content=DAFhz2OFo8Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">Slides</a>
         <a href="https://codepen.io/Allynixtor/pen/GRPOYvX" target="_blank">Demo Code</a>
         <a href="https://github.com/CSESocEducation/Open-Dev/tree/main/23T3/workshop-1/exercises" target="_blank">Exercises</a>
-        <span>Recording</span>
+        <a href="https://youtu.be/3nOM16cMxJo" target="_blank">Recording</a>
       </LinksContainer>
       <a href="https://www.canva.com/design/DAFhz2OFo8Y/InPtslQ6diPeqLV_AKynEw/edit?utm_content=DAFhz2OFo8Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
         <Centerer>
