@@ -116,6 +116,31 @@ const OpenDevTwo: NextPage = () => {
           padding: '$2',
           alignSelf: 'center',
           marginTop: '1rem',
+        }}>Week 2</Text>
+      <LinksContainer justify="around">
+        <a href="https://www.canva.com/design/DAFu45o0Jo4/usEYcArCZS53_6enIeaQlg/view" target="_blank"> HTML/JS Slides <br /> (Slide 34) </a>
+        <a href="https://www.canva.com/design/DAFlvkfvkYM/vrNiK4HsfJc8ztY8uOhU3w/view?utm_content=DAFlvkfvkYM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1" target="_blank">ReactJS Slides</a>
+        <span>Recording</span>
+      </LinksContainer>
+      <a href="https://www.canva.com/design/DAFu45o0Jo4/usEYcArCZS53_6enIeaQlg/view" target="_blank">
+        <Centerer>
+          <Image src="/images/opendev/opendev-23t3-wk1-cover-slide.png" alt="Week 1 Slides" width="480" height="270" />
+        </Centerer>
+      </a>
+      <a href="https://www.canva.com/design/DAFlvkfvkYM/vrNiK4HsfJc8ztY8uOhU3w/view?utm_content=DAFlvkfvkYM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1" target="_blank">
+        <Centerer>
+          <Image src="/images/opendev/opendev-23t3-wk2-cover-slide.png" alt="Week 1 Slides" width="480" height="270" />
+        </Centerer>
+      </a>
+
+      <Text
+        size="headline"
+        css={{
+          color: '$slate12',
+          fontWeight: '600',
+          padding: '$2',
+          alignSelf: 'center',
+          marginTop: '1rem',
         }}>
         Feedback
       </Text>
