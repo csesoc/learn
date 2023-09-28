@@ -1,0 +1,83 @@
+---
+title: Palindrome
+desc: Determine if a line is a palindrome or not **without using loops**.
+class: COMP2521-funda
+difficulty: 2
+---
+
+# Palindrome?
+
+Create a new file called 'palindrome.c' and copy the starter code [here](https://github.com/Allynixtor/comp2521-fundamentals-23T3/blob/main/problems/palindrome/palindrome.c) into it.
+
+An palindrome is a string which contains the same characters going forward and backwards.
+
+Implement the `is_palindromic` function in `is_palindromic.c` to return true if a given input line is a palindrome, and false if it is not.
+**But we have a problem, our computer is a tsundere and doesn't want you to use any loops at all!**
+
+So, we must implement `is_palindromic` without any loops. Though you are free to make any extra functions you want (provided they also do not contain loops).
+
+The output from your program should look **exactly** like this:
+
+```bash:~/2521-fundamentals/palindrome
+$ gcc is_palindromic.c -o is_palindromic
+$ ./is_palindromic
+Enter a line: racecar
+The line is a palindrome!
+```
+
+```bash:~/2521-fundamentals/palindrome
+$ ./is_palindromic
+Enter a line:
+The line is a palindrome!
+```
+
+```bash:~/2521-fundamentals/palindrome
+$ ./is_palindromic
+Enter a line: racecars
+The line is not a palindrome!
+```
+
+```bash:~/2521-fundamentals/palindrome
+$ ./is_palindromic
+Enter a line: maam
+The line is a palindrome!
+```
+
+```bash:~/2521-fundamentals/palindrome
+$ ./is_palindromic
+Enter a line: eeteee
+The line is not a palindrome!
+```
+
+## Assumptions/Restrictions/Clarifications
+
+- The main function handles replacing the newline with a null-terminator
+- The input line string will be of length $N$ ($0 ≤ N ≤ 1024$)
+- You are allowed to make other functions, but **must not use loops**.
+
+## Hints
+
+<details>
+  <summary> Hint 1 </summary>
+  <br />
+  if a string is a single character then it is always a palindrome, and you can
+  easily figure out if a two-character string is a palindrome with a single
+  comparison
+</details>
+
+<details>
+  <summary> Hint 2 </summary>
+  <br />
+  if a string is a palindrome, what can we say about the substring that excludes
+  the left-most and right-most letter?
+</details>
+
+<details>
+  <summary> Hint 3 </summary>
+  <br />
+  for a string to be a palindrome, the left-most and right-most letter must be
+  the same, and the substring excluding those two letters must be palindromic
+</details>
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp2521-fundamentals-23T3/blob/main/problems/palindrome/solution.c).

@@ -1,0 +1,95 @@
+---
+title: Break, Continue, and Ternary
+date: 2023-09-27
+desc: None of this code makes any sense to me! Help!
+tags:
+  - 'COMP2521'
+  - 'Exam Revision'
+author: CSESoc  Education  Team
+coverPhoto: '/images/generic/alexandru-acea-XEB8y0nRRP4-unsplash.jpg'
+---
+
+# The break statement
+
+Break statements work by telling your loop to immediately stop. It will not execute the remainder of the current iteration, and will just immediately jump to the end of the loop.
+
+```c
+while (1) {
+    if (1) {
+        break;
+    }
+    printf("this will not be printed!");
+}
+```
+
+Oookay, but that sounds pretty useless... When would I ever want this!
+Sometimes you want to check conditions before running an iteration, but it would become clunky top have it as a condition (think flag variables). In this case a `break` statement is great!
+
+Consider the following clunky yucky code:
+
+```c
+int index = 0;
+int found = 0;
+while (index < SIZE && found = 0) {
+    if (array[index] == something) {
+        found = 1;
+    }
+    index++;
+}
+index--;
+```
+
+This can be simplified to:
+
+```c
+int index = 0;
+while (index < SIZE) {
+    if (array[index] == something) {
+        break;
+    }
+    index++;
+}
+```
+
+Nice, this makes things a lot tidier!
+In general, I like to use break as a "catcher", whether it be to catch errors before they happen, or otherwise catch some condition to end my loop!
+
+# The continue statement
+
+Continue statements tell a loop to stop executing the rest of the code for that iteration, and jump straight back to the top!
+
+```c
+for (int i = 0; i < 20; ++i) {
+    if (i % 2 == 0) {
+        continue;       // skip to the next iteration if the number is even
+    }
+    printf("%d\n", i);  // will not print even numbers, since it will not get to this point
+}
+```
+
+You might be thinking "this seems a lot more niche than `break`"...
+And you're right! Usually `continue` just lets us avoid one layer of if-nesting, but if you spot a place where you want to go straight to the next iteration without ending the loop entirely, maybe this would be a option to consider!
+
+In general, I don't use continue basically ever unless I get the lightbulb moment where the situation exactly matches one where I want to go straight to the next iteration.
+
+# The ternary operator
+
+This one is luckily quite simple, though daunting at first! Let's take a look at the general format of a ternary operator!
+
+```c
+variable = condition ? value_if_true : value_if_false;
+```
+
+This is exactly equivalent to:
+
+```c
+if (condition) {
+    variable = value_if_true;
+} else {
+    variable = value_if_false;
+}
+```
+
+Though note that a ternary doesn't necessary have to bind its value to a variable - you can just return it or otherwise use it if you want!
+
+This is thankfully a pretty simple one - any time you want to set a value based on whether something is true or not, you can just use a ternary! **You should, however, think about whether it actually makes your code more readable.**
