@@ -1,0 +1,65 @@
+---
+title: Rotate Linked List
+desc: Rotate a linked list right!
+class: COMP1511
+difficulty: 2
+---
+
+# Rotate Linked List.
+
+You are provided list_rotate.c. Implement the function `rotate` which, given the head of a linked list, the length of the list, and a non-negative integer input `steps`, rotates the list to the right by `steps`.
+
+For example:
+
+<img
+  src="/images/comp1511-revision/diagram.png"
+  alt="linked_list_rotation_example"
+  width="800"
+  height="474"
+/>
+
+The output should look exactly like the following:
+
+```bash:~/1511-revision/list_rotate
+$ dcc list_rotate.c -o list_rotate
+$ ./list_rotate
+How many numbers in list?: 5
+0 1 2 3 4
+What number to rotate by?: 0
+[0, 1, 2, 3, 4]
+$ ./list_rotate
+How many numbers in list?: 5
+0 1 2 3 4
+What number to rotate by?: 2
+[3, 4, 0, 1, 2]
+$ ./list_rotate
+How many numbers in list?: 5
+0 1 2 3 4
+What number to rotate by?: 6
+[4, 0, 1, 2, 3]
+```
+
+## Assumptions/Restrictions/Clarifications
+
+- You may assume that `steps >= 0`.
+- You may assume that the list is non-empty.
+- You may assume the list length will be less than 100 (but you shouldn't be hard coding any limits, it should theoretically work for any size).
+- You may **_not_** assume that `steps <= list length`.
+- Do not change any existing functions other than `rotate`. You may make your own functions if wish.
+- You do not need to worry about a horrific eldritch abomination destroying your computer midway through runtime.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/list_rotate
+$ 1511 csesoc-autotest list_rotate
+```
+
+## Acknowledgements
+
+The starter code for this exercise was largely taken from the Week 08 COMP1511 lab exercise — "Reverse a Linked List".
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp1511-23T1-problems/blob/main/solutions/list_rotate/solution.c).
