@@ -1,0 +1,49 @@
+---
+title: strcmp
+desc: Implement the C stdlib function strcmp
+class: COMP1511
+difficulty: 2
+---
+
+# strcmp
+
+Your task is to implement the C Standard Library function `strcmp`. `strcmp` takes in two `const char *` and returns an integer depending on the differences between the two strings.
+
+`strcmp` works by sequentially going through both strings and comparing each character.
+If `char 1` < `char 2`, then we would return `-1`.
+If `char 1 > char 2`, then we would return `1`.
+
+However, If both strings equal each other, then we would return `0`.
+
+For example,
+
+```
+strcmp("hi", "hi") -> 0
+strcmp("a", "b") -> -1
+```
+
+The output from your program should look **exactly** like this:
+
+```bash:~/1511-revision/strcmp
+$ dcc strcmp.c -o strcmp
+$ ./strcmp "hello" "hello"
+0
+```
+
+## Assumptions/Restrictions/Clarifications
+
+You should not use the library implementation of `strcmp` as that defeats the whole purpose of this exercise.
+
+It is guaranteed that your function is only expected to return `0`, `1`, and `-1`.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/strcmp
+$ 1511 csesoc-autotest strcmp
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp1511-23T3-problems/blob/main/solutions/strcmp/solution.c).

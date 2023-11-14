@@ -1,0 +1,36 @@
+---
+title: strlen
+desc: Implement the C stdlib function strlen
+class: COMP1511
+difficulty: 2
+---
+
+# strlen
+
+Your task is to implement the C Standard Library function `strlen`. `strlen` takes in a `const char *` and returns an integer that is the length of the given string,
+
+````
+The output from your program should look **exactly** like this:
+```bash:~/1511-revision/strlen
+$ dcc strlen -o strlen
+$ ./strlen "hi"
+2
+````
+
+## Assumptions/Restrictions/Clarifications
+
+You should not use the library implementation of `strlen` as that defeats the whole purpose of this exercise.
+
+Note that `strlen` does not count the null terminator `\0` as part of a string's length.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/strlen
+$ 1511 csesoc-autotest strlen
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp1511-23T3-problems/blob/main/solutions/strlen/solution.c).
