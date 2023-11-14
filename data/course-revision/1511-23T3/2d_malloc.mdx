@@ -1,0 +1,56 @@
+---
+title: 2D Malloc
+desc: Malloc a variable-size 2D array of ints!
+class: COMP1511
+difficulty: 2
+---
+
+# 2D Malloc
+
+Daniel has been working on his COMP1511 assignment, but he wants to create a 2D `rows` x `cols` array of integers, where `rows` and `cols` are inputs to the program.
+
+In other words, he wants to create some array `int array[rows][cols]`.
+
+Unfortunately, the style guide for the course does not allow variable length arrays to be created on the stack, so Daniel must `malloc` his array. Of course, this also means he has to `free` all memory afterwards!
+
+Daniel does not know how to dynamically allocate heap memory for a 2D array and free it afterwards, so your job is to implement the functions `allocate_array` and `free_array` in `malloc_two_dimension_array.c`.
+
+- `int **allocate_array(int rows, int cols)` should take in two values, `rows` and `cols`, and should return the start of a heap-allocated array with bounds and behaviour which matches `int array[rows][cols]`.
+- `void free_array(int **array, int rows, int cols)` should take in three values — `array` is the start of the array to be freed, `rows` and `cols` are the dimensions of the array.
+
+The main function has already been included. This main function reads `rows` and `cols` as command line arguments, passes it to `allocate_array`, does some array operations, and then calls `free_array`. **Do not modify this function**, you may create new functions if you wish.
+
+The output should look exactly like the following:
+
+```bash:~/1511-revision/2d_malloc
+$ dcc --leak-check 2d_malloc.c -o 2d_malloc
+$ ./2d_malloc 10 10
+   0    1    2    3    4    5    6    7    8    9
+  10   11   12   13   14   15   16   17   18   19
+  20   21   22   23   24   25   26   27   28   29
+  30   31   32   33   34   35   36   37   38   39
+  40   41   42   43   44   45   46   47   48   49
+  50   51   52   53   54   55   56   57   58   59
+  60   61   62   63   64   65   66   67   68   69
+  70   71   72   73   74   75   76   77   78   79
+  80   81   82   83   84   85   86   87   88   89
+  90   91   92   93   94   95   96   97   98   99
+```
+
+## Assumptions/Restrictions/Clarifications
+
+- You may assume there is enough memory to allocate the array on the heap.
+- You may **not** store the arrays on the stack.
+- You do not need to worry about a horrific eldritch abomination destroying your computer midway through runtime.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1521-revision/2d_malloc
+$ 1511 csesoc-autotest 2d_malloc
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp1511-23T1-problems/blob/main/solutions/2d_malloc/solution.c).
