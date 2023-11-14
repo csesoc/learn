@@ -1,0 +1,49 @@
+---
+title: atoi
+desc: Implement the C stdlib function atoi
+class: COMP1511
+difficulty: 2
+---
+
+# atoi
+
+Your task is to implement the C Standard Library function `atoi`. `atoi` takes in a `const char *` that is guaranteed to be a numerical string, e.g. `"123"`, and returns the numerical form of that string.
+
+For example,
+
+```
+atoi("123") -> 123
+atoi("19") -> 19
+```
+
+Your function should take in command line arguments (which are guaranteed to be numerical), and use your implementation of `atoi` to convert them into a number, and print it out.
+
+Furthermore, once you have printed out all the command line arguments, you should print out the sum and product of all these arguments.
+
+The output from your program should look **exactly** like this:
+
+```bash:~/1511-revision/atoi
+$ dcc atoi.c -o atoi
+$ ./atoi 3 2
+3
+2
+5 6
+```
+
+## Assumptions/Restrictions/Clarifications
+
+It is guaranteed that the command lines argument given in the autotest are numerical.
+
+You should not use the library implementation of `atoi` as that defeats the whole purpose of this exercise.
+
+## CSE Autotest
+
+When you think your program is working, you can use CSE autotest to test your solution.
+
+```bash:~/1511-revision/atoi
+$ 1511 csesoc-autotest atoi
+```
+
+## Solution
+
+You can view the solution code to this problem [here](https://github.com/Allynixtor/comp1511-23T3-problems/blob/main/solutions/atoi/solution.c).
