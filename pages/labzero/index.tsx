@@ -73,7 +73,7 @@ const LabZero: NextPage = () => {
           marginTop: '2rem',
         }}>TigerVNC + VLAB</Text>
       <LinksContainer justify="around">
-        <a href="https://www.cse.unsw.edu.au/~hs1511/18s1/homeComputing/HomeCom.html" target="_blank">UNSW's Official Guide</a>
+        <a href="https://cgi.cse.unsw.edu.au/~cs1511/24T1/home_computing/vlab.html" target="_blank">UNSW's Official Guide</a>
       </LinksContainer>
 
       <Text
@@ -86,7 +86,7 @@ const LabZero: NextPage = () => {
           marginTop: '2em',
         }}>CSE + VSCode</Text>
       <LinksContainer justify="around">
-        <a href="https://abiram.me/cse-setup" target="_blank"> Abiram's Guide </a>
+        <a href="https://abiram.me/cse-setup" target="_blank">Abiram's Guide </a>
         <a href="https://abiram.me/cse-sshfs" target="_blank">Further Reading (SSHFS)</a>
       </LinksContainer>
 
