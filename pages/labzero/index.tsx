@@ -18,7 +18,7 @@ const LabZero: NextPage = () => {
   return (
     <ArticleLayout>
       <Head>
-        <title>Lab 0 – CSESoc Learn</title>
+        <title>Lab 0 - CSESoc Learn</title>
         <meta name="description" content="CSESoc Lab 0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -37,7 +37,7 @@ const LabZero: NextPage = () => {
         <Text
           size="info">
           <p>
-            CSESoc's Lab 0 is back once again for 2024!
+            CSESoc&apos;s Lab 0 is back once again for 2024!
           </p>
           <p>
             Feeling lost after your first COMP1511 lecture? Not sure how to
@@ -73,7 +73,7 @@ const LabZero: NextPage = () => {
           marginTop: '2rem',
         }}>TigerVNC + VLAB</Text>
       <LinksContainer justify="around">
-        <a href="https://cgi.cse.unsw.edu.au/~cs1511/24T1/home_computing/vlab.html" target="_blank">UNSW's Official Guide</a>
+        <a href="https://cgi.cse.unsw.edu.au/~cs1511/24T1/home_computing/vlab.html" target="_blank">UNSW&apos;s Official Guide</a>
       </LinksContainer>
 
       <Text
@@ -86,7 +86,7 @@ const LabZero: NextPage = () => {
           marginTop: '2em',
         }}>CSE + VSCode</Text>
       <LinksContainer justify="around">
-        <a href="https://abiram.me/cse-setup" target="_blank">Abiram's Guide </a>
+        <a href="https://abiram.me/cse-setup" target="_blank">Abiram&apos;s Guide </a>
         <a href="https://abiram.me/cse-sshfs" target="_blank">Further Reading (SSHFS)</a>
       </LinksContainer>
 
@@ -132,7 +132,7 @@ const LabZero: NextPage = () => {
         }}>Helpful Guides</Text>
       <LinksContainer justify="around">
         <a href="https://www.freecodecamp.org/news/how-to-configure-your-macos-terminal-with-zsh-like-a-pro-c0ab3f3c1156/" target="_blank">MacOS Guide</a>
-        <a href="https://github.com/lronsmith/csesoc-edu-wsl-install-guide/blob/main/guide.md" target="_blank">Last year's WSL install guide (Windows)</a>
+        <a href="https://github.com/lronsmith/csesoc-edu-wsl-install-guide/blob/main/guide.md" target="_blank">Last year&apos;s WSL install guide (Windows)</a>
       </LinksContainer>
     </ArticleLayout >
   )
