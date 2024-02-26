@@ -26,8 +26,8 @@ const navItems = [
     'title': 'Contribute',
   },
   {
-    'path': 'opendev',
-    'title': 'Open Dev',
+    'path': 'labzero',
+    'title': 'Lab 0',
   },
   {
     'path': 'about',
