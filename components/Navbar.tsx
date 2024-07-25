@@ -10,7 +10,6 @@ import Logo from './Logo'
 import NavMenu from './NavMenu'
 import SearchButton from './SearchButton'
 import { Text } from './Text'
-import { StyledLink } from './StyledLink'
 
 const GITHUB_URL = 'https://github.com/csesoc/learning-platform'
 const navItems = [
