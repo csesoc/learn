@@ -5,7 +5,6 @@ import { allArticleTypes, ArticleType } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Head from 'next/head'
-import Image from 'next/image'
 import { Box } from 'components/Box'
 import Callout from 'components/Callout'
 import FileName from 'components/Filename'
@@ -21,25 +20,43 @@ import NextArticleButton from 'components/NextArticleButton'
 // import PrevArticleButton from 'components/PrevArticleButton'
 import ArticleButtonContainer from 'components/ArticleNavigationContainer'
 import { BackButton } from 'components/BackButton'
+import { MDXComponents } from 'mdx/types'
+import { forwardRef } from 'react'
 
 
-const defaultComponents = {
-  Image,
-  Callout,
-  FileName,
-  Centerer,
-  MultiChoice,
-  Link,
-  ArrowDown,
-  NextArticleButton,
-  // PrevArticleButton,
-  ArticleButtonContainer
+/**
+ * Create lightweight wrapper components to satisfy MDXComponents type
+ */
+const WrappedLink = ({ href, children }: { href: string, children: React.ReactNode }) => {
+  return (
+    <Link href={href}>
+      children
+    </Link>
+  )
 }
+
+const WrappedArrowDown = ({ size }: { size: number }) => {
+  return (
+    <ArrowDown size={size} />
+  )
+}
+
+
 
 // Add any components used in MDX files here.
 // Components here load dynamically if they're used.
 // See https://github.com/tsriram/with-mdx-bundler for details.
-const components = { ...defaultComponents }
+const components: MDXComponents = {
+  Callout,
+  FileName,
+  Centerer,
+  MultiChoice,
+  Link: WrappedLink,
+  ArrowDown: WrappedArrowDown,
+  NextArticleButton,
+  // PrevArticleButton,
+  ArticleButtonContainer
+}
 
 export async function getStaticPaths() {
   const paths = allArticleTypes.map((a) => ({ params: { slug: a.slug } }))

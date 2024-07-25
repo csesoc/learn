@@ -16,7 +16,11 @@ Just like how functions in programming can separate responsibilities and elimina
 Make a new <FileName>components </FileName> folder in <FileName>src </FileName>. This new folder will store any reusable components that we create. Inside <FileName>src/components </FileName> create a file <FileName>Card.jsx </FileName> and add in this template for a basic React component:
 
 <Centerer>
-<img src="https://imgur.com/3qnvh1a.png" alt="new Card.jsx component" width="90%" />
+  <img
+    src="https://imgur.com/3qnvh1a.png"
+    alt="new Card.jsx component"
+    width="90%"
+  />
 </Centerer>
 
 We want this `Card` component to render the restaurant card we made in <FileName>App.jsx </FileName>. Cut and paste that JSX into the return of this `Card` component. Remember to wrap it in parentheses. Also be sure to move the star.svg and <FileName>Card.css </FileName> imports from <FileName>App.jsx </FileName> to <FileName>Card.jsx </FileName> (hint: the path from <FileName>Card.jsx </FileName> to <FileName>Card.css </FileName> is <FileName>"../styles/Card.css" </FileName> where ".." means "the parent folder of the folder that contains this file").
@@ -248,12 +252,11 @@ Our app now renders a list of cards of all restaurants specfied in the `places` 
 
 That's all for this series of tutorials, well done on making it to the end! The fundamental concepts that you have learned here including components, props and state will be useful in all future ReactJS projects that you work on.
 
-There are also many more things to learn which we haven't covered in this series. What if you want to provide a form to add more restaurants, or increase `visits` count for a restaurant? These features can be achieved using things called *event handlers*, which ReactJS does very similarly to HTML. There are plenty of resources online including other articles, videos and documentation to teach you those things. The best way to learn how to use them is to continue building projects and searching the internet for learning resources like these whenever you get stuck. Good luck on your ReactJS journey and have fun!
+There are also many more things to learn which we haven't covered in this series. What if you want to provide a form to add more restaurants, or increase `visits` count for a restaurant? These features can be achieved using things called _event handlers_, which ReactJS does very similarly to HTML. There are plenty of resources online including other articles, videos and documentation to teach you those things. The best way to learn how to use them is to continue building projects and searching the internet for learning resources like these whenever you get stuck. Good luck on your ReactJS journey and have fun!
 
 <ArticleButtonContainer
 
 prev="/articles/reactjs-tut-5"
 
 prevName="ReactJS Project Tutorial: Part 5"
->
-</ArticleButtonContainer>
+/>

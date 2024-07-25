@@ -10,6 +10,7 @@ import Logo from './Logo'
 import NavMenu from './NavMenu'
 import SearchButton from './SearchButton'
 import { Text } from './Text'
+import { StyledLink } from './StyledLink'
 
 const GITHUB_URL = 'https://github.com/csesoc/learning-platform'
 const navItems = [
@@ -153,28 +154,21 @@ export default function Navbar() {
       </Flex>
       <NavContainer isOpen={isOpen}>
         {navItems.map((navItem, idx) => (
-          <Link key={idx} href={`/${navItem.path}`}>
+          <Link
+            key={idx}
+            href={`/${navItem.path}`}
+            legacyBehavior
+            passHref>
             <Text
-              as="a"
+              as={'a'}
               css={{ color: '$slate12', cursor: 'pointer', whiteSpace: 'nowrap' }}
               onClick={() => { setIsOpen(false); console.log('hi') }}>
               {navItem.title}
-
             </Text>
           </Link>
 
         )
         )}
-        {/* <Text
-          as="a"
-          size="label-lg"
-          css={{
-            color: '$slate11',
-            userSelect: 'none',
-            cursor: 'not-allowed'
-          }}>
-          About
-        </Text> */}
       </NavContainer>
       <Box css={{
         display: isOpen ? "block" : "none",
