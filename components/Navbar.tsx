@@ -153,28 +153,21 @@ export default function Navbar() {
       </Flex>
       <NavContainer isOpen={isOpen}>
         {navItems.map((navItem, idx) => (
-          <Link key={idx} href={`/${navItem.path}`}>
+          <Link
+            key={idx}
+            href={`/${navItem.path}`}
+            legacyBehavior
+            passHref>
             <Text
-              as="a"
+              as={'a'}
               css={{ color: '$slate12', cursor: 'pointer', whiteSpace: 'nowrap' }}
               onClick={() => { setIsOpen(false); console.log('hi') }}>
               {navItem.title}
-
             </Text>
           </Link>
 
         )
         )}
-        {/* <Text
-          as="a"
-          size="label-lg"
-          css={{
-            color: '$slate11',
-            userSelect: 'none',
-            cursor: 'not-allowed'
-          }}>
-          About
-        </Text> */}
       </NavContainer>
       <Box css={{
         display: isOpen ? "block" : "none",

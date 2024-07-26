@@ -17,7 +17,7 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
   <MultiChoice.Question>
     ## Question 1 - Minimum Spanning Tree
     
-    Given this graph, what is the total weight of the minimum spanning tree?
+    Given this graph, find the total weight of the minimum spanning tree.
 
     <Centerer>
       <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/4-mst.png" alt="Graph" width="70%" />
@@ -53,7 +53,9 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
     and depth-first traversal on a graph.
 
     Show what would be printed by the following calls to
-    these functions on this graph:
+    these functions on this graph.
+
+    When visiting neighbouring vertices, assume they are visited in ascending order.
 
     <Centerer>
       <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/bft-dft.png" alt="Graph" width="70%" />
@@ -135,8 +137,7 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
   <MultiChoice.Question>
     ## Question 3 - Time complexity
 
-    What is the time complexity of the following function?
-
+    Find the Big-O time complexity of the following function in terms of n where n is the number of elements in the `nums` array.
     ```c:print_nums.c
     void print_nums(int nums[]) {
         for (int i = 0; i < 100; i++) {
@@ -148,43 +149,51 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
   </MultiChoice.Question>
   <MultiChoice.Answer isCorrect>
     O(1)
-    <MultiChoice.Explanation content="This loops time will always be constant as have defined how many times it will be executed."/>
+    <MultiChoice.Explanation content="The loop runs a definitive number of times (100 times) no matter how large the `nums` array might be. So the function runs in O(100) which simplifies to O(1)."/>
   </MultiChoice.Answer>
-  <MultiChoice.Answer isCorrect>
+  <MultiChoice.Answer isCorrect={false}>
     O(100)
-    <MultiChoice.Explanation content="O(100) is equivalent to O(1). This loops time will always be constant as have defined how many times it will be executed."/>
+    <MultiChoice.Explanation content="In Big-O notation, constant factors should be omitted."/>
   </MultiChoice.Answer >
-  <MultiChoice.Answer content="O(n)" />
-  <MultiChoice.Answer content="O(n ^ 2)" />
+
+<MultiChoice.Answer>
+  O(n)
+  <MultiChoice.Explanation content="The loop inside the function does not execute in the order of n times. No matter how many elements in the array, the loop only iterates 100 times!" />
+</MultiChoice.Answer>
+<MultiChoice.Answer content="O(n ^ 2)" />
 </MultiChoice>
 
 <MultiChoice>
   <MultiChoice.Question>
     ## Question 4 - Euler paths 
     
-    Does an Euler path exist for this graph?
-    
+    Does an Euler path/circuit exist for this graph?
+
     <Centerer>
       <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/1-euler.png" alt="Graph" width="70%" />
     </Centerer>
 
   </MultiChoice.Question>
 
-  <MultiChoice.Answer content="Yes"/>
   <MultiChoice.Answer
-    content="No"
-    isCorrect>
+    isCorrect content="Has Euler path, has Euler circuit">
     <MultiChoice.Explanation>
-      An Euler Path does not exist for this graph.
+    An Euler path is a path that uses every edge of a graph exactly once.
+    An Euler circuit is a cycle that uses every edge of a graph exactly once.
 
-      It is known that a graph has an Euler path if and only if:
-          - It is connected
-          - It has exactly two vertices that have an odd degree
+    How to determine if a graph has an Euler path/circuit without actually finding the path/circuit:
 
-      The given graph satisfies the first criteria as it is connected.
+    A graph has an Euler path if and only if:
+        - It is connected
+        - It has exactly zero or exactly two vertices that have an odd degree
 
-      However, it does not satisfy the second criteria, as none of the vertices have
-      an odd degree. In general terms, the degree of a vertex is the number of edges
+    A graph has an Euler circuit if and only if:
+        - It is connected
+        - It has exactly zero vertices that have an odd degree ie all vertices have an even degree
+
+    Think about why. What degree should the head, tail, and internal vertices have in order to form an Euler path/circuit?
+
+      The degree of a vertex is the number of edges
       connecting it. Looking at this graph, we see:
 
       <table >
@@ -217,13 +226,17 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
         </tr>
       </table>
 
-      And realise that none of the nodes/vertices have an odd degree. Hence the second
-      criteria is unfufilled.
-
-      Hence, it is concluded that an Euler path does not exist for this graph.
+      Notice that none of the nodes/vertices have an odd degree. So an Euler circuit does exist for this graph. And by extension so does an Euler path (as an Euler circuit is a special case of an Euler path where the start and end vertices are the same).
     </MultiChoice.Explanation>
 
   </MultiChoice.Answer>
+    <MultiChoice.Answer content="Has Euler path, has no Euler circuit"/>
+    <MultiChoice.Answer content="Has no Euler path, has Euler circuit">
+    <MultiChoice.Explanation>
+      If a graph has an Euler circuit, that also counts as an Euler path as an Euler circuit is a special case of an Euler path where the start and end vertices are the same.
+    </MultiChoice.Explanation>
+    </MultiChoice.Answer>
+    <MultiChoice.Answer content="Has no Euler path, has no Euler circuit"/>
 </MultiChoice>
 
 <MultiChoice>
@@ -240,7 +253,7 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
     <MultiChoice.Explanation content="Selection sort performs equally in all cases." />
   </MultiChoice.Answer>
   <MultiChoice.Answer content="Naive quicksort" isCorrect>
-    <MultiChoice.Explanation content="Naive quicksort will be consistently slow with sorted and reverse inputs at it chooses the least efficient pivot, but quicker for random inputs as the pivot is more wisely chosen." />
+    <MultiChoice.Explanation content="Naive quicksort will be consistently slow with sorted and reverse inputs at it chooses the least efficient pivot, but quicker for random inputs as the naive pivot is more likely to split the partitions more equally." />
   </MultiChoice.Answer>
   <MultiChoice.Answer content="Merge sort">
     <MultiChoice.Explanation content="Merge sort has the same time complexity for all cases." />
@@ -251,36 +264,71 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
   <MultiChoice.Question>
     ## Question 6 - Time complexity
     
-    What is the time complexity of this algorithm?
+    Find the time complexity of this function in Big-O notation in terms of `n`.
 
     ```c:question2.c
-    void function(int n) {
+    # Assume n is the size of the dynamically allocated array `arr`
+    int function(int n, int* arr) {
         for (int i = 0; i < n; i++) {
-            int *a = calloc(n, sizeof(int));
-            printf("Hello!\n");
-            free(a);
+            for (int j = 0; j < i; j++) {
+              arr[i] += 1;
+            }
         }
+
+        int total = 0;
+        for (int i = 0; i < n; i++) {
+            total += arr[i];
+        }
+        return total;
     }
     ```
 
   </MultiChoice.Question>
   <MultiChoice.Answer content="O(n)" />
   <MultiChoice.Answer content="O(n^2)" isCorrect>
-    <MultiChoice.Explanation content="Calloc is an O(n) operation. As it is nested in a for loop of O(n), the time complexities multiply, resulting in O(n^2)." />
+    <MultiChoice.Explanation>
+      The first loop has a nested loop that iterates 0 times, then 1 time, then 2 times, etc. up to `n - 1` times.
+      ```c:
+          for (int i = 0; i < n; i++) {
+              for (int j = 0; j < i; j++) {
+                arr[i] += 1;
+              }
+          }
+      ```
+      This results in a total of 0 + 1 + 2 + ... + n - 1 = n(n - 1) / 2 = O(n^2) operations (using formula for arithmetic sum).
+
+      The second loop iterates n times.
+
+      ```c:
+          for (int i = 0; i < n; i++) {
+              total += arr[i];
+          }
+      ```
+
+      Since O(n^2) dominates O(n), the function's overall time complexity is O(n^2).
+    </MultiChoice.Explanation>
+
   </MultiChoice.Answer>
-  <MultiChoice.Answer content="O(n + m)" />
-  <MultiChoice.Answer content="O(n * log(n))" />
+  <MultiChoice.Answer content="O(n^2 + n)">
+      <MultiChoice.Explanation>
+          In Big-O notation, we focus on the dominant term, which represents the most significant factor affecting the growth rate of time complexity as the input size increases.
+          
+          In this case, the dominant term is O(n^2), so we can ignore O(n) term which becomes insignificant for larger n.
+      </MultiChoice.Explanation>
+
+  </MultiChoice.Answer>
+  <MultiChoice.Answer content="O(n log(n))" />
 </MultiChoice>
 
 <MultiChoice>
   <MultiChoice.Question>
     ## Question 7 - Time complexity
 
-    What is the time complexity of the following function? You may assume that `n` is positive.
+    Find the time complexity of this function in Big-O notation in terms of `n`.
 
     ```c:halve.c
+    # Assume n >= 0
     void halve(int n) {
-        printf(""called halve(%d)\n"", n);
         if (n == 0) {
             return;
         }
@@ -304,9 +352,10 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
   <MultiChoice.Question>
     ## Question 8 - Time complexity
 
-    What is the time complexity of the following function? You may assume the values of `n` and `m` passed in are positive.
+    Find the time complexity of this function in Big-O notation in terms of `n` and `m`.
 
     ```c:rem.c
+    # Assume n > m > 0
     int rem(int n, int m) {
       while (n >= m) {
           n -= m;
@@ -322,7 +371,7 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
   <MultiChoice.Answer isCorrect>
     O(n / m)
     <MultiChoice.Explanation>
-    This function is used to find the remainder of a division, hence the number of steps will be how many times `m` goes into `n`.
+    This function is used to find the remainder after dividing `n` by `m`. The number of steps will be how many times `m` goes into `n`.
     </MultiChoice.Explanation>
   </MultiChoice.Answer>
 </MultiChoice>
@@ -342,36 +391,54 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
     <Centerer>
       <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-a.png" alt="Graph" width="100%" />
     </Centerer>
-    <MultiChoice.Explanation content="Just inserts the 45 doing a BST insert without balancing." />
+    <MultiChoice.Explanation content="In an AVL tree we must maintain the height-balance imperative after each insertion -- every node must be height-balanced. I.e. for each node, the difference in height of it's left and right subtrees must be less than 2." />
   </MultiChoice.Answer>
   <MultiChoice.Answer>
     <Centerer>
       <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-b.png" alt="Graph" width="100%" />
     </Centerer>
-    <MultiChoice.Explanation content="Inserts the 45 directly after the 43 and pushes the 67 down, then also rearranges 67's children." />
+    <MultiChoice.Explanation content="We cannot insert the 45 directly as the right child of 43 and push the 67 out of place." />
   </MultiChoice.Answer>
   <MultiChoice.Answer>
     <Centerer>
       <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-c.png" alt="Graph" width="100%" />
     </Centerer>
-    <MultiChoice.Explanation content="Right rotation about 67. This is part 1 of the solution." />
+    <MultiChoice.Explanation content="Right rotation about 67 from the original tree. This is part of the solution, but not complete as the tree is still unbalanced (at node 43)." />
   </MultiChoice.Answer>
   <MultiChoice.Answer isCorrect>
     <Centerer>
-      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-d.png" alt="Graph" width="100%" />
-    </Centerer>
-    <MultiChoice.Explanation>
-      After inserting 45, 43 becomes unbalanced (2 left vs 4 right).
-
-      Also, its right child is left-heavy, so before doing a left rotation, we do a right rotation.
-    </MultiChoice.Explanation>
-
-  </MultiChoice.Answer>
-  <MultiChoice.Answer>
-    <Centerer>
       <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-e.png" alt="Graph" width="100%" />
     </Centerer>
-    <MultiChoice.Explanation content="Some other balanced tree" />
+    <MultiChoice.Explanation>
+      Firstly we insert the new node 45 into it's correct position in the binary search tree.
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-explanation-1.png" alt="Graph" width="100%" />
+    </Centerer>
+
+      To maintain the height-balance imperative of an AVL tree, we unwind along the path from the new node back up to the root, checking the balance of each node. We find that the node 43 is unbalanced:
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-explanation-2.png" alt="Graph" width="100%" />
+    </Centerer>
+
+      Since the new node 45 went to the right of 43, then to the left of 67, we need to do a double rotation to balance the tree. We first do a right rotation on 67, then a left rotation on 43:
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-explanation-3.png" alt="Graph" width="100%" />
+    </Centerer>
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-explanation-4.png" alt="Graph" width="100%" />
+    </Centerer>
+
+    <Centerer>
+      <img style={{maxWidth: '500px'}} src="/images/comp2521-revision/q10-avl-explanation-5.png" alt="Graph" width="100%" />
+    </Centerer>
+
+      Node 55 becomes the new root and our AVL tree is once again fully height-balanced after the insertion of 45.
+    </MultiChoice.Explanation>
+
   </MultiChoice.Answer>
 </MultiChoice>
 
@@ -598,9 +665,10 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
   <MultiChoice.Question>
     ## Question 16 - Time complexity (Challenge)
 
-    What is the time complexity of the following function? You may assume the value of `n` is positive.
+    What is the time complexity of the following function?
 
     ```c:print_pairs.c
+    # Assume n > 0
     void print_pairs(int n) {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j += i) {
@@ -618,6 +686,10 @@ Note that the theory questions in the real COMP2521 23T3 exam will not be multip
       We firstly know that we will iterate through the outside loop `n` times, that gives us our `n` value.
 
       The number of iterations of the inside loop is reduced on every iteration of `i`, hence the number of inside loop iterations is being reduced in a logarithmic fashion.
+
+      The outer loop runs `n` times. The inner loop runs `n, n/2, n/3, n/4, ...` times which is known as a <a href="https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)" target="_blank">harmonic series</a>. The total number of iterations is `n + n/2 + n/3 + ... + n/n = n * (1 + 1/2 + 1/3 + ... + 1/n)`. The series 1 + 1/2 + 1/3 + ... + 1/n is the nth harmonic number, and as n approaches infinity, the nth harmonic number approaches log(n). Therefore, the overall time complexity is O(n * log(n)).
+
+      Note: you are not expected to know about harmonic series for the COMP2521 exam.
     </MultiChoice.Explanation>
 
   </MultiChoice.Answer>
